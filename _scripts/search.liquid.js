@@ -1,1 +1,0 @@
-const ninja=document.querySelector("ninja-keys");ninja.data=[];
