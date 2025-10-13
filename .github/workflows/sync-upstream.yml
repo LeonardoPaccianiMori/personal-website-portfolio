@@ -1,0 +1,99 @@
+name: Sync Upstream al-folio
+
+on:
+  schedule:
+    # Run on the 1st of every month at 9:00 AM UTC
+    - cron: '0 9 1 * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for all branches
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/alshedivat/al-folio.git || true
+          git fetch upstream
+
+      - name: Check for updates
+        id: check
+        run: |
+          # Get the current commit hash of upstream/main
+          UPSTREAM_COMMIT=$(git rev-parse upstream/main)
+          # Get the merge-base (common ancestor)
+          MERGE_BASE=$(git merge-base HEAD upstream/main)
+
+          if [ "$UPSTREAM_COMMIT" = "$MERGE_BASE" ]; then
+            echo "No updates available"
+            echo "has_updates=false" >> $GITHUB_OUTPUT
+          else
+            echo "Updates available"
+            echo "has_updates=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create update branch
+        if: steps.check.outputs.has_updates == 'true'
+        run: |
+          BRANCH_NAME="sync-upstream-$(date +%Y-%m-%d)"
+          git checkout -b $BRANCH_NAME
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Merge upstream changes
+        if: steps.check.outputs.has_updates == 'true'
+        run: |
+          # Try to merge upstream/main
+          if git merge upstream/main --no-edit; then
+            echo "Merge successful"
+            echo "MERGE_STATUS=success" >> $GITHUB_ENV
+          else
+            echo "Merge has conflicts"
+            echo "MERGE_STATUS=conflict" >> $GITHUB_ENV
+            # Abort the merge
+            git merge --abort
+            # Create a branch with just the fetch
+            git merge --no-commit --no-ff upstream/main || true
+          fi
+
+      - name: Create Pull Request
+        if: steps.check.outputs.has_updates == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: ${{ env.BRANCH_NAME }}
+          title: "Update from upstream al-folio"
+          body: |
+            ## Upstream Sync
+
+            This PR syncs the latest changes from the upstream [al-folio](https://github.com/alshedivat/al-folio) repository.
+
+            ### Status
+            ${{ env.MERGE_STATUS == 'success' && '✅ Auto-merge successful - no conflicts detected' || '⚠️ Merge conflicts detected - manual resolution required' }}
+
+            ### Review Checklist
+            - [ ] Review all changes from upstream
+            - [ ] Test the site locally with `docker-compose up` or `bundle exec jekyll serve`
+            - [ ] Check for breaking changes in configuration files
+            - [ ] Verify your customizations still work
+            - [ ] Update dependencies if needed
+
+            ### How to test locally
+            ```bash
+            git fetch origin
+            git checkout ${{ env.BRANCH_NAME }}
+            docker-compose up
+            # Or: bundle exec jekyll serve
+            ```
+
+            ---
+            🤖 This PR was automatically created by GitHub Actions on $(date +%Y-%m-%d)
+          labels: upstream-sync
+          draft: ${{ env.MERGE_STATUS == 'conflict' }}
