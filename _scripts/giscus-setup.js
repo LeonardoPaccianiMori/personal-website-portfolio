@@ -1,7 +1,3 @@
----
-permalink: /assets/js/giscus-setup.js
----
-
 function determineGiscusTheme() {
   {% if site.enable_darkmode %}
     let theme =
@@ -45,4 +41,3 @@ function determineGiscusTheme() {
   );
   document.getElementById("giscus_thread").appendChild(giscusScript);
 })();
-
