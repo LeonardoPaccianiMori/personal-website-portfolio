@@ -31,11 +31,11 @@ Welcome to my personal website! You can take a look at my [portfolio projects](/
 
 # About me
 
-I spent years in academic research studying biophysics: how proteins fold, how biological systems behave, the fundamental mechanics behind life itself. It was fascinating work, but after a while I realized something: I needed to see my work have tangible impact. In academia, you can spend years on a single question with no guarantee you'll ever find an answer. I wanted to work on problems where I could see results, where what I did actually mattered to people.
+I spent years in academic research studying biophysics, with a focus on the ecology and physiology of bacteria. It was fascinating work, but after a while I realized something: I needed to see my work have tangible impact. In academia, you can spend years on a single question with no guarantee you'll ever find an answer. I wanted to work on problems where I could see results, where what I did actually mattered to people.
 
 So I made the jump to data science.
 
-My path into biophysics was a bit unusual. As a physics student, I took a statistical mechanics course that was taught so poorly I was furious, but when I studied it on my own I found it beautiful and powerful. That tension between inspiration and frustration drew me deeper into the subject, eventually leading me to apply it to biological systems. (Fun fact: I originally wanted to work in astrophysics, but after being unable to find an advisor, I discovered I actually hated the field. Sometimes things work out.)
+My path into biophysics was a bit unusual. As a physics student, I took a statistical mechanics course that was taught infuriatingly poorly, but when I studied it on my own I found the topic beautiful and powerful. That tension between inspiration and frustration drew me deeper into the subject, eventually leading me to apply it to biological systems. (Fun fact: I originally wanted to work in astrophysics, but after being unable to find an advisor, I discovered I *really* did **NOT** like the field. Sometimes things work out.)
 
 ## What I Do Now
 
@@ -43,7 +43,7 @@ At VeryCoolCompany, I work on understanding customer behavior and building data-
 
 One project I'm particularly proud of: I'm completely redesigning how we create audience insights for clients. Traditionally, these reports were manual, time-consuming, and only used one data source at a time. I built a system that integrates multiple data sources (attitudinal surveys, brand perception, behavioral data, location data) and uses LLMs to automatically generate insights from massive datasets that would otherwise be overwhelming to navigate.
 
-The really interesting part was solving the hallucination problem: I found a way to essentially eliminate false information from the LLM outputs, which was critical for client-facing work. The system I built (using Streamlit, since standard tools like Tableau couldn't handle what we needed) includes an interactive chat interface where users can ask any question about the data and get accurate answers. When we showed it to our CEO and potential clients, the feedback was overwhelmingly enthusiastic.
+The really interesting part was solving the hallucination problem: I found a way to essentially eliminate false information from the LLM outputs, which was critical for client-facing work. The system I built (using `streamlit`, since standard tools like Tableau couldn't handle what we needed) includes an interactive chat interface where users can ask any question about the data and get accurate answers. When we showed it to potential clients, the feedback was overwhelmingly enthusiastic.
 
 ## What Drives Me
 
@@ -53,7 +53,7 @@ One unexpected perk of working in marketing: I get to learn a ton of random fact
 
 ## Outside Work
 
-When I'm not analyzing data or building dashboards, you'll find me reading (I'm so happy I have time for this now—something I couldn't do in academia), cooking when I have the time to do it properly, or going on long walks with my brown Dalmatian. I have a backlog of personal data science projects I want to tackle, but right now I'm prioritizing books.
+When I'm not analyzing data or building dashboards, you'll find me reading, cooking when I have the time to do it properly, or going on long walks with my brown Dalmatian. I have a backlog of personal data science projects I want to tackle, but right now I'm prioritizing books.
 
 ## What I Bring
 
