@@ -3,11 +3,11 @@ layout: book-review
 title: If on a winter's night a traveler
 subtitle: Se una notte d'inverno un viaggiatore
 author: Italo Calvino
-# cover: assets/img/book_covers/the_godfather.jpg
+cover: assets/img/book_covers/se_una_notte_d_inverno_un_viaggiatore.jpeg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
-isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
-categories: classics crime historical-fiction mystery novels thriller
-tags: top-100
+# isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
+categories: postmodern metafiction experimental
+tags: top-5
 # buy_link: https://www.amazon.com/Godfather-Deluxe-Mario-Puzo/dp/0593542592
 # started: 2024-08-23
 # finished: 2024-09-07
