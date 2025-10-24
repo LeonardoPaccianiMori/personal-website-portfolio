@@ -84,8 +84,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: my-blog # blog_name will be displayed in your blog page
-blog_description: a simple description of this blog
+blog_name: inference # blog_name will be displayed in your blog page
+blog_description: learning from evidence
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
