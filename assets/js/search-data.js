@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-a-post-with-plotly-js",
+            },{id: "post-building-an-llm-powered-insights-engine-that-doesn-39-t-hallucinate",
+        
+          title: "Building an LLM-Powered Insights Engine That Doesn&#39;t Hallucinate",
+        
+        description: "How I redesigned our audience insights system using LLMs while solving the hallucination problem for client-facing work",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/llm-insights-engine/";
+          
+        },
+      },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
@@ -496,6 +507,16 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
+            },},{id: "projects-teaching-computers-to-create-images",
+          title: 'Teaching Computers to Create Images',
+          description: "Exploring how neural networks learn to generate handwritten digits",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/image-generation/";
+            },},{id: "projects-finding-profitable-real-estate-in-italy",
+          title: 'Finding Profitable Real Estate in Italy',
+          description: "AI-powered pipeline to help investors identify high-return properties",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/italian-real-estate/";
             },},{
         id: 'social-email',
         title: 'email',
