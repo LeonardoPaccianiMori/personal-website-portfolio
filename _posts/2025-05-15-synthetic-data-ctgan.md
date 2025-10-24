@@ -5,7 +5,7 @@ date: 2025-05-15 09:00:00
 description: When off-the-shelf ML isn't enough—designing a KNN-based synthetic data generator that preserves feature correlations
 tags: machine-learning synthetic-data algorithms
 categories: data-science
-thumbnail: assets/img/blog/synthetic-data/thumbnail.jpg  # TODO: Add thumbnail
+# thumbnail: assets/img/blog/synthetic-data/thumbnail.jpg 
 featured: true
 ---
 

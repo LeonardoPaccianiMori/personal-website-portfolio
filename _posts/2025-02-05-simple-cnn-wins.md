@@ -5,7 +5,7 @@ date: 2025-02-05 11:00:00
 description: Testing 7 different neural network architectures taught me that more layers doesn't mean better results—sometimes the baseline is the best choice
 tags: deep-learning CNN optimization
 categories: data-science
-thumbnail: assets/img/blog/cnn-comparison/thumbnail.jpg  # TODO: Add thumbnail
+# thumbnail: assets/img/blog/cnn-comparison/thumbnail.jpg 
 featured: false
 ---
 

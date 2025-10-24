@@ -33,7 +33,7 @@ Welcome to my personal website! Check out my [portfolio projects](/projects/) or
 
 I'm a Senior Data Scientist at VeryCoolCompany, where I help companies understand their customers and make data-driven marketing decisions. I work on exploratory data analysis, customer segmentation, propensity modeling, and econometric analysis.
 
-One project I'm particularly proud of: I redesigned our audience insights system to integrate multiple data sources (surveys, brand perception, behavioral data, location data) and use LLMs to automatically generate insights from massive datasets. The key technical challenge was eliminating hallucinations for client-facing work—I built a solution using Streamlit that includes an interactive chat interface where users can ask questions and get accurate answers. Client feedback was overwhelmingly positive.
+One recent project: I built an LLM-powered system that integrates multiple data sources to automatically generate audience insights. The key challenge was eliminating hallucinations for client-facing work—the solution delivers accurate, automated insights that received overwhelmingly positive feedback.
 
 Before joining VeryCoolCompany, I spent years in academic research studying biophysics, focusing on bacterial ecology and physiology. I worked at UC San Diego and Harvard, publishing research and developing machine learning algorithms for biological data. While I loved the intellectual challenge, I realized I needed to work on problems with tangible impact. In academia, you can spend years on a single question with no guarantee of finding an answer. I wanted to build things that matter to people.
 
