@@ -6,8 +6,8 @@ author: Italo Calvino
 cover: assets/img/book_covers/se_una_notte_d_inverno_un_viaggiatore.jpeg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
 # isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
-categories: postmodern metafiction experimental
-tags: top-5
+categories: literary-fiction
+tags: postmodern metafiction experimental
 # buy_link: https://www.amazon.com/Godfather-Deluxe-Mario-Puzo/dp/0593542592
 # started: 2024-08-23
 # finished: 2024-09-07
