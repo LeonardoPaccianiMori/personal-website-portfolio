@@ -5,7 +5,7 @@ date: 2025-10-24 10:00:00
 description: How I redesigned our audience insights system using LLMs while solving the hallucination problem for client-facing work
 tags: LLM machine-learning data-engineering
 categories: data-science
-thumbnail: assets/img/blog/llm-insights/thumbnail.jpg  # TODO: Add thumbnail image
+# thumbnail: assets/img/blog/llm-insights/thumbnail.jpg 
 featured: true
 ---
 

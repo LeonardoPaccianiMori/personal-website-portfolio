@@ -5,7 +5,7 @@ date: 2025-01-10 14:00:00
 description: How changing one line of code (tanh → sigmoid) took my GAN from complete failure to generating realistic digits
 tags: deep-learning GAN debugging
 categories: data-science
-thumbnail: assets/img/blog/gan-debugging/thumbnail.jpg  # TODO: Add thumbnail
+thumbnail: assets/img/projects/image-generation/image-generation-thumbnail.png
 featured: true
 ---
 

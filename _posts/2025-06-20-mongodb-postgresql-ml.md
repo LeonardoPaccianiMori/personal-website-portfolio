@@ -5,7 +5,7 @@ date: 2025-06-20 10:30:00
 description: Why I used both NoSQL and SQL databases in my data pipeline, and when each makes sense
 tags: data-engineering databases architecture
 categories: data-science
-thumbnail: assets/img/blog/databases/thumbnail.jpg  # TODO: Add thumbnail
+# thumbnail: assets/img/blog/databases/thumbnail.jpg 
 featured: false
 ---
 
