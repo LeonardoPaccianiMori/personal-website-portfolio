@@ -85,11 +85,11 @@ ninja.data = [{
             window.location.href = "/blog/2025/gan-activation-functions/";
           
         },
-      },{id: "books-the-godfather",
-          title: 'The Godfather',
+      },{id: "books-if-on-a-winter-39-s-night-a-traveler",
+          title: 'If on a winter&amp;#39;s night a traveler',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather/";
+              window.location.href = "/books/if_on_a_winters_night_a_traveler/";
             },},{id: "projects-teaching-computers-to-create-images",
           title: 'Teaching Computers to Create Images',
           description: "Exploring how neural networks learn to generate handwritten digits",
