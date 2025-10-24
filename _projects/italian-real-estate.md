@@ -77,7 +77,7 @@ Most real estate investors rely on gut feeling or limited local knowledge. This 
 
 ## The Results
 
-<!--{% include dashboards/italian-real-estate-dashboard.html %}-->
+{% include dashboards/italian-real-estate-dashboard.html %}
 
 <br>
 💡 **Tip**: Open dashboard in <a href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">full screen</a> for the best experience. Works best on desktop/tablet.
