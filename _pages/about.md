@@ -26,7 +26,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Welcome to my personal website! Check out my [portfolio projects](/projects/).
+Welcome to my personal website! Check out my [portfolio projects](/projects/) or [download my CV](/assets/pdf/CV_PaccianiMori_2025.pdf).
+
 
 # About Me
 
@@ -38,8 +39,4 @@ Before joining VeryCoolCompany, I spent years in academic research studying biop
 
 My academic background taught me how to break down complex problems, design experiments, and think rigorously about evidence. My transition to data science has taught me how to move fast, deliver value, and translate technical work into business impact.
 
-When I'm not analyzing data or building dashboards, you'll find me reading (Italo Calvino is my favorite author), cooking when I have time to do it properly, or going on long walks with my brown Dalmatian.
-
----
-
-**[Download my CV (PDF)](/assets/pdf/CV_PaccianiMori_2025.pdf)**
+When I'm not analyzing data or building dashboards, you'll find me reading (Italo Calvino is my favorite author), cooking when I have time to do it properly, or going on long walks with my brown Dalmatian Bruno.
