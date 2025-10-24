@@ -26,9 +26,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Welcome to my personal website! Check out my [portfolio projects](/projects/) or [download my CV](/assets/pdf/CV_PaccianiMori_2025.pdf).
-
-
 # About Me
 
 I'm a Senior Data Scientist at VeryCoolCompany, where I help companies understand their customers and make data-driven marketing decisions. I work on exploratory data analysis, customer segmentation, propensity modeling, and econometric analysis.
