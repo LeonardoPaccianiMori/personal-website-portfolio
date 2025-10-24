@@ -15,6 +15,9 @@ layout: default
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+      <h2 class="post-subtitle" style="font-size: 1.5rem; font-weight: 400; margin-top: -0.5rem; margin-bottom: 1rem; color: var(--global-text-color-light);">{{ page.subtitle }}</h2>
+    {% endif %}
     {% if page.author or page.released %}
       <p class="post-meta">
         {% if page.author %}
@@ -76,28 +79,33 @@ layout: default
         {% endif %}
       </p>
     {% endif %}
-    <p class="post-tags">
-      <a href="{{ year | prepend: '/books/' | relative_url }}"> <i class="fa-solid fa-calendar fa-sm"></i> {{ year }}</a>
-      {% if tags != '' %}
-        &nbsp;&middot;&nbsp;
-        {% for tag in page.tags %}
-          <a href="{{ tag | slugify | prepend: '/books/tag/' | relative_url }}"> <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
-          {% unless forloop.last %}
-            &nbsp;
-          {% endunless %}
-        {% endfor %}
-      {% endif %}
+    {% if page.started or tags != '' or categories != '' %}
+      <p class="post-tags">
+        {% if page.started %}
+          <a href="{{ year | prepend: '/books/' | relative_url }}"> <i class="fa-solid fa-calendar fa-sm"></i> {{ year }}</a>
+        {% endif %}
 
-      {% if categories != '' %}
-        &nbsp;&middot;&nbsp;
-        {% for category in page.categories %}
-          <a href="{{ category | slugify | prepend: '/books/category/' | relative_url }}"> <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a>
-          {% unless forloop.last %}
-            &nbsp;
-          {% endunless %}
-        {% endfor %}
-      {% endif %}
-    </p>
+        {% if tags != '' %}
+          {% if page.started %}&nbsp;&middot;&nbsp;{% endif %}
+          {% for tag in page.tags %}
+            <a href="{{ tag | slugify | prepend: '/books/tag/' | relative_url }}"> <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
+            {% unless forloop.last %}
+              &nbsp;
+            {% endunless %}
+          {% endfor %}
+        {% endif %}
+
+        {% if categories != '' %}
+          {% if page.started or tags != '' %}&nbsp;&middot;&nbsp;{% endif %}
+          {% for category in page.categories %}
+            <a href="{{ category | slugify | prepend: '/books/category/' | relative_url }}"> <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a>
+            {% unless forloop.last %}
+              &nbsp;
+            {% endunless %}
+          {% endfor %}
+        {% endif %}
+      </p>
+    {% endif %}
     <hr>
   </header>
 
