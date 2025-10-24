@@ -83,6 +83,28 @@ ninja.data = [{
             window.location.href = "/blog/2025/llm-insights-engine/";
           
         },
+      },{id: "post-from-mongodb-to-postgresql-database-architecture-for-ml-projects",
+        
+          title: "From MongoDB to PostgreSQL: Database Architecture for ML Projects",
+        
+        description: "Why I used both NoSQL and SQL databases in my data pipeline, and when each makes sense",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/mongodb-postgresql-ml/";
+          
+        },
+      },{id: "post-why-i-built-a-custom-synthetic-data-algorithm-instead-of-using-ctgan",
+        
+          title: "Why I Built a Custom Synthetic Data Algorithm Instead of Using CTGAN",
+        
+        description: "When off-the-shelf ML isn&#39;t enough—designing a KNN-based synthetic data generator that preserves feature correlations",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/synthetic-data-ctgan/";
+          
+        },
       },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
@@ -92,6 +114,28 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2025/plotly/";
+          
+        },
+      },{id: "post-when-simpler-models-win-comparing-7-cnn-architectures",
+        
+          title: "When Simpler Models Win: Comparing 7 CNN Architectures",
+        
+        description: "Testing 7 different neural network architectures taught me that more layers doesn&#39;t mean better results—sometimes the baseline is the best choice",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/simple-cnn-wins/";
+          
+        },
+      },{id: "post-activation-functions-killed-my-gan-a-debugging-story",
+        
+          title: "Activation Functions Killed My GAN: A Debugging Story",
+        
+        description: "How changing one line of code (tanh → sigmoid) took my GAN from complete failure to generating realistic digits",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/gan-activation-functions/";
           
         },
       },{id: "post-a-post-with-image-galleries",
