@@ -490,12 +490,6 @@ The code demonstrates:
 
 ---
 
-## Related Projects
-
-- [Image Generation with Deep Learning](/projects/image-generation/) - Neural networks for digit classification and generation
-
----
-
 ## Links
 
 - 📊 [Interactive Dashboard](https://public.tableau.com/views/Italianrealestate/Dashboard_1)

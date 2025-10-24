@@ -317,7 +317,3 @@ The code is shared to demonstrate:
 **Note**: Due to computational constraints (personal laptop), models here are simpler than state-of-the-art systems. However, the principles scale to more complex architectures.
 
 ---
-
-## Related Projects
-
-- [Italian Real Estate Analysis](/projects/italian-real-estate/) - End-to-end ML pipeline with production deployment
