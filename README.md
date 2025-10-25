@@ -537,4 +537,4 @@ For questions about these specific customizations, see the commit history or con
 ---
 
 **Last Updated:** 2025-10-25
-**Based on al-folio:** v0.12.0 (approximate - check commit history for exact upstream sync point)
+**Based on al-folio:** v0.14.6
