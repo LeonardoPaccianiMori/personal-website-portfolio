@@ -41,22 +41,44 @@ The following academic-focused features have been **intentionally deleted**. Ski
   - `_includes/selected_papers.liquid` - Featured papers component
   - `_bibliography/` - Directory for .bib files
   - `_pages/publications.md` - Publications page
+  - `assets/js/bibsearch.js` - Publication search functionality
+  - `assets/bibliography/` - Bibliography assets directory
+  - `assets/fonts/scholar-icons.ttf` - Scholar icon font (TrueType)
+  - `assets/fonts/scholar-icons.woff` - Scholar icon font (WOFF)
+  - `assets/css/scholar-icons.css` - Scholar icon definitions
+
+- **Code Removed:**
+  - `_layouts/post.liquid` - Removed `related_publications` bibliography block
+  - `_layouts/page.liquid` - Removed `related_publications` bibliography block
+  - `_includes/head.liquid` - Removed scholar-icons.css stylesheet link
+  - `_includes/scripts.liquid` - Removed Altmetric and Dimensions badge scripts
+  - `assets/js/common.js` - Removed abstract/award/bibtex toggle handlers
+  - `assets/js/common.js` - Removed publications TOC filtering
 
 - **Config Removed from `_config.yml`:**
   ```yaml
-  # Lines 250-318 deleted:
+  # Scholar configuration (lines 250-318):
   scholar:
     # Jekyll Scholar configuration (entire section)
   enable_publication_badges:
-    # Publication metrics badges
+    altmetric: true
+    dimensions: true
   filtered_bibtex_keywords:
     # Bibtex filtering
   max_author_limit:
   enable_publication_thumbnails:
+
+  # Other removed settings:
+  bib_search: true  # Bibliography search
+  enable_video_embedding: false  # For bibtex entries
   ```
 
-- **Plugins Removed:**
-  - `jekyll/scholar` (line ~203 in plugins list)
+- **Plugins Removed from `_config.yml`:**
+  - `jekyll-scholar` (line ~203 in plugins list)
+
+- **Gems Removed from `Gemfile`:**
+  - `jekyll-scholar` (was in jekyll_plugins group)
+  - `observer` (was dependency for jekyll-scholar)
 
 - **Rationale:** No publications to showcase; industry focus rather than academic research
 
@@ -84,8 +106,11 @@ The following academic-focused features have been **intentionally deleted**. Ski
 - **Import Removed from `assets/css/main.scss`:**
   - Line 15: `"cv"` import removed
 
-- **Plugins Removed:**
+- **Plugins Removed from `_config.yml`:**
   - `jekyll-get-json` (was on line ~192)
+
+- **Gems Removed from `Gemfile`:**
+  - `jekyll-get-json` (was in jekyll_plugins group)
 
 - **Rationale:** CV available upon request only; portfolio + LinkedIn serve this purpose
 
@@ -145,6 +170,11 @@ The following academic-focused features have been **intentionally deleted**. Ski
 - **Files Deleted:**
   - `_layouts/distill.liquid` - Distill.pub-style blog layout
   - `_includes/distill_scripts.liquid` - Interactive components loader
+  - `assets/js/distillpub/overrides.js` - Distill styling overrides
+  - `assets/js/distillpub/template.v2.js` - Distill template functionality
+  - `assets/js/distillpub/transforms.v2.js` - Distill transform utilities
+  - `assets/js/distillpub/template.v2.js.map` - Source map
+  - `assets/js/distillpub/transforms.v2.js.map` - Source map
   - `_sass/_distill.scss` - **KEPT** (core styles still used)
 
 - **What Distill Is:**
@@ -160,6 +190,9 @@ The following academic-focused features have been **intentionally deleted**. Ski
 - **Files Deleted:**
   - `_includes/related_posts.liquid` - "Enjoy Reading This Article?" section
 
+- **Code Removed:**
+  - `_layouts/post.liquid` - Removed `related_posts` include conditional block
+
 - **Config in `_config.yml` (kept but disabled):**
   ```yaml
   related_blog_posts:
@@ -167,6 +200,60 @@ The following academic-focused features have been **intentionally deleted**. Ski
   ```
 
 - **Rationale:** Only 5 blog posts planned; related posts adds unnecessary clutter
+
+---
+
+#### 8. Giscus Comments System
+- **Files Deleted:**
+  - `_includes/giscus.liquid` - Giscus comments widget
+  - `_scripts/giscus-setup.js` - Giscus initialization script
+
+- **Code Removed:**
+  - `_layouts/post.liquid` - Removed giscus comments conditional block
+  - `_layouts/page.liquid` - Removed giscus comments conditional block
+  - `_layouts/book-review.liquid` - Removed giscus comments conditional block
+  - `assets/js/theme.js` - Removed `setGiscusTheme()` function and its call in `applyTheme()`
+
+- **Config Removed from `_config.yml`:**
+  ```yaml
+  # Lines 96-110 deleted:
+  giscus:
+    repo: # configuration
+    repo_id:
+    category: Comments
+    category_id:
+    mapping: title
+    strict: 1
+    reactions_enabled: 1
+    input_position: bottom
+    dark_theme: dark
+    light_theme: light
+    emit_metadata: 0
+    lang: en
+  ```
+
+- **Rationale:** No need for comments on blog posts; portfolio is for showcasing work, not discussion
+
+---
+
+#### 9. Unused Analytics & Legacy Comments
+- **Config Removed from `_config.yml`:**
+  ```yaml
+  # Unused analytics providers (lines 74-76):
+  cronitor_analytics: # cronitor RUM analytics site ID
+  pirsch_analytics: # your Pirsch analytics site ID
+  openpanel_analytics: # your Openpanel analytics client ID
+
+  # Corresponding enable flags (lines 278-280):
+  enable_cronitor_analytics: false
+  enable_pirsch_analytics: false
+  enable_openpanel_analytics: false
+
+  # Deprecated Disqus comments (line 117):
+  disqus_shortname: al-folio # DEPRECATED
+  ```
+
+- **Rationale:** Not using these analytics providers; using Google Analytics only. Disqus deprecated in favor of Giscus (which is also removed).
 
 ---
 
@@ -287,7 +374,46 @@ body {
 
 ---
 
-### 5. About Page Layout (`_layouts/about.liquid`)
+### 5. Theme Colors
+
+**Changed light theme accent color from purple to aquamarine/cyan:**
+
+**In `_sass/_themes.scss` (lines 13-14):**
+```scss
+:root {
+  --global-theme-color: #{$cyan-color};  # Changed from $purple-color
+  --global-hover-color: #{$cyan-color};  # Changed from $purple-color
+}
+```
+
+**Color values:**
+- Purple (removed): `#b509ac`
+- Cyan/Aquamarine (now used): `#2698ba`
+
+**Rationale:** Consistent highlight color across both light and dark themes; aquamarine is more modern and less academic
+
+---
+
+### 6. Build Optimization
+
+**JavaScript Minification:**
+```yaml
+# _config.yml line 219
+jekyll-minifier:
+  compress_javascript: false  # Disabled - Uglifier doesn't support ES6 syntax
+```
+
+**Plugins Removed from `_config.yml`:**
+- `jekyll-terser` (line ~200) - Removed due to 4-minute build time overhead
+
+**Gems Removed from `Gemfile`:**
+- `jekyll-terser` (was in jekyll_plugins group)
+
+**Rationale:** Site uses ES6 JavaScript (import statements). jekyll-minifier uses Uglifier (ES5-only), so JS compression disabled. Removed jekyll-terser plugin that was causing slow builds (~4 minutes). Trade-off: unminified JS (~10-20% larger) for 3× faster builds (6min → 2min).
+
+---
+
+### 7. About Page Layout (`_layouts/about.liquid`)
 
 **Removed sections:**
 - Lines 43-49: News/announcements section (entire conditional block)
@@ -301,7 +427,7 @@ body {
 
 ---
 
-### 6. Bookshelf Page
+### 8. Bookshelf Page
 
 **Enabled in `_pages/books.md`:**
 ```yaml
@@ -325,7 +451,7 @@ Valid values for `status:` field in book files:
 
 ---
 
-### 7. Collections
+### 9. Collections
 
 **Active Collections in `_config.yml`:**
 ```yaml
@@ -354,7 +480,13 @@ When applying upstream commits, **carefully review** changes to these files as t
 
 ### Layouts
 - `_layouts/about.liquid` - Removed news and publications sections
-- `_layouts/book-review.liquid` - Fixed subtitle and calendar icon logic
+- `_layouts/book-review.liquid` - Fixed subtitle and calendar icon logic, removed giscus comments
+- `_layouts/post.liquid` - Removed publications and giscus comments sections
+- `_layouts/page.liquid` - Removed publications and giscus comments sections
+
+### Scripts
+- `assets/js/theme.js` - Removed giscus theme switching functionality
+- `assets/js/common.js` - Removed publication toggle handlers
 
 ### Styles
 - `_sass/_layout.scss` - Custom font family declarations

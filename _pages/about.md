@@ -21,8 +21,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Welcome to my personal website! Check out my [portfolio projects](/projects/).
-
 
 # About Me
 
