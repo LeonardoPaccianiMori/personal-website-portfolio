@@ -216,7 +216,7 @@ sass:
 # -----------------------------------------------------------------------------
 
 jekyll-minifier:
-  compress_javascript: true # jekyll-minifier handles JS minification
+  compress_javascript: false # disabled - Uglifier doesn't support ES6 syntax
   exclude: ["robots.txt", "assets/js/search/*.js"]
 
 # -----------------------------------------------------------------------------
