@@ -36,17 +36,17 @@ function renderD3Diagram(selector, config) {
     .attr('preserveAspectRatio', 'xMidYMid meet');
 
   // Define arrow marker (for edge endings)
-  // Larger arrowhead to match thicker lines, but proportionally scaled
+  // Proportional arrowhead for thick lines
   svg.append('defs')
     .append('marker')
     .attr('id', `arrowhead-${selector.replace(/[^a-zA-Z0-9]/g, '')}`)
-    .attr('markerWidth', 16)
-    .attr('markerHeight', 16)
-    .attr('refX', 14)
-    .attr('refY', 5)
+    .attr('markerWidth', 10)
+    .attr('markerHeight', 10)
+    .attr('refX', 8)
+    .attr('refY', 3)
     .attr('orient', 'auto')
     .append('polygon')
-    .attr('points', '0 0, 16 5, 0 10')
+    .attr('points', '0 0, 8 3, 0 6')
     .attr('fill', '#000');
 
   const markerId = `arrowhead-${selector.replace(/[^a-zA-Z0-9]/g, '')}`;
@@ -60,6 +60,11 @@ function renderD3Diagram(selector, config) {
 
     if (!fromNode || !toNode) {
       console.warn(`Edge references non-existent node: ${edge.from} -> ${edge.to}`);
+      return;
+    }
+
+    // Skip drawing arrow if hideArrow is true (for vertical stacking without arrows)
+    if (edge.hideArrow) {
       return;
     }
 
