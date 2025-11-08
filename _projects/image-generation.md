@@ -18,28 +18,17 @@ category: portfolio
 
 **November - December 2024**
 
-## The Big Picture
+I wanted to understand how image generation works at a fundamental level - not just using tools like DALL-E, but actually building the neural networks that create images from scratch.
 
-Have you ever wondered how AI systems like DALL-E or Midjourney create images from nothing? This project explores the fundamentals of how computers learn to generate images.
+The project had two parts: first, train networks to recognize handwritten digits (classification), then train them to generate brand new digits that never existed (generation). I tested 7 different architectures for classification and multiple approaches for generation to see what actually works.
 
-I trained multiple neural networks to:
-1. **Recognize** handwritten digits (0-9) from images
-2. **Create** brand new handwritten digits that never existed before
-
-**The Twist**: Sometimes simpler models work just as well as complex ones—and train 60% faster!
-
-## Why This Matters
-
-Understanding how AI generates images helps us:
-- Appreciate how modern tools like ChatGPT's image generator work
-- Make informed decisions about when complexity is necessary
-- Build more efficient AI systems that save time and computational resources
+Main finding: the simplest CNN model performed just as well as much more complex architectures, but trained 60% faster. Turns out more layers doesn't always mean better results.
 
 ## What I Built
 
-### Part 1: Teaching Computers to Recognize Digits
+### Part 1: Classification - Recognizing Digits
 
-Think of this like teaching a child to identify numbers. I tested **7 different approaches** to see which works best:
+I tested 7 different neural network architectures to see which one best recognizes handwritten digits:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -50,22 +39,19 @@ Think of this like teaching a child to identify numbers. I tested **7 different 
     Comparing 7 different neural network architectures. The simplest model (CNN-1) is actually the best choice!
 </div>
 
-**Key Finding**: The simplest model achieved 98% accuracy in half the time of more complex models. More layers ≠ better results!
+The simplest model (CNN-1) hit 98% accuracy in half the training time of the deeper networks. Adding more layers didn't improve accuracy - it just made training slower.
 
-### Part 2: Teaching Computers to Create Digits
+### Part 2: Generation - Creating New Digits
 
-This is where it gets interesting. Instead of just recognizing existing digits, can we teach a computer to **create entirely new** handwritten digits?
+This is the harder part: instead of just recognizing digits, can we generate brand new ones?
 
 I tried two approaches:
 
-**Approach 1: Variational Autoencoders (VAEs)**
-- Think of this like teaching the computer to compress a digit into a "code", then recreate it
-- **Result**: Struggled to create all 10 digits clearly
+**Variational Autoencoders (VAEs)**
+These work by compressing a digit into a small "code" and then reconstructing it. The idea is that once the network learns this compression, you can sample random codes to generate new digits. Problem: they struggled to create all 10 digits clearly. The results were blurry and some numbers never appeared.
 
-**Approach 2: Generative Adversarial Networks (GANs)**
-- Two neural networks "compete": one creates fake digits, the other tries to spot fakes
-- They both get better through competition!
-- **Result**: After proper tuning, created realistic digits for all numbers 0-9!
+**Generative Adversarial Networks (GANs)**
+Two networks compete: one (generator) creates fake digits, the other (discriminator) tries to spot fakes. They improve through competition - the generator gets better at faking, the discriminator gets better at detecting. After tuning hyperparameters (especially switching from tanh to sigmoid activation), the GAN created realistic digits for all 10 numbers.
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
@@ -76,36 +62,25 @@ I tried two approaches:
     100 completely artificial handwritten digits, created by the best GAN model
 </div>
 
-## Technologies Used
+## Technologies
 
-- **TensorFlow/Keras**: Deep learning framework
-- **Python**: Programming language
-- **MNIST Dataset**: 70,000 handwritten digit images
-- **GPU Acceleration**: Faster training
+- **TensorFlow/Keras** - Deep learning framework
+- **Python** - Programming
+- **MNIST Dataset** - 70,000 handwritten digit images
+- **GPU Acceleration** - For faster training
 
-## Skills Demonstrated
+## What I Learned
 
-✅ **Deep Learning**: Building and training neural networks
-✅ **Experimentation**: Systematic testing of different architectures
-✅ **Optimization**: Balancing accuracy vs computational cost
-✅ **Research**: Understanding cutting-edge AI techniques
+The biggest lesson: complexity for the sake of complexity doesn't help. The simplest CNN matched or beat the deeper networks while training way faster. That applies to both classification (where CNN-1 was best) and generation (where simpler architectures converged better).
 
-## Key Takeaways
+For GANs specifically, activation functions matter a lot - sigmoid worked way better than tanh for the discriminator. Also, batch normalization helped stabilize training, which makes sense given how sensitive GANs are to parameter changes.
 
-### For Everyone:
-- AI doesn't need to be complicated to be effective
-- Sometimes the simplest solution is the best solution
-- Modern image generators (like DALL-E) use similar techniques, just scaled up massively
-
-### For Data Scientists:
-- Architecture choice matters: sigmoid activation >> tanh for this GAN task
-- Kernel size increases can improve accuracy without drastically increasing training time
-- Fully convolutional networks are viable for classification but require careful architecture design
+These techniques (VAEs and GANs) are the same ones used in modern image generators like DALL-E or Stable Diffusion, just scaled up massively with more data and compute. The fundamentals are identical.
 
 ---
 
 <details markdown="1">
-<summary><strong>🔬 Technical Deep Dive: Classification Models</strong> (Click to expand)</summary>
+<summary><strong>Classification Models</strong></summary>
 
 ## Convolutional Neural Networks (CNNs)
 
@@ -188,7 +163,7 @@ Unlike CNNs, FCNNs use only convolutional layers (no fully connected layers at t
 ---
 
 <details markdown="1">
-<summary><strong>🎨 Technical Deep Dive: Generative Models</strong> (Click to expand)</summary>
+<summary><strong>Generative Models</strong></summary>
 
 ## Convolutional Variational Autoencoders (CVAEs)
 

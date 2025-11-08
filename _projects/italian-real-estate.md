@@ -18,22 +18,11 @@ category: portfolio
 
 **January - April 2025**
 
-## The Big Picture
+I wanted to see if I could use data to find profitable real estate investments in Italy. Not gut feeling, not "this neighborhood looks nice" - actual numbers from analyzing over a million property listings.
 
-Imagine you want to invest in Italian real estate but don't know where to start. Which city? Which property type? Should you buy at auction? What rental income can you expect?
+The goal: scrape rental and sale listings across all of Italy, build a model to predict rental income for properties on the market, and identify where the best returns are. I ended up with an interactive dashboard that lets you explore investment opportunities filtered by location, property type, and listing type (regular sale vs auction).
 
-I built an end-to-end data system that answers these questions by:
-1. **Collecting** 1 million+ property listings from across Italy
-2. **Predicting** rental income for properties listed for sale
-3. **Showing** profitable investment opportunities on an interactive dashboard
-
-**Bottom Line**: Help real estate investors make data-driven decisions about where and what to buy.
-
-## Why This Matters
-
-Most real estate investors rely on gut feeling or limited local knowledge. This project uses **machine learning** to analyze the entire Italian market and surface opportunities that might otherwise be hidden.
-
-**Real Insight**: Properties at auction can be 30%+ more profitable than regular sales, even accounting for renovation costs!
+Biggest surprise: auction properties crush regular sales on returns - even accounting for renovation costs, they're often 30%+ cheaper.
 
 ## What I Built
 
@@ -46,51 +35,42 @@ Most real estate investors rely on gut feeling or limited local knowledge. This 
     End-to-end data pipeline from web scraping to interactive dashboard. <a href="https://www.flaticon.com/">Icons from Flaticon</a>
 </div>
 
-### The Pipeline (Simple Version)
+### How it Works
 
-**Step 1: Data Collection**
-- Scraped Italy's largest real estate website (immobiliare.it)
-- Collected 3 types of listings: rentals, sales, auctions
-- Covered all 107 Italian provinces
-- Total: **1,000,000+ properties**
+**Data Collection**
+Scraped immobiliare.it (Italy's largest real estate site) for all 107 provinces. Collected rentals, sales, and auction listings - ended up with about 1 million properties total.
 
-**Step 2: Data Processing**
-- Extracted useful information from raw HTML
-- Translated Italian text to English
-- Organized data into a structured database
+**Data Processing**
+Pulled out everything useful from the raw HTML (price, size, location, features, etc.), translated the Italian text to English, and organized it into a PostgreSQL database.
 
-**Step 3: Synthetic Data Generation**
-- Created additional realistic data using a custom algorithm
-- Preserved statistical patterns while ensuring privacy
-- Used **GPU acceleration** for speed
+**Synthetic Data**
+I needed more data for training, so I built a custom algorithm to generate realistic synthetic listings. It finds similar real properties and blends their features - preserves the statistical patterns but isn't just copying real data. Used GPU acceleration because doing this a million times on CPU takes forever.
 
-**Step 4: Machine Learning**
-- Trained a model to predict rental prices
-- Applied it to sale/auction properties to estimate rental income
-- Achieved **~75-78% accuracy** (R² score)
+**Machine Learning**
+Trained a Random Forest model to predict rental prices based on property features. Then applied it to all the sale/auction listings to estimate what rent they could bring in. The model gets about 75-78% accuracy (R² score) - good enough to spot trends, not perfect for individual properties.
 
-**Step 5: Interactive Dashboard**
-- Built visualizations showing investment metrics:
-  - **Cash-on-cash return**: Annual return on your down payment
-  - **Rental yield**: Annual rent divided by purchase price
-- Filter by location, property type, and more
+**Dashboard**
+Built an interactive Tableau dashboard showing two key metrics:
+- Cash-on-cash return (annual return on your down payment)
+- Rental yield (annual rent / purchase price)
+
+You can filter by location, property type, energy rating, and more to explore different scenarios.
 
 ## The Results
 
 {% include dashboards/italian-real-estate-dashboard.html %}
 
 <br>
-💡 **Tip**: Open dashboard in <a href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">full screen</a> for the best experience. Works best on desktop/tablet.
+(Works best on desktop/tablet - you can also <a href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">open it in full screen</a>)
 
-### Key Insights from the Data
+### What I Found
 
-✅ **Auction properties are goldmines**: Much cheaper than regular sales, leading to higher returns
+A few things surprised me:
 
-✅ **Less efficient = more profitable**: Lower energy class properties cost less but rent for similar amounts
-
-✅ **Rural beats urban**: Rural properties show higher returns even with renovation costs factored in
-
-✅ **No clear geographic trend**: Profitable opportunities exist in both northern and southern Italy
+- **Auction properties are way more profitable** - Even accounting for renovation costs, they're often 30%+ cheaper than regular sales, which leads to significantly higher returns.
+- **Energy efficiency doesn't matter as much as you'd think** - Lower-rated properties cost less but rent for almost the same as high-rated ones. The market doesn't seem to value it much.
+- **Rural outperforms urban** - Rural properties show higher returns even with extra maintenance factored in.
+- **No clear north/south divide** - I expected southern Italy to be cheaper and northern to be more expensive, but profitable deals exist in both regions.
 
 ## Technologies Used
 
@@ -106,27 +86,27 @@ Most real estate investors rely on gut feeling or limited local knowledge. This 
 | Geospatial | Geopandas |
 | Translation | LibreTranslate API |
 
-## Skills Demonstrated
+## What I Learned
 
-✅ **End-to-end data engineering**: From raw web data to production dashboard
-✅ **Distributed systems**: Airflow orchestration, parallel processing, async I/O
-✅ **Database design**: Multi-layer architecture (datalake → warehouse)
-✅ **Algorithm development**: Custom synthetic data generation
-✅ **Machine learning**: Feature engineering, model training, evaluation
-✅ **Business intelligence**: Interactive dashboards for decision-making
+This project taught me a lot about handling messy real-world data at scale:
+- Building pipelines that don't break when websites change their HTML structure
+- Orchestrating complex workflows with dependencies across 300+ tasks
+- Designing database schemas that actually make sense for analytics (turns out the first attempt is never the right one)
+- Training ML models on sparse, noisy data where you don't control data quality
+- Making technical work useful for non-technical people
 
-## Project Impact
+## Limitations
 
-**For Investors**: Make informed decisions backed by data from 1M+ properties
+The model isn't perfect - the 75-78% R² means it's good for spotting trends and comparing properties, but you'd definitely want to verify specific listings yourself before making decisions. Also, this assumes you're buying to rent out long-term. If you're planning to flip or use it yourself, the metrics don't apply.
 
-**For Me**: Demonstrated ability to handle complex, real-world data projects from start to finish
+The data is also a snapshot from early 2025, so the specific listings are already outdated (real estate moves fast). But the patterns and methods should still hold.
 
 ---
 
 ## Technical deep dive
 
 <details markdown="1">
-<summary><strong>🔬 Data Collection</strong> (Click to expand)</summary>
+<summary><strong>Data Collection</strong></summary>
 
 ## Web Scraping Architecture
 
@@ -182,7 +162,7 @@ The scraping code has been **redacted** to prevent out-of-the-box reproducibilit
 ---
 
 <details markdown="1">
-<summary><strong>📊 ETL Pipeline</strong> (Click to expand)</summary>
+<summary><strong>ETL Pipeline</strong></summary>
 
 ## MongoDB ETL: Raw HTML → Structured Data
 
@@ -226,7 +206,7 @@ def mortgage_monthly_payment(principal, interest, term):
 ---
 
 <details markdown="1">
-<summary><strong>🗄️ Technical Deep Dive: PostgreSQL Migration</strong> (Click to expand)</summary>
+<summary><strong>PostgreSQL Migration</strong></summary>
 
 ## MongoDB → PostgreSQL + Translation
 
@@ -275,7 +255,7 @@ Example translations:
 ---
 
 <details markdown="1">
-<summary><strong>🤖 Synthetic Data Generation</strong> (Click to expand)</summary>
+<summary><strong>Synthetic Data Generation</strong></summary>
 
 ## Custom K-Nearest Neighbors Algorithm
 
@@ -338,7 +318,7 @@ I initially tried [CTGAN](https://github.com/sdv-dev/CTGAN) (a generative AI mod
 ---
 
 <details markdown="1">
-<summary><strong>🎯 Machine Learning Model</strong> (Click to expand)</summary>
+<summary><strong>Machine Learning Model</strong></summary>
 
 ## Random Forest Rent Predictor
 
@@ -411,7 +391,7 @@ Applied to **970,000 sale/auction listings** to predict potential rental income.
 ---
 
 <details markdown="1">
-<summary><strong>📈 Dashboard Design</strong> (Click to expand)</summary>
+<summary><strong>Dashboard Design</strong></summary>
 
 ## Interactive Tableau Dashboard
 
@@ -456,13 +436,10 @@ Applied to **970,000 sale/auction listings** to predict potential rental income.
 
 ### Design Principles
 
-✅ **Progressive Disclosure**: Start simple, add complexity as needed
-
-✅ **Interactivity**: Users explore their own scenarios
-
-✅ **Context**: Tooltips and legends explain metrics
-
-✅ **Performance**: Aggregations for fast rendering
+- **Progressive Disclosure**: Start simple, add complexity as needed
+- **Interactivity**: Users explore their own scenarios
+- **Context**: Tooltips and legends explain metrics
+- **Performance**: Aggregations for fast rendering
 
 </details>
 
