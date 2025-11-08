@@ -467,15 +467,12 @@ This isn't a new finding! Lots of research shows simpler models can match comple
 
 ---
 
-## Key Takeaways
+## What I Learned
 
-1. **Start with simple baselines** - CNN-1 (98% in 12 min) beats complex models in efficiency
-2. **More layers ≠ better results** - CNN-3 had 3 FC layers but same accuracy as 1 FC layer
-3. **Kernel size matters** - FCNN-3 (5×5 kernels) beat FCNN-2 (more layers) with less training time
-4. **Measure what matters** - Accuracy alone doesn't tell the story; consider training time, parameters, overfitting
-5. **Complex models need careful tuning** - Without data augmentation and proper regularization, they just overfit
-6. **FCNNs trade accuracy for simplicity** - 1-2% worse than CNNs, but fewer parameters
+The biggest takeaway: start with a simple baseline before adding complexity. CNN-1 (98% accuracy in 12 minutes) beat or matched every more complex model I tried. Adding more fully-connected layers (CNN-3) didn't improve accuracy at all - same 98%, just slower training and more parameters.
 
-**The meta-lesson:** Don't default to complexity. Simple models, properly trained, often win.
+Kernel size had a bigger impact than I expected. FCNN-3 with 5×5 kernels outperformed FCNN-2 despite having fewer layers, and the training time increase was minimal. That's a trade worth making.
 
-Have you been surprised by a simple model outperforming a complex one? What's your approach to choosing architectures? Let me know!
+The meta-lesson: don't default to complexity. I started this experiment assuming deeper networks would perform better, but the data disagreed. Sometimes the "simple" approach really is better - you get the same accuracy with faster training, fewer parameters, and less risk of overfitting.
+
+Also learned to measure what actually matters. Accuracy alone doesn't tell the story. CNN-2 and CNN-3 matched CNN-1's accuracy but trained slower and had way more parameters. If you don't measure training time and model size, you might pick a worse model.

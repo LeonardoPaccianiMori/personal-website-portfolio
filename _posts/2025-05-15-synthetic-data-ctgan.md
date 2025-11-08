@@ -484,12 +484,12 @@ Full implementation available in my [Italian Real Estate Pipeline repository](ht
 
 ---
 
-## Key Takeaways
+## What I Learned
 
-1. **Validate synthetic data rigorously** - Check correlations, not just distributions
-2. **Domain knowledge > Generic algorithms** - When you know critical relationships, encode them directly
-3. **GPU acceleration unlocks custom solutions** - 10× speedups make "slow" algorithms viable
-4. **Off-the-shelf tools are great starting points** - But don't be afraid to build custom when needed
-5. **Geographic data needs special care** - Spatial correlations are complex and critical
+The main lesson: validate synthetic data rigorously, and check correlations, not just distributions. CTGAN passed my first visual check because the histograms looked right, but the scatter plots revealed it had destroyed the location-price relationship. I should have started with correlation checks.
 
-Have you worked with synthetic data generation? What approaches have worked (or failed) for you? I'd love to hear about your experiences!
+Also learned that domain knowledge beats generic algorithms when you have it. CTGAN is powerful and general-purpose, but when I knew exactly which relationships mattered (location ↔ price, location ↔ size), I could build a custom algorithm that preserved them. Sometimes the "sophisticated" tool isn't the right tool.
+
+GPU acceleration changed what's viable to implement. My custom K-NN approach would have been too slow on CPU (hours for 1 million samples), but with TensorFlow on GPU it ran in minutes. That 10× speedup opened up custom solutions that otherwise wouldn't be practical.
+
+Geographic data needs special care. Spatial correlations are complex - properties close together tend to have similar prices, but "close" means different things in cities vs rural areas. Generic synthetic data tools don't understand that spatial structure, so you have to build it in yourself.
