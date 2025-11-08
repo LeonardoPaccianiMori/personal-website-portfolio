@@ -104,7 +104,7 @@ I tried two approaches:
 
 ---
 
-<details>
+<details markdown="1">
 <summary><strong>🔬 Technical Deep Dive: Classification Models</strong> (Click to expand)</summary>
 
 ## Convolutional Neural Networks (CNNs)
@@ -187,7 +187,7 @@ Unlike CNNs, FCNNs use only convolutional layers (no fully connected layers at t
 
 ---
 
-<details>
+<details markdown="1">
 <summary><strong>🎨 Technical Deep Dive: Generative Models</strong> (Click to expand)</summary>
 
 ## Convolutional Variational Autoencoders (CVAEs)

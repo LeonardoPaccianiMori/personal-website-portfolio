@@ -125,7 +125,7 @@ Most real estate investors rely on gut feeling or limited local knowledge. This 
 
 ## Technical deep dive
 
-<details>
+<details markdown="1">
 <summary><strong>🔬 Data Collection</strong> (Click to expand)</summary>
 
 ## Web Scraping Architecture
@@ -181,7 +181,7 @@ The scraping code has been **redacted** to prevent out-of-the-box reproducibilit
 
 ---
 
-<details>
+<details markdown="1">
 <summary><strong>📊 ETL Pipeline</strong> (Click to expand)</summary>
 
 ## MongoDB ETL: Raw HTML → Structured Data
@@ -225,7 +225,7 @@ def mortgage_monthly_payment(principal, interest, term):
 
 ---
 
-<details>
+<details markdown="1">
 <summary><strong>🗄️ Technical Deep Dive: PostgreSQL Migration</strong> (Click to expand)</summary>
 
 ## MongoDB → PostgreSQL + Translation
@@ -274,7 +274,7 @@ Example translations:
 
 ---
 
-<details>
+<details markdown="1">
 <summary><strong>🤖 Synthetic Data Generation</strong> (Click to expand)</summary>
 
 ## Custom K-Nearest Neighbors Algorithm
@@ -337,7 +337,7 @@ I initially tried [CTGAN](https://github.com/sdv-dev/CTGAN) (a generative AI mod
 
 ---
 
-<details>
+<details markdown="1">
 <summary><strong>🎯 Machine Learning Model</strong> (Click to expand)</summary>
 
 ## Random Forest Rent Predictor
@@ -410,7 +410,7 @@ Applied to **970,000 sale/auction listings** to predict potential rental income.
 
 ---
 
-<details>
+<details markdown="1">
 <summary><strong>📈 Dashboard Design</strong> (Click to expand)</summary>
 
 ## Interactive Tableau Dashboard
