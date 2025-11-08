@@ -63,14 +63,14 @@ Biggest surprise: auction properties crush regular sales on returns **even accou
         {id: 'airflow1', x: 450, y: 60, icon: 'assets/img/projects/italian-real-estate/airflow-logo.png', width: 80, height: 40},
 
         // Row 2: MongoDB logo + datalake icon
-        {id: 'mongodb1', x: 300, y: 180, icon: 'assets/img/projects/italian-real-estate/mongodb-logo', width: 120, height: 40},
+        {id: 'mongodb1', x: 300, y: 180, icon: 'assets/img/projects/italian-real-estate/mongodb-logo.png', width: 120, height: 40},
         {id: 'datalake', x: 300, y: 250, icon: 'assets/img/projects/italian-real-estate/data-lake-icon.png', width: 60, height: 50},
 
         // Row 3: Airflow logo
         {id: 'airflow2', x: 450, y: 380, icon: 'assets/img/projects/italian-real-estate/airflow-logo.png', width: 80, height: 40},
 
         // Row 4: MongoDB logo + warehouse icon
-        {id: 'mongodb2', x: 300, y: 510, icon: 'assets/img/projects/italian-real-estate/mongodb-logo', width: 120, height: 40},
+        {id: 'mongodb2', x: 300, y: 510, icon: 'assets/img/projects/italian-real-estate/mongodb-logo.png', width: 120, height: 40},
         {id: 'warehouse_nonrel', x: 300, y: 590, icon: 'assets/img/projects/italian-real-estate/data-warehouse-icon.png', width: 60, height: 50},
 
         // Row 5: Airflow logo
