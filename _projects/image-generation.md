@@ -13,14 +13,14 @@ category: portfolio
     </div>
 </div>
 <div class="caption">
-    Handwritten digits created entirely by AI—no human drew these!
+    Handwritten digits created by the best model developed in this project
 </div>
 
 **November - December 2024**
 
-I wanted to understand how image generation works at a fundamental level - not just using tools like DALL-E, but actually building the neural networks that create images from scratch.
+I wanted to understand how image generation works at a fundamental level, building the actual neural networks that create images from scratch. Unfortunately, since image generation requires a lot of computational power and at the time when I was working on this project I only had my personal laptop available, I simply used the MNIST dataset. It's not a very original choice, but I just wanted to get hands-on experience with image generation.
 
-The project had two parts: first, train networks to recognize handwritten digits (classification), then train them to generate brand new digits that never existed (generation). I tested 7 different architectures for classification and multiple approaches for generation to see what actually works.
+The project has two parts: first, training networks to recognize handwritten digits (classification), then training them to generate brand new digits that never existed (generation). I tested 7 different architectures for classification and multiple approaches for generation to see what actually works.
 
 Main finding: the simplest CNN model performed just as well as much more complex architectures, but trained 60% faster. Turns out more layers doesn't always mean better results.
 
@@ -39,7 +39,7 @@ I tested 7 different neural network architectures to see which one best recogniz
     Comparing 7 different neural network architectures. The simplest model (CNN-1) is actually the best choice!
 </div>
 
-The simplest model (CNN-1) hit 98% accuracy in half the training time of the deeper networks. Adding more layers didn't improve accuracy - it just made training slower.
+The simplest model (CNN-1) hit 98% accuracy in half the training time of the deeper networks. For such a relatively simple task, adding more layers didn't improve accuracy, it just made training slower.
 
 ### Part 2: Generation - Creating New Digits
 
@@ -48,10 +48,10 @@ This is the harder part: instead of just recognizing digits, can we generate bra
 I tried two approaches:
 
 **Variational Autoencoders (VAEs)**
-These work by compressing a digit into a small "code" and then reconstructing it. The idea is that once the network learns this compression, you can sample random codes to generate new digits. Problem: they struggled to create all 10 digits clearly. The results were blurry and some numbers never appeared.
+These work by compressing a digit into a "compressed" representation and then reconstructing it. The idea is that once the network learns this representation, you can sample random points to generate new digits. Problem: the models struggled to generate all 10 digits clearly.
 
 **Generative Adversarial Networks (GANs)**
-Two networks compete: one (generator) creates fake digits, the other (discriminator) tries to spot fakes. They improve through competition - the generator gets better at faking, the discriminator gets better at detecting. After tuning hyperparameters (especially switching from tanh to sigmoid activation), the GAN created realistic digits for all 10 numbers.
+Two networks compete: one (generator) creates fake digits, the other (discriminator) tries to spot fakes. They improve through competition: the generator gets better at faking, the discriminator gets better at detecting. After tuning hyperparameters (especially switching from `tanh` to `sigmoid` activation), the GAN created realistic digits for all 10 numbers.
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
@@ -62,20 +62,13 @@ Two networks compete: one (generator) creates fake digits, the other (discrimina
     100 completely artificial handwritten digits, created by the best GAN model
 </div>
 
-## Technologies
-
-- **TensorFlow/Keras** - Deep learning framework
-- **Python** - Programming
-- **MNIST Dataset** - 70,000 handwritten digit images
-- **GPU Acceleration** - For faster training
-
 ## What I Learned
 
 The biggest lesson: complexity for the sake of complexity doesn't help. The simplest CNN matched or beat the deeper networks while training way faster. That applies to both classification (where CNN-1 was best) and generation (where simpler architectures converged better).
 
-For GANs specifically, activation functions matter a lot - sigmoid worked way better than tanh for the discriminator. Also, batch normalization helped stabilize training, which makes sense given how sensitive GANs are to parameter changes.
+For GANs specifically, activation functions matter **a lot**: `sigmoid` worked way better `than` for the discriminator. Also, batch normalization helped stabilize training, which makes sense given how sensitive GANs are to parameter changes.
 
-These techniques (VAEs and GANs) are the same ones used in modern image generators like DALL-E or Stable Diffusion, just scaled up massively with more data and compute. The fundamentals are identical.
+These techniques (VAEs and GANs) are the same ones used in modern image generators like DALL-E or Stable Diffusion, just scaled up **massively** with more data and compute. The fundamentals are identical.
 
 ---
 

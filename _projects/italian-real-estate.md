@@ -97,36 +97,36 @@ Biggest surprise: auction properties crush regular sales on returns **even accou
         // immobiliare to MongoDB (with Web scraping label on left)
         {from: 'immobiliare', to: 'mongodb1', label: 'Web scraping', labelSide: 'left'},
 
-        // MongoDB to datalake icon (no edge, just vertical stacking)
-        {from: 'mongodb1', to: 'datalake', label: ''},
+        // MongoDB to datalake icon (no arrow, just vertical stacking)
+        {from: 'mongodb1', to: 'datalake', hideArrow: true},
 
         // Datalake to MongoDB warehouse (with ETL pipeline label on left)
         {from: 'datalake', to: 'mongodb2', label: 'ETL pipeline', labelSide: 'left'},
 
-        // MongoDB warehouse to warehouse icon (no edge, just vertical stacking)
-        {from: 'mongodb2', to: 'warehouse_nonrel', label: ''},
+        // MongoDB warehouse to warehouse icon (no arrow, just vertical stacking)
+        {from: 'mongodb2', to: 'warehouse_nonrel', hideArrow: true},
 
         // Warehouse to PostgreSQL (with ETL pipeline label on left)
         {from: 'warehouse_nonrel', to: 'postgresql', label: 'ETL pipeline', labelSide: 'left'},
 
-        // PostgreSQL to warehouse icon (no edge, just vertical stacking)
-        {from: 'postgresql', to: 'warehouse_rel', label: ''},
+        // PostgreSQL to warehouse icon (no arrow, just vertical stacking)
+        {from: 'postgresql', to: 'warehouse_rel', hideArrow: true},
 
         // Warehouse to sklearn (with Synthetic data generation label on left)
         {from: 'warehouse_rel', to: 'sklearn1', label: 'Synthetic data\ngeneration with\ncustom algorithm\n(KNN-based)', labelSide: 'left'},
 
-        // sklearn to synthetic data (no edge label needed)
-        {from: 'sklearn1', to: 'synthetic_data', label: ''},
+        // sklearn to synthetic data
+        {from: 'sklearn1', to: 'synthetic_data', hideArrow: true},
 
         // Synthetic data splits to sklearn and tableau
         {from: 'synthetic_data', to: 'sklearn2', label: ''},
         {from: 'synthetic_data', to: 'tableau', label: ''},
 
-        // sklearn to ML models (no edge label, label is on node)
-        {from: 'sklearn2', to: 'ml_models', label: ''},
+        // sklearn to ML models
+        {from: 'sklearn2', to: 'ml_models', hideArrow: true},
 
-        // Tableau to dashboards (no edge label, label is on node)
-        {from: 'tableau', to: 'dashboards', label: ''},
+        // Tableau to dashboards
+        {from: 'tableau', to: 'dashboards', hideArrow: true},
 
         // ML models to dashboards (horizontal arrow)
         {from: 'ml_models', to: 'dashboards', label: '', isHorizontal: true}
