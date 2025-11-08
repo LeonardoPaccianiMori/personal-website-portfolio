@@ -184,10 +184,10 @@ And re-normalized the input images to [0, 1] instead of [-1, 1].
 </div>
 
 **Training behavior:**
-- ✅ **Losses oscillate healthily** - Neither network dominates
-- ✅ **Generator loss stays bounded** - No divergence
-- ✅ **Discriminator challenged** - Accuracy hovers around 70-80%
-- ✅ **Visible improvement** - Images get better every 10 epochs
+-**Losses oscillate healthily** - Neither network dominates
+-**Generator loss stays bounded** - No divergence
+-**Discriminator challenged** - Accuracy hovers around 70-80%
+-**Visible improvement** - Images get better every 10 epochs
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -199,10 +199,10 @@ And re-normalized the input images to [0, 1] instead of [-1, 1].
 </div>
 
 **Generated images:**
-- ✅ All 10 digits visible (0-9)
-- ✅ Recognizable handwritten style
-- ⚠️ Still some artifacts and unclear digits
-- ⚠️ Quality varies across different digits
+-All 10 digits visible (0-9)
+-Recognizable handwritten style
+-Still some artifacts and unclear digits
+-Quality varies across different digits
 
 **Bottom line:** Changing `tanh` → `sigmoid` transformed a complete failure into a working GAN.
 
@@ -281,9 +281,9 @@ Conv2DTranspose(128, (5, 5), strides=2, padding='same'),  # Was (3, 3)
 ```
 
 **Result:**
-- ✅ **Smoother images** - Less pixelation
-- ✅ **Better digit quality** - All 10 digits clearly visible
-- ✅ **Training time** - Only ~10% longer
+-**Smoother images** - Less pixelation
+-**Better digit quality** - All 10 digits clearly visible
+-**Training time** - Only ~10% longer
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -299,9 +299,9 @@ Conv2DTranspose(128, (5, 5), strides=2, padding='same'),  # Was (3, 3)
 Added a 4th convolutional layer to both generator and discriminator:
 
 **Result:**
-- ✅ **Best quality yet** - Sharpest, most realistic digits
-- ✅ **Fewer artifacts** - Cleaner backgrounds
-- ⚠️ **Longer training** - ~40% more time per epoch
+-**Best quality yet** - Sharpest, most realistic digits
+-**Fewer artifacts** - Cleaner backgrounds
+-**Longer training** - ~40% more time per epoch
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -389,15 +389,15 @@ Full implementation in my [Image Generation repository](https://github.com/Leona
 
 ---
 
-## Key Takeaways
+## What I Learned
 
-1. **Activation functions matter more than you think** - One change (tanh → sigmoid) can transform results
-2. **Debug systematically** - Change one variable at a time, document everything
-3. **Training curves reveal architectural problems** - Learn to recognize unhealthy patterns
-4. **Question "best practices"** - What works for ImageNet might not work for MNIST
-5. **Small architectural tweaks compound** - Activation + kernels + depth = big improvement
+The big lesson: activation functions matter way more than I expected. Changing one line of code (tanh → sigmoid) took the model from complete failure to actually working. I'd been so focused on learning rates, batch sizes, and architectural depth that I didn't question the activation function - it was in the DCGAN paper, so it must be right, right?
 
-Have you debugged a stubborn model and found a surprising fix? What was your "one line of code" moment? Let me know in the comments!
+Wrong. "Best practices" from papers are guidelines, not gospel. What works for ImageNet might not work for MNIST. The normalized pixel ranges are different ([0,1] vs [-1,1]), so the output activation needs to match.
+
+Also, I learned to debug systematically. Instead of changing multiple things at once and hoping something sticks, change one variable at a time and document everything. Training curves tell you a lot if you learn to read them - that flat discriminator loss at 0.1 was screaming "something's fundamentally broken" but I kept trying hyperparameter tweaks instead of questioning the architecture itself.
+
+Finally, small changes compound. Activation function + kernel size + depth = huge improvement. DCGAN-4 wasn't revolutionary compared to DCGAN-2, just three small refinements stacked on top of each other.
 
 ---
 
