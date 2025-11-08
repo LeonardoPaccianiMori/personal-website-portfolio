@@ -36,16 +36,17 @@ function renderD3Diagram(selector, config) {
     .attr('preserveAspectRatio', 'xMidYMid meet');
 
   // Define arrow marker (for edge endings)
+  // Larger arrowhead to match thicker lines, but proportionally scaled
   svg.append('defs')
     .append('marker')
     .attr('id', `arrowhead-${selector.replace(/[^a-zA-Z0-9]/g, '')}`)
-    .attr('markerWidth', 10)
-    .attr('markerHeight', 10)
-    .attr('refX', 9)
-    .attr('refY', 3)
+    .attr('markerWidth', 16)
+    .attr('markerHeight', 16)
+    .attr('refX', 14)
+    .attr('refY', 5)
     .attr('orient', 'auto')
     .append('polygon')
-    .attr('points', '0 0, 10 3, 0 6')
+    .attr('points', '0 0, 16 5, 0 10')
     .attr('fill', '#000');
 
   const markerId = `arrowhead-${selector.replace(/[^a-zA-Z0-9]/g, '')}`;
@@ -73,7 +74,7 @@ function renderD3Diagram(selector, config) {
         .attr('x2', toNode.x - (toNode.width || 50) / 2)
         .attr('y2', toNode.y)
         .attr('stroke', edge.color || '#000')
-        .attr('stroke-width', edge.width || 3)
+        .attr('stroke-width', edge.width || 5)
         .attr('marker-end', `url(#${markerId})`);
     } else {
       // Vertical arrow (top to bottom)
@@ -83,7 +84,7 @@ function renderD3Diagram(selector, config) {
         .attr('x2', toNode.x)
         .attr('y2', toY)
         .attr('stroke', edge.color || '#000')
-        .attr('stroke-width', edge.width || 3)
+        .attr('stroke-width', edge.width || 5)
         .attr('marker-end', `url(#${markerId})`);
 
       // Draw label if exists
