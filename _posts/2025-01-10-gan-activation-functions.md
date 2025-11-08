@@ -4,12 +4,14 @@ title: "Activation Functions Killed My GAN: A Debugging Story"
 date: 2025-01-10 14:00:00
 description: How changing one line of code (tanh → sigmoid) took my GAN from complete failure to generating realistic digits
 tags: deep-learning GAN debugging
-categories: data-science
+categories: [data-science, learning]
 thumbnail: assets/img/projects/image-generation/image-generation-thumbnail.png
 featured: true
 ---
 
 ## The Goal: Generate Handwritten Digits with GANs
+
+> **Note**: The generative modeling concepts explored in this post—variational inference, latent space manipulation, and adversarial training—became foundational to my later work on [graph-based recipe generation](/projects/recipe-generator), where I apply similar techniques to a more complex structured data domain.
 
 For my [Image Generation project](/projects/image-generation/), I wanted to train a Deep Convolutional GAN (DCGAN) to generate realistic handwritten digits from the MNIST dataset.
 

@@ -4,12 +4,14 @@ title: "When Simpler Models Win: Comparing 7 CNN Architectures"
 date: 2025-02-05 11:00:00
 description: Testing 7 different neural network architectures taught me that more layers doesn't mean better results—sometimes the baseline is the best choice
 tags: deep-learning CNN optimization
-categories: data-science
+categories: [data-science, learning]
 # thumbnail: assets/img/blog/cnn-comparison/thumbnail.jpg 
 featured: false
 ---
 
 ## The Experiment: How Many Layers Do You Really Need?
+
+> **Note**: The generative modeling concepts explored in this post—variational inference, latent space manipulation, and adversarial training—became foundational to my later work on [graph-based recipe generation](/projects/recipe-generator), where I apply similar techniques to a more complex structured data domain.
 
 For my [Image Generation project](/projects/image-generation/), before diving into GANs, I wanted to build a solid understanding of Convolutional Neural Networks (CNNs).
 
