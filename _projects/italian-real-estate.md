@@ -5,6 +5,7 @@ description: AI-powered pipeline to help investors identify high-return properti
 img: assets/img/projects/italian-real-estate/italian-real-estate-1.jpg
 importance: 1
 category: portfolio
+d3_diagram: true
 ---
 
 <div class="row">
@@ -37,6 +38,8 @@ Biggest surprise: auction properties crush regular sales on returns **even accou
     End-to-end data pipeline from web scraping to interactive dashboard. Icons from <a href="https://www.flaticon.com/">Flaticon</a>
 </div>
 
+{% include d3-diagrams/italian-real-estate-structure.html %}
+
 ### How it Works
 
 **Data Collection**
@@ -46,10 +49,14 @@ Scraped <a href="https://www.immobiliare.it/en/">immobiliare.it</a> (Italy's lar
 Pulled out everything useful from the raw HTML (price, size, location, features, etc.), translated the Italian text to English, and organized it into a PostgreSQL database.
 
 **Synthetic Data**
-Since the data was scraped from a website, I didn't want to share publicly work done on the real listings data (also to avoid potential legal issues). So I built a custom algorithm to generate synthetic listings: it finds similar real properties and blends their features, this preserving the statistical patterns without exposing the actual scraped data. The ML model was trained on the real data, but then the inference was donw on the synthetic data.
+Since the data was scraped from a website, I didn't want to share publicly work done on the real listings data (also to avoid potential legal issues). So I built a custom algorithm to generate synthetic listings: it finds similar real properties and blends their features, this preserving the statistical patterns without exposing the actual scraped data. Both the ML model training and inference was done on the synthetic data.
 
 **Machine Learning**
-Trained a **Random Forest** regressor model to predict rental prices based on property features. Then applied it to all the sale/auction listings to estimate what monthly rent they could bring in. The model gets about 75-78% accuracy (R² score), so good enough to spot trends but not perfect for individual properties. I chose Random Forest because it's simple and it gets the job done pretty well.
+Trained a **Random Forest** regressor model to predict rental prices based on property features. Then applied it to all the sale/auction listings to estimate what monthly rent they could bring in. The model gets about 75-78% accuracy (R² score), so good enough to spot trends but not perfect for individual properties. I chose Random Forest because:
+- It's simple and can catch well non-linear relationships
+- Handles outliers well
+- Is interpretable (we can evaluate feature importance)
+- It gets the job done with good accuracy and training time.
 
 **Dashboard**
 Built an interactive Tableau dashboard showing two key metrics:
@@ -99,9 +106,9 @@ This project taught me a lot about handling messy real-world data at scale:
 
 ## Limitations
 
-The model isn't perfect: the 75-78% R² means it's good for spotting trends and comparing properties, but you'd definitely want to verify specific listings yourself before making decisions. Also, this assumes you're buying to rent out long-term. If you're planning to flip or use it yourself, the metrics don't apply.
+The model isn't perfect: the 75-78% R² means it's good for spotting trends and comparing properties, but you'd definitely want to verify specific listings yourself before making decisions. Also, this assumes you're buying to rent out long-term: if you're planning to flip or use it yourself, the metrics don't apply.
 
-The data is also a snapshot from early 2025, so the specific listings are surely outdated, but the patterns and methods should still hold.
+The data is also a snapshot from early 2025, so the specific listings are already outdated (real estate moves fast). But the patterns and methods should still hold.
 
 ---
 
@@ -124,11 +131,11 @@ Scrape 107 provinces × 3 listing types = **321 independent scraping tasks**
 </div>
 
 **Workflow**:
-1. For each province (e.g., Milan, Rome, Naples), we have a task that does the following (in this order):
-   1. scrapes `RENT` listings → stores data in MongoDB
-   2. scrapes `AUCTION` listings → stores data in MongoDB
-   3. scrapes `SALE` listings → stores data in MongoDB
-2. All tasks run in parallel for speed
+1. For each province (e.g., Milan, Rome, Naples):
+   - Scrape RENT listings → Store in MongoDB
+   - Scrape AUCTION listings → Store in MongoDB
+   - Scrape SALE listings → Store in MongoDB
+2. All provinces run in parallel for speed
 
 ### Technical Implementation
 
@@ -148,8 +155,8 @@ async def get_single_url(url, session):
 - Handles complex interactions and dynamic loading
 
 **Data Storage**:
-- MongoDB "datalake" stores *raw* HTML of each scraped page
-- Includes timestamp for tracking changes over time (this feature would only be useful if one scraped regularly at fixed intervals, but this is not our casel nevertheless, I wanted to include this feature)
+- MongoDB "datalake" stores raw HTML
+- Includes timestamp for tracking changes over time
 
 **Performance**:
 - Batch processing with error handling
@@ -179,7 +186,7 @@ Extract 50+ fields from unstructured HTML and organize them coherently.
     </div>
 </div>
 
-**Extracted Fields** contain 50+ total features extracted from the raw unstructured HTML, including:
+**Extracted Fields** (50+ total):
 - **Pricing**: price, price/m², condominium expenses, heating costs
 - **Property Features**: surface, rooms, bathrooms, floor, elevator, condition
 - **Building Info**: construction year, floors, residential units
@@ -242,15 +249,15 @@ def mortgage_monthly_payment(principal, interest, term):
 2. **SQLite Cache**: Avoid re-translating identical text
 3. **Custom Dictionary**: 100+ real estate-specific phrases
 
-The custom dictionary was built in to avoid literal translations from italian that do no really make sense in English, e.g.:
-- "cucina abitabile" → "eat-in kitchen" (instead of "habitable kitchen")
-- "occupato" → "inhabited" (instead of "occupied")
-- "libero" → "vacant" (instead of "free")
+Example translations:
+- "cucina abitabile" → "eat-in kitchen"
+- "occupato" → "inhabited"
+- "libero" → "vacant"
 
 **Performance**:
 - Batch processing: 10,000 records per batch
 - Translation cache hits: ~80% (saves API calls)
-- Parallel processing with `ThreadPoolExecutor`
+- Parallel processing with ThreadPoolExecutor
 
 </details>
 
@@ -262,9 +269,9 @@ The custom dictionary was built in to avoid literal translations from italian th
 ## Custom K-Nearest Neighbors Algorithm
 
 ### Why Generate Synthetic Data?
-- **Privacy**: Didn't want to share scraped data publicly (also to avoid legal risk)
+- **Privacy**: Can't share scraped data publicly without legal risk
 - **Demonstration**: Show the dashboard and analysis without exposing the source website's data
-- **Statistical Preservation**: Maintain real-world patterns so the data is realistic
+- **Statistical Preservation**: Maintain real-world patterns so the demo is realistic
 
 ### Algorithm Design
 
@@ -273,7 +280,7 @@ The custom dictionary was built in to avoid literal translations from italian th
 - Similar in price
 - Similar in size (surface area)
 
-Then create a synthetic listing by blending **all** their features (i.e., not just position, price and size but also number and type of rooms, amenities etc.).
+Then create a synthetic listing by blending their features.
 
 **Implementation**:
 ```python
@@ -293,7 +300,7 @@ synthetic_property_type = most_common(neighbor_types, weights=inverse_distance)
 ```
 
 **GPU Acceleration**:
-- `TensorFlow` with CUDA support
+- TensorFlow with CUDA support
 - Batch processing to manage memory
 - 10× speedup vs CPU
 
@@ -302,19 +309,18 @@ synthetic_property_type = most_common(neighbor_types, weights=inverse_distance)
   - 80,000 rental
   - 120,000 auction
   - 850,000 sale
-The total number and the number of each type is simply the rounding of the original number of listings to the closest myriad.
 
 **Validation**:
-- Geographic coherence: all coordinates within Italy's borders
-- Statistical similarity: distributions match real data
-- Visual inspection: property characteristics look realistic
+- Geographic coherence: All coordinates within Italy's borders
+- Statistical similarity: Distributions match real data
+- Visual inspection: Property characteristics look realistic
 
 ### Why Not Use CTGAN?
 
 I initially tried [CTGAN](https://github.com/sdv-dev/CTGAN) (a generative AI model for tabular data) but found:
-- **Learning issue**: the model could learn feature distributions but NOT correlations
-- **Impact**: lost critical relationships like location ↔ price
-- **Solution**: developed custom K-NN algorithm shown above that preserves correlations
+- **Problem**: Could learn feature distributions but NOT correlations
+- **Impact**: Lost critical relationships like location ↔ price
+- **Solution**: Developed custom K-NN algorithm that preserves correlations
 
 </details>
 
@@ -329,23 +335,22 @@ I initially tried [CTGAN](https://github.com/sdv-dev/CTGAN) (a generative AI mod
 Predict monthly rental price for properties listed for sale/auction.
 
 ### Why Random Forest?
-- **Non-linear relationships**: property features interact in complex ways
-- **Robustness**: handles outliers well
-- **Interpretability**: can examine feature importance
-- **Performance**: good accuracy with reasonable training time
+- **Non-linear relationships**: Property features interact in complex ways
+- **Robustness**: Handles outliers well
+- **Interpretability**: Can examine feature importance
+- **Performance**: Good accuracy with reasonable training time
 
 ### Feature Engineering
 
-**Simplifications**
-I reduced the number of features e.g. grouping together similar and redundant categories, e.g.:
-- **Property types**: 30+ categories → 7 main types (`apartment`, `villa`, `house`, etc.)
-- **Heating**: decomposed into `type`, `delivery`, `power_source`
-- **Air conditioning**: separated into `type`, `hot` capability (i.e., air conditioning can produce hot air), `cold` capability (i.e., air conditioning can produce cold air)
-- **Windows**: combined glass type and frame material
+**Simplifications**:
+- **Property types**: 30+ categories → 7 main types (apartment, villa, house, etc.)
+- **Heating**: Decomposed into type, delivery, power source
+- **Air conditioning**: Separated into type, hot capability, cold capability
+- **Windows**: Combined glass type and frame material
 
 **One-Hot Encoding**: 14 categorical features → 70+ binary columns
 
-**Outliers**: removed 1st and 99th percentiles
+**Outliers**: Removed 1st and 99th percentiles
 
 **Target Transformation**: Log-transform rent for better predictions
 
@@ -401,7 +406,7 @@ Applied to **970,000 sale/auction listings** to predict potential rental income.
 
 ### User Personas
 
-**Target Audience**: real estate investors (both novice and experienced)
+**Target Audience**: Real estate investors (both novice and experienced)
 
 **Use Cases**:
 1. Explore profitable regions/cities
@@ -428,21 +433,22 @@ Applied to **970,000 sale/auction listings** to predict potential rental income.
    - Useful for all-cash purchases
 
 **User Controls**:
-- **Mortgage Parameters**: interest rate, down payment %, loan term
-- **Renovation Costs**: percentage of purchase price
-- **Filters**: property type, energy class, location, listing type
+- **Mortgage Parameters**: Interest rate, down payment %, loan term
+- **Renovation Costs**: Percentage of purchase price
+- **Filters**: Property type, energy class, location, listing type
 
 **Visualizations**:
-- **Map**: geographic distribution of profitable properties
-- **Scatter Plot**: price vs predicted rent
-- **Bar Charts**: metrics by province/property type
+- **Map**: Geographic distribution of profitable properties
+- **Scatter Plot**: Price vs predicted rent
+- **Bar Charts**: Metrics by province/property type
+- **Summary Statistics**: Count, median values, top opportunities
 
 ### Design Principles
 
-- **Progressive Disclosure**: start simple, add complexity as needed
-- **Interactivity**: users explore their own scenarios
-- **Context**: tooltips and legends explain metrics
-- **Performance**: aggregations for fast rendering
+- **Progressive Disclosure**: Start simple, add complexity as needed
+- **Interactivity**: Users explore their own scenarios
+- **Context**: Tooltips and legends explain metrics
+- **Performance**: Aggregations for fast rendering
 
 </details>
 
@@ -464,11 +470,11 @@ italian-real-estate-pipeline/
 ```
 
 The code demonstrates:
-- **Production-ready practices**: error handling, logging, configuration
-- **Scalable architecture**: modular design, parallel processing
+- **Production-ready practices**: Error handling, logging, configuration
+- **Scalable architecture**: Modular design, parallel processing
 - **Code quality**: DRY principles, documentation, type hints
 
-**Disclaimer**: scraping code is redacted to prevent misuse. Shared for portfolio demonstration only.
+**Disclaimer**: Scraping code is redacted to prevent misuse. Shared for portfolio demonstration only.
 
 ---
 
