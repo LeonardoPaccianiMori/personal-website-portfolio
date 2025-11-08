@@ -123,8 +123,10 @@ Most real estate investors rely on gut feeling or limited local knowledge. This 
 
 ---
 
+## Technical deep dive
+
 <details>
-<summary><strong>🔬 Technical Deep Dive: Data Collection</strong> (Click to expand)</summary>
+<summary><strong>🔬 Data Collection</strong> (Click to expand)</summary>
 
 ## Web Scraping Architecture
 
@@ -180,7 +182,7 @@ The scraping code has been **redacted** to prevent out-of-the-box reproducibilit
 ---
 
 <details>
-<summary><strong>📊 Technical Deep Dive: ETL Pipeline</strong> (Click to expand)</summary>
+<summary><strong>📊 ETL Pipeline</strong> (Click to expand)</summary>
 
 ## MongoDB ETL: Raw HTML → Structured Data
 
@@ -273,7 +275,7 @@ Example translations:
 ---
 
 <details>
-<summary><strong>🤖 Technical Deep Dive: Synthetic Data Generation</strong> (Click to expand)</summary>
+<summary><strong>🤖 Synthetic Data Generation</strong> (Click to expand)</summary>
 
 ## Custom K-Nearest Neighbors Algorithm
 
@@ -336,7 +338,7 @@ I initially tried [CTGAN](https://github.com/sdv-dev/CTGAN) (a generative AI mod
 ---
 
 <details>
-<summary><strong>🎯 Technical Deep Dive: Machine Learning Model</strong> (Click to expand)</summary>
+<summary><strong>🎯 Machine Learning Model</strong> (Click to expand)</summary>
 
 ## Random Forest Rent Predictor
 
@@ -409,7 +411,7 @@ Applied to **970,000 sale/auction listings** to predict potential rental income.
 ---
 
 <details>
-<summary><strong>📈 Technical Deep Dive: Dashboard Design</strong> (Click to expand)</summary>
+<summary><strong>📈 Dashboard Design</strong> (Click to expand)</summary>
 
 ## Interactive Tableau Dashboard
 
