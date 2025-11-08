@@ -2,15 +2,14 @@
 layout: page
 title: Finding Profitable Real Estate in Italy
 description: AI-powered pipeline to help investors identify high-return properties
-img: assets/img/projects/italian-real-estate/italian-real-estate-1.jpg
+img: assets/img/projects/italian-real-estate/italian-real-estate.jpg
 importance: 1
 category: portfolio
-d3_diagram: true
 ---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-1.jpg" title="Italian real estate" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate.jpg" title="Italian real estate" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -37,111 +36,6 @@ Biggest surprise: auction properties crush regular sales on returns **even accou
 <div class="caption">
     End-to-end data pipeline from web scraping to interactive dashboard. Icons from <a href="https://www.flaticon.com/">Flaticon</a>
 </div>
-
-<div id="project-structure-d3" style="width: 100%; margin: 2rem auto; background-color: #ffffffff; padding: 1rem; border-radius: 0.25rem;"></div>
-
-<script>
-// D3.js diagram - Italian Real Estate Project Structure
-// You can easily modify node positions, icons, and connections here
-
-// Wait for both DOM and D3 to be ready
-(function() {
-  function initDiagram() {
-    // Check if D3 is loaded and function exists
-    if (typeof d3 === 'undefined' || typeof renderD3Diagram !== 'function') {
-      console.log('Waiting for D3 and renderD3Diagram to load...');
-      setTimeout(initDiagram, 100);
-      return;
-    }
-
-    renderD3Diagram('#project-structure-d3', {
-      width: 600,
-      height: 1700,
-      nodes: [
-        // Row 1: immobiliare.it logo
-        {id: 'immobiliare', x: 300, y: 50, icon: '/assets/img/projects/italian-real-estate/immobiliare-logo.png', width: 200, height: 50, label: ''},
-        {id: 'airflow1', x: 500, y: 100, icon: '/assets/img/projects/italian-real-estate/airflow-logo.png', width: 120, height: 50, label: ''},
-
-        // Row 2: MongoDB logo
-        {id: 'mongodb1', x: 300, y: 200, icon: '/assets/img/projects/italian-real-estate/mongodb-logo.png', width: 200, height: 50, label: ''},
-        // Datalake icon with label below
-        {id: 'datalake', x: 300, y: 300, icon: '/assets/img/projects/italian-real-estate/data-lake-icon.png', width: 80, height: 80, label: 'Data lake'},
-
-        {id: 'airflow2', x: 500, y: 400, icon: '/assets/img/projects/italian-real-estate/airflow-logo.png', width: 120, height: 50, label: ''},
-
-        // Row 3: MongoDB warehouse
-        {id: 'mongodb2', x: 300, y: 500, icon: '/assets/img/projects/italian-real-estate/mongodb-logo.png', width: 200, height: 50, label: ''},
-        {id: 'warehouse_nonrel', x: 300, y: 600, icon: '/assets/img/projects/italian-real-estate/data-warehouse-icon.png', width: 80, height: 80, label: 'Data warehouse\n(non-relational)'},
-
-        {id: 'airflow3', x: 500, y: 700, icon: '/assets/img/projects/italian-real-estate/airflow-logo.png', width: 120, height: 50, label: ''},
-
-        // Row 4: PostgreSQL
-        {id: 'postgresql', x: 300, y: 800, icon: '/assets/img/projects/italian-real-estate/postgresql-logo.png', width: 200, height: 50, label: ''},
-        {id: 'warehouse_rel', x: 300, y: 900, icon: '/assets/img/projects/italian-real-estate/data-warehouse-icon.png', width: 80, height: 80, label: 'Data warehouse\n(relational)'},
-
-        // Row 5: Synthetic data generation
-        {id: 'sklearn1', x: 500, y: 1020, icon: '/assets/img/projects/italian-real-estate/scikit-learn-logo.png', width: 120, height: 80, label: ''},
-
-        // Row 6: Synthetic data
-        {id: 'synthetic_data', x: 300, y: 1130, icon: '/assets/img/projects/italian-real-estate/synthetic-data-icon.png', width: 80, height: 80, label: 'Synthetic data'},
-
-        // Row 7: Split to ML and Dashboard
-        {id: 'sklearn2', x: 150, y: 1280, icon: '/assets/img/projects/italian-real-estate/scikit-learn-logo.png', width: 120, height: 80, label: ''},
-        {id: 'tableau', x: 450, y: 1280, icon: '/assets/img/projects/italian-real-estate/tableau-logo.png', width: 150, height: 50, label: ''},
-
-        // Row 8: Final outputs
-        {id: 'ml_models', x: 150, y: 1450, icon: '/assets/img/projects/italian-real-estate/ML-icon.png', width: 80, height: 80, label: 'ML models'},
-        {id: 'dashboards', x: 450, y: 1450, icon: '/assets/img/projects/italian-real-estate/dashboard-icon.png', width: 80, height: 80, label: 'Dashboards'}
-      ],
-      edges: [
-        // immobiliare to MongoDB (with Web scraping label on left)
-        {from: 'immobiliare', to: 'mongodb1', label: 'Web scraping', labelSide: 'left'},
-
-        // MongoDB to datalake icon (no arrow, just vertical stacking)
-        {from: 'mongodb1', to: 'datalake', hideArrow: true},
-
-        // Datalake to MongoDB warehouse (with ETL pipeline label on left)
-        {from: 'datalake', to: 'mongodb2', label: 'ETL pipeline', labelSide: 'left'},
-
-        // MongoDB warehouse to warehouse icon (no arrow, just vertical stacking)
-        {from: 'mongodb2', to: 'warehouse_nonrel', hideArrow: true},
-
-        // Warehouse to PostgreSQL (with ETL pipeline label on left)
-        {from: 'warehouse_nonrel', to: 'postgresql', label: 'ETL pipeline', labelSide: 'left'},
-
-        // PostgreSQL to warehouse icon (no arrow, just vertical stacking)
-        {from: 'postgresql', to: 'warehouse_rel', hideArrow: true},
-
-        // Warehouse to sklearn (with Synthetic data generation label on left)
-        {from: 'warehouse_rel', to: 'sklearn1', label: 'Synthetic data\ngeneration with\ncustom algorithm\n(KNN-based)', labelSide: 'left'},
-
-        // sklearn to synthetic data
-        {from: 'sklearn1', to: 'synthetic_data', hideArrow: true},
-
-        // Synthetic data splits to sklearn and tableau
-        {from: 'synthetic_data', to: 'sklearn2', label: ''},
-        {from: 'synthetic_data', to: 'tableau', label: ''},
-
-        // sklearn to ML models
-        {from: 'sklearn2', to: 'ml_models', hideArrow: true},
-
-        // Tableau to dashboards
-        {from: 'tableau', to: 'dashboards', hideArrow: true},
-
-        // ML models to dashboards (horizontal arrow)
-        {from: 'ml_models', to: 'dashboards', label: '', isHorizontal: true}
-      ]
-    });
-  }
-
-  // Start trying to initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDiagram);
-  } else {
-    initDiagram();
-  }
-})();
-</script>
 
 ### How it Works
 
