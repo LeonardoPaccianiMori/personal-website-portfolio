@@ -38,7 +38,91 @@ Biggest surprise: auction properties crush regular sales on returns **even accou
     End-to-end data pipeline from web scraping to interactive dashboard. Icons from <a href="https://www.flaticon.com/">Flaticon</a>
 </div>
 
-{% include d3-diagrams/italian-real-estate-structure.html %}
+<div id="project-structure-d3" style="width: 100%; margin: 2rem auto; background-color: #f8f9fa; padding: 1rem; border-radius: 0.25rem;"></div>
+
+<script>
+// D3.js diagram - Italian Real Estate Project Structure
+// You can easily modify node positions, icons, and connections here
+renderD3Diagram('#project-structure-d3', {
+  width: 600,
+  height: 1600,
+  nodes: [
+    // Row 1: immobiliare.it logo + Airflow logo
+    {id: 'immobiliare', x: 300, y: 60, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 120, height: 40},
+    {id: 'airflow1', x: 450, y: 60, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 80, height: 40},
+
+    // Row 2: MongoDB logo + datalake icon
+    {id: 'mongodb1', x: 300, y: 180, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 120, height: 40},
+    {id: 'datalake', x: 300, y: 250, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 50},
+
+    // Row 3: Airflow logo
+    {id: 'airflow2', x: 450, y: 380, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 80, height: 40},
+
+    // Row 4: MongoDB logo + warehouse icon
+    {id: 'mongodb2', x: 300, y: 510, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 120, height: 40},
+    {id: 'warehouse_nonrel', x: 300, y: 590, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 50},
+
+    // Row 5: Airflow logo
+    {id: 'airflow3', x: 450, y: 720, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 80, height: 40},
+
+    // Row 6: PostgreSQL logo + warehouse icon
+    {id: 'postgresql', x: 300, y: 850, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 120, height: 40},
+    {id: 'warehouse_rel', x: 300, y: 930, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 50},
+
+    // Row 7: scikit-learn logo
+    {id: 'sklearn1', x: 400, y: 1060, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 80, height: 60},
+
+    // Row 8: Document/data icon
+    {id: 'synthetic_data', x: 300, y: 1180, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 50},
+
+    // Row 9: scikit-learn logo (left) + Tableau logo (right)
+    {id: 'sklearn2', x: 100, y: 1310, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 80, height: 60},
+    {id: 'tableau', x: 420, y: 1310, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 100, height: 40},
+
+    // Row 10: ML models icon (left) + Dashboards icon (right)
+    {id: 'ml_models', x: 100, y: 1480, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 60},
+    {id: 'dashboards', x: 420, y: 1480, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 60}
+  ],
+  edges: [
+    // Top to MongoDB datalake
+    {from: 'immobiliare', to: 'mongodb1', label: 'Web scraping', labelSide: 'left'},
+
+    // MongoDB to datalake icon
+    {from: 'mongodb1', to: 'datalake', label: 'Data lake'},
+
+    // Datalake to MongoDB warehouse
+    {from: 'datalake', to: 'mongodb2', label: 'ETL pipeline', labelSide: 'left'},
+
+    // MongoDB warehouse to warehouse icon
+    {from: 'mongodb2', to: 'warehouse_nonrel', label: 'Data warehouse\n(non-relational)'},
+
+    // Warehouse to PostgreSQL
+    {from: 'warehouse_nonrel', to: 'postgresql', label: 'ETL pipeline', labelSide: 'left'},
+
+    // PostgreSQL to warehouse icon
+    {from: 'postgresql', to: 'warehouse_rel', label: 'Data warehouse\n(relational)'},
+
+    // Warehouse to sklearn (synthetic generation)
+    {from: 'warehouse_rel', to: 'sklearn1', label: 'Synthetic data\ngeneration with\ncustom algorithm\n(KNN-based)', labelSide: 'left'},
+
+    // sklearn to synthetic data
+    {from: 'sklearn1', to: 'synthetic_data', label: 'Synthetic data'},
+
+    // Synthetic data splits to sklearn and tableau
+    {from: 'synthetic_data', to: 'sklearn2', label: ''},
+    {from: 'synthetic_data', to: 'tableau', label: ''},
+
+    // sklearn to ML models
+    {from: 'sklearn2', to: 'ml_models', label: 'ML models'},
+
+    // Tableau to dashboards
+    {from: 'tableau', to: 'dashboards', label: 'Dashboards'},
+
+    // ML models to dashboards (horizontal arrow)
+    {from: 'ml_models', to: 'dashboards', label: '', isHorizontal: true}
+  ]
+});
+</script>
 
 ### How it Works
 
