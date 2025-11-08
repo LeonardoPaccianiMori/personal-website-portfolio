@@ -73,7 +73,7 @@ You can filter by location, property type, energy rating, and more to explore di
 
 A few things that surprised me:
 
-- **Auction properties are way more profitable** (this is not the surprising part)**, even when accounting for significant renovation costs** (this is the surprising bit): they're often 30%+ cheaper than regular sales, which leads to significantly higher returns.
+- **Auction properties are way more profitable** (this is not the surprising part)**, even when accounting for significant renovation costs** (this is the surprising bit): they're often 30%+ cheaper than regular sales, which leads to significantly higher returns even after spending a significant amount of money in renovations.
 - **Energy efficiency doesn't matter as much as you'd think**. Lower-rated properties cost less but rent for almost the same as high-rated ones. The market doesn't seem to value it much.
 - **Rural outperforms urban**. Rural properties show higher returns even with extra maintenance factored in.
 - **No clear north/south divide**. I expected southern Italy to be cheaper and northern to be more expensive, but profitable deals exist in both.

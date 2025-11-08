@@ -4,12 +4,14 @@ title: Why I Built a Custom Synthetic Data Algorithm Instead of Using CTGAN
 date: 2025-05-15 09:00:00
 description: When off-the-shelf ML isn't enough—designing a KNN-based synthetic data generator that preserves feature correlations
 tags: machine-learning synthetic-data algorithms
-categories: data-science
+categories: [data-science, learning]
 # thumbnail: assets/img/blog/synthetic-data/thumbnail.jpg 
 featured: true
 ---
 
 ## The Problem: 1 Million Synthetic Real Estate Listings
+
+> **Note**: The generative modeling concepts explored in this post—variational inference, latent space manipulation, and adversarial training—became foundational to my later work on [graph-based recipe generation](/projects/recipe-generator), where I apply similar techniques to a more complex structured data domain.
 
 For my [Italian Real Estate Analysis project](/projects/italian-real-estate/), I needed to generate synthetic data. A lot of it.
 
