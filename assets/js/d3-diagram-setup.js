@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Italian Real Estate Project Structure Diagram
 function initItalianRealEstateStructureDiagram(container) {
-  const width = container.offsetWidth || 800;
-  const height = 1400;
+  const width = container.offsetWidth || 600;
+  const height = 1600;
 
   const svg = d3.select(container)
     .append('svg')
@@ -31,7 +31,7 @@ function initItalianRealEstateStructureDiagram(container) {
     .attr('viewBox', `0 0 ${width} ${height}`)
     .attr('preserveAspectRatio', 'xMidYMid meet');
 
-  // Define arrow marker
+  // Define arrow marker (filled)
   svg.append('defs')
     .append('marker')
     .attr('id', 'arrowhead')
@@ -47,67 +47,86 @@ function initItalianRealEstateStructureDiagram(container) {
   // Calculate center position
   const centerX = width / 2;
 
-  // Define nodes with positions
+  // Define nodes with positions matching the original diagram
   const nodes = [
-    // Top: immobiliare.it
-    { id: 'immobiliare', x: centerX, y: 50, label: 'immobiliare.it', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 60 },
+    // Row 1: immobiliare.it logo + "Web scraping" text + Airflow logo
+    { id: 'immobiliare', x: centerX, y: 60, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 120, height: 40 },
+    { id: 'airflow1', x: centerX + 150, y: 60, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 80, height: 40 },
 
-    // Airflow 1
-    { id: 'airflow1', x: centerX + 120, y: 100, label: 'Apache Airflow', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
+    // Row 2: MongoDB logo + datalake icon
+    { id: 'mongodb1', x: centerX, y: 180, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 120, height: 40 },
+    { id: 'datalake', x: centerX, y: 250, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 50 },
 
-    // MongoDB Datalake
-    { id: 'mongodb_datalake', x: centerX, y: 200, label: 'MongoDB\nData lake', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 60 },
-    { id: 'datalake_icon', x: centerX, y: 280, label: '', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
+    // Row 3: "ETL pipeline" text + Airflow logo
+    { id: 'airflow2', x: centerX + 150, y: 380, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 80, height: 40 },
 
-    // Airflow 2
-    { id: 'airflow2', x: centerX + 120, y: 380, label: 'Apache Airflow', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
+    // Row 4: MongoDB logo + warehouse icon
+    { id: 'mongodb2', x: centerX, y: 510, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 120, height: 40 },
+    { id: 'warehouse_nonrel', x: centerX, y: 590, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 50 },
 
-    // MongoDB Warehouse
-    { id: 'mongodb_warehouse', x: centerX, y: 480, label: 'MongoDB\nData warehouse\n(non-relational)', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 60 },
-    { id: 'warehouse_icon', x: centerX, y: 570, label: '', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
+    // Row 5: "ETL pipeline" text + Airflow logo
+    { id: 'airflow3', x: centerX + 150, y: 720, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 80, height: 40 },
 
-    // Airflow 3
-    { id: 'airflow3', x: centerX + 120, y: 670, label: 'Apache Airflow', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
+    // Row 6: PostgreSQL logo + warehouse icon
+    { id: 'postgresql', x: centerX, y: 850, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 120, height: 40 },
+    { id: 'warehouse_rel', x: centerX, y: 930, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 50 },
 
-    // PostgreSQL
-    { id: 'postgresql', x: centerX, y: 770, label: 'PostgreSQL', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 60 },
-    { id: 'postgres_warehouse', x: centerX, y: 860, label: 'Data warehouse\n(relational)', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
+    // Row 7: "Synthetic data generation" text (left) + scikit-learn logo (right)
+    { id: 'sklearn1', x: centerX + 100, y: 1060, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 80, height: 60 },
 
-    // Synthetic data generation
-    { id: 'synthetic_gen', x: centerX - 100, y: 960, label: 'Synthetic data\ngeneration with\ncustom algorithm\n(KNN-based)', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
-    { id: 'sklearn_gen', x: centerX + 100, y: 960, label: 'scikit-learn', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
+    // Row 8: Document/data icon
+    { id: 'synthetic_data', x: centerX, y: 1180, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 50 },
 
-    // Synthetic data output
-    { id: 'synthetic_data', x: centerX, y: 1080, label: 'Synthetic data', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
+    // Row 9: scikit-learn logo (left) + Tableau logo (right)
+    { id: 'sklearn2', x: centerX - 200, y: 1310, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 80, height: 60 },
+    { id: 'tableau', x: centerX + 120, y: 1310, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 100, height: 40 },
 
-    // Bottom branches
-    { id: 'sklearn_ml', x: centerX - 150, y: 1200, label: 'scikit-learn', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
-    { id: 'tableau', x: centerX + 150, y: 1200, label: 'Tableau', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
-
-    // Final outputs
-    { id: 'ml_models', x: centerX - 150, y: 1320, label: 'ML models', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 },
-    { id: 'dashboards', x: centerX + 150, y: 1320, label: 'Dashboards', icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 50, height: 50 }
+    // Row 10: ML models icon (left) + arrow + Dashboards icon (right)
+    { id: 'ml_models', x: centerX - 200, y: 1480, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 60 },
+    { id: 'dashboards', x: centerX + 120, y: 1480, icon: 'assets/img/projects/italian-real-estate/placeholder.jpg', width: 60, height: 60 }
   ];
 
-  // Define edges
+  // Define edges (arrows between nodes)
   const edges = [
-    { from: 'immobiliare', to: 'mongodb_datalake', label: 'Web scraping' },
-    { from: 'mongodb_datalake', to: 'datalake_icon', label: '' },
-    { from: 'datalake_icon', to: 'mongodb_warehouse', label: 'ETL pipeline' },
-    { from: 'mongodb_warehouse', to: 'warehouse_icon', label: '' },
-    { from: 'warehouse_icon', to: 'postgresql', label: 'ETL pipeline' },
-    { from: 'postgresql', to: 'postgres_warehouse', label: '' },
-    { from: 'postgres_warehouse', to: 'synthetic_gen', label: '' },
-    { from: 'postgres_warehouse', to: 'sklearn_gen', label: '' },
-    { from: 'synthetic_gen', to: 'synthetic_data', label: '' },
-    { from: 'sklearn_gen', to: 'synthetic_data', label: '' },
-    { from: 'synthetic_data', to: 'sklearn_ml', label: '' },
+    // Top to MongoDB datalake
+    { from: 'immobiliare', to: 'mongodb1', label: 'Web scraping', labelSide: 'left' },
+
+    // MongoDB to datalake icon
+    { from: 'mongodb1', to: 'datalake', label: 'Data lake' },
+
+    // Datalake to MongoDB warehouse
+    { from: 'datalake', to: 'mongodb2', label: 'ETL pipeline', labelSide: 'left' },
+
+    // MongoDB warehouse to warehouse icon
+    { from: 'mongodb2', to: 'warehouse_nonrel', label: 'Data warehouse\n(non-relational)' },
+
+    // Warehouse to PostgreSQL
+    { from: 'warehouse_nonrel', to: 'postgresql', label: 'ETL pipeline', labelSide: 'left' },
+
+    // PostgreSQL to warehouse icon
+    { from: 'postgresql', to: 'warehouse_rel', label: 'Data warehouse\n(relational)' },
+
+    // Warehouse to sklearn (synthetic generation)
+    { from: 'warehouse_rel', to: 'sklearn1', label: 'Synthetic data\ngeneration with\ncustom algorithm\n(KNN-based)', labelSide: 'left' },
+
+    // sklearn to synthetic data
+    { from: 'sklearn1', to: 'synthetic_data', label: 'Synthetic data' },
+
+    // Synthetic data splits to sklearn and tableau
+    { from: 'synthetic_data', to: 'sklearn2', label: '' },
     { from: 'synthetic_data', to: 'tableau', label: '' },
-    { from: 'sklearn_ml', to: 'ml_models', label: '' },
-    { from: 'tableau', to: 'dashboards', label: '' }
+
+    // sklearn to ML models
+    { from: 'sklearn2', to: 'ml_models', label: 'ML models' },
+
+    // Tableau to dashboards
+    { from: 'tableau', to: 'dashboards', label: 'Dashboards' },
+
+    // ML models to dashboards (horizontal arrow)
+    { from: 'ml_models', to: 'dashboards', label: '', isHorizontal: true }
   ];
 
-  // Draw edges
+  // Draw edges first (so they appear behind nodes)
   const edgeGroup = svg.append('g').attr('class', 'edges');
 
   edges.forEach(edge => {
@@ -115,33 +134,52 @@ function initItalianRealEstateStructureDiagram(container) {
     const toNode = nodes.find(n => n.id === edge.to);
 
     if (fromNode && toNode) {
-      // Draw line
-      edgeGroup.append('line')
-        .attr('x1', fromNode.x)
-        .attr('y1', fromNode.y + fromNode.height / 2)
-        .attr('x2', toNode.x)
-        .attr('y2', toNode.y - toNode.height / 2)
-        .attr('stroke', '#000')
-        .attr('stroke-width', 2)
-        .attr('marker-end', 'url(#arrowhead)');
+      const fromY = fromNode.y + fromNode.height / 2;
+      const toY = toNode.y - toNode.height / 2;
 
-      // Draw label if exists
-      if (edge.label) {
-        const midX = (fromNode.x + toNode.x) / 2;
-        const midY = (fromNode.y + fromNode.height / 2 + toNode.y - toNode.height / 2) / 2;
+      if (edge.isHorizontal) {
+        // Horizontal arrow
+        edgeGroup.append('line')
+          .attr('x1', fromNode.x + fromNode.width / 2)
+          .attr('y1', fromNode.y)
+          .attr('x2', toNode.x - toNode.width / 2)
+          .attr('y2', toNode.y)
+          .attr('stroke', '#000')
+          .attr('stroke-width', 3)
+          .attr('marker-end', 'url(#arrowhead)');
+      } else {
+        // Vertical arrow
+        edgeGroup.append('line')
+          .attr('x1', fromNode.x)
+          .attr('y1', fromY)
+          .attr('x2', toNode.x)
+          .attr('y2', toY)
+          .attr('stroke', '#000')
+          .attr('stroke-width', 3)
+          .attr('marker-end', 'url(#arrowhead)');
 
-        edgeGroup.append('text')
-          .attr('x', midX + 10)
-          .attr('y', midY)
-          .attr('text-anchor', 'start')
-          .attr('font-size', '12px')
-          .attr('fill', '#000')
-          .text(edge.label);
+        // Draw label if exists
+        if (edge.label) {
+          const midY = (fromY + toY) / 2;
+          const labelX = edge.labelSide === 'left' ? fromNode.x - 80 : fromNode.x + 80;
+          const lines = edge.label.split('\n');
+
+          lines.forEach((line, i) => {
+            edgeGroup.append('text')
+              .attr('x', labelX)
+              .attr('y', midY + (i * 16) - ((lines.length - 1) * 8))
+              .attr('text-anchor', 'middle')
+              .attr('font-size', '13px')
+              .attr('font-family', 'Inter, sans-serif')
+              .attr('fill', '#000')
+              .text(line);
+          });
+        }
       }
     }
   });
 
-  // Draw nodes
+  // Draw nodes on top
   const nodeGroup = svg.append('g').attr('class', 'nodes');
 
   nodes.forEach(node => {
@@ -154,23 +192,7 @@ function initItalianRealEstateStructureDiagram(container) {
       .attr('width', node.width)
       .attr('height', node.height)
       .attr('x', 0)
-      .attr('y', 0);
-
-    // Add label if exists
-    if (node.label) {
-      const lines = node.label.split('\n');
-      const textGroup = nodeContainer.append('g')
-        .attr('transform', `translate(${node.width / 2}, ${node.height + 15})`);
-
-      lines.forEach((line, i) => {
-        textGroup.append('text')
-          .attr('y', i * 14)
-          .attr('text-anchor', 'middle')
-          .attr('font-size', '12px')
-          .attr('font-family', 'Inter, sans-serif')
-          .attr('fill', '#000')
-          .text(line);
-      });
-    }
+      .attr('y', 0)
+      .style('object-fit', 'contain');
   });
 }
