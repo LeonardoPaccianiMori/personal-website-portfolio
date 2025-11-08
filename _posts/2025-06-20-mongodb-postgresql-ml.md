@@ -591,12 +591,12 @@ Full pipeline implementation in my [Italian Real Estate repository](https://gith
 
 ---
 
-## Key Takeaways
+## What I Learned
 
-1. **Multi-database architectures are valid** - Don't feel obligated to use just one database
-2. **Match database to data maturity** - Flexible (MongoDB) for exploration, rigid (PostgreSQL) for production
-3. **ETL is where the magic happens** - Transform data to fit the right tool at each stage
-4. **Normalization matters for ML** - Clean, typed, non-redundant data = better models
-5. **Start simple, evolve based on needs** - Don't over-architect upfront
+The big lesson: you don't have to use just one database. I felt obligated to pick MongoDB OR PostgreSQL and stick with it, but using both - at different stages - worked way better. Match the database to your data maturity: flexible schema (MongoDB) when you're still figuring things out, rigid schema (PostgreSQL) when you know what you need.
 
-What database architecture have you used for ML projects? Have you found multi-database pipelines useful? Share your experiences!
+ETL is where the real work happens. The databases themselves are just storage - the value comes from transforming the data to fit the right tool at each stage. Extraction was straightforward (BeautifulSoup), but the transformation step (cleaning, typing, normalizing) took the most time and had the biggest impact on model performance.
+
+Normalization matters more for ML than I expected. Having clean, typed, non-redundant data in PostgreSQL meant fewer data quality issues during feature engineering. The snowflake schema forced me to think through relationships upfront, which caught inconsistencies that would have broken the model later.
+
+Also learned not to over-architect upfront. I started with a simple MongoDB dump of raw HTML, then evolved to a warehouse structure, then migrated to PostgreSQL. If I'd tried to design the "perfect" database schema on day one, I would have gotten it wrong because I didn't understand the data yet.
