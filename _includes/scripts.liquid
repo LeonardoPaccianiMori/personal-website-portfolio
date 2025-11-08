@@ -49,6 +49,17 @@
   <script defer src="{{ '/assets/js/mermaid-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
+{% if page.d3_diagram %}
+  <!-- D3.js for custom diagrams -->
+  <script
+    defer
+    src="{{ site.third_party_libraries.d3.url.js }}"
+    integrity="{{ site.third_party_libraries.d3.integrity.js }}"
+    crossorigin="anonymous"
+  ></script>
+  <script defer src="{{ '/assets/js/d3-diagram-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
+{% endif %}
+
 {% if page.code_diff %}
   <!-- Diff2HTML -->
   <!-- diff2html doesn't go well with Bootstrap Table -->
