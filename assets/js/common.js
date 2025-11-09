@@ -8,6 +8,7 @@ $(document).ready(function () {
     Toc.init($myNav);
     $("body").scrollspy({
       target: navSelector,
+      offset: 100,
     });
   }
 

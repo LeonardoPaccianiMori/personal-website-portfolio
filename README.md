@@ -1,259 +1,333 @@
-# Personal Data Science Portfolio
+# al-folio
 
-**A customized fork of [al-folio](https://github.com/alshedivat/al-folio) adapted for industry data science professionals.**
+<div align="center">
 
-This repository is a heavily modified version of the al-folio Jekyll theme, transformed from an academic portfolio into a professional data science portfolio. This README documents all intentional deviations from the upstream repository to guide merge decisions when pulling updates.
+[![Preview](readme_preview/al-folio-preview.png)](https://alshedivat.github.io/al-folio/)
 
----
-
-## Purpose of This Document
-
-**For LLM Agents and Future Maintainers:**
-
-This README serves as a **merge decision guide** when applying commits from the upstream al-folio repository. When reviewing upstream changes:
-
-1. **Skip changes** to deleted files/features (documented below)
-2. **Apply changes** to core infrastructure (Jekyll, dependencies, bug fixes)
-3. **Evaluate changes** to modified files against the customizations documented here
+**A simple, clean, and responsive [Jekyll](https://jekyllrb.com/) theme for academics.**
 
 ---
 
-## Repository Transformation Summary
+[![deploy](https://github.com/alshedivat/al-folio/actions/workflows/deploy.yml/badge.svg)](https://github.com/alshedivat/al-folio/actions/workflows/deploy.yml)
+[![Maintainers](https://img.shields.io/badge/maintainers-4-success.svg)](#maintainers)
+[![GitHub contributors](https://img.shields.io/github/contributors/alshedivat/al-folio.svg)](https://github.com/alshedivat/al-folio/graphs/contributors/)
+[![Docker Image Version](https://img.shields.io/docker/v/amirpourmand/al-folio?sort=semver&label=docker%20image&color=blueviolet)](https://hub.docker.com/r/amirpourmand/al-folio)
+[![Docker Image Size](https://img.shields.io/docker/image-size/amirpourmand/al-folio?sort=date&label=docker%20image%20size&color=blueviolet)](https://hub.docker.com/r/amirpourmand/al-folio)
+[![Docker Pulls](https://img.shields.io/docker/pulls/amirpourmand/al-folio?color=blueviolet)](https://hub.docker.com/r/amirpourmand/al-folio)
 
-**Original:** Academic portfolio theme (publications, CV, teaching, etc.)
-**Modified:** Professional data science portfolio (projects, blog, bookshelf)
+[![GitHub release](https://img.shields.io/github/v/release/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/releases/latest)
+[![GitHub license](https://img.shields.io/github/license/alshedivat/al-folio?color=blue)](https://github.com/alshedivat/al-folio/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/fork)
 
-**Target Audience:** Senior-level data scientists in industry
-**Content Strategy:** Portfolio projects + technical blog (3-4 posts/year) + book recommendations
+</div>
+
+## User community
+
+The vibrant community of **al-folio** users is growing!
+Academics around the world use this theme for their homepages, blogs, lab pages, as well as webpages for courses, workshops, conferences, meetups, and more.
+Check out the community webpages below.
+Feel free to add your own page(s) by sending a PR.
+
+<table>
+<tr>
+<td>Academics</td>
+<td>
+<a href="https://martinbulla.github.io" target="_blank">★</a>
+<a href="https://maruan.alshedivat.com" target="_blank">★</a>
+<a href="https://www.cs.columbia.edu/~chen1ru/" target="_blank">★</a>
+<a href="https://maithraraghu.com" target="_blank">★</a>
+<a href="https://platanios.org" target="_blank">★</a>
+<a href="https://otiliastr.github.io" target="_blank">★</a>
+<a href="https://www.maths.dur.ac.uk/~sxwc62/" target="_blank">★</a>
+<a href="https://jessachandler.com/" target="_blank">★</a>
+<a href="https://mayankm96.github.io/" target="_blank">★</a>
+<a href="https://markdean.info/" target="_blank">★</a>
+<a href="https://kakodkar.github.io/" target="_blank">★</a>
+<a href="https://sahirbhatnagar.com/" target="_blank">★</a>
+<a href="https://spd.gr/" target="_blank">★</a>
+<a href="https://jay-sarkar.github.io/" target="_blank">★</a>
+<a href="https://aborowska.github.io/" target="_blank">★</a>
+<a href="https://aditisgh.github.io/" target="_blank">★</a>
+<a href="https://alexhaydock.co.uk/" target="_blank">★</a>
+<a href="https://alixkeener.net/" target="_blank">★</a>
+<a href="https://andreea7b.github.io/" target="_blank">★</a>
+<a href="https://rishabhjoshi.github.io/" target="_blank">★</a>
+<a href="https://sheelabhadra.github.io/" target="_blank">★</a>
+<a href="https://giograno.me/" target="_blank">★</a>
+<a href="https://immsrini.github.io/" target="_blank">★</a>
+<a href="https://apooladian.github.io/" target="_blank">★</a>
+<a href="https://chinmoy-dutta.github.io/" target="_blank">★</a>
+<a href="https://liamcli.com/" target="_blank">★</a>
+<a href="https://yoonholee.com/" target="_blank">★</a>
+<a href="https://zrqiao.github.io/" target="_blank">★</a>
+<a href="https://abstractgeek.github.io/" target="_blank">★</a>
+<a href="https://www.compphys.de/" target="_blank">★</a>
+<a href="https://julianstreyczek.github.io" target="_blank">★</a>
+<a href="https://sdaza.com" target="_blank">★</a>
+<a href="https://niweera.gq" target="_blank">★</a>
+<a href="https://www.alihkw.com" target="_blank">★</a>
+<a href="https://amirpourmand.ir" target="_blank">★</a>
+<a href="https://scottleechua.github.io" target="_blank">★</a>
+<a href="https://sk1y101.github.io" target="_blank">★</a>
+<a href="https://yyang768osu.github.io" target="_blank">★</a>
+<a href="https://veedata.github.io" target="_blank">★</a>
+<a href="https://K-Wu.github.io" target="_blank">★</a>
+<a href="https://amalawilson.com" target="_blank">★</a>
+<a href="https://tirtharajdash.github.io" target="_blank">★</a>
+<a href="https://carolinacarreira.github.io" target="_blank">★</a>
+<a href="https://manandey.github.io" target="_blank">★</a>
+<a href="https://johanneshoerner.github.io" target="_blank">★</a>
+<a href="https://ioannismavromatis.com" target="_blank">★</a>
+<a href="https://taidnguyen.github.io" target="_blank">★</a>
+<a href="https://lbugnon.github.io" target="_blank">★</a>
+<a href="https://joahannes.github.io" target="_blank">★</a>
+<a href="https://dominikstrb.github.io" target="_blank">★</a>
+<a href="https://tylerbarna.com" target="_blank">★</a>
+<a href="https://daviddmc.github.io/" target="_blank">★</a>
+<a href="https://andreaskuster.ch/" target="_blank">★</a>
+<a href="https://ellisbrown.github.io/" target="_blank">★</a>
+<a href="https://djherron.github.io/" target="_blank">★</a>
+<a href="https://rodosingh.github.io/" target="_blank">★</a>
+<a href="https://vdivakar.github.io/" target="_blank">★</a>
+<a href="https://george-gca.github.io/" target="_blank">★</a>
+<a href="https://bashirkazimi.github.io/" target="_blank">★</a>
+<a href="https://dohaison.github.io/" target="_blank">★</a>
+<a href="https://raphaaal.github.io/" target="_blank">★</a>
+<a href="https://varuniyer.info/" target="_blank">★</a>
+<a href="https://yukimasano.github.io/" target="_blank">★</a>
+<a href="https://hashe037.github.io/" target="_blank">★</a>
+<a href="https://wang-boyu.github.io/" target="_blank">★</a>
+<a href="https://qingqingchen.info" target="_blank">★</a>
+<a href="https://bajinsheng.github.io/" target="_blank">★</a>
+<a href="https://www.silviofanzon.com/" target="_blank">★</a>
+<a href="https://kaikaiyao.github.io/" target="_blank">★</a>
+<a href="https://alchemz.github.io/" target="_blank">★</a>
+<a href="https://samadamday.com/" target="_blank">★</a>
+<a href="https://fanpu.io/" target="_blank">★</a>
+<a href="https://abigalekim.github.io/" target="_blank">★</a>
+<a href="https://lucasresck.github.io/" target="_blank">★</a>
+<a href="https://users.wpi.edu/~lfichera/" target="_blank">★</a>
+<a href="https://anmspro.github.io/" target="_blank">★</a>
+<a href="https://berlyne.net/" target="_blank">★</a>
+<a href="https://filippomazzoli.github.io/" target="_blank">★</a>
+<a href="https://www.escontrela.me/" target="_blank">★</a>
+<a href="https://raffaem.github.io/" target="_blank">★</a>
+<a href="https://cbueth.de/" target="_blank">★</a>
+<a href="https://kyleaoman.github.io/" target="_blank">★</a>
+<a href="https://decwest.github.io/" target="_blank">★</a>
+<a href="https://www.jedburkat.com" target="_blank">★</a>
+<a href="https://hrzhang.me" target="_blank">★</a>
+<a href="https://kudhru.github.io/" target="_blank">★</a>
+<a href="https://mbarbetti.github.io/" target="_blank">★</a>
+<a href="https://www.zhivotenko.com/" target="_blank">★</a>
+<a href="https://giordanodaloisio.github.io/" target="_blank">★</a>
+<a href="https://aadityaura.github.io/" target="_blank">★</a>
+<a href="https://abhinav-mehta.github.io/" target="_blank">★</a>
+<a href="https://shubhashisroydipta.com/" target="_blank">★</a>
+<a href="https://astanziola.github.io" target="_blank">★</a>
+<a href="https://tinkerer.in" target="_blank">★</a>
+<a href="https://sam-bieberich.github.io/" target="_blank">★</a>
+<a href="https://afraniomelo.github.io/en/" target="_blank">★</a>
+<a href="https://jonaruthardt.github.io" target="_blank">★</a>
+<a href="https://www.zla.app/" target="_blank">★</a>
+<a href="https://stavros.github.io" target="_blank">★</a>
+<a href="https://ericslyman.com" target="_blank">★</a>
+<a href="https://ztjona.github.io/" target="_blank">★</a>
+<a href="https://chrischoi314.github.io" target="_blank">★</a>
+<a href="https://riccobelli.faculty.polimi.it" target="_blank">★</a>
+<a href="https://kishanved.tech/" target="_blank">★</a>
+<a href="https://abhilesh.github.io/" target="_blank">★</a>
+<a href="https://jackjburnett.github.io/" target="_blank">★</a>
+<a href="https://physics-morris.github.io/" target="_blank">★</a>
+<a href="https://sraf.ir" target="_blank">★</a>
+<a href="https://acad.garywei.dev/" target="_blank">★</a>
+<a href="https://tonideleo.github.io/" target="_blank">★</a>
+<a href="https://alonkellner.com/" target="_blank">★</a>
+<a href="https://berylbir.github.io/" target="_blank">★</a>
+<a href="https://thefermi0n.github.io/" target="_blank">★</a>
+<a href="https://mingsun-kaust.github.io/" target="_blank">★</a>
+<a href="https://hdocmsu.github.io/" target="_blank">★</a>
+<a href="https://trandangtrungduc.github.io/" target="_blank">★</a>
+<a href="https://kinghowler.github.io/" target="_blank">★</a>
+<a href="https://anurye.github.io/" target="_blank">★</a>
+<a href="https://charlie-xiao.github.io/" target="_blank">★</a>
+<a href="https://giuseppeperelli.github.io/" target="_blank">★</a>
+<a href="https://shlee-lab.github.io/" target="_blank">★</a>
+<a href="https://devos50.github.io/" target="_blank">★</a>
+<a href="https://vmooers.github.io/" target="_blank">★</a>
+<a href="https://jpfonseca.github.io/" target="_blank">★</a>
+<a href="https://dmitryryumin.github.io/" target="_blank">★</a>
+<a href="https://alexiglad.github.io/" target="_blank">★</a>
+<a href="https://nishanthjkumar.com/" target="_blank">★</a>
+<a href="https://joszuijderwijk.nl/" target="_blank">★</a>
+<a href="https://d-jiao.github.io/" target="_blank">★</a>
+<a href="https://cbuelt.github.io/" target="_blank">★</a>
+<a href="https://mehrdad-noori.github.io/" target="_blank">★</a>
+<a href="https://arthurclerjon.github.io/" target="_blank">★</a>
+<a href="https://eilamshapira.com/" target="_blank">★</a>
+<a href="https://freifrauvonbleifrei.github.io/" target="_blank">★</a>
+<a href="https://thomasbourke1.github.io/" target="_blank">★</a>
+<a href="https://siddharthsule.com/" target="_blank">★</a>
+</td>
+</tr>
+<tr>
+<td>Labs</td>
+<td>
+<a href="https://www.haylab.caltech.edu/" target="_blank">★</a>
+<a href="https://sjkimlab.github.io/" target="_blank">★</a>
+<a href="https://systemconsultantgroup.github.io/scg-folio/" target="_blank">★</a>
+<a href="https://decisionlab.ucsf.edu/" target="_blank">★</a>
+<a href="https://programming-group.com/" target="_blank">★</a>
+<a href="https://sailing-lab.github.io/" target="_blank">★</a>
+<a href="https://inbt.jhu.edu/epidiagnostics/" target="_blank">★</a>
+<a href="https://www.nuesl.org/" target="_blank">★</a>
+<a href="https://big-culture.github.io/" target="_blank">★</a>
+<a href="https://martinbulla.github.io/bullab/" target="_blank">★</a>  
+<a href="https://gpforesteyes.github.io/" target="_blank">★</a>
+</td>
+</tr>
+<tr>
+<td>Courses</td>
+<td>
+CMU PGM (<a href="https://sailinglab.github.io/pgm-spring-2019/" target="_blank">S-19</a>) <br>
+CMU DeepRL (<a href="https://cmudeeprl.github.io/403_website/" target="_blank">S-21</a>, <a href="https://cmudeeprl.github.io/703website_f21/" target="_blank">F-21</a>, <a href="https://cmudeeprl.github.io/403website_s22/" target="_blank">S-22</a>, <a href="https://cmudeeprl.github.io/703website_f22/" target="_blank">F-22</a>, <a href="https://cmudeeprl.github.io/403website_s23/" target="_blank">S-23</a>, <a href="https://cmudeeprl.github.io/703website_f23/" target="_blank">F-23</a>) <br>
+CMU MMML (<a href="https://cmu-multicomp-lab.github.io/mmml-course/fall2020/" target="_blank">F-20</a>, <a href="https://cmu-multicomp-lab.github.io/mmml-course/fall2022/" target="_blank">F-22</a>) <br>
+CMU AMMML (<a href="https://cmu-multicomp-lab.github.io/adv-mmml-course/spring2022/" target="_blank">S-22</a>, <a href="https://cmu-multicomp-lab.github.io/adv-mmml-course/spring2023/" target="_blank">S-23</a>) <br>
+CMU ASI (<a href="https://cmu-multicomp-lab.github.io/asi-course/spring2023/" target="_blank">S-23</a>) <br>
+CMU Distributed Systems (<a href="https://andrew.cmu.edu/course/15-440/" target="_blank">S-24</a>)
+</td>
+</tr>
+<tr>
+<td>Conferences & workshops</td>
+<td>
+ICLR Blog Post Track (<a href="https://iclr-blogposts.github.io/2023/" target="_blank">2023</a>, <a href="https://iclr-blogposts.github.io/2024/about" target="_blank">2024</a>) <br>
+ML Retrospectives (NeurIPS: <a href="https://ml-retrospectives.github.io/neurips2019/" target="_blank">2019</a>, <a href="https://ml-retrospectives.github.io/neurips2020/" target="_blank">2020</a>; ICML: <a href="https://ml-retrospectives.github.io/icml2020/" target="_blank">2020</a>) <br>
+HAMLETS (NeurIPS: <a href="https://hamlets-workshop.github.io/" target="_blank">2020</a>) <br>
+ICBINB (NeurIPS: <a href="https://i-cant-believe-its-not-better.github.io/" target="_blank">2020</a>, <a href="https://i-cant-believe-its-not-better.github.io/neurips2021/" target="_blank">2021</a>) <br>
+Neural Compression (ICLR: <a href="https://neuralcompression.github.io/" target="_blank">2021</a>) <br>
+Score Based Methods (NeurIPS: <a href="https://score-based-methods-workshop.github.io/" target="_blank">2022</a>)<br>
+Images2Symbols (CogSci: <a href="https://images2symbols.github.io/" target="_blank"> 2022</a>) <br>
+Medical Robotics Junior Faculty Forum (ISMR: <a href="https://junior-forum-ismr.github.io/" target="_blank"> 2023</a>)<br>
+Beyond Vision: Physics meets AI (ICIAP: <a href="https://physicsmeetsai.github.io/beyond-vision/" target="_blank">2023</a>) <br>
+Workshop on Diffusion Models (NeurIPS: <a href="https://diffusionworkshop.github.io/" target="_blank">2023</a>) <br>
+Workshop on Structured Probabilistic Inference & Generative Modeling (ICML: <a href="https://spigmworkshop.github.io/" target="_blank">2023</a>, <a href="https://spigmworkshop2024.github.io/" target="_blank">2024</a>)
+</td>
+</tr>
+</table>
+
+## Lighthouse PageSpeed Insights
+
+### Desktop
+
+[![Google Lighthouse PageSpeed Insights](lighthouse_results/desktop/pagespeed.svg)](https://htmlpreview.github.io/?https://github.com/alshedivat/al-folio/blob/main/lighthouse_results/desktop/alshedivat_github_io_al_folio_.html)
+
+Run the test yourself: [Google Lighthouse PageSpeed Insights](https://pagespeed.web.dev/report?url=https%3A%2F%2Falshedivat.github.io%2Fal-folio%2F&form_factor=desktop)
+
+### Mobile
+
+[![Google Lighthouse PageSpeed Insights](lighthouse_results/mobile/pagespeed.svg)](https://htmlpreview.github.io/?https://github.com/alshedivat/al-folio/blob/main/lighthouse_results/mobile/alshedivat_github_io_al_folio_.html)
+
+Run the test yourself: [Google Lighthouse PageSpeed Insights](https://pagespeed.web.dev/report?url=https%3A%2F%2Falshedivat.github.io%2Fal-folio%2F&form_factor=mobile)
+
+## Table Of Contents
+
+<!--ts-->
+
+- [al-folio](#al-folio)
+  - [User community](#user-community)
+  - [Lighthouse PageSpeed Insights](#lighthouse-pagespeed-insights)
+    - [Desktop](#desktop)
+    - [Mobile](#mobile)
+  - [Table Of Contents](#table-of-contents)
+  - [Getting started](#getting-started)
+  - [Installing and Deploying](#installing-and-deploying)
+  - [Customizing](#customizing)
+  - [Features](#features)
+    - [Light/Dark Mode](#lightdark-mode)
+    - [CV](#cv)
+    - [People](#people)
+    - [Publications](#publications)
+    - [Collections](#collections)
+    - [Layouts](#layouts)
+      - [The iconic style of Distill](#the-iconic-style-of-distill)
+      - [Full support for math &amp; code](#full-support-for-math--code)
+      - [Photos, Audio, Video and more](#photos-audio-video-and-more)
+    - [Other features](#other-features)
+      - [GitHub's repositories and user stats](#githubs-repositories-and-user-stats)
+      - [Theming](#theming)
+      - [Social media previews](#social-media-previews)
+      - [Atom (RSS-like) Feed](#atom-rss-like-feed)
+      - [Related posts](#related-posts)
+      - [Code quality checks](#code-quality-checks)
+  - [FAQ](#faq)
+  - [Contributing](#contributing)
+    - [Maintainers](#maintainers)
+    - [All Contributors](#all-contributors)
+  - [Star History](#star-history)
+  - [License](#license)
+  <!--te-->
+
+## Getting started
+
+Want to learn more about Jekyll? Check out [this tutorial](https://www.taniarascia.com/make-a-static-website-with-jekyll/). Why Jekyll? Read [Andrej Karpathy's blog post](https://karpathy.github.io/2014/07/01/switching-to-jekyll/)! Why write a blog? Read [Rachel Thomas blog post](https://medium.com/@racheltho/why-you-yes-you-should-blog-7d2544ac1045).
+
+## Installing and Deploying
+
+For installation and deployment details please refer to [INSTALL.md](INSTALL.md).
+
+## Customizing
+
+For customization details please refer to [CUSTOMIZE.md](CUSTOMIZE.md).
+
+## Features
+
+### Light/Dark Mode
+
+This template has a built-in light/dark mode. It detects the user preferred color scheme and automatically switches to it. You can also manually switch between light and dark mode by clicking on the sun/moon icon in the top right corner of the page.
+
+<p align="center">
+<img src="readme_preview/light.png" width=400>
+<img src="readme_preview/dark.png" width=400>
+</p>
 
 ---
 
-## Deleted Features & Files
+### CV
 
-### Academic Features (Completely Removed)
+There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in [assets/json/resume.json](assets/json/resume.json). It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in [\_data/cv.yml](_data/cv.yml). This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
 
-The following academic-focused features have been **intentionally deleted**. Skip all upstream commits that only modify these components:
+What this means is, if there is no resume data defined in [\_config.yml](_config.yml) and loaded via a json file, it will load the contents of [\_data/cv.yml](_data/cv.yml) as fallback.
 
-#### 1. Publications System
-- **Files Deleted:**
-  - `_layouts/bib.liquid` - Bibliography layout
-  - `_includes/bib_search.liquid` - Publication search
-  - `_includes/selected_papers.liquid` - Featured papers component
-  - `_bibliography/` - Directory for .bib files
-  - `_pages/publications.md` - Publications page
-  - `assets/js/bibsearch.js` - Publication search functionality
-  - `assets/bibliography/` - Bibliography assets directory
-  - `assets/fonts/scholar-icons.ttf` - Scholar icon font (TrueType)
-  - `assets/fonts/scholar-icons.woff` - Scholar icon font (WOFF)
-  - `assets/css/scholar-icons.css` - Scholar icon definitions
-
-- **Code Removed:**
-  - `_layouts/post.liquid` - Removed `related_publications` bibliography block
-  - `_layouts/page.liquid` - Removed `related_publications` bibliography block
-  - `_includes/head.liquid` - Removed scholar-icons.css stylesheet link
-  - `_includes/scripts.liquid` - Removed Altmetric and Dimensions badge scripts
-  - `assets/js/common.js` - Removed abstract/award/bibtex toggle handlers
-  - `assets/js/common.js` - Removed publications TOC filtering
-
-- **Config Removed from `_config.yml`:**
-  ```yaml
-  # Scholar configuration (lines 250-318):
-  scholar:
-    # Jekyll Scholar configuration (entire section)
-  enable_publication_badges:
-    altmetric: true
-    dimensions: true
-  filtered_bibtex_keywords:
-    # Bibtex filtering
-  max_author_limit:
-  enable_publication_thumbnails:
-
-  # Other removed settings:
-  bib_search: true  # Bibliography search
-  enable_video_embedding: false  # For bibtex entries
-  ```
-
-- **Plugins Removed from `_config.yml`:**
-  - `jekyll-scholar` (line ~203 in plugins list)
-
-- **Gems Removed from `Gemfile`:**
-  - `jekyll-scholar` (was in jekyll_plugins group)
-  - `observer` (was dependency for jekyll-scholar)
-
-- **Rationale:** No publications to showcase; industry focus rather than academic research
+[![CV Preview](readme_preview/cv.png)](https://alshedivat.github.io/al-folio/cv/)
 
 ---
 
-#### 2. CV/Resume Pages
-- **Files Deleted:**
-  - `_layouts/cv.liquid` - CV page layout
-  - `_sass/_cv.scss` - CV styling
-  - `_includes/cv/` - Entire directory (5 component files)
-  - `_includes/resume/` - Entire directory (13 component files)
-  - `_pages/cv.md` - CV page
-  - `assets/json/resume.json` - Resume data
-  - `assets/pdf/CV_*.pdf` - CV PDF files
+### People
 
-- **Config Removed from `_config.yml`:**
-  ```yaml
-  # Lines 540-560 deleted:
-  jekyll_get_json:
-    - data: resume
-  jsonresume:
-    # Resume sections list
-  ```
+You can create a people page if you want to feature more than one person. Each person can have its own short bio, profile picture, and you can also set if every person will appear at the same or opposite sides.
 
-- **Import Removed from `assets/css/main.scss`:**
-  - Line 15: `"cv"` import removed
-
-- **Plugins Removed from `_config.yml`:**
-  - `jekyll-get-json` (was on line ~192)
-
-- **Gems Removed from `Gemfile`:**
-  - `jekyll-get-json` (was in jekyll_plugins group)
-
-- **Rationale:** CV available upon request only; portfolio + LinkedIn serve this purpose
+[![People Preview](readme_preview/people.png)](https://alshedivat.github.io/al-folio/people/)
 
 ---
 
-#### 3. News/Announcements System
-- **Files Deleted:**
-  - `_includes/news.liquid` - News display component
-  - `_pages/news.md` - News archive page
-  - `_news/` - News collection directory
+### Publications
 
-- **Config Removed from `_config.yml`:**
-  ```yaml
-  # Lines 141-144 deleted from collections:
-  news:
-    defaults:
-      layout: post
-    output: true
-  ```
+Your publications' page is generated automatically from your BibTex bibliography. Simply edit [\_bibliography/papers.bib](_bibliography/papers.bib). You can also add new `*.bib` files and customize the look of your publications however you like by editing [\_pages/publications.md](_pages/publications.md). By default, the publications will be sorted by year and the most recent will be displayed first. You can change this behavior and more in the `Jekyll Scholar` section in [\_config.yml](_config.yml) file.
 
-- **Removed from `_layouts/about.liquid`:**
-  - Lines 43-49: News/announcements section
-  - Conditional check: `{% if page.announcements and page.announcements.enabled %}`
+You can add extra information to a publication, like a PDF file in the [assets/pdf/](assets/pdf/) directory and add the path to the PDF file in the BibTeX entry with the `pdf` field. Some of the supported fields are: `abstract`, `altmetric`, `arxiv`, `bibtex_show`, `blog`, `code`, `dimensions`, `doi`, `eprint`, `html`, `isbn`, `pdf`, `pmid`, `poster`, `slides`, `supp`, `video`, and `website`.
 
-- **Removed from `_pages/about.md` front matter:**
-  ```yaml
-  announcements:
-    enabled: false
-    scrollable: true
-    limit: 5
-  ```
-
-- **Rationale:** Not maintaining an announcements feed; blog serves this purpose
+[![Publications Preview](readme_preview/publications.png)](https://alshedivat.github.io/al-folio/publications/)
 
 ---
 
-#### 4. Teaching & Repositories Pages
-- **Files Deleted:**
-  - `_pages/teaching.md` - Teaching page
-  - `_pages/repositories.md` - GitHub repositories showcase
-  - `_includes/repository/` - Repository display components
+### Collections
 
-- **Rationale:** Not applicable to industry role
+This Jekyll theme implements `collections` to let you break up your work into categories. The theme comes with two default collections: `news` and `projects`. Items from the `news` collection are automatically displayed on the home page. Items from the `projects` collection are displayed on a responsive grid on projects page.
 
----
+[![Projects Preview](readme_preview/projects.png)](https://alshedivat.github.io/al-folio/projects/)
 
-#### 5. Profiles Page
-- **Files Deleted:**
-  - `_layouts/profiles.liquid` - Profiles layout
-  - `_pages/profiles.md` - Profiles page (team/lab members)
-
-- **Rationale:** Individual portfolio, not a lab/team page
-
----
-
-#### 6. Distill Layout (Interactive Papers)
-- **Files Deleted:**
-  - `_layouts/distill.liquid` - Distill.pub-style blog layout
-  - `_includes/distill_scripts.liquid` - Interactive components loader
-  - `assets/js/distillpub/overrides.js` - Distill styling overrides
-  - `assets/js/distillpub/template.v2.js` - Distill template functionality
-  - `assets/js/distillpub/transforms.v2.js` - Distill transform utilities
-  - `assets/js/distillpub/template.v2.js.map` - Source map
-  - `assets/js/distillpub/transforms.v2.js.map` - Source map
-  - `_sass/_distill.scss` - **KEPT** (core styles still used)
-
-- **What Distill Is:**
-  - [Distill.pub](https://distill.pub/) is a research journal for machine learning with interactive visualizations
-  - The layout supports D3.js visualizations, hoverable citations, sidenotes, and other interactive elements
-  - Designed for long-form technical blog posts with rich interactivity
-
-- **Rationale:** Not writing interactive research papers; standard blog post layout is sufficient
-
----
-
-#### 7. Related Posts Feature
-- **Files Deleted:**
-  - `_includes/related_posts.liquid` - "Enjoy Reading This Article?" section
-
-- **Code Removed:**
-  - `_layouts/post.liquid` - Removed `related_posts` include conditional block
-
-- **Config in `_config.yml` (kept but disabled):**
-  ```yaml
-  related_blog_posts:
-    enabled: false  # Line 96-98
-  ```
-
-- **Rationale:** Only 5 blog posts planned; related posts adds unnecessary clutter
-
----
-
-#### 8. Giscus Comments System
-- **Files Deleted:**
-  - `_includes/giscus.liquid` - Giscus comments widget
-  - `_scripts/giscus-setup.js` - Giscus initialization script
-
-- **Code Removed:**
-  - `_layouts/post.liquid` - Removed giscus comments conditional block
-  - `_layouts/page.liquid` - Removed giscus comments conditional block
-  - `_layouts/book-review.liquid` - Removed giscus comments conditional block
-  - `assets/js/theme.js` - Removed `setGiscusTheme()` function and its call in `applyTheme()`
-
-- **Config Removed from `_config.yml`:**
-  ```yaml
-  # Lines 96-110 deleted:
-  giscus:
-    repo: # configuration
-    repo_id:
-    category: Comments
-    category_id:
-    mapping: title
-    strict: 1
-    reactions_enabled: 1
-    input_position: bottom
-    dark_theme: dark
-    light_theme: light
-    emit_metadata: 0
-    lang: en
-  ```
-
-- **Rationale:** No need for comments on blog posts; portfolio is for showcasing work, not discussion
-
----
-
-#### 9. Unused Analytics & Legacy Comments
-- **Config Removed from `_config.yml`:**
-  ```yaml
-  # Unused analytics providers (lines 74-76):
-  cronitor_analytics: # cronitor RUM analytics site ID
-  pirsch_analytics: # your Pirsch analytics site ID
-  openpanel_analytics: # your Openpanel analytics client ID
-
-  # Corresponding enable flags (lines 278-280):
-  enable_cronitor_analytics: false
-  enable_pirsch_analytics: false
-  enable_openpanel_analytics: false
-
-  # Deprecated Disqus comments (line 117):
-  disqus_shortname: al-folio # DEPRECATED
-  ```
-
-- **Rationale:** Not using these analytics providers; using Google Analytics only. Disqus deprecated in favor of Giscus (which is also removed).
+You can easily create your own collections, apps, short stories, courses, or whatever your creative work is. To do this, edit the collections in the [\_config.yml](_config.yml) file, create a corresponding folder, and create a landing page for your collection, similar to `_pages/projects.md`.
 
 ---
 
