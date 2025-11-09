@@ -454,7 +454,7 @@ Applied to **970,000 sale/auction listings** to predict potential rental income.
 
 ## View the Code
 
-All code for this project is available on [GitHub](https://github.com/LeonardoPaccianiMori/italian-real-estate-pipeline).
+All code for this project is available on [GitHub](https://github.com/LeonardoPaccianiMori/italian-real-estate-pipeline). The code was originally written by me from scratch, and then I used Claude Code Sonnet 4.5 to re-organize it following DRY principles.
 
 **Repository Structure**:
 ```
