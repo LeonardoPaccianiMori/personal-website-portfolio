@@ -9,7 +9,7 @@ Usage:
     python generate_plotly_figures.py
 
 Output:
-    JSON files in ../../assets/plotly/italian-cuisine/
+    JSON files in ../../_includes/plotly/italian-cuisine/
     - olive-oil-butter-divide.json
     - pasta-rice-polenta-triangle.json
     - pca-regional-clustering.json
@@ -43,7 +43,7 @@ SCRIPT_DIR = Path(__file__).parent
 BASE_DIR = SCRIPT_DIR / '../../assets/data/italian-cuisine'
 SHAPEFILE_PATH = BASE_DIR / 'shapefiles' / 'Reg01012025_WGS84.shp'
 DATA_DIR = BASE_DIR / 'analysis'
-OUTPUT_DIR = SCRIPT_DIR / '../../assets/plotly/italian-cuisine'
+OUTPUT_DIR = SCRIPT_DIR / '../../_includes/plotly/italian-cuisine'
 
 # Ensure output directory exists
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

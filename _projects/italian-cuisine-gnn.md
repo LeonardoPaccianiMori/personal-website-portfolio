@@ -106,7 +106,7 @@ Beyond temporal evolution, the data reveals **strong geographic patterns** that 
 The most striking geographic divide: **Northern Italy uses butter, the rest uses olive oil**.
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/olive-oil-butter-divide.json %}
+{% include plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
 
 <div class="caption">
@@ -124,7 +124,7 @@ This isn't just modern - it's a fundamental agricultural and climatic divide tha
 Different regions favor different starches:
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/pasta-rice-polenta-triangle.json %}
+{% include plotly/italian-cuisine/pasta-rice-polenta-triangle.json %}
 ```
 
 <div class="caption">
@@ -244,7 +244,7 @@ I built **heterogeneous Graph Attention Networks** (GAT) that learn from graph s
 PCA visualization reveals the model learns genuine geographic patterns:
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/pca-regional-clustering.json %}
+{% include plotly/italian-cuisine/pca-regional-clustering.json %}
 ```
 
 <div class="caption">

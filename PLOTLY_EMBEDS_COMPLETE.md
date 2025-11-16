@@ -73,7 +73,7 @@ All Plotly embeds use this format:
 
 ```markdown
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/FILENAME.json %}
+{% include_relative ../_includes/plotly/italian-cuisine/FILENAME.json %}
 ```
 ```
 
@@ -92,7 +92,7 @@ cd "/home/lpm/Google Drive/Websites/personal-website-portfolio/scripts/italian-c
 python generate_plotly_figures.py
 ```
 
-**This will create 6 JSON files** in `assets/plotly/italian-cuisine/`:
+**This will create 6 JSON files** in `_includes/plotly/italian-cuisine/`:
 1. ✅ olive-oil-butter-divide.json
 2. ✅ pasta-rice-polenta-triangle.json
 3. ✅ pca-regional-clustering.json
@@ -144,7 +144,7 @@ Open `http://localhost:4000` and verify:
 
 1. Check JSON files exist:
    ```bash
-   ls "assets/plotly/italian-cuisine/"
+   ls "_includes/plotly/italian-cuisine/"
    ```
 
 2. Check JSON is valid:
@@ -233,7 +233,7 @@ When you need to change a visualization:
 
 1. **Edit function in script** (e.g., change colors, add data, adjust layout)
 2. **Re-run script** (`python generate_plotly_figures.py`)
-3. **JSON automatically updated** in `assets/plotly/italian-cuisine/`
+3. **JSON automatically updated** in `_includes/plotly/italian-cuisine/`
 4. **Rebuild Jekyll** (`bundle exec jekyll serve`)
 5. **Updated plot appears** immediately in all pages that reference it
 
@@ -260,7 +260,7 @@ When you need to change a visualization:
 Before going live:
 
 - [ ] Run script to generate all 6 JSON files: `python generate_plotly_figures.py`
-- [ ] Verify JSONs exist in `assets/plotly/italian-cuisine/`
+- [ ] Verify JSONs exist in `_includes/plotly/italian-cuisine/`
 - [ ] Replace old markdown files with revised versions
 - [ ] Build site locally (`bundle exec jekyll serve`)
 - [ ] Preview all pages (project page + 3 blog posts)

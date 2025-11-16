@@ -98,7 +98,7 @@ The model learned patterns Artusi never saw - because **it had access to the ful
 The most striking pattern: **Northern Italy uses butter, the rest uses olive oil**.
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/olive-oil-butter-divide.json %}
+{% include plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
 
 <div class="caption">
@@ -134,7 +134,7 @@ The Mediterranean South, with Spanish and Arab culinary influences, made tomatoe
 #### 3. The Starch Triangle: Pasta, Rice, Polenta
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/pasta-rice-polenta-triangle.json %}
+{% include plotly/italian-cuisine/pasta-rice-polenta-triangle.json %}
 ```
 
 <div class="caption">
@@ -191,7 +191,7 @@ The model **struggles most with Center** because it's a culinary transition zone
 ### PCA Visualization Shows Geographic Clustering
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/pca-regional-clustering.json %}
+{% include plotly/italian-cuisine/pca-regional-clustering.json %}
 ```
 
 <div class="caption">

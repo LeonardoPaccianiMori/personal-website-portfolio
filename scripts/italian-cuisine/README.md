@@ -40,7 +40,7 @@ cd "/home/lpm/Google Drive/Websites/personal-website-portfolio/scripts/italian-c
 python generate_plotly_figures.py
 ```
 
-This will create 6 JSON files in `../../assets/plotly/italian-cuisine/`
+This will create 6 JSON files in `../../_includes/plotly/italian-cuisine/`
 
 ### 2. Embed in Blog Posts/Project Pages
 
@@ -50,7 +50,7 @@ Use the ` ```plotly ` code fence syntax (as shown in al-folio documentation):
 
 ```markdown
 ```plotly
-{% include_relative ../../assets/plotly/italian-cuisine/olive-oil-butter-divide.json %}
+{% include_relative ../../_includes/plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
 ```
 
@@ -136,7 +136,7 @@ title: Italian Cuisine GNN
 The most striking geographic pattern:
 
 ```plotly
-{% include_relative ../../assets/plotly/italian-cuisine/olive-oil-butter-divide.json %}
+{% include_relative ../../_includes/plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
 
 As the map shows, Northern Italy uses butter while...
@@ -153,7 +153,7 @@ title: "Artusi's Failed Unification"
 The data reveals a clear divide:
 
 ```plotly
-{% include_relative ../../assets/plotly/italian-cuisine/olive-oil-butter-divide.json %}
+{% include_relative ../../_includes/plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
 
 This pattern reflects climate and agriculture...
@@ -192,7 +192,7 @@ pip install pandas numpy plotly geopandas scikit-learn
 
 Check that paths are correct relative to script location:
 - Data: `../../assets/data/italian-cuisine/`
-- Output: `../../assets/plotly/italian-cuisine/`
+- Output: `../../_includes/plotly/italian-cuisine/`
 
 Paths are handled automatically using `Path(__file__).parent` in the script.
 
@@ -222,7 +222,7 @@ Simplify geometries more aggressively (see "Customization" section above)
 After generating figures:
 
 1. ✅ Run script to generate all JSON files: `python generate_plotly_figures.py`
-2. ✅ Verify files exist in `assets/plotly/italian-cuisine/`
+2. ✅ Verify files exist in `_includes/plotly/italian-cuisine/`
 3. ✅ Replace old project page with revised version (see `REVISION_SUMMARY.md`)
 4. ✅ Replace old blog posts with new versions
 5. ✅ Embed Plotly JSON files using ` ```plotly ` blocks (already done!)

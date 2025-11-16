@@ -32,7 +32,7 @@ All files have been created, the script has been run, and **6 interactive Plotly
 
 ## 📊 Generated Visualizations
 
-All files created in `assets/plotly/italian-cuisine/`:
+All files created in `_includes/plotly/italian-cuisine/`:
 
 | File | Size | Used In |
 |------|------|---------|

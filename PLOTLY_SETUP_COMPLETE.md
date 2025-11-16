@@ -34,7 +34,7 @@ scripts/italian-cuisine/
 
 **3. Output Directory** (will be populated when you run script):
 ```
-assets/plotly/italian-cuisine/
+_includes/plotly/italian-cuisine/
 ├── olive-oil-butter-divide.json
 ├── pasta-rice-polenta-triangle.json
 ├── pca-regional-clustering.json
@@ -85,12 +85,12 @@ python generate_plotly_figures.py
 **The script will:**
 1. Load all data files
 2. Generate 6 interactive Plotly visualizations
-3. Export as JSON to `../../assets/plotly/italian-cuisine/`
+3. Export as JSON to `../../_includes/plotly/italian-cuisine/`
 4. Report file sizes and completion
 
 **Verify outputs exist:**
 ```bash
-ls "../../assets/plotly/italian-cuisine/"
+ls "../../_includes/plotly/italian-cuisine/"
 ```
 
 You should see 6 JSON files.
@@ -107,7 +107,7 @@ Instead of image references like:
 Use Plotly code blocks:
 ```markdown
 ```plotly
-{% include_relative ../../assets/plotly/italian-cuisine/olive-oil-butter-divide.json %}
+{% include_relative ../../_includes/plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
 ```
 
@@ -189,7 +189,7 @@ If you need to update a visualization:
 The most striking geographic divide:
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/olive-oil-butter-divide.json %}
+{% include_relative ../_includes/plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
 
 As the map shows, Northern Italy uses butter...
@@ -203,7 +203,7 @@ As the map shows, Northern Italy uses butter...
 The data reveals clear patterns:
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/pca-regional-clustering.json %}
+{% include_relative ../_includes/plotly/italian-cuisine/pca-regional-clustering.json %}
 ```
 
 The PCA visualization shows macro-region clustering...
