@@ -55,7 +55,7 @@ Fat Score = (Olive Oil Usage) / (Olive Oil + Butter Usage) × 100
 Then mapped this to Italy's regions using a **diverging RdYlGn colorscale**:
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/olive-oil-butter-divide.json %}
+{% include plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
 
 <div class="caption">
@@ -163,7 +163,7 @@ Each region gets a color based on its starch mix:
 - **Gray** (128, 128, 128) = Equal three-way mix
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/pasta-rice-polenta-triangle.json %}
+{% include plotly/italian-cuisine/pasta-rice-polenta-triangle.json %}
 ```
 
 <div class="caption">
@@ -459,7 +459,7 @@ Lombardy    0.34     0.31      1.00   ...
 For a comprehensive view, I combined **hierarchical clustering** (dendrogram) with **heatmap** (similarity matrix), adding **macro-region annotations**:
 
 ```plotly
-{% include_relative ../assets/plotly/italian-cuisine/regional-similarity-heatmap.json %}
+{% include plotly/italian-cuisine/regional-similarity-heatmap.json %}
 ```
 
 <div class="caption">
