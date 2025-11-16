@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Why I Used Graphs (Not Just Ingredient Lists) to Understand Recipes"
+title: "Why I Represented Recipes as Graphs (Not Just Ingredient Lists)"
 date: 2025-04-15 10:00:00
-description: How representing recipes as relationship networks revealed patterns that ingredient-based ML misses
+description: How representing recipes as relationship networks revealed patterns that ingredient-based features miss
 tags: graph-neural-networks neo4j deep-learning
 categories: data-science
-featured: true
+featured: false
 ---
 
 ## The Problem: Recipes Are More Than Ingredient Lists
@@ -15,11 +15,11 @@ For my [Italian Regional Cuisine project](/projects/italian-cuisine-gnn/), I wan
 **The standard approach** for recipe ML:
 1. Extract ingredient list
 2. One-hot encode ingredients (binary: present/absent)
-3. Feed to classifier (Random Forest, SVM, simple neural network)
+3. Feed to classifier (Random Forest, neural network, etc.)
 
-**This works okay** for simple tasks like cuisine classification (Italian vs Chinese), but fails to capture something fundamental: **recipes aren't bags of ingredients, they're processes**.
+**This works okay** for simple tasks, but it fails to capture something fundamental: **recipes aren't bags of ingredients, they're processes**.
 
-Consider two recipes:
+Consider two recipes with similar ingredients:
 
 **Recipe A** (Carbonara):
 1. Cook pasta
@@ -34,20 +34,20 @@ Consider two recipes:
 3. Pour eggs over guanciale
 4. Cook until set
 
-**Same ingredients** (pasta aside): eggs, guanciale, pecorino. **Completely different dishes**.
+**Same core ingredients**: eggs, guanciale (cured pork cheek), pecorino cheese. **Completely different dishes**.
 
 The difference isn't *what* ingredients you use, it's:
 - **How** you combine them (sequencing)
 - **When** you add them (timing)
 - **Which techniques** you apply (frying vs boiling vs mixing)
 
-Ingredient-based ML treats both as `[eggs=1, guanciale=1, pecorino=1, pasta=0/1]`. **Graphs capture the structure.**
+An ingredient-list representation treats both as `[eggs=1, guanciale=1, pecorino=1, pasta=0/1]`. **Graphs capture the structure.**
 
 ---
 
 ## The Solution: Model Recipes as Knowledge Graphs
 
-Instead of flattening recipes into ingredient lists, I represented them as **heterogeneous graphs** (networks with different node and edge types).
+Instead of flattening recipes into ingredient lists, I represented them as **heterogeneous graphs** in Neo4j (networks with different node and edge types).
 
 ### Graph Structure
 
@@ -84,14 +84,12 @@ Instead of flattening recipes into ingredient lists, I represented them as **het
         -[:USES_INGREDIENT]-> (Eggs)
         -[:USES_INGREDIENT]-> (Pecorino)
         -[:NEXT_STEP]-> (Step4)
-
-    -[:HAS_STEP {order: 4}]-> (Step4 {action: 'toss'})
 ```
 
 **What this captures that ingredient lists miss**:
-- **Sequencing**: Pasta is boiled *first*, guanciale fried *while* pasta cooks
+- **Sequencing**: Pasta is boiled *first*, guanciale fried *meanwhile*
 - **Technique-ingredient pairing**: Guanciale is *fried* (not boiled), eggs are *mixed* (not fried)
-- **Relationships**: Eggs and pecorino are combined together (not separate steps)
+- **Relationships**: Eggs and pecorino are combined together (not in separate steps)
 - **Process flow**: NEXT_STEP edges create temporal ordering
 
 ---
@@ -112,48 +110,9 @@ ORDER BY freq DESC LIMIT 10
 RETURN i.name, freq
 ```
 
-vs
+For simple queries, SQL is fine. But for **multi-hop graph traversals** (e.g., "find ingredients used in frying steps in Northern recipes"), Cypher is far cleaner.
 
-```sql
--- SQL equivalent (messy)
-SELECT i.name, COUNT(*) as freq
-FROM recipes r
-JOIN recipe_ingredients ri ON r.id = ri.recipe_id
-JOIN ingredients i ON ri.ingredient_id = i.id
-WHERE r.region = 'Sicilia'
-GROUP BY i.name
-ORDER BY freq DESC
-LIMIT 10
-```
-
-For simple queries, SQL is fine. But for **multi-hop graph traversals** (e.g., "find ingredients used in steps that employ frying in Northern Italian recipes"), Cypher is far cleaner.
-
-### 2. Graph Algorithms Built-In
-
-Neo4j has native support for:
-- **PageRank**: Find "central" ingredients (used across many recipes)
-- **Community Detection**: Group recipes by similarity
-- **Shortest Path**: Find recipe "distance" (how many ingredient swaps to convert one recipe to another)
-
-I used these algorithms for exploratory analysis before building the GNN.
-
-### 3. Visual Exploration
-
-Neo4j Browser lets you **visualize** the graph interactively. During development, this was invaluable for:
-- Debugging data quality issues (orphaned nodes, missing edges)
-- Understanding recipe structure patterns
-- Explaining the model to non-technical stakeholders
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/italian-cuisine/neo4j-browser-example.png" title="Neo4j Browser" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Neo4j Browser showing a recipe subgraph with ingredients, steps, and their relationships
-</div>
-
-### 4. Natural Fit for GNNs
+### 2. Natural Fit for GNNs
 
 When training Graph Neural Networks, you need to pass:
 - Node features (embeddings)
@@ -184,22 +143,14 @@ This extraction is much cleaner than reconstructing graphs from SQL joins.
 
 Once I had recipes as graphs, I trained a **Graph Attention Network** (GAT) to classify regional origin.
 
-### Why GAT Over Simpler Models?
+### Why GAT?
 
-**Graph Convolutional Networks (GCNs)** treat all neighbors equally. **GAT** learns to **weight** important connections via attention:
+**Graph Convolutional Networks (GCNs)** treat all neighbors equally. **GAT** learns to **weight** important connections via attention.
 
-```
-Attention(ingredient → step) = softmax(
-    LeakyReLU(W * [h_ingredient || h_step])
-)
-```
-
-**Example**: For a Sicilian recipe, the model might learn:
-- *High attention* to `(tomato) -[:USES_INGREDIENT]-> (fry)` (tomato sauce technique)
-- *High attention* to `(eggplant) -[:USES_INGREDIENT]-> (fry)` (melanzane fritte)
-- *Low attention* to `(pasta) -[:USES_INGREDIENT]-> (boil)` (too common, not distinctive)
-
-This weighting happens automatically during training - the model learns which relationships matter for regional classification.
+The model can learn, for example:
+- *High attention* to `(tomato) -[:USES_INGREDIENT]-> (fry)` for Southern recipes
+- *High attention* to `(rice) -[:USES_INGREDIENT]-> (sauté)` for Northern recipes (risotto)
+- *Low attention* to `(pasta) -[:USES_INGREDIENT]-> (boil)` (too common, not regionally distinctive)
 
 ### Heterogeneous Graph Attention
 
@@ -236,7 +187,7 @@ class HeteroGAT(nn.Module):
 
 ### Graph-Level Classification
 
-After several GAT layers, each node has an updated embedding that incorporates information from its neighbors (and neighbors' neighbors, etc.).
+After several GAT layers, each node has an updated embedding that incorporates information from its neighbors.
 
 For **regional classification**, I need a **single vector per recipe**:
 
@@ -256,46 +207,58 @@ region = logits.argmax(dim=1)
 
 ---
 
-## What the Model Learned
+## Results: Macro-Region Classification
 
-### Attention Patterns
+I trained the model to classify recipes into **macro-regions** (North, Center, South, Islands):
 
-By visualizing attention weights, I can see what the model finds important:
+**Test accuracy**: **59.5%** (4-class problem)
 
-**For Northern recipes** (Lombardy, Piedmont):
-- *High attention* to `rice` node (risotto signature)
-- *High attention* to `butter` → `sauté` edges (Northern cooking fat)
-- *High attention* to `cream` → `mix` edges (rich sauces)
+**Per-macro-region performance**:
+- **North**: 81% F1 - distinctive ingredients (rice, butter, cream)
+- **Islands**: 52% F1 - geographic isolation creates unique patterns
+- **South**: 44% F1 - Mediterranean ingredients (tomatoes, olive oil, chili)
+- **Center**: 35% F1 - transitional zone (mixes North/South)
 
-**For Southern recipes** (Sicily, Campania):
-- *High attention* to `tomato` → `fry` edges (tomato sauce base)
-- *High attention* to `chili` → `cook` edges (spicy Southern flavors)
-- *High attention* to `seafood` → `grill` edges (Mediterranean influence)
+### What the Model Learned
 
-**For Islands** (Sardinia, Sicily):
-- *High attention* to `almond` node (Sicilian pastries)
-- *High attention* to `caper` node (Pantelleria capers)
-- *High attention* to `pecorino` → `grate` edges (sheep's milk cheese)
+The GNN learns **which ingredient-technique combinations** define regional cuisines:
 
-The model isn't just memorizing ingredient lists - it's learning **which ingredient-technique combinations** define regional cuisines.
+**Northern recipes**:
+- Rice + sauté + broth = **risotto** signature
+- Butter + sauté = Northern cooking fat preference
+- Cream + mix = rich Northern sauces
 
-### Comparison to Ingredient-Only Baselines
+**Southern recipes**:
+- Tomato + fry = Southern tomato sauce base
+- Chili + cook = spicy Southern flavors
+- Olive oil + toss = Mediterranean cooking
 
-I compared the graph-based GAT to simpler baselines:
+**Islands**:
+- Seafood + grill = coastal cooking
+- Pecorino + grate = sheep's milk cheese (isolation)
+- Almonds + bake = Arab/Sicilian desserts
 
-| Model | Test Accuracy (Macro-Region) | What It Uses |
-|-------|------------------------------|--------------|
-| **Graph GAT** | **59.5%** | Full graph structure |
-| Ingredient-only MLP | 52.3% | Binary ingredient presence |
-| Ingredient + Action MLP | 55.8% | Ingredients + technique counts |
-| GCN (simpler GNN) | 57.1% | Graph structure, no attention |
+The model isn't just memorizing ingredient lists - it's learning **structure**: which ingredients pair with which techniques, in which sequences.
 
-**Key findings**:
-1. **Graphs > Flat features**: 59.5% vs 52.3% (ingredient-only)
-2. **Attention helps**: GAT (59.5%) > GCN (57.1%)
-3. **Techniques matter**: Adding actions (55.8%) improves over ingredients alone (52.3%)
+---
 
-The 7.2 percentage point improvement from using graphs (59.5% vs 52.3%) might seem small, but for a 4-class problem with imbalanced data, it's meaningful.
+## Why Structure Matters
+
+### The Core Insight
+
+I spent weeks trying to improve accuracy with:
+- Better hyperparameters (learning rate, dropout, batch size)
+- Deeper networks (more layers)
+- Regularization techniques
+
+**None of it helped as much as switching from flat features to graphs.**
+
+The graph structure encodes information that's otherwise lost:
+- **Temporal order**: Pasta boiled before sauce added
+- **Technique-ingredient pairing**: Butter sautéed vs olive oil drizzled
+- **Ingredient combinations**: Which ingredients appear together in same step
+
+**Lesson**: Before tuning hyperparameters, make sure your input representation captures the problem structure.
 
 ---
 
@@ -303,7 +266,7 @@ The 7.2 percentage point improvement from using graphs (59.5% vs 52.3%) might se
 
 ### 1. Graph Databases Aren't Just for Social Networks
 
-When people think "graph databases," they think Facebook friends, LinkedIn connections, Twitter followers. But **recipes are graphs too**:
+When people think "graph databases," they think Facebook friends, LinkedIn connections. But **recipes are graphs too**:
 - Ingredients connect to steps
 - Steps connect sequentially
 - Techniques connect to ingredients
@@ -311,47 +274,23 @@ When people think "graph databases," they think Facebook friends, LinkedIn conne
 Neo4j made it easy to:
 - Model these relationships naturally
 - Query complex patterns
-- Visualize the data
 - Export to GNN format
 
-### 2. Structure Matters for ML
+### 2. Graphs Help When Relationships Matter
 
-I spent weeks trying to improve accuracy with:
-- Better hyperparameters (learning rate, dropout, batch size)
-- Deeper networks (more layers)
-- Regularization techniques
-
-**None of it helped as much as switching from flat features to graphs.** The structure encodes information that's otherwise lost.
-
-**Lesson**: Before tuning hyperparameters, make sure your input representation captures the problem structure.
-
-### 3. Attention Mechanisms Are Interpretable
-
-Unlike black-box neural networks, GAT attention weights can be visualized. For each recipe, I can see:
-- Which ingredients the model focuses on
-- Which technique-ingredient pairs are important
-- Which steps contribute most to the classification
-
-This interpretability helps:
-- Debug model errors (is it confusing Central/South because both use tomatoes?)
-- Validate patterns (does it correctly identify risotto as Northern?)
-- Explain predictions to stakeholders
-
-### 4. Graph Neural Networks Have Limitations
-
-**When graphs help**:
+**When graphs are worth it**:
 ✅ Relationships matter (ingredient-technique pairing, step sequencing)
 ✅ Non-Euclidean data (recipes don't fit into grids or sequences)
 ✅ Multi-hop dependencies (ingredient A influences step B which uses ingredient C)
 
 **When simpler models are fine**:
-❌ Relationships don't matter (e.g., binary classification "contains tomato?")
+❌ Relationships don't matter (e.g., "contains tomato?" binary classification)
 ❌ Data is already tabular/flat (e.g., house prices with numeric features)
 ❌ Limited training data (GNNs need more data than simpler models)
 
-For my project, graphs were the right choice. But I wouldn't default to GNNs for all recipe ML tasks.
+For recipe regional classification, graphs were the right choice - but I wouldn't default to GNNs for all recipe ML tasks.
 
-### 5. Data Quality > Model Architecture
+### 3. Data Quality > Model Architecture
 
 The graph structure helped, but the biggest bottleneck was **data quantity**:
 - **Fine-grained model** (20 regions): 20% accuracy (severe overfitting)
@@ -360,6 +299,38 @@ The graph structure helped, but the biggest bottleneck was **data quantity**:
 With only 50-150 recipes per region, even the graph structure couldn't overcome data scarcity.
 
 **Lesson**: Graphs improve representational power, but they don't create data. For fine-grained classification, I'd need 200-500 recipes per region.
+
+---
+
+## Implementation Details
+
+### Graph Statistics
+
+| Metric | Count |
+|--------|-------|
+| Recipes | 3,389 |
+| Ingredients | 2,234 |
+| Steps | 13,237 |
+| REQUIRES edges | 18,547 |
+| HAS_STEP edges | 13,237 |
+| USES_INGREDIENT edges | 24,891 |
+| NEXT_STEP edges | 11,218 |
+
+### GNN Architecture
+
+**Model components**:
+- **Embedding layers**: Ingredients (128D), Actions (64D)
+- **GAT layers**: 3 layers, 4 attention heads each
+- **Pooling**: Global mean pooling
+- **Classifier**: 2-layer MLP
+- **Parameters**: 19.5M total
+
+**Training**:
+- AdamW optimizer (lr=0.001, weight decay=1e-5)
+- Weighted cross-entropy loss (handle class imbalance)
+- Early stopping (patience=10 epochs)
+- Batch size: 32 recipes
+- Best model: 3 epochs for macro-region
 
 ---
 
@@ -372,8 +343,9 @@ Full implementation in my [Italian Regional Cuisine repository](https://github.c
 - `notebooks/graph_analysis.ipynb` - Neo4j exploration
 
 **Related posts**:
-- [Full Project Overview](/projects/italian-cuisine-gnn/) - Project context and results
-- [Comparing Three Classification Approaches](/blog/2025/three-approaches-regional-classification/) - Why macro-regions win
+- [How Artusi's 1891 Cookbook Failed to Unify Italian Cuisine](/blog/2025/artusi-failed-unification/)
+- [Visualizing Italian Cuisine: Creative Techniques Beyond Bar Charts](/blog/2025/visualizing-italian-cuisine/)
+- [Full Project Overview](/projects/italian-cuisine-gnn/)
 
 **Recommended reading**:
 - [Graph Attention Networks (Veličković et al., 2018)](https://arxiv.org/abs/1710.10903) - Original GAT paper
@@ -383,48 +355,10 @@ Full implementation in my [Italian Regional Cuisine repository](https://github.c
 
 ## What I Learned
 
-The big lesson: structure matters. I spent years thinking of ML as "features → model → predictions," where feature engineering is a preprocessing step and the model is where the magic happens. But for many problems (recipes, molecules, social networks, knowledge graphs), the relationships **are** the features. Representing those relationships explicitly (as graphs) lets the model learn patterns that would be invisible in flat feature vectors.
+The big lesson: **structure matters**. For years I thought of ML as "features → model → predictions," where feature engineering is preprocessing and the model is where the magic happens. But for many problems (recipes, molecules, social networks, knowledge graphs), the **relationships are the features**.
 
-Also, Neo4j surprised me. I expected it to be overkill for a dataset of 2,000 recipes, something you'd only use at Google scale. But the ability to query complex patterns in a few lines of Cypher, visualize subgraphs in the browser, and export directly to GNN format made development so much faster. I'd use it again for any project where relationships matter.
+Representing those relationships explicitly (as graphs) lets the model learn patterns that would be invisible in flat feature vectors.
 
-Finally, I learned that interpretability and performance aren't always at odds. Attention mechanisms make GATs more interpretable **and** more accurate. The attention weights show exactly which ingredient-technique combinations define regional cuisines, turning the model from a black box into a hypothesis-generating tool. That's valuable even beyond the classification task itself.
+Also, Neo4j surprised me. I expected it to be overkill for 3,000 recipes, something you'd only use at Google scale. But the ability to query complex patterns in Cypher, visualize subgraphs, and export directly to GNN format made development much faster. I'd use it again for any project where relationships matter.
 
----
-
-## Appendix: Graph Statistics
-
-For the curious, here are some statistics about the recipe graph:
-
-### Node Counts
-
-| Node Type | Count | Examples |
-|-----------|-------|----------|
-| Recipes | 2,019 | Carbonara, Risotto, Arancini |
-| Ingredients | 2,234 | Tomato, Pasta, Olive Oil |
-| Steps | 13,237 | "Sauté onions until soft" |
-
-### Edge Counts
-
-| Edge Type | Count | Meaning |
-|-----------|-------|---------|
-| REQUIRES | 18,547 | Recipe uses ingredient |
-| HAS_STEP | 13,237 | Recipe contains step |
-| USES_INGREDIENT | 24,891 | Step transforms ingredient |
-| NEXT_STEP | 11,218 | Sequential step ordering |
-
-### Degree Distribution
-
-**Ingredient node degrees** (number of recipes using each ingredient):
-- **Top 5**: Olive oil (892), Salt (854), Garlic (687), Tomato (621), Parsley (534)
-- **Long tail**: 823 ingredients appear in <10 recipes
-
-**Recipe node degrees** (number of ingredients per recipe):
-- **Mean**: 9.2 ingredients
-- **Median**: 8 ingredients
-- **Max**: 34 ingredients (complex regional feast dish)
-
-### Graph Diameter
-
-**Longest shortest path** (recipe → ingredient → recipe chain): 8 hops
-
-This means you can connect any two recipes through a chain of shared ingredients and intermediate recipes in at most 8 steps. The "Six Degrees of Kevin Bacon" for Italian cuisine!
+The meta-lesson: **before reaching for fancy algorithms, make sure your data representation captures the problem structure**. I spent weeks tuning hyperparameters on flat features. Switching to graphs gave a bigger improvement in one day.

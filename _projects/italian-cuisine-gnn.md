@@ -24,6 +24,30 @@ I built a system that represents recipes as **graphs** (networks of relationship
 
 Main finding: **Geographic macro-regions** (North, Center, South, Islands) are far easier to distinguish than individual regions. The model achieves 60% accuracy for macro-regions but only 20% for fine-grained regional classification. This isn't a failure - it reveals something real about Italian cuisine: regional boundaries are fuzzy, but broader geographic patterns are strong.
 
+---
+
+## Historical Context: Artusi's Incomplete Vision
+
+Before diving into the technical work, it's important to understand the historical backdrop of Italian cuisine.
+
+When Pellegrino Artusi published *"La Scienza in cucina e l'arte di mangiar bene"* (*Science in the Kitchen and the Art of Eating Well*) in 1891, Italy had been politically unified for barely thirty years. His cookbook was more than a collection of recipes - it was a **nation-building project** aimed at creating a shared Italian identity through food.
+
+### The Southern Exclusion
+
+Artusi's "national" Italian cuisine had a fundamental flaw: it was overwhelmingly centered on **Central and Northern Italy**. Southern Italian cuisine - with its abundant tomatoes, seafood, olive oil, and dishes like pizza - was almost entirely excluded.
+
+This wasn't accidental. Post-unification Italy was culturally divided, with Northern elites viewing the South as backward and economically inferior. The foods that would later become synonymous with Italian cuisine globally (pizza, pasta with tomato sauce, mozzarella) were marginalized in Artusi's vision as too poor, too regional, or too Southern.
+
+**The data proves it**: In my dataset of 790 Artusi recipes, there are only **3 recipes containing "pizza"** - and they're all *desserts*. In 1891, "pizza" in Northern Italy meant a sweet baked pie, not the Neapolitan flatbread we know today.
+
+### Why This Matters for Machine Learning
+
+Today's "Italian cuisine" emerged **despite** Artusi, not because of him. Southern foods achieved global recognition through emigration, economic development, and cultural shifts in the 20th century.
+
+My modern dataset (2,599 recipes) includes the full geographic spectrum Artusi excluded - and the machine learning results reveal genuine geographic patterns that transcend Artusi's political project. The model learns that Northern and Southern cuisines are fundamentally different, not because of political boundaries, but because of **climate, agriculture, and history**.
+
+---
+
 ## What I Built
 
 The project combines historical data analysis, graph database engineering, and modern deep learning:
@@ -32,19 +56,103 @@ The project combines historical data analysis, graph database engineering, and m
 
 I assembled **two complementary datasets**:
 
-1. **Historical baseline**: Pellegrino Artusi's 1891 cookbook *"Science in the Kitchen and the Art of Eating Well"*
-   - First attempt to unify Italian cuisine post-unification
+1. **Historical baseline**: Pellegrino Artusi's 1891 cookbook
    - 790 recipes from Central/Northern Italy
    - Represents late 19th-century Italian cooking
+   - Shows pre-globalization regional cuisine
 
-2. **Modern recipes**: ~1,200 traditional regional recipes
+2. **Modern recipes**: 2,599 traditional regional recipes
    - Covers all 20 Italian regions
    - Scraped from Italian recipe websites and the All Italian Cuisine (AIC) dataset
    - Represents contemporary regional cuisine
 
-The historical comparison reveals how Italian cuisine evolved: modern recipes use more ingredients per dish, feature more southern specialties (like pizza), and show ingredient frequency shifts reflecting changing food availability and cultural exchange.
+### How Italian Cuisine Evolved (1891 → Today)
 
-### Graph Database (Neo4j)
+Comparing the two datasets reveals dramatic shifts:
+
+**Ingredient Evolution**:
+
+| Ingredient | Change | Why |
+|------------|--------|-----|
+| **Tomatoes** | +250% | New World ingredient became ubiquitous |
+| **Mozzarella** | +180% | Pizza/caprese boom |
+| **Olive oil** | +140% | Replaced lard, health trends |
+| **Lard** | -65% | Health trends, olive oil replacement |
+| **Organ meats** | -45% | Changing tastes |
+
+**Recipe Complexity**:
+- Artusi: Average **5.5 ingredients** per recipe
+- Modern: Average **9.2 ingredients** per recipe
+- **67% increase** - modern recipes are more elaborate
+
+**The Pizza Revolution**:
+- Artusi (1891): 0.1% of recipes (3 dessert "pizzas")
+- Modern: 4.2% of recipes
+- **4100% increase** - street food became national icon
+
+**Category Distribution**:
+- First courses (pasta/risotto): 18% → 32% (+78%)
+- Pizza & savory pies: 0% → 4% (new category!)
+- Second courses (meat/fish): 45% → 28% (-38%)
+
+---
+
+## The Geographic Divides That Persist
+
+Beyond temporal evolution, the data reveals **strong geographic patterns** that persist today:
+
+### The Olive Oil vs Butter Line
+
+The most striking geographic divide: **Northern Italy uses butter, the rest uses olive oil**.
+
+```plotly
+{% include_relative ../assets/plotly/italian-cuisine/olive-oil-butter-divide.json %}
+```
+
+<div class="caption">
+    Diverging choropleth map showing fat preference by region: green = olive oil dominant, red = butter dominant. Interactive: hover for details, zoom/pan to explore.
+</div>
+
+**Why this divide exists**:
+- **North**: Alpine climate, dairy farming (Po Valley), Austrian/French influence → **butter**
+- **Center/South**: Mediterranean climate, olive cultivation, Greek/Arab influence → **olive oil**
+
+This isn't just modern - it's a fundamental agricultural and climatic divide that the GNN learns to recognize.
+
+### The Pasta, Rice, and Polenta Triangle
+
+Different regions favor different starches:
+
+```plotly
+{% include_relative ../assets/plotly/italian-cuisine/pasta-rice-polenta-triangle.json %}
+```
+
+<div class="caption">
+    RGB ternary visualization: Red = Pasta, Green = Rice, Blue = Polenta. Each region colored by proportional usage. Interactive: hover to see exact percentages.
+</div>
+
+**Regional patterns**:
+- **Lombardy, Piedmont, Veneto** (North): High rice usage (risotto country)
+- **Trentino, Valle d'Aosta** (Alpine): Polenta dominant
+- **Most other regions**: Pasta dominant
+- **Emilia-Romagna**: Balanced mix (transitional region)
+
+### The Tomato Gradient
+
+Tomato usage increases as you move south:
+
+**Regional tomato frequency** (% of recipes using tomatoes):
+- **Campania** (Naples): 75%
+- **Sicily**: 68%
+- **Calabria**: 71%
+- **Piedmont** (North): 32%
+- **Valle d'Aosta** (Alpine): 18%
+
+Mediterranean climate and Spanish/Arab influences in the South made tomatoes central to cuisine, while Northern regions adopted them more slowly.
+
+---
+
+## Graph Database (Neo4j)
 
 Instead of treating recipes as flat lists, I modeled them as **knowledge graphs** in Neo4j:
 
@@ -71,7 +179,18 @@ Instead of treating recipes as flat lists, I modeled them as **knowledge graphs*
 
 This structure captures **relationships** that ingredient lists miss: *how* ingredients are used, *when* they're added, *which* techniques transform them.
 
-### Graph Neural Networks
+### Graph Statistics
+
+| Metric | Artusi (1891) | Modern | Total |
+|--------|---------------|---------|-------|
+| Recipes | 790 | 2,599 | 3,389 |
+| Ingredients | 892 | 1,847 | 2,234 |
+| Steps | 4,325 | 8,912 | 13,237 |
+| Relationships | 18,500+ | 35,000+ | 53,500+ |
+
+---
+
+## Graph Neural Networks
 
 I built **heterogeneous Graph Attention Networks** (GAT) that learn from graph structure:
 
@@ -86,6 +205,8 @@ I built **heterogeneous Graph Attention Networks** (GAT) that learn from graph s
 1. **Fine-grained (20 regions)**: Direct classification into all 20 Italian regions
 2. **Macro-region (4 classes)**: Classification into geographic areas (North, Center, South, Islands)
 3. **Hierarchical (two-level)**: First predict macro-region, then specific region within that area
+
+---
 
 ## The Results
 
@@ -118,6 +239,24 @@ I built **heterogeneous Graph Attention Networks** (GAT) that learn from graph s
 - **South**: 44% F1 (moderate) - some confusion with Center
 - **Center**: 35% F1 (challenging) - transitional zone between North/South
 
+### What the Model Learned: Regional Clustering
+
+PCA visualization reveals the model learns genuine geographic patterns:
+
+```plotly
+{% include_relative ../assets/plotly/italian-cuisine/pca-regional-clustering.json %}
+```
+
+<div class="caption">
+    PCA projection of recipe embeddings colored by macro-region. Clear clustering shows the model learns geographic patterns, not random correlations. Interactive: hover to see region names.
+</div>
+
+**Key observations**:
+- **North** (red) forms tight cluster - homogeneous culinary tradition
+- **Islands** (yellow) well-separated - geographic isolation creates distinctiveness
+- **South** (green) and **Center** (blue) overlap - transitional cuisines share elements
+- Clustering follows **geography**, not administrative boundaries
+
 ### Fine-Grained Classification Reveals Data Scarcity
 
 **Training vs Test gap**: 84% → 20% (extreme overfitting)
@@ -138,6 +277,7 @@ The model memorizes training data but can't generalize because:
 **The problem**: When the first-level macro-region prediction is wrong (40.5% of cases), the second-level region prediction has zero chance of being correct. Errors cascade through the hierarchy.
 
 **Sub-classifier performance** (validation):
+
 | Sub-Classifier | Classes | Val F1 | Training Recipes |
 |----------------|---------|--------|------------------|
 | Islands | 2 | 80.8% | 257 |
@@ -146,6 +286,8 @@ The model memorizes training data but can't generalize because:
 | North | 8 | 34.1% | 744 |
 
 The Islands binary classifier (Sardinia vs Sicily) works well due to geographic isolation and clear culinary differences. The others struggle with within-macro-region similarity.
+
+---
 
 ## What I Learned
 
@@ -206,6 +348,62 @@ Comparing Artusi's 1891 cookbook to modern recipes reveals:
 
 This historical lens explains some model confusion - Italian cuisine is still evolving.
 
+### 5. Simple Often Beats Complex
+
+The hierarchical approach (5 separate models, complex two-level training) achieved 22.3% accuracy - only 2 percentage points better than the baseline fine-grained model.
+
+Meanwhile, the **simple macro-region classifier** took 2 hours to build and achieved **60% accuracy**.
+
+**Lesson**: Try the simple approach first. Add complexity only when it clearly helps.
+
+---
+
+## Beyond Classification: Additional Analyses
+
+### Regional Signature Ingredients
+
+Using gradient-based interpretability methods, I identified which ingredients the model considers most important for each macro-region:
+
+**North**:
+- Rice (risotto), butter, cream, polenta, gorgonzola, fontina
+- Alpine dairy products and Po Valley agriculture
+
+**South**:
+- Tomatoes, chili pepper, mozzarella, eggplant, capers
+- Mediterranean vegetables and spicy flavors
+
+**Islands**:
+- Pecorino (sheep cheese), almonds, bottarga, swordfish, capers
+- Seafood and Arab/Greek influences
+
+**Center**:
+- Pecorino romano, guanciale, beans, lard, bread
+- Pork-based and rustic ingredients
+
+### Coastal vs Inland Cuisines
+
+Seafood usage correlates strongly with coastline:
+
+**High seafood regions**: Sicily (70% of recipes), Sardinia (65%), Liguria (62%), Campania (58%)
+
+**Low seafood regions**: Umbria (12% - only landlocked Central region), Valle d'Aosta (8% - Alpine), Trentino (15% - Alpine)
+
+Geographic access to sea determines ingredient availability.
+
+### Cheese Geography
+
+Total cheese variety usage by region reveals dairy-farming centers:
+
+**Top cheese regions**:
+1. Lombardy (Northern dairy country)
+2. Emilia-Romagna (Parmigiano-Reggiano homeland)
+3. Piedmont (Alpine cheeses)
+4. Sardinia (Pecorino sardo)
+
+Each region has signature cheeses tied to local agriculture.
+
+---
+
 ## Technologies Used
 
 | **Area** | **Tools** |
@@ -218,6 +416,8 @@ This historical lens explains some model confusion - Italian cuisine is still ev
 | Notebooks | Jupyter Lab |
 | Infrastructure | Neo4j Docker, CUDA (GPU training) |
 
+---
+
 ## Limitations
 
 The 20% fine-grained accuracy means this model **cannot reliably** distinguish individual regions. For production use (e.g., recipe recommendation), the macro-region classifier (60% accuracy) is the only viable option.
@@ -228,434 +428,6 @@ The 20% fine-grained accuracy means this model **cannot reliably** distinguish i
 - Historical recipes rare (Artusi is one of few comprehensive sources)
 
 The project's value isn't a production-ready classifier - it's understanding **what makes regional classification hard** and **what patterns do exist** in Italian cuisine geography.
-
----
-
-## Technical Deep Dive
-
-For the curious, here's a deeper look into the technical implementation:
-
-<details markdown="1">
-<summary><strong>Graph Database Schema</strong></summary>
-
-## Neo4j Database Design
-
-### Node Types
-
-**Recipe Nodes**:
-```cypher
-CREATE (r:Recipe {
-  title: "Risotto alla Milanese",
-  region: "Lombardia",
-  macro_region: "North",
-  category: "first-course",
-  servings: 4,
-  source: "modern"
-})
-```
-
-**Ingredient Nodes** (normalized):
-```cypher
-CREATE (i:Ingredient {
-  name: "arborio rice",
-  normalized_name: "rice",
-  category: "grain"
-})
-```
-
-**Step Nodes**:
-```cypher
-CREATE (s:Step {
-  instruction: "Sauté chopped onion in butter until translucent",
-  step_number: 1,
-  duration_minutes: 3,
-  action: "sauté"
-})
-```
-
-### Relationships
-
-**Recipe-Ingredient** (`REQUIRES`):
-```cypher
-(recipe)-[:REQUIRES {
-  quantity: "320g",
-  unit: "grams",
-  optional: false
-}]->(ingredient)
-```
-
-**Recipe-Step** (`HAS_STEP`):
-```cypher
-(recipe)-[:HAS_STEP {
-  order: 1
-}]->(step)
-```
-
-**Step-Ingredient** (`USES_INGREDIENT`):
-```cypher
-(step)-[:USES_INGREDIENT {
-  quantity: "1",
-  unit: "whole"
-}]->(ingredient)
-```
-
-**Step-Step** (`NEXT_STEP`):
-```cypher
-(step1)-[:NEXT_STEP {
-  order: 2
-}]->(step2)
-```
-
-### Graph Statistics
-
-| Metric | Artusi (1891) | Modern | Total |
-|--------|---------------|---------|-------|
-| Recipes | 790 | 1,229 | 2,019 |
-| Ingredients | 892 | 1,847 | 2,234 |
-| Steps | 4,325 | 8,912 | 13,237 |
-| Relationships | 18,500+ | 35,000+ | 53,500+ |
-
-### Cypher Queries for Analysis
-
-**Find signature ingredients by region**:
-```cypher
-MATCH (r:Recipe {region: 'Sicilia'})-[:REQUIRES]->(i:Ingredient)
-WITH i, COUNT(*) AS freq
-ORDER BY freq DESC
-LIMIT 10
-RETURN i.name, freq
-```
-
-**Extract recipe subgraph**:
-```cypher
-MATCH path = (r:Recipe {title: 'Carbonara'})-[:HAS_STEP]->(s:Step)
-                      -[:USES_INGREDIENT]->(i:Ingredient)
-RETURN path
-```
-
-</details>
-
----
-
-<details markdown="1">
-<summary><strong>GNN Architecture</strong></summary>
-
-## Heterogeneous Graph Attention Network
-
-### Model Components
-
-**Input Embeddings**:
-```python
-# Ingredient embeddings
-self.ingredient_embedding = nn.Embedding(
-    num_ingredients,
-    embed_dim=128
-)
-
-# Action embeddings (cooking techniques)
-self.action_embedding = nn.Embedding(
-    num_actions,
-    embed_dim=64
-)
-```
-
-**GAT Layers** (3 layers):
-```python
-self.gat_layers = nn.ModuleList([
-    HeteroGATConv(
-        in_channels={
-            'recipe': 128,
-            'ingredient': 128,
-            'step': 64
-        },
-        out_channels=256,
-        num_heads=4,
-        dropout=0.3
-    )
-    for _ in range(3)
-])
-```
-
-**Attention Mechanism**:
-- Learns importance of different relationships
-- 4 attention heads capture diverse patterns
-- Dropout (0.3) prevents overfitting
-
-**Graph Pooling**:
-```python
-# Aggregate node embeddings to graph-level representation
-recipe_embedding = global_mean_pool(
-    node_embeddings['recipe'],
-    batch_indices
-)
-```
-
-**Classification Head**:
-```python
-self.classifier = nn.Sequential(
-    nn.Linear(256, 128),
-    nn.ReLU(),
-    nn.Dropout(0.3),
-    nn.Linear(128, num_regions)
-)
-```
-
-### Training Configuration
-
-**Optimizer**: AdamW
-- Learning rate: 0.001
-- Weight decay: 1e-5 (L2 regularization)
-
-**Loss**: Cross-Entropy with class weights
-- Balances class imbalance
-- Weights inversely proportional to class frequency
-
-**Early Stopping**:
-- Patience: 10 epochs
-- Metric: Validation F1 (weighted)
-
-**Batch Size**: 32 recipes per batch
-
-### Model Parameters
-
-| Model | Total Params | Trainable | Training Time (GPU) |
-|-------|--------------|-----------|---------------------|
-| Fine-Grained (20 classes) | 19.5M | 19.5M | ~2 hours (48 epochs) |
-| Macro-Region (4 classes) | 19.5M | 19.5M | ~15 mins (13 epochs) |
-| Hierarchical (5 models) | 97.4M | 97.4M | ~1.5 hours (all models) |
-
-</details>
-
----
-
-<details markdown="1">
-<summary><strong>Data Processing Pipeline</strong></summary>
-
-## From Raw Recipes to Graph Neural Networks
-
-### Phase 1: Data Collection & Cleaning
-
-**Artusi's Cookbook**:
-1. OCR text extraction from PDF
-2. Recipe segmentation (title, ingredients, instructions)
-3. NLP parsing with spaCy (Italian model)
-4. Manual correction of OCR errors
-
-**Modern Recipes**:
-1. Web scraping from Italian recipe sites
-2. All Italian Cuisine (AIC) dataset integration
-3. Deduplication and quality filtering
-4. Regional label validation
-
-### Phase 2: Neo4j Import
-
-**Ingredient Normalization**:
-```python
-def normalize_ingredient(raw_text):
-    """
-    'pomodori pelati' → 'tomato'
-    '200g di farina 00' → 'flour'
-    """
-    # Remove quantities, units
-    # Lemmatize (plural → singular)
-    # Map variants to canonical form
-    return canonical_name
-```
-
-**Action Extraction**:
-```python
-COOKING_ACTIONS = {
-    'cuocere', 'friggere', 'bollire', 'arrostire',
-    'saltare', 'stufare', 'gratinare', ...
-}
-
-def extract_action(step_text):
-    """Find cooking verb in instruction"""
-    doc = nlp(step_text)
-    for token in doc:
-        if token.lemma_ in COOKING_ACTIONS:
-            return token.lemma_
-    return 'prepare'  # default
-```
-
-**Graph Construction**:
-1. Create recipe nodes with metadata
-2. Create ingredient/step nodes
-3. Link recipes to ingredients (`REQUIRES`)
-4. Link recipes to steps (`HAS_STEP`)
-5. Link steps to ingredients (`USES_INGREDIENT`)
-6. Link sequential steps (`NEXT_STEP`)
-
-### Phase 3: Feature Extraction
-
-**For each recipe, extract**:
-- Ingredient feature vector (multi-hot encoding of 2,234 ingredients)
-- Action feature vector (multi-hot encoding of 87 cooking techniques)
-- Graph structure (adjacency lists for each relation type)
-
-**Vocabulary Building**:
-```python
-ingredient_vocab = {
-    'tomato': 0,
-    'flour': 1,
-    'olive oil': 2,
-    ...  # 2,234 total
-}
-
-action_vocab = {
-    'sauté': 0,
-    'boil': 1,
-    'fry': 2,
-    ...  # 87 total
-}
-```
-
-### Phase 4: Train/Val/Test Split
-
-**Stratified splitting** (preserves regional distribution):
-- **Training**: 70% (1,819 recipes)
-- **Validation**: 15% (400 recipes)
-- **Test**: 15% (390 recipes)
-
-**Class distribution** (training set):
-- North: 744 recipes (40.9%)
-- South: 539 recipes (29.6%)
-- Center: 279 recipes (15.3%)
-- Islands: 257 recipes (14.1%)
-
-</details>
-
----
-
-<details markdown="1">
-<summary><strong>Evaluation Metrics</strong></summary>
-
-## Why Not Just Accuracy?
-
-With imbalanced classes (North: 41% vs Islands: 14%), accuracy alone is misleading. A model that always predicts "North" gets 41% accuracy!
-
-### Metrics Used
-
-**F1 Score (Weighted)**:
-- Balances precision and recall
-- Weights each class by support (number of examples)
-- Better reflects real-world performance
-
-**F1 Score (Macro)**:
-- Treats all classes equally (unweighted average)
-- Shows performance on minority classes
-- Reveals bias toward majority classes
-
-**Confusion Matrix**:
-- Shows which regions are confused
-- Reveals geographic patterns (neighbors confused more)
-
-**Per-Class Metrics**:
-```python
-classification_report = {
-    'North': {
-        'precision': 0.779,  # When predicting North, correct 78% of time
-        'recall': 0.843,     # Catches 84% of actual North recipes
-        'f1-score': 0.810,   # Harmonic mean
-        'support': 159       # Test set examples
-    },
-    ...
-}
-```
-
-### Results Interpretation
-
-| Metric | Macro-Region | Fine-Grained | What It Means |
-|--------|--------------|--------------|---------------|
-| Accuracy | 59.5% | 20.3% | Overall correct predictions |
-| F1 (weighted) | 0.588 | 0.205 | Balanced performance |
-| F1 (macro) | 0.530 | 0.148 | Performance on small classes |
-| Train Acc | ~65% | 84.2% | Overfitting in fine-grained |
-
-**Key insight**: The 84% → 20% train/test gap in fine-grained shows the model memorizes training data but doesn't learn generalizable patterns.
-
-</details>
-
----
-
-<details markdown="1">
-<summary><strong>Historical Analysis</strong></summary>
-
-## Artusi vs Modern Recipes
-
-### Pellegrino Artusi's Legacy
-
-Pellegrino Artusi published *"Science in the Kitchen and the Art of Eating Well"* in 1891, shortly after Italian unification (1861). His cookbook was **explicitly political**: an attempt to create a unified "Italian" cuisine from fragmented regional traditions.
-
-**The Southern Exclusion**:
-- Artusi's 790 recipes come almost entirely from Central/Northern Italy
-- Southern Italian cuisine (Campania, Sicily, Calabria, Puglia) is nearly absent
-- This wasn't accidental - post-unification Italy was culturally divided, with Northern elites viewing the South as backward
-
-**Post-Unification Context**:
-- Italy unified politically in 1861, but culturally fragmented
-- No common language (regional dialects dominated)
-- No shared culinary tradition (what's "Italian" food?)
-- Artusi aimed to create that tradition through his cookbook
-
-### Evolution Analysis (1891 → 2025)
-
-**Recipe Complexity**:
-- Artusi: Average 5.5 ingredients per recipe
-- Modern: Average 9.2 ingredients per recipe
-- **67% increase** - modern recipes are more elaborate
-
-**Category Distribution**:
-
-| Category | Artusi (1891) | Modern | Change |
-|----------|---------------|--------|--------|
-| First Course (Pasta/Risotto) | 18% | 32% | **+78%** |
-| Second Course (Meat/Fish) | 45% | 28% | -38% |
-| Desserts | 22% | 18% | -18% |
-| **Pizza** | 0.1% | 4.2% | **+4100%** |
-
-**Key Trends**:
-1. **Rise of pasta**: Once a simple first course, now dominates Italian cuisine
-2. **Pizza goes national**: Barely present in Artusi, now emblematic
-3. **Less meat-centric**: Modern recipes more balanced across categories
-
-**Ingredient Frequency Shifts**:
-
-**Increasing**:
-- Tomatoes: +250% (now ubiquitous, rare in 1891)
-- Mozzarella: +180% (pizza/caprese salad boom)
-- Basil: +140% (pesto, caprese)
-
-**Decreasing**:
-- Lard: -65% (health trends, olive oil replacement)
-- Organ meats: -45% (changing tastes)
-- Preserved fish: -40% (fresh seafood available year-round)
-
-**Cooking Techniques**:
-
-**Increasing**:
-- Grilling (+120%): Outdoor cooking trend
-- Food processor (+∞): Technology adoption
-
-**Decreasing**:
-- Boiling (-30%): Preference for sautéing, roasting
-- Long braises (-25%): Faster cooking methods
-
-### Geographic Expansion
-
-Artusi's regional coverage was limited:
-- **Heavy**: Tuscany, Emilia Romagna, Lombardy
-- **Light**: Lazio, Liguria
-- **Nearly absent**: All of Southern Italy, Islands
-
-Modern dataset covers all 20 regions, revealing Southern specialties Artusi ignored:
-- **Sicilian**: Arancini, pasta alla norma, cannoli
-- **Neapolitan**: Pizza margherita, parmigiana di melanzane
-- **Calabrian**: 'Nduja, peperoncino-based sauces
-
-This geographic expansion explains some GNN confusion - "Italian cuisine" means very different things in different eras.
-
-</details>
 
 ---
 
@@ -696,3 +468,11 @@ The code demonstrates:
 - 💻 [GitHub Repository](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine)
 - 📊 [Interactive Analysis Notebook](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine/blob/main/notebooks/comprehensive_italian_cuisine_analysis_with_maps.ipynb)
 - 📝 [Technical Documentation](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine/blob/main/README.md)
+
+---
+
+## Related Blog Posts
+
+- [How Artusi's 1891 Cookbook Failed to Unify Italian Cuisine](/blog/2025/artusi-failed-unification/)
+- [Why I Represented Recipes as Graphs](/blog/2025/why-graphs-for-recipes/)
+- [Visualizing Italian Cuisine: Beyond Bar Charts](/blog/2025/visualizing-italian-cuisine/)

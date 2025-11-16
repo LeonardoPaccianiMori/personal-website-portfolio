@@ -1,0 +1,5349 @@
+region,ingredient,usage_count
+Abruzzo,olive oil,195
+Abruzzo,salt,167
+Abruzzo,wheat flour,85
+Abruzzo,garlic,80
+Abruzzo,egg,75
+Abruzzo,parsley,71
+Abruzzo,black pepper,63
+Abruzzo,onion,62
+Abruzzo,white wine,50
+Abruzzo,chili pepper,45
+Abruzzo,sugar,34
+Abruzzo,water,28
+Abruzzo,celery,28
+Abruzzo,butter,25
+Abruzzo,breadcrumb,21
+Abruzzo,carrot,18
+Abruzzo,tomato passata,17
+Abruzzo,pecorino cheese,17
+Abruzzo,grated pecorino cheese,15
+Abruzzo,milk,15
+Abruzzo,ground cinnamon,15
+Abruzzo,lemon,15
+Abruzzo,egg yolk,14
+Abruzzo,peeled tomato,14
+Abruzzo,bay leaf,14
+Abruzzo,tomato,13
+Abruzzo,sweet pecorino cheese,12
+Abruzzo,almond,12
+Abruzzo,potato,12
+Abruzzo,bell pepper,12
+Abruzzo,l'aquila saffron,11
+Abruzzo,saffron thread,11
+Abruzzo,lemon zest,11
+Abruzzo,rosemary,10
+Abruzzo,egg white,10
+Abruzzo,tomato sauce,9
+Abruzzo,nutmeg,8
+Abruzzo,red garlic,8
+Abruzzo,ricotta,8
+Abruzzo,mussel,8
+Abruzzo,lemon juice,8
+Abruzzo,marjoram,7
+Abruzzo,baking powder,7
+Abruzzo,scamorza,7
+Abruzzo,artichoke,7
+Abruzzo,dark chocolate,7
+Abruzzo,black truffle,7
+Abruzzo,basil,7
+Abruzzo,fish broth,6
+Abruzzo,mozzarella,6
+Abruzzo,brewer's yeast,6
+Abruzzo,lamb,6
+Abruzzo,lard,6
+Abruzzo,cuttlefish,6
+Abruzzo,powdered sugar,6
+Abruzzo,lardo,5
+Abruzzo,olaci,5
+Abruzzo,cherry tomato,5
+Abruzzo,saffron,5
+Abruzzo,vegetable broth,5
+Abruzzo,mantis shrimp,5
+Abruzzo,candied citron,5
+Abruzzo,chocolate,5
+Abruzzo,salted anchovy,5
+Abruzzo,clam,5
+Abruzzo,scallion,5
+Abruzzo,guanciale,5
+Abruzzo,sausage,5
+Abruzzo,cheese,5
+Abruzzo,stale bread,5
+Abruzzo,prosciutto crudo,4
+Abruzzo,sage,4
+Abruzzo,orange zest,4
+Abruzzo,polenta flour,4
+Abruzzo,vinegar,4
+Abruzzo,pancetta,4
+Abruzzo,spaghetti,4
+Abruzzo,cardoon,4
+Abruzzo,white wine vinegar,4
+Abruzzo,scampi,4
+Abruzzo,thyme,4
+Abruzzo,warm water,4
+Abruzzo,monkfish,4
+Abruzzo,sheep's milk ricotta,4
+Abruzzo,pork,4
+Abruzzo,walnut,4
+Abruzzo,chicken,4
+Abruzzo,pecorino abruzzese,4
+Abruzzo,raisin,4
+Abruzzo,wine vinegar,4
+Abruzzo,anchovy,4
+Abruzzo,meat broth,3
+Abruzzo,cocoa powder,3
+Abruzzo,red mullet,3
+Abruzzo,squid,3
+Abruzzo,zucchini,3
+Abruzzo,honey,3
+Abruzzo,sweet pepper,3
+Abruzzo,vanilla,3
+Abruzzo,vanillin,3
+Abruzzo,mixed meat,3
+Abruzzo,parmigiano cheese,3
+Abruzzo,hot water,3
+Abruzzo,black olive,3
+Abruzzo,aromatic bouquet,3
+Abruzzo,soaked salted cod,3
+Abruzzo,cabbage,3
+Abruzzo,chicory,3
+Abruzzo,cannarozzetti pasta,3
+Abruzzo,bread,3
+Abruzzo,chestnut,3
+Abruzzo,beef,3
+Abruzzo,linguine,3
+Abruzzo,rabbit,3
+Abruzzo,salted cod,3
+Abruzzo,pine nut,3
+Abruzzo,herbs,2
+Abruzzo,mutton leg,2
+Abruzzo,shrimp,2
+Abruzzo,salsiccia,2
+Abruzzo,salame aquilano,2
+Abruzzo,caciocavallo,2
+Abruzzo,ground beef,2
+Abruzzo,cinnamon sachet,2
+Abruzzo,egg tagliatelle,2
+Abruzzo,chickpea,2
+Abruzzo,rosemary sprig,2
+Abruzzo,pork meat,2
+Abruzzo,lukewarm water,2
+Abruzzo,veal pulp,2
+Abruzzo,mutton,2
+Abruzzo,cream,2
+Abruzzo,prosciutto cotto,2
+Abruzzo,chicken breast,2
+Abruzzo,mosto cotto,2
+Abruzzo,sultana raisin,2
+Abruzzo,apple,2
+Abruzzo,dried chili pepper,2
+Abruzzo,goat meat,2
+Abruzzo,broth,2
+Abruzzo,rice,2
+Abruzzo,rigatoni,2
+Abruzzo,lupini clam,2
+Abruzzo,ground veal,2
+Abruzzo,pitted black olive,2
+Abruzzo,hard-boiled egg,2
+Abruzzo,caciotta,2
+Abruzzo,candied fruit,2
+Abruzzo,anise seed,2
+Abruzzo,bitter almond,2
+Abruzzo,sweet almond,2
+Abruzzo,hen broth,2
+Abruzzo,lentil,2
+Abruzzo,scampi tail,2
+Abruzzo,sole,2
+Abruzzo,fava bean,2
+Abruzzo,mushroom,2
+Abruzzo,grated parmigiano cheese,2
+Abruzzo,mortadella,2
+Abruzzo,hen,2
+Abruzzo,trout,2
+Abruzzo,navelli saffron,2
+Abruzzo,caper,2
+Abruzzo,frying oil,2
+Abruzzo,baccalà,2
+Abruzzo,mixed fish,2
+Abruzzo,colored sprinkle,2
+Abruzzo,cauliflower,2
+Abruzzo,egg chitarra pasta,2
+Abruzzo,fresh pasta,1
+Abruzzo,clof,1
+Abruzzo,mixed pork,1
+Abruzzo,pipirella,1
+Abruzzo,annit,1
+Abruzzo,misericordia herb,1
+Abruzzo,mixed vegetable,1
+Abruzzo,fresh legume,1
+Abruzzo,dried legume,1
+Abruzzo,cooked wine,1
+Abruzzo,fresh tuna belly (ventresca),1
+Abruzzo,grape jam,1
+Abruzzo,diced tomato,1
+Abruzzo,lean lardo,1
+Abruzzo,tubetti rigati,1
+Abruzzo,salmon trout,1
+Abruzzo,skate,1
+Abruzzo,mixed chopped pasta ('munnezzaglje'),1
+Abruzzo,"mixed herbs (parsley, savory, bay leaf, mint, marjoram)",1
+Abruzzo,boiled ham bone,1
+Abruzzo,tripe,1
+Abruzzo,anchovy fillet,1
+Abruzzo,béchamel sauce,1
+Abruzzo,semi-aged pecorino cheese,1
+Abruzzo,mazzaferrata artichoke,1
+Abruzzo,vino cotto,1
+Abruzzo,cocoa powder and dark chocolate,1
+Abruzzo,truffle,1
+Abruzzo,pimpinella,1
+Abruzzo,calamint,1
+Abruzzo,vignaiola snail,1
+Abruzzo,tacconcelli pasta,1
+Abruzzo,young turkey,1
+Abruzzo,coffee bean,1
+Abruzzo,stockfish,1
+Abruzzo,whipping cream,1
+Abruzzo,villa santa maria punch,1
+Abruzzo,sweet dried pepper,1
+Abruzzo,large scampi,1
+Abruzzo,abruzzese punch,1
+Abruzzo,spicy fresh salsiccia,1
+Abruzzo,orange liqueur,1
+Abruzzo,mixed jam,1
+Abruzzo,fresh pecorino cheese,1
+Abruzzo,other vegetable,1
+Abruzzo,cracked farro,1
+Abruzzo,salted caper,1
+Abruzzo,baby cuttlefish,1
+Abruzzo,shelled pea,1
+Abruzzo,cupello artichoke,1
+Abruzzo,artichoke heart,1
+Abruzzo,crespella,1
+Abruzzo,almond or walnut,1
+Abruzzo,unsweetened cocoa powder,1
+Abruzzo,firm-fleshed fish,1
+Abruzzo,l'aquila black truffle paste,1
+Abruzzo,boiled potato,1
+Abruzzo,wild spinach leaf,1
+Abruzzo,salted cod fillet,1
+Abruzzo,clove,1
+Abruzzo,white onion,1
+Abruzzo,celery leaf,1
+Abruzzo,shelled borlotti bean,1
+Abruzzo,meadow mushroom,1
+Abruzzo,fresh sagne pasta,1
+Abruzzo,adacciata,1
+Abruzzo,grass pea,1
+Abruzzo,asparagus,1
+Abruzzo,passito wine,1
+Abruzzo,orange,1
+Abruzzo,cow's milk ricotta,1
+Abruzzo,pomegranate seed,1
+Abruzzo,fresh must,1
+Abruzzo,"beef, lamb, and pork mix",1
+Abruzzo,skate fillet,1
+Abruzzo,grated sweet pecorino cheese,1
+Abruzzo,chicken broth,1
+Abruzzo,ground prosciutto,1
+Abruzzo,fresh ricotta,1
+Abruzzo,wild fennel seed,1
+Abruzzo,pork sausage,1
+Abruzzo,montepulciano wine,1
+Abruzzo,boneless pork shoulder,1
+Abruzzo,bouquet garni,1
+Abruzzo,boneless mutton leg,1
+Abruzzo,chili powder,1
+Abruzzo,nettle leaf,1
+Abruzzo,octopus,1
+Abruzzo,wild spinach,1
+Abruzzo,giardiniera (pickled vegetables),1
+Abruzzo,salsiccia sausage,1
+Abruzzo,sfrizzoli,1
+Abruzzo,maraschino liqueur,1
+Abruzzo,untreated lemon,1
+Abruzzo,pastry cream,1
+Abruzzo,candied cherry,1
+Abruzzo,coffee,1
+Abruzzo,alcherme,1
+Abruzzo,rum,1
+Abruzzo,grated lemon,1
+Abruzzo,yeast,1
+Abruzzo,corn flour,1
+Abruzzo,potato starch,1
+Abruzzo,grated grana padano,1
+Abruzzo,muscovy duck,1
+Abruzzo,l'aquila black truffle,1
+Abruzzo,semi-aged cow's milk cheese,1
+Abruzzo,chife,1
+Abruzzo,pearled barley,1
+Abruzzo,pork blood,1
+Abruzzo,mixed pork cut,1
+Abruzzo,cooked grape must,1
+Abruzzo,curly endive,1
+Abruzzo,tubettoni rigati,1
+Abruzzo,cascigni,1
+Abruzzo,escarole,1
+Abruzzo,bread slice,1
+Abruzzo,young nettle stalk,1
+Abruzzo,mint,1
+Abruzzo,eggplant,1
+Abruzzo,large endive leaf,1
+Abruzzo,lamb coratella,1
+Abruzzo,red wine,1
+Abruzzo,lean pork,1
+Abruzzo,maccheroni,1
+Abruzzo,brandy,1
+Abruzzo,small scampi,1
+Abruzzo,spelt linguine,1
+Abruzzo,dried sweet pepper,1
+Abruzzo,shrimp tail,1
+Abruzzo,dried fig,1
+Abruzzo,aged cow's milk cheese,1
+Abruzzo,veal,1
+Abruzzo,fresh laganelle,1
+Abruzzo,river crayfish,1
+Abruzzo,aromatic herb powder,1
+Abruzzo,pork jowl (guanciale),1
+Abruzzo,porcini mushroom,1
+Abruzzo,polipetti,1
+Abruzzo,calamaretti,1
+Abruzzo,boiling water,1
+Abruzzo,small hake,1
+Abruzzo,medium scampi,1
+Abruzzo,river prawn,1
+Abruzzo,pitted green olive,1
+Abruzzo,minced veal pulp,1
+Abruzzo,fusilli,1
+Abruzzo,pistachio,1
+Abruzzo,truffle shaving,1
+Abruzzo,ground meat,1
+Abruzzo,puff pastry,1
+Abruzzo,smoked pancetta,1
+Abruzzo,rabbit liver,1
+Abruzzo,pork pulp,1
+Abruzzo,boneless rabbit,1
+Abruzzo,chili oil,1
+Abruzzo,fresh sage leaf,1
+Abruzzo,new potato,1
+Abruzzo,sole fillet,1
+Abruzzo,anise liqueur,1
+Abruzzo,fedelini,1
+Abruzzo,ripe white or black grape,1
+Abruzzo,aromatic herb bouquet,1
+Abruzzo,montepulciano d’abruzzo wine,1
+Abruzzo,pickle,1
+Abruzzo,lamb pluck,1
+Abruzzo,lamb offal,1
+Abruzzo,desalted salted cod fillet,1
+Abruzzo,fresh anellini pasta,1
+Abruzzo,prosciutto,1
+Abruzzo,pea,1
+Abruzzo,sweetbread,1
+Abruzzo,tuna in oil,1
+Abruzzo,tomato pulp,1
+Abruzzo,olive,1
+Abruzzo,hazelnut,1
+Abruzzo,liqueur,1
+Abruzzo,borage leaf,1
+Abruzzo,broccoletti (branching broccoli),1
+Abruzzo,broccoli,1
+Abruzzo,crab,1
+Abruzzo,gurnard,1
+Abruzzo,skate wing,1
+Abruzzo,dogfish steak,1
+Abruzzo,monkfish tail,1
+Abruzzo,john dory,1
+Abruzzo,lamb liver,1
+Abruzzo,goat leg,1
+Abruzzo,turkey broth,1
+Abruzzo,centerbe liqueur,1
+Abruzzo,croccante,1
+Abruzzo,torrone,1
+Abruzzo,sponge cake,1
+Abruzzo,citron,1
+Abruzzo,oregano,1
+Abruzzo,red beet,1
+Abruzzo,tuna,1
+Abruzzo,anchovy fillet in oil,1
+Abruzzo,giardiniera,1
+Abruzzo,shallot,1
+Abruzzo,sparkling wine,1
+Abruzzo,green pepper,1
+Abruzzo,brown sugar,1
+Basilicata,olive oil,26
+Basilicata,salt,24
+Basilicata,garlic,11
+Basilicata,black pepper,11
+Basilicata,onion,10
+Basilicata,egg,9
+Basilicata,parsley,8
+Basilicata,potato,7
+Basilicata,chili pepper,6
+Basilicata,sugar,6
+Basilicata,wheat flour,6
+Basilicata,peeled tomato,5
+Basilicata,tomato,5
+Basilicata,white wine,4
+Basilicata,brewer's yeast,3
+Basilicata,ground cinnamon,3
+Basilicata,water,3
+Basilicata,oregano,3
+Basilicata,grated pecorino cheese,3
+Basilicata,lard,3
+Basilicata,meat broth,3
+Basilicata,parmigiano cheese,3
+Basilicata,cardoncelli mushroom,3
+Basilicata,lamb,3
+Basilicata,toasted bread slice,2
+Basilicata,salted cod,2
+Basilicata,dried chili pepper,2
+Basilicata,white celery,2
+Basilicata,breadcrumb,2
+Basilicata,toasted bread,2
+Basilicata,celery,2
+Basilicata,fresh pecorino cheese,2
+Basilicata,pork pulp,2
+Basilicata,rosemary,2
+Basilicata,pecorino cheese,2
+Basilicata,hot water,1
+Basilicata,mountain fennel,1
+Basilicata,lamb meat,1
+Basilicata,alcohol,1
+Basilicata,anise,1
+Basilicata,fondant sugar,1
+Basilicata,milk,1
+Basilicata,egg tagliolini,1
+Basilicata,honey,1
+Basilicata,powdered sugar,1
+Basilicata,lemon,1
+Basilicata,sweet ricotta,1
+Basilicata,warm water,1
+Basilicata,frying oil,1
+Basilicata,anchovy in oil,1
+Basilicata,hard-boiled egg,1
+Basilicata,provola,1
+Basilicata,salsiccia,1
+Basilicata,carrot,1
+Basilicata,boston lettuce,1
+Basilicata,veal,1
+Basilicata,broth,1
+Basilicata,chili powder,1
+Basilicata,stale bread slice,1
+Basilicata,pork rind,1
+Basilicata,white bean of rotonda,1
+Basilicata,pickled pepper,1
+Basilicata,dried chickpea,1
+Basilicata,lardo,1
+Basilicata,sausage,1
+Basilicata,basil,1
+Basilicata,chicken,1
+Basilicata,caper,1
+Basilicata,gaeta olive,1
+Basilicata,pancetta,1
+Basilicata,catalogna chicory,1
+Basilicata,pork pancetta,1
+Basilicata,fava bean,1
+Basilicata,artichoke,1
+Basilicata,eggplant,1
+Basilicata,bell pepper,1
+Basilicata,aged pecorino cheese,1
+Basilicata,cardoon,1
+Basilicata,bay leaf,1
+Basilicata,kid goat,1
+Basilicata,black olive,1
+Basilicata,chard,1
+Basilicata,bread dough,1
+Basilicata,vanillin,1
+Basilicata,strega liqueur,1
+Basilicata,mandarin zest,1
+Basilicata,lemon zest,1
+Basilicata,unsweetened cocoa powder,1
+Basilicata,dark chocolate,1
+Basilicata,chestnut,1
+Basilicata,chickpea,1
+Basilicata,bucatini,1
+Basilicata,stale bread,1
+Basilicata,"minced parsley, thyme, and rosemary",1
+Calabria,salt,119
+Calabria,olive oil,112
+Calabria,garlic,52
+Calabria,parsley,46
+Calabria,black pepper,44
+Calabria,onion,37
+Calabria,chili pepper,32
+Calabria,lard,29
+Calabria,wheat flour,29
+Calabria,egg,24
+Calabria,tomato,24
+Calabria,basil,22
+Calabria,breadcrumb,21
+Calabria,sugar,20
+Calabria,pecorino cheese,20
+Calabria,celery,18
+Calabria,potato,15
+Calabria,bay leaf,14
+Calabria,water,14
+Calabria,white wine,13
+Calabria,peeled tomato,13
+Calabria,oregano,12
+Calabria,grated pecorino cheese,11
+Calabria,bell pepper,11
+Calabria,caper,10
+Calabria,ground cinnamon,10
+Calabria,lemon,10
+Calabria,vinegar,9
+Calabria,tomato sauce,9
+Calabria,eggplant,9
+Calabria,butter,8
+Calabria,tropea onion,7
+Calabria,carrot,7
+Calabria,tomato passata,7
+Calabria,honey,7
+Calabria,red wine,7
+Calabria,hard-boiled egg,7
+Calabria,brewer's yeast,6
+Calabria,sausage,6
+Calabria,orange,6
+Calabria,pancetta,5
+Calabria,tomato paste,5
+Calabria,provola,5
+Calabria,almond,5
+Calabria,rosemary,4
+Calabria,frying oil,4
+Calabria,sage,4
+Calabria,anchovy,4
+Calabria,bread dough,4
+Calabria,zucchini,4
+Calabria,anise liqueur,4
+Calabria,rice,4
+Calabria,tuna in oil,4
+Calabria,clove,4
+Calabria,pitted black olive,4
+Calabria,walnut,4
+Calabria,lemon juice,3
+Calabria,porcini mushroom,3
+Calabria,lardo,3
+Calabria,meat broth,3
+Calabria,mint,3
+Calabria,powdered sugar,3
+Calabria,mozzarella,3
+Calabria,artichoke,3
+Calabria,baking soda,3
+Calabria,guanciale,3
+Calabria,warm water,3
+Calabria,stockfish,3
+Calabria,salted caper,3
+Calabria,spaghetti,3
+Calabria,milk,3
+Calabria,salami,3
+Calabria,ground pork,3
+Calabria,polenta flour,3
+Calabria,escarole,3
+Calabria,swordfish,3
+Calabria,parmigiano cheese,3
+Calabria,dried fig,3
+Calabria,nutmeg,3
+Calabria,apple,2
+Calabria,dried fava bean,2
+Calabria,chili powder,2
+Calabria,stale bread,2
+Calabria,toasted bread,2
+Calabria,shallot,2
+Calabria,pork meat,2
+Calabria,chickpea,2
+Calabria,wild fennel,2
+Calabria,homemade tagliatelle,2
+Calabria,lemon zest,2
+Calabria,orange blossom honey,2
+Calabria,cuttlefish,2
+Calabria,prosciutto cotto,2
+Calabria,ricotta,2
+Calabria,broth,2
+Calabria,dried porcini mushroom,2
+Calabria,caciocavallo,2
+Calabria,pork rind,2
+Calabria,pork,2
+Calabria,new potato,2
+Calabria,ground beef,2
+Calabria,cabbage,2
+Calabria,fresh pecorino cheese,2
+Calabria,orange zest,2
+Calabria,raisin,2
+Calabria,baking powder,2
+Calabria,black olive,2
+Calabria,diced tomato,2
+Calabria,vermicelli,2
+Calabria,salted ricotta,2
+Calabria,sweet pepper,2
+Calabria,grated parmigiano cheese,2
+Calabria,chard,2
+Calabria,capon,2
+Calabria,red wine vinegar,2
+Calabria,dark chocolate,2
+Calabria,candied citron,2
+Calabria,maccheroni,2
+Calabria,pectin-based jam setting mix,1
+Calabria,bergamot pulp,1
+Calabria,toasted bread slice,1
+Calabria,clof,1
+Calabria,tomato pulp,1
+Calabria,borage leaf,1
+Calabria,wild asparagus,1
+Calabria,yellow pumpkin,1
+Calabria,cold water,1
+Calabria,vanilla sugar,1
+Calabria,semolina,1
+Calabria,sweetened cocoa powder,1
+Calabria,waxy potato,1
+Calabria,veal tripe,1
+Calabria,tripe,1
+Calabria,sheep tripe,1
+Calabria,spicy sila salami,1
+Calabria,anchovy fillet in oil,1
+Calabria,tuna,1
+Calabria,rosemary sprig,1
+Calabria,"""pipi russu""",1
+Calabria,lagane,1
+Calabria,pork pancetta,1
+Calabria,bergamot,1
+Calabria,chocolate,1
+Calabria,baked black olive,1
+Calabria,thick-skinned orange,1
+Calabria,goat meat,1
+Calabria,beef shank,1
+Calabria,soaked stockfish,1
+Calabria,salted olive,1
+Calabria,swordfish belly,1
+Calabria,sole,1
+Calabria,pork jowl,1
+Calabria,vanilla baking powder,1
+Calabria,black bread,1
+Calabria,broccoli rabe,1
+Calabria,hot water,1
+Calabria,fresh oregano,1
+Calabria,spicy salami,1
+Calabria,beef fillet,1
+Calabria,wine,1
+Calabria,clam,1
+Calabria,squid,1
+Calabria,medium pasta,1
+Calabria,prosciutto crudo,1
+Calabria,rigatoni,1
+Calabria,olive oil or lard,1
+Calabria,brandy or rum,1
+Calabria,ground meat,1
+Calabria,wild fennel seed,1
+Calabria,smoked pancetta,1
+Calabria,quail,1
+Calabria,ciambella di pane casereccio,1
+Calabria,veal pulp,1
+Calabria,pork pulp,1
+Calabria,mosto cotto,1
+Calabria,chopped parsley,1
+Calabria,rositi mushroom,1
+Calabria,fennel seed,1
+Calabria,green tomato,1
+Calabria,pork crackling,1
+Calabria,calabrian broccoli,1
+Calabria,pizza dough,1
+Calabria,sheep's milk ricotta,1
+Calabria,sardine,1
+Calabria,pork cracklings (ciccioli),1
+Calabria,cooked pork rind,1
+Calabria,salsiccia,1
+Calabria,cooked wine,1
+Calabria,orange liqueur,1
+Calabria,sùrici,1
+Calabria,pickled caper,1
+Calabria,snail,1
+Calabria,perciatelli or bucatini pasta,1
+Calabria,beef or pork ragù,1
+Calabria,paccheri (or rigatoni),1
+Calabria,ditalini pasta,1
+Calabria,salsiccia or soppressata,1
+Calabria,penne or ziti pasta,1
+Calabria,anchovy in oil,1
+Calabria,paccheri,1
+Calabria,zucchini flower,1
+Calabria,pasta,1
+Calabria,green bean,1
+Calabria,black broccoli,1
+Calabria,short pasta,1
+Calabria,cooked ham or mortadella,1
+Calabria,fior di latte,1
+Calabria,long eggplant,1
+Calabria,ground veal,1
+Calabria,orange marmalade,1
+Calabria,sultana raisin,1
+Calabria,lung,1
+Calabria,heart,1
+Calabria,beef tripe (centopelli),1
+Calabria,toasted almond and walnut,1
+Calabria,cooked wine must,1
+Calabria,pitta bread,1
+Calabria,dried bean,1
+Calabria,spinach,1
+Calabria,chicory,1
+Calabria,'nduja,1
+Calabria,aged pecorino cheese,1
+Calabria,zucchini with flower,1
+Calabria,long squash,1
+Calabria,zucchini shoot,1
+Calabria,fresh wild fennel,1
+Calabria,salted lard,1
+Calabria,broccoli floret,1
+Calabria,mountain bean,1
+Calabria,mixed green,1
+Calabria,green olive,1
+Calabria,cod,1
+Calabria,cauliflower,1
+Calabria,soaked salted cod,1
+Calabria,bread,1
+Calabria,meat slice,1
+Calabria,broccoli,1
+Calabria,kid goat caul fat,1
+Calabria,kid goat intestine,1
+Calabria,kid goat liver and lung,1
+Calabria,beef broth,1
+Calabria,herbs,1
+Calabria,prosciutto,1
+Calabria,cappello del prete (beef shoulder clod),1
+Calabria,prune,1
+Calabria,chestnut,1
+Calabria,sandwich bread,1
+Calabria,sliced almond,1
+Calabria,fresh shelled pistachio,1
+Calabria,mixed ground veal and pork,1
+Calabria,marsala wine,1
+Calabria,anchovy fillet,1
+Calabria,young goat meat,1
+Calabria,fresh oregano sprig,1
+Calabria,kid goat leg,1
+Calabria,suckling kid goat,1
+Calabria,local artichoke,1
+Calabria,boiling water,1
+Calabria,mixed cured meat,1
+Calabria,bouquet garni,1
+Calabria,sirloin steak,1
+Calabria,grouper,1
+Calabria,beaten egg,1
+Calabria,vanillin or other flavoring,1
+Calabria,sesame seed,1
+Calabria,pitted green olive,1
+Calabria,calabrian oval orange,1
+Calabria,pork crackling (curcuci),1
+Calabria,wild boar saddle,1
+Calabria,wild boar,1
+Calabria,lamb leg,1
+Calabria,saury pike,1
+Calabria,short macaroni,1
+Calabria,verbena,1
+Calabria,ground clove,1
+Calabria,shelled almond,1
+Calabria,sunflower oil,1
+Calabria,grated orange peel,1
+Calabria,pork caul fat,1
+Calabria,pork liver,1
+Calabria,passito wine,1
+Calabria,aromatic herbs for roasting,1
+Calabria,scallion,1
+Calabria,strawberry,1
+Calabria,pork fillet,1
+Calabria,parmigiano or pecorino cheese,1
+Calabria,cherry tomato,1
+Calabria,lattaruli mushroom,1
+Calabria,smoked provola,1
+Calabria,moscato wine,1
+Calabria,wine vinegar,1
+Calabria,fresh spicy sausage,1
+Calabria,savoy cabbage leaf,1
+Calabria,seasonal wild green,1
+Calabria,white bean,1
+Calabria,salt and pepper,1
+Calabria,egg yolk,1
+Calabria,beef,1
+Calabria,mushroom,1
+Calabria,pea,1
+Calabria,linguine pasta,1
+Calabria,sun-dried tomato in oil,1
+Calabria,linguine,1
+Calabria,alcohol,1
+Calabria,licorice powder,1
+Calabria,lettuce leaf,1
+Calabria,dormituri snail,1
+Calabria,fresh lard,1
+Campania,salt,137
+Campania,olive oil,107
+Campania,garlic,70
+Campania,black pepper,67
+Campania,parsley,58
+Campania,wheat flour,44
+Campania,egg,40
+Campania,sugar,34
+Campania,onion,33
+Campania,butter,30
+Campania,water,27
+Campania,lard,27
+Campania,chili pepper,24
+Campania,parmigiano cheese,23
+Campania,white wine,21
+Campania,basil,20
+Campania,breadcrumb,20
+Campania,milk,19
+Campania,brewer's yeast,17
+Campania,caper,16
+Campania,peeled tomato,15
+Campania,egg yolk,13
+Campania,tomato paste,12
+Campania,oregano,12
+Campania,ricotta,12
+Campania,grated parmigiano cheese,12
+Campania,lemon,11
+Campania,potato,10
+Campania,celery,10
+Campania,frying oil,10
+Campania,vinegar,10
+Campania,powdered sugar,10
+Campania,mozzarella,10
+Campania,tomato,10
+Campania,tomato sauce,9
+Campania,lardo,8
+Campania,sausage,8
+Campania,pancetta,7
+Campania,raisin,7
+Campania,pine nut,7
+Campania,stale bread,7
+Campania,salted anchovy,7
+Campania,cherry tomato,7
+Campania,red wine,7
+Campania,pecorino cheese,7
+Campania,bell pepper,6
+Campania,warm water,6
+Campania,lemon zest,6
+Campania,tomato passata,6
+Campania,carrot,6
+Campania,bay leaf,6
+Campania,gaeta olive,6
+Campania,salt and pepper,6
+Campania,fiordilatte,6
+Campania,pea,5
+Campania,anchovy,5
+Campania,egg white,5
+Campania,eggplant,5
+Campania,prosciutto cotto,5
+Campania,rosemary,5
+Campania,cauliflower,4
+Campania,zucchini,4
+Campania,clam,4
+Campania,mussel,4
+Campania,marjoram,4
+Campania,nutmeg,4
+Campania,prosciutto,4
+Campania,candied orange,4
+Campania,prosciutto crudo,4
+Campania,anchovy in oil,4
+Campania,rice,4
+Campania,cheese,4
+Campania,salame napoletano,4
+Campania,rum,4
+Campania,walnut,3
+Campania,dark chocolate,3
+Campania,artichoke,3
+Campania,mint,3
+Campania,shrimp,3
+Campania,vermicelli,3
+Campania,ground beef,3
+Campania,hard-boiled egg,3
+Campania,lemon juice,3
+Campania,honey,3
+Campania,spaghetti,3
+Campania,veal,3
+Campania,vanilla,3
+Campania,semolina,3
+Campania,candied fruit,3
+Campania,smooth escarole,3
+Campania,polenta flour,3
+Campania,anchovy fillet,3
+Campania,gaeta black olive,3
+Campania,ground cinnamon,3
+Campania,pasta mista,3
+Campania,lukewarm water,3
+Campania,chestnut,3
+Campania,ciccioli,3
+Campania,beef,3
+Campania,scamorza,3
+Campania,almond,2
+Campania,quince,2
+Campania,fava bean,2
+Campania,salted pork rind,2
+Campania,prosciutto bone,2
+Campania,ground veal,2
+Campania,cardoon,2
+Campania,chicken broth,2
+Campania,soaked salted cod,2
+Campania,yeast,2
+Campania,baby octopus,2
+Campania,caciotta,2
+Campania,squid,2
+Campania,ground meat,2
+Campania,candied pumpkin,2
+Campania,candied citron,2
+Campania,grated grana padano,2
+Campania,cuttlefish,2
+Campania,colatura di alici,2
+Campania,dried mushroom,2
+Campania,pork rib,2
+Campania,pork,2
+Campania,cinnamon oil,2
+Campania,black gaeta olive,2
+Campania,black olive,2
+Campania,octopus,2
+Campania,provolone,2
+Campania,mortadella,2
+Campania,provola or mozzarella,2
+Campania,buffalo mozzarella,2
+Campania,sultana raisin,2
+Campania,bucatini,2
+Campania,anchovy fillet in oil,2
+Campania,chicken breast,2
+Campania,orange zest,2
+Campania,bean,2
+Campania,papaccella pepper,2
+Campania,pecorino romano,2
+Campania,unsweetened cocoa powder,2
+Campania,shelled pea,2
+Campania,orange liqueur,2
+Campania,whipping cream,2
+Campania,cervellatine,2
+Campania,lettuce,2
+Campania,starch,2
+Campania,beef slice,2
+Campania,smoked provola,2
+Campania,curly endive,2
+Campania,white wine vinegar,2
+Campania,apple,2
+Campania,colored sprinkle,1
+Campania,white grape,1
+Campania,pomegranate seed,1
+Campania,soft wheat,1
+Campania,vino cotto,1
+Campania,asparagus,1
+Campania,small fresh onion,1
+Campania,parmigiano cheese rind,1
+Campania,escarole,1
+Campania,dried bean,1
+Campania,scallion,1
+Campania,prune,1
+Campania,dried fig,1
+Campania,yellow pumpkin,1
+Campania,tuna belly in oil,1
+Campania,maccheroni della regina or pennine pasta,1
+Campania,ziti,1
+Campania,salted cod,1
+Campania,boiled salted cod,1
+Campania,sour cherry jam,1
+Campania,pastry cream,1
+Campania,olive oil or butter,1
+Campania,green olive,1
+Campania,red mullet,1
+Campania,cigoli,1
+Campania,baking powder,1
+Campania,gruyère,1
+Campania,perciatelli pasta,1
+Campania,marsala wine,1
+Campania,maccheroncelli pasta,1
+Campania,beef sinew,1
+Campania,fat and meat scrap,1
+Campania,pork belly,1
+Campania,canned pea,1
+Campania,semi-aged pecorino cheese,1
+Campania,black summer truffle,1
+Campania,anise liqueur,1
+Campania,baker's ammonia,1
+Campania,pisto,1
+Campania,fresh marjoram,1
+Campania,sprinkles (diavolilli),1
+Campania,sparkling water,1
+Campania,stoccafisso,1
+Campania,soaked stockfish,1
+Campania,green bean,1
+Campania,shelled bean,1
+Campania,seafood mix,1
+Campania,sea bass,1
+Campania,boiling water,1
+Campania,stewing veal,1
+Campania,rosemary sprig,1
+Campania,pork offal,1
+Campania,grana padano,1
+Campania,clove,1
+Campania,mezzanella pasta,1
+Campania,cold water,1
+Campania,artichoke heart,1
+Campania,white pepper,1
+Campania,fish or vegetable,1
+Campania,fresh mint,1
+Campania,mussel and veraci clam,1
+Campania,ragù sauce,1
+Campania,mozzarella or provola,1
+Campania,cured salami,1
+Campania,fried meatball,1
+Campania,soft bread crumb,1
+Campania,sardine,1
+Campania,beef (lacerto/girello cut),1
+Campania,pine nut and walnut,1
+Campania,pitted gaeta olive,1
+Campania,pitted green olive,1
+Campania,basil sprig,1
+Campania,parsley sprig,1
+Campania,salted pantelleria caper,1
+Campania,pitted gaeta black olive,1
+Campania,green cauliflower,1
+Campania,rigatoni,1
+Campania,salted pork belly,1
+Campania,mugnoli (turnip tops),1
+Campania,pork ham,1
+Campania,beef pulp,1
+Campania,castrato lamb,1
+Campania,parsley or oregano,1
+Campania,black olive and caper,1
+Campania,grated pecorino cheese,1
+Campania,puff pastry,1
+Campania,mushroom,1
+Campania,ham,1
+Campania,friarielli (tender broccoli rabe),1
+Campania,tropea onion,1
+Campania,cherry pepper,1
+Campania,pitted black olive,1
+Campania,bread slice,1
+Campania,large black truffle,1
+Campania,very lean pork pulp,1
+Campania,veal pulp,1
+Campania,orange blossom water,1
+Campania,vanillin,1
+Campania,soaked wheat,1
+Campania,salted olive,1
+Campania,pasta mischiata,1
+Campania,vincotto,1
+Campania,soft pork ciccioli,1
+Campania,buffalo ricotta,1
+Campania,strega liqueur,1
+Campania,ristretto coffee,1
+Campania,salami,1
+Campania,chestnut flour,1
+Campania,corinthian raisin,1
+Campania,chicken liver,1
+Campania,tagliolini,1
+Campania,lamb (or kid) intestine,1
+Campania,orange,1
+Campania,aromatic,1
+Campania,caciocavallo,1
+Campania,fresh pork,1
+Campania,tracchiolelle (pork rib),1
+Campania,salamino,1
+Campania,herbs,1
+Campania,torzelle,1
+Campania,cabbage,1
+Campania,chicory and scarolella,1
+Campania,broccoletti,1
+Campania,leaf broccoli,1
+Campania,savoy cabbage,1
+Campania,crouton,1
+Campania,broth or milk,1
+Campania,leek,1
+Campania,veal spleen,1
+Campania,yellow polenta,1
+Campania,cinnamon stick,1
+Campania,citrus liqueur,1
+Campania,fresh lemon,1
+Campania,pickled chili pepper,1
+Campania,pork meat,1
+Campania,capitone eel head and tail,1
+Campania,linguine or spaghetti,1
+Campania,grated pecorino romano,1
+Campania,napoletano salami,1
+Campania,maccheroni,1
+Campania,mezzani pasta,1
+Campania,lamb meat trimming,1
+Campania,lean lamb belly,1
+Campania,pork jowl (guanciale),1
+Campania,linguine,1
+Campania,alcohol,1
+Campania,lasagna,1
+Campania,sweet pecorino cheese,1
+Campania,lardari,1
+Campania,emmental,1
+Campania,bunch of herb,1
+Campania,veal knee,1
+Campania,scampi,1
+Campania,sea truffle,1
+Campania,lamb stew meat,1
+Campania,wild chicory,1
+Campania,eel,1
+Campania,baccalà,1
+Campania,spicy provolone,1
+Campania,pine nut and raisin,1
+Campania,abbuoti,1
+Campania,salted caper,1
+Campania,curly escarole,1
+Campania,tomato preserve,1
+Campania,lean beef or pork pulp,1
+Campania,fresh pasta square,1
+Campania,mixed pickle,1
+Campania,fresella,1
+Campania,mackerel,1
+Campania,kid goat,1
+Campania,meat broth,1
+Campania,beef eye of round or pork ham,1
+Campania,tracchiolelle,1
+Campania,"beef, prime cut",1
+Campania,beef (or pork),1
+Campania,tender artichoke,1
+Campania,veal sweetbread,1
+Campania,maraschino liqueur,1
+Campania,pandispagna,1
+Campania,baking soda,1
+Campania,chickpea,1
+Campania,friarielli,1
+Campania,seed oil,1
+Campania,almond essence,1
+Campania,grated lemon peel,1
+Campania,wild boar loin,1
+Campania,bechamel sauce,1
+Campania,demi-sec sherry,1
+Campania,champignon mushroom,1
+Campania,thyme,1
+Campania,rabbit,1
+Campania,cocoa powder,1
+Campania,cream,1
+Campania,orange juice,1
+Campania,provatura,1
+Campania,gurnard (coccio),1
+Campania,ditalini pasta,1
+Campania,shelled almond,1
+Campania,omento (pork caul fat),1
+Campania,pork liver,1
+Campania,zucchini flower,1
+Campania,fresh pecorino cheese,1
+Campania,neapolitan salami,1
+Campania,leftover pasta,1
+Campania,black gaeta olife,1
+Campania,orecchiette,1
+Campania,fusilli,1
+Campania,smoked scamorza,1
+Campania,prosciutto or salami,1
+Campania,gnocchi,1
+Emilia Romagna,salt,198
+Emilia Romagna,butter,151
+Emilia Romagna,black pepper,148
+Emilia Romagna,egg,112
+Emilia Romagna,wheat flour,105
+Emilia Romagna,olive oil,100
+Emilia Romagna,parmigiano cheese,75
+Emilia Romagna,onion,64
+Emilia Romagna,garlic,53
+Emilia Romagna,sugar,52
+Emilia Romagna,white wine,47
+Emilia Romagna,parsley,44
+Emilia Romagna,milk,44
+Emilia Romagna,breadcrumb,41
+Emilia Romagna,celery,40
+Emilia Romagna,carrot,38
+Emilia Romagna,nutmeg,38
+Emilia Romagna,grated parmigiano cheese,30
+Emilia Romagna,water,27
+Emilia Romagna,broth,25
+Emilia Romagna,prosciutto crudo,23
+Emilia Romagna,lemon zest,21
+Emilia Romagna,egg yolk,20
+Emilia Romagna,lemon,19
+Emilia Romagna,lard,18
+Emilia Romagna,sage,17
+Emilia Romagna,pancetta,16
+Emilia Romagna,bay leaf,15
+Emilia Romagna,peeled tomato,14
+Emilia Romagna,tomato,13
+Emilia Romagna,potato,12
+Emilia Romagna,cream,12
+Emilia Romagna,red wine,12
+Emilia Romagna,mortadella,11
+Emilia Romagna,almond,10
+Emilia Romagna,clove,10
+Emilia Romagna,rosemary,10
+Emilia Romagna,tomato paste,10
+Emilia Romagna,baking powder,9
+Emilia Romagna,vinegar,9
+Emilia Romagna,pine nut,9
+Emilia Romagna,brewer's yeast,8
+Emilia Romagna,marsala wine,8
+Emilia Romagna,tomato passata,8
+Emilia Romagna,powdered sugar,7
+Emilia Romagna,ground cinnamon,7
+Emilia Romagna,shallot,7
+Emilia Romagna,prosciutto cotto,7
+Emilia Romagna,béchamel sauce,7
+Emilia Romagna,spinach,7
+Emilia Romagna,white wine vinegar,7
+Emilia Romagna,meat broth,7
+Emilia Romagna,eel,6
+Emilia Romagna,brandy,6
+Emilia Romagna,unsweetened cocoa powder,6
+Emilia Romagna,egg white,6
+Emilia Romagna,walnut,6
+Emilia Romagna,tomato sauce,5
+Emilia Romagna,sultana raisin,5
+Emilia Romagna,white pepper,5
+Emilia Romagna,yeast,5
+Emilia Romagna,pecorino cheese,5
+Emilia Romagna,chestnut flour,5
+Emilia Romagna,yellow onion,5
+Emilia Romagna,cocoa powder,5
+Emilia Romagna,green asparagus,5
+Emilia Romagna,balsamic vinegar,5
+Emilia Romagna,dried mushroom,5
+Emilia Romagna,olive oil or lard,5
+Emilia Romagna,zucchini,4
+Emilia Romagna,frying oil,4
+Emilia Romagna,vanilla sugar,4
+Emilia Romagna,white truffle,4
+Emilia Romagna,caper,4
+Emilia Romagna,scallion,4
+Emilia Romagna,sausage,4
+Emilia Romagna,ricotta,4
+Emilia Romagna,chard,4
+Emilia Romagna,lardo,4
+Emilia Romagna,raisin,4
+Emilia Romagna,rice,4
+Emilia Romagna,dark chocolate,4
+Emilia Romagna,pea,4
+Emilia Romagna,red onion,4
+Emilia Romagna,honey,4
+Emilia Romagna,chicken liver,4
+Emilia Romagna,bell pepper,4
+Emilia Romagna,tomato pulp,4
+Emilia Romagna,salt and pepper,4
+Emilia Romagna,dried borlotti bean,4
+Emilia Romagna,chicken breast,4
+Emilia Romagna,beef,4
+Emilia Romagna,amaretti,3
+Emilia Romagna,rum,3
+Emilia Romagna,dried chestnut,3
+Emilia Romagna,sassolino liqueur,3
+Emilia Romagna,sapa,3
+Emilia Romagna,candied fruit,3
+Emilia Romagna,lemon juice,3
+Emilia Romagna,bread,3
+Emilia Romagna,leek,3
+Emilia Romagna,ground beef,3
+Emilia Romagna,rosemary sprig,3
+Emilia Romagna,classic bolognese ragù,3
+Emilia Romagna,pear,3
+Emilia Romagna,carnaroli rice,3
+Emilia Romagna,prosciutto fat,3
+Emilia Romagna,arborio rice,3
+Emilia Romagna,frog,3
+Emilia Romagna,warm water,3
+Emilia Romagna,catfish,3
+Emilia Romagna,truffle,3
+Emilia Romagna,pork rind,3
+Emilia Romagna,beef broth,3
+Emilia Romagna,vanilla,3
+Emilia Romagna,alcohol,3
+Emilia Romagna,eggplant,3
+Emilia Romagna,red wine vinegar,3
+Emilia Romagna,baking soda,3
+Emilia Romagna,pork caul fat,3
+Emilia Romagna,thyme,2
+Emilia Romagna,basil,2
+Emilia Romagna,veal slice,2
+Emilia Romagna,mayonnaise,2
+Emilia Romagna,tuna,2
+Emilia Romagna,anchovy,2
+Emilia Romagna,tripe,2
+Emilia Romagna,pork loin,2
+Emilia Romagna,amaretti cookie,2
+Emilia Romagna,yellow pumpkin,2
+Emilia Romagna,jam,2
+Emilia Romagna,ground coffee,2
+Emilia Romagna,toasted almond,2
+Emilia Romagna,vanillin,2
+Emilia Romagna,pumpkin pulp,2
+Emilia Romagna,bitter almond liqueur,2
+Emilia Romagna,candied citron and orange,2
+Emilia Romagna,emmental,2
+Emilia Romagna,sweet almond,2
+Emilia Romagna,puff pastry,2
+Emilia Romagna,egg tagliatelle,2
+Emilia Romagna,white onion,2
+Emilia Romagna,horse meat,2
+Emilia Romagna,hot water,2
+Emilia Romagna,tuna in oil,2
+Emilia Romagna,bolognese ragù,2
+Emilia Romagna,ground pork,2
+Emilia Romagna,gruyère,2
+Emilia Romagna,melon pulp,2
+Emilia Romagna,reinette apple,2
+Emilia Romagna,anchovy fillet,2
+Emilia Romagna,hard-boiled egg yolk,2
+Emilia Romagna,heavy cream,2
+Emilia Romagna,fresh frog,2
+Emilia Romagna,superfino rice,2
+Emilia Romagna,red or white wine,2
+Emilia Romagna,hard-boiled egg,2
+Emilia Romagna,veal head,2
+Emilia Romagna,prosciutto,2
+Emilia Romagna,yellow polenta,2
+Emilia Romagna,bouillon cube,2
+Emilia Romagna,grated grana padano,2
+Emilia Romagna,zibibbo raisin,2
+Emilia Romagna,hazelnut and walnut,2
+Emilia Romagna,young pigeon,2
+Emilia Romagna,ground veal,2
+Emilia Romagna,pumpkin,2
+Emilia Romagna,veal liver,2
+Emilia Romagna,mushroom,2
+Emilia Romagna,purged snail,2
+Emilia Romagna,snail,2
+Emilia Romagna,porcini mushroom,2
+Emilia Romagna,lamb's lettuce,2
+Emilia Romagna,white potato,2
+Emilia Romagna,chili pepper,2
+Emilia Romagna,boiled meat,2
+Emilia Romagna,pork liver,2
+Emilia Romagna,veal tail,2
+Emilia Romagna,grana padano,2
+Emilia Romagna,beef pulp,2
+Emilia Romagna,pork pulp,2
+Emilia Romagna,beef and capon broth,2
+Emilia Romagna,capon,2
+Emilia Romagna,cardoon,2
+Emilia Romagna,sugar sprinkle,2
+Emilia Romagna,borettane onion,2
+Emilia Romagna,veal cutlet,2
+Emilia Romagna,prosciutto crudo and pancetta,1
+Emilia Romagna,black bread slice,1
+Emilia Romagna,borlotti bean,1
+Emilia Romagna,black kale leaf,1
+Emilia Romagna,mussel,1
+Emilia Romagna,finely ground veal,1
+Emilia Romagna,anise liqueur,1
+Emilia Romagna,fresh zampone,1
+Emilia Romagna,veal top round,1
+Emilia Romagna,pork pancetta,1
+Emilia Romagna,sheep's milk ricotta,1
+Emilia Romagna,rum or sassolino liqueur,1
+Emilia Romagna,amaretti cooky,1
+Emilia Romagna,savor (or mostarda di cremona),1
+Emilia Romagna,sour cherry jam,1
+Emilia Romagna,pine nut or walnut,1
+Emilia Romagna,plum jam,1
+Emilia Romagna,vino cotto,1
+Emilia Romagna,mostarda,1
+Emilia Romagna,malvasia wine,1
+Emilia Romagna,vanilla baking powder,1
+Emilia Romagna,cow's milk ricotta,1
+Emilia Romagna,coffee powder,1
+Emilia Romagna,rum essence,1
+Emilia Romagna,baker's ammonia,1
+Emilia Romagna,ground almond,1
+Emilia Romagna,candied citron,1
+Emilia Romagna,caramelized sugar,1
+Emilia Romagna,spices,1
+Emilia Romagna,bitter almond,1
+Emilia Romagna,fioroni fig,1
+Emilia Romagna,fig,1
+Emilia Romagna,oregano,1
+Emilia Romagna,artichoke,1
+Emilia Romagna,"aromatics (onion, celery, carrot, parsley)",1
+Emilia Romagna,boneless and rolled calf's head,1
+Emilia Romagna,veal breast,1
+Emilia Romagna,aged pecorino cheese,1
+Emilia Romagna,chive,1
+Emilia Romagna,yellow carrot,1
+Emilia Romagna,monk's beard (or chard),1
+Emilia Romagna,cured pancetta,1
+Emilia Romagna,egg stricchetti pasta,1
+Emilia Romagna,beef eye of round,1
+Emilia Romagna,parsley sprig,1
+Emilia Romagna,beef round,1
+Emilia Romagna,ground clove,1
+Emilia Romagna,mace,1
+Emilia Romagna,grated nutmeg,1
+Emilia Romagna,shelled hazelnut,1
+Emilia Romagna,dry biscuit,1
+Emilia Romagna,apricot jam,1
+Emilia Romagna,spaghetti,1
+Emilia Romagna,salted almond,1
+Emilia Romagna,savor,1
+Emilia Romagna,besciamella,1
+Emilia Romagna,unlaid hen egg yolk,1
+Emilia Romagna,fine pea,1
+Emilia Romagna,smoked pancetta,1
+Emilia Romagna,bouillon broth,1
+Emilia Romagna,whole wheat bread,1
+Emilia Romagna,fior di latte,1
+Emilia Romagna,lean pork or veal cutlet,1
+Emilia Romagna,autumn fruit,1
+Emilia Romagna,black grape must,1
+Emilia Romagna,orange,1
+Emilia Romagna,yellow pumpkin pulp,1
+Emilia Romagna,watermelon pulp,1
+Emilia Romagna,anchovy or sardine,1
+Emilia Romagna,ripe white grape,1
+Emilia Romagna,cinnamon bark,1
+Emilia Romagna,sweet ripe white grape,1
+Emilia Romagna,pickled onion,1
+Emilia Romagna,green pepper,1
+Emilia Romagna,nepitella,1
+Emilia Romagna,fresh porcini mushroom,1
+Emilia Romagna,horseradish root,1
+Emilia Romagna,chocolate,1
+Emilia Romagna,juniper berry,1
+Emilia Romagna,arctic char,1
+Emilia Romagna,salama da sugo,1
+Emilia Romagna,lambrusco wine,1
+Emilia Romagna,beef fillet,1
+Emilia Romagna,onion and carrot,1
+Emilia Romagna,parsley and marjoram,1
+Emilia Romagna,poveracce clam,1
+Emilia Romagna,pork sausage,1
+Emilia Romagna,fino or superfino rice,1
+Emilia Romagna,coot pulp,1
+Emilia Romagna,cognac,1
+Emilia Romagna,vegetable broth,1
+Emilia Romagna,alchermes liqueur,1
+Emilia Romagna,pastry cream,1
+Emilia Romagna,bolognese mostarda,1
+Emilia Romagna,olive oil or butter,1
+Emilia Romagna,lean beef pulp,1
+Emilia Romagna,meat or vegetable broth,1
+Emilia Romagna,coarsely ground beef,1
+Emilia Romagna,boneless veal breast,1
+Emilia Romagna,pickled bell pepper,1
+Emilia Romagna,gherkin in oil,1
+Emilia Romagna,turkey breast,1
+Emilia Romagna,chicken,1
+Emilia Romagna,pork crackling (ciccioli),1
+Emilia Romagna,bean broth,1
+Emilia Romagna,fresh pork rind,1
+Emilia Romagna,dried fig,1
+Emilia Romagna,fruit jam,1
+Emilia Romagna,herbs,1
+Emilia Romagna,sweet pepper,1
+Emilia Romagna,thin prosciutto crudo slice,1
+Emilia Romagna,thin turkey breast slice,1
+Emilia Romagna,peach,1
+Emilia Romagna,polenta,1
+Emilia Romagna,whisky,1
+Emilia Romagna,asparagus,1
+Emilia Romagna,penne rigate,1
+Emilia Romagna,tortellini,1
+Emilia Romagna,ground chicken,1
+Emilia Romagna,chicken giblet,1
+Emilia Romagna,maccheroncini pasta,1
+Emilia Romagna,beef marrow,1
+Emilia Romagna,mascarpone,1
+Emilia Romagna,veal pulp,1
+Emilia Romagna,anise sapa or sassolino liqueur,1
+Emilia Romagna,melted butter,1
+Emilia Romagna,fennel seed,1
+Emilia Romagna,sourdough starter,1
+Emilia Romagna,stale bread,1
+Emilia Romagna,mace flower,1
+Emilia Romagna,fresh ricotta,1
+Emilia Romagna,whipping cream,1
+Emilia Romagna,orange zest,1
+Emilia Romagna,quince,1
+Emilia Romagna,sweet apple,1
+Emilia Romagna,fermented black grape must,1
+Emilia Romagna,maltagliati pasta,1
+Emilia Romagna,capon broth,1
+Emilia Romagna,rigatoni,1
+Emilia Romagna,maccheroni,1
+Emilia Romagna,soffritto vegetable,1
+Emilia Romagna,lean beef,1
+Emilia Romagna,maccheroni rigati,1
+Emilia Romagna,chicken meat,1
+Emilia Romagna,small shallot,1
+Emilia Romagna,vineyard snail,1
+Emilia Romagna,verbena,1
+Emilia Romagna,cherry laurel berry,1
+Emilia Romagna,sweetbread,1
+Emilia Romagna,fontina,1
+Emilia Romagna,raspberry,1
+Emilia Romagna,dandelion green,1
+Emilia Romagna,arugula,1
+Emilia Romagna,nocino,1
+Emilia Romagna,pork cheek,1
+Emilia Romagna,cotechino or zampone,1
+Emilia Romagna,marrow bone,1
+Emilia Romagna,capon or hen,1
+Emilia Romagna,beef or veal tail,1
+Emilia Romagna,beef or veal tongue,1
+Emilia Romagna,veal or pork trotter,1
+Emilia Romagna,veal,1
+Emilia Romagna,fresh pork sausage,1
+Emilia Romagna,gramigna pasta,1
+Emilia Romagna,milk mixed with water,1
+Emilia Romagna,pork cracklings (ciccioli),1
+Emilia Romagna,pork capocollo,1
+Emilia Romagna,pineapple slice,1
+Emilia Romagna,veal cheek,1
+Emilia Romagna,salted water,1
+Emilia Romagna,tagliatelle dough,1
+Emilia Romagna,pistachio,1
+Emilia Romagna,cured tongue,1
+Emilia Romagna,veal topside,1
+Emilia Romagna,chicken or capon,1
+Emilia Romagna,boiled beef,1
+Emilia Romagna,coffee,1
+Emilia Romagna,salame,1
+Emilia Romagna,bean soup,1
+Emilia Romagna,veal brain,1
+Emilia Romagna,grappa,1
+Emilia Romagna,cold water,1
+Emilia Romagna,wine vinegar,1
+Emilia Romagna,guinea fowl,1
+Emilia Romagna,dry marsala,1
+Emilia Romagna,turkey breast slice,1
+Emilia Romagna,chopped almond,1
+Emilia Romagna,hazelnut,1
+Emilia Romagna,toasted hazelnut,1
+Emilia Romagna,savoiardi biscuit,1
+Emilia Romagna,guanciale,1
+Emilia Romagna,candied and pitted sour cherry,1
+Emilia Romagna,starchy potato,1
+Emilia Romagna,milk or water,1
+Emilia Romagna,saffron,1
+Emilia Romagna,marsala,1
+Emilia Romagna,savoy cabbage,1
+Emilia Romagna,beef or capon broth,1
+Emilia Romagna,beef thigh,1
+Emilia Romagna,pork bones and rib,1
+Emilia Romagna,hen,1
+Emilia Romagna,potato flour,1
+Emilia Romagna,soaked salted cod,1
+Emilia Romagna,pork broth,1
+Emilia Romagna,tagliolini,1
+Emilia Romagna,potato starch,1
+Emilia Romagna,vol-au-vent,1
+Emilia Romagna,minced lard,1
+Emilia Romagna,mixed fish,1
+Emilia Romagna,pistadein,1
+Emilia Romagna,dried saluggia bean,1
+Emilia Romagna,lean veal,1
+Emilia Romagna,grana padano or parmigiano cheese,1
+Emilia Romagna,raviggiolo,1
+Emilia Romagna,lean pork pulp,1
+Emilia Romagna,lean veal pulp,1
+Emilia Romagna,hen or capon,1
+Emilia Romagna,ground pork loin,1
+Emilia Romagna,anolini,1
+Emilia Romagna,veal sirloin,1
+Emilia Romagna,sesame seed,1
+Emilia Romagna,dill,1
+Emilia Romagna,celeriac,1
+Emilia Romagna,local zucchini,1
+Emilia Romagna,fresh champignon mushroom,1
+Emilia Romagna,cherry tomato,1
+Emilia Romagna,castrato,1
+Emilia Romagna,wine syrup or marsala,1
+Emilia Romagna,ammonium carbonate,1
+Emilia Romagna,cooked fruit jam or mostarda,1
+Emilia Romagna,cream of tartar,1
+Emilia Romagna,citrus zest,1
+Emilia Romagna,sausage meat,1
+Emilia Romagna,glucose,1
+Emilia Romagna,almond flour,1
+Emilia Romagna,savòr dolce,1
+Emilia Romagna,wild fennel,1
+Emilia Romagna,green olive,1
+Emilia Romagna,pork,1
+Emilia Romagna,rabbit,1
+Emilia Romagna,fresh pork coppa,1
+Emilia Romagna,rutabaga,1
+Emilia Romagna,mutton leg,1
+Emilia Romagna,mirepoix,1
+Emilia Romagna,beef slice,1
+Emilia Romagna,pork cotechino,1
+Friuli Venezia Giulia,salt,141
+Friuli Venezia Giulia,butter,88
+Friuli Venezia Giulia,black pepper,82
+Friuli Venezia Giulia,wheat flour,71
+Friuli Venezia Giulia,olive oil,60
+Friuli Venezia Giulia,onion,52
+Friuli Venezia Giulia,egg,49
+Friuli Venezia Giulia,garlic,48
+Friuli Venezia Giulia,sugar,43
+Friuli Venezia Giulia,parsley,31
+Friuli Venezia Giulia,bay leaf,29
+Friuli Venezia Giulia,white wine,28
+Friuli Venezia Giulia,potato,27
+Friuli Venezia Giulia,milk,27
+Friuli Venezia Giulia,water,20
+Friuli Venezia Giulia,lemon zest,19
+Friuli Venezia Giulia,egg yolk,18
+Friuli Venezia Giulia,breadcrumb,18
+Friuli Venezia Giulia,carrot,18
+Friuli Venezia Giulia,celery,17
+Friuli Venezia Giulia,sage,16
+Friuli Venezia Giulia,lard,16
+Friuli Venezia Giulia,ground cinnamon,14
+Friuli Venezia Giulia,nutmeg,12
+Friuli Venezia Giulia,rice,12
+Friuli Venezia Giulia,walnut,11
+Friuli Venezia Giulia,pine nut,11
+Friuli Venezia Giulia,rosemary,10
+Friuli Venezia Giulia,orange zest,10
+Friuli Venezia Giulia,broth,10
+Friuli Venezia Giulia,montasio,9
+Friuli Venezia Giulia,tomato paste,9
+Friuli Venezia Giulia,lemon,9
+Friuli Venezia Giulia,raisin,9
+Friuli Venezia Giulia,brewer's yeast,9
+Friuli Venezia Giulia,vinegar,9
+Friuli Venezia Giulia,sultana raisin,9
+Friuli Venezia Giulia,clove,8
+Friuli Venezia Giulia,almond,8
+Friuli Venezia Giulia,seed oil,8
+Friuli Venezia Giulia,pancetta,8
+Friuli Venezia Giulia,smoked ricotta,7
+Friuli Venezia Giulia,lardo,7
+Friuli Venezia Giulia,rum,7
+Friuli Venezia Giulia,marjoram,7
+Friuli Venezia Giulia,polenta flour,7
+Friuli Venezia Giulia,red wine,7
+Friuli Venezia Giulia,cream,6
+Friuli Venezia Giulia,white onion,6
+Friuli Venezia Giulia,grappa,6
+Friuli Venezia Giulia,cheese,6
+Friuli Venezia Giulia,egg white,6
+Friuli Venezia Giulia,vegetable broth,5
+Friuli Venezia Giulia,powdered sugar,5
+Friuli Venezia Giulia,frying oil,5
+Friuli Venezia Giulia,juniper berry,5
+Friuli Venezia Giulia,yeast,5
+Friuli Venezia Giulia,stale bread,5
+Friuli Venezia Giulia,herbs,5
+Friuli Venezia Giulia,duck,5
+Friuli Venezia Giulia,lukewarm water,4
+Friuli Venezia Giulia,corn flour,4
+Friuli Venezia Giulia,parmigiano cheese,4
+Friuli Venezia Giulia,grated parmigiano cheese,4
+Friuli Venezia Giulia,apple,4
+Friuli Venezia Giulia,bread,4
+Friuli Venezia Giulia,peeled tomato,4
+Friuli Venezia Giulia,meat broth,4
+Friuli Venezia Giulia,latteria,4
+Friuli Venezia Giulia,smoked pancetta,3
+Friuli Venezia Giulia,buckwheat flour,3
+Friuli Venezia Giulia,red wine vinegar,3
+Friuli Venezia Giulia,yellow pumpkin,3
+Friuli Venezia Giulia,eel,3
+Friuli Venezia Giulia,hot water,3
+Friuli Venezia Giulia,candied citron,3
+Friuli Venezia Giulia,dried fig,3
+Friuli Venezia Giulia,warm water,3
+Friuli Venezia Giulia,borlotti bean,3
+Friuli Venezia Giulia,apricot jam,3
+Friuli Venezia Giulia,cumin,3
+Friuli Venezia Giulia,white wine vinegar,3
+Friuli Venezia Giulia,friulano wine,3
+Friuli Venezia Giulia,leek,2
+Friuli Venezia Giulia,horseradish,2
+Friuli Venezia Giulia,savoy cabbage,2
+Friuli Venezia Giulia,pig's trotter,2
+Friuli Venezia Giulia,pumpkin,2
+Friuli Venezia Giulia,sausage,2
+Friuli Venezia Giulia,chestnut,2
+Friuli Venezia Giulia,vanilla,2
+Friuli Venezia Giulia,mantis shrimp,2
+Friuli Venezia Giulia,peanut oil,2
+Friuli Venezia Giulia,soaked stockfish,2
+Friuli Venezia Giulia,hen,2
+Friuli Venezia Giulia,anchovy,2
+Friuli Venezia Giulia,spinach,2
+Friuli Venezia Giulia,spices,2
+Friuli Venezia Giulia,candied citron and orange,2
+Friuli Venezia Giulia,passito wine,2
+Friuli Venezia Giulia,yellow polenta,2
+Friuli Venezia Giulia,pear,2
+Friuli Venezia Giulia,clam,2
+Friuli Venezia Giulia,brovada,2
+Friuli Venezia Giulia,tomato,2
+Friuli Venezia Giulia,lemon juice,2
+Friuli Venezia Giulia,currant,2
+Friuli Venezia Giulia,sweet paprika,2
+Friuli Venezia Giulia,caper,2
+Friuli Venezia Giulia,vanilla sugar,2
+Friuli Venezia Giulia,smoked pork rib,2
+Friuli Venezia Giulia,hazelnut,2
+Friuli Venezia Giulia,dark chocolate,2
+Friuli Venezia Giulia,beef cheek,2
+Friuli Venezia Giulia,grated smoked ricotta,2
+Friuli Venezia Giulia,purged snail,2
+Friuli Venezia Giulia,fish,2
+Friuli Venezia Giulia,dry biscuit,2
+Friuli Venezia Giulia,thyme,2
+Friuli Venezia Giulia,olive oil or lard,2
+Friuli Venezia Giulia,rabbit,2
+Friuli Venezia Giulia,goby,1
+Friuli Venezia Giulia,smoked sausage,1
+Friuli Venezia Giulia,smoked goose breast,1
+Friuli Venezia Giulia,black bread,1
+Friuli Venezia Giulia,cannellini bean,1
+Friuli Venezia Giulia,wild fennel,1
+Friuli Venezia Giulia,tripe,1
+Friuli Venezia Giulia,iced water,1
+Friuli Venezia Giulia,"raspberry, redcurrant, or strawberry jam",1
+Friuli Venezia Giulia,wild fennel flowers and leaf,1
+Friuli Venezia Giulia,tuna steak,1
+Friuli Venezia Giulia,malga cheese and ricotta,1
+Friuli Venezia Giulia,fine polenta,1
+Friuli Venezia Giulia,grayling,1
+Friuli Venezia Giulia,cold water,1
+Friuli Venezia Giulia,young turkey,1
+Friuli Venezia Giulia,mace,1
+Friuli Venezia Giulia,sour cherry,1
+Friuli Venezia Giulia,salt and pepper,1
+Friuli Venezia Giulia,vegetable broth or water,1
+Friuli Venezia Giulia,dried bay leaf,1
+Friuli Venezia Giulia,anchovy fillet,1
+Friuli Venezia Giulia,pork crackling,1
+Friuli Venezia Giulia,scampi,1
+Friuli Venezia Giulia,large sage leaf,1
+Friuli Venezia Giulia,english mustard,1
+Friuli Venezia Giulia,horseradish root,1
+Friuli Venezia Giulia,fresh salame,1
+Friuli Venezia Giulia,fresh salami,1
+Friuli Venezia Giulia,ricotta,1
+Friuli Venezia Giulia,medium-sized goby fish,1
+Friuli Venezia Giulia,carnaroli rice,1
+Friuli Venezia Giulia,silene shoot,1
+Friuli Venezia Giulia,chive,1
+Friuli Venezia Giulia,grana padano,1
+Friuli Venezia Giulia,parsley stalk,1
+Friuli Venezia Giulia,fresh fennel sprig,1
+Friuli Venezia Giulia,tench,1
+Friuli Venezia Giulia,caperozoli,1
+Friuli Venezia Giulia,young turnip with leaf,1
+Friuli Venezia Giulia,purple turnip,1
+Friuli Venezia Giulia,fresh kren root (horseradish),1
+Friuli Venezia Giulia,bean soup,1
+Friuli Venezia Giulia,wild radicchio,1
+Friuli Venezia Giulia,fresh tarragon,1
+Friuli Venezia Giulia,coffee or milk,1
+Friuli Venezia Giulia,chocolate,1
+Friuli Venezia Giulia,pinza pasquale dough,1
+Friuli Venezia Giulia,biscuit,1
+Friuli Venezia Giulia,puff pastry,1
+Friuli Venezia Giulia,biscuit or stale pinza,1
+Friuli Venezia Giulia,corinthian raisin,1
+Friuli Venezia Giulia,fennel seed,1
+Friuli Venezia Giulia,baking powder,1
+Friuli Venezia Giulia,volpina or kaiser pear,1
+Friuli Venezia Giulia,sweet pumpkin,1
+Friuli Venezia Giulia,arugula,1
+Friuli Venezia Giulia,malga cheese,1
+Friuli Venezia Giulia,prosciutto crudo,1
+Friuli Venezia Giulia,go fish (ghiozzi),1
+Friuli Venezia Giulia,salsiccia,1
+Friuli Venezia Giulia,wine,1
+Friuli Venezia Giulia,ciccioli,1
+Friuli Venezia Giulia,rye flour,1
+Friuli Venezia Giulia,jam,1
+Friuli Venezia Giulia,lemon wedge,1
+Friuli Venezia Giulia,crouton,1
+Friuli Venezia Giulia,cragno sausage,1
+Friuli Venezia Giulia,dried pea,1
+Friuli Venezia Giulia,pearled barley,1
+Friuli Venezia Giulia,pork rind,1
+Friuli Venezia Giulia,dried bean,1
+Friuli Venezia Giulia,barley,1
+Friuli Venezia Giulia,dark bread,1
+Friuli Venezia Giulia,fresh pig's trotter,1
+Friuli Venezia Giulia,prosciutto bone,1
+Friuli Venezia Giulia,bean,1
+Friuli Venezia Giulia,ear of corn,1
+Friuli Venezia Giulia,scallion,1
+Friuli Venezia Giulia,dried chestnut,1
+Friuli Venezia Giulia,mustard,1
+Friuli Venezia Giulia,cow's milk ricotta,1
+Friuli Venezia Giulia,orange and lemon zest,1
+Friuli Venezia Giulia,semolina,1
+Friuli Venezia Giulia,fruit compote or sweet sauce,1
+Friuli Venezia Giulia,cooked bean,1
+Friuli Venezia Giulia,repa or brovada,1
+Friuli Venezia Giulia,carnic bean,1
+Friuli Venezia Giulia,brovada carnica (“vis’cie”),1
+Friuli Venezia Giulia,sauerkraut,1
+Friuli Venezia Giulia,dark bean,1
+Friuli Venezia Giulia,cooked ham slice,1
+Friuli Venezia Giulia,beef slice,1
+Friuli Venezia Giulia,white pepper,1
+Friuli Venezia Giulia,chervil leaf,1
+Friuli Venezia Giulia,escarole,1
+Friuli Venezia Giulia,trout roe,1
+Friuli Venezia Giulia,smoked salmon trout,1
+Friuli Venezia Giulia,stewing beef,1
+Friuli Venezia Giulia,hot paprika,1
+Friuli Venezia Giulia,pork muscle,1
+Friuli Venezia Giulia,amaretti cookie,1
+Friuli Venezia Giulia,prune,1
+Friuli Venezia Giulia,grappa or slivovitz,1
+Friuli Venezia Giulia,crumbled dry biscuit,1
+Friuli Venezia Giulia,flavoring,1
+Friuli Venezia Giulia,sugar or honey,1
+Friuli Venezia Giulia,marsala or rum,1
+Friuli Venezia Giulia,ont,1
+Friuli Venezia Giulia,chili pepper,1
+Friuli Venezia Giulia,spider crab,1
+Friuli Venezia Giulia,sweet and hot paprika,1
+Friuli Venezia Giulia,plum,1
+Friuli Venezia Giulia,young nettle tip,1
+Friuli Venezia Giulia,rye bread,1
+Friuli Venezia Giulia,semolina or breadcrumb,1
+Friuli Venezia Giulia,marjoram or parsley,1
+Friuli Venezia Giulia,bread roll,1
+Friuli Venezia Giulia,spleen,1
+Friuli Venezia Giulia,gries (semolina),1
+Friuli Venezia Giulia,fresh ricotta,1
+Friuli Venezia Giulia,wild spinach (good king henry),1
+Friuli Venezia Giulia,orange,1
+Friuli Venezia Giulia,mallard duck,1
+Friuli Venezia Giulia,prosciutto cotto,1
+Friuli Venezia Giulia,veal tongue,1
+Friuli Venezia Giulia,veal ossobuco,1
+Friuli Venezia Giulia,beef shank,1
+Friuli Venezia Giulia,pig's ear,1
+Friuli Venezia Giulia,shrimp,1
+Friuli Venezia Giulia,ham cooking water,1
+Friuli Venezia Giulia,zibibbo raisin,1
+Friuli Venezia Giulia,salted anchovy,1
+Friuli Venezia Giulia,frog,1
+Friuli Venezia Giulia,milk or water,1
+Friuli Venezia Giulia,candied fruit,1
+Friuli Venezia Giulia,unsweetened cocoa powder,1
+Friuli Venezia Giulia,peach jam,1
+Friuli Venezia Giulia,dried mint,1
+Friuli Venezia Giulia,anchovy or sardine,1
+Friuli Venezia Giulia,turnip,1
+Friuli Venezia Giulia,amoli,1
+Friuli Venezia Giulia,river eel,1
+Friuli Venezia Giulia,stockfish,1
+Friuli Venezia Giulia,tomato sauce or paste,1
+Friuli Venezia Giulia,rooster,1
+Friuli Venezia Giulia,batuda (soured whole milk),1
+Friuli Venezia Giulia,white pumpkin,1
+Friuli Venezia Giulia,shelled bean,1
+Friuli Venezia Giulia,razor clam,1
+Friuli Venezia Giulia,mixed seafood,1
+Friuli Venezia Giulia,turbot,1
+Friuli Venezia Giulia,chicken liver,1
+Friuli Venezia Giulia,"spices (nutmeg, cloves)",1
+Friuli Venezia Giulia,castrato lamb or mutton,1
+Friuli Venezia Giulia,roe deer leg,1
+Friuli Venezia Giulia,clof,1
+Friuli Venezia Giulia,pork,1
+Friuli Venezia Giulia,beef,1
+Friuli Venezia Giulia,ground lamb,1
+Friuli Venezia Giulia,ground pork,1
+Friuli Venezia Giulia,ground beef,1
+Friuli Venezia Giulia,snail,1
+Friuli Venezia Giulia,cocoa powder,1
+Friuli Venezia Giulia,basil,1
+Friuli Venezia Giulia,scented geranium leaf,1
+Friuli Venezia Giulia,verbena,1
+Friuli Venezia Giulia,lemon balm,1
+Friuli Venezia Giulia,"lemon balm, calamint or mint leaf",1
+Friuli Venezia Giulia,rabbit kidney,1
+Friuli Venezia Giulia,rabbit liver,1
+Friuli Venezia Giulia,cinnamon stick,1
+Friuli Venezia Giulia,pork rib,1
+Friuli Venezia Giulia,cotechino,1
+Friuli Venezia Giulia,cumin seed,1
+Friuli Venezia Giulia,sauerkraut (sour cabbage),1
+Friuli Venezia Giulia,nettle,1
+Friuli Venezia Giulia,mixed wild green,1
+Friuli Venezia Giulia,grated chocolate,1
+Friuli Venezia Giulia,rose water,1
+Friuli Venezia Giulia,vanilla rosolio,1
+Friuli Venezia Giulia,peeled almond,1
+Friuli Venezia Giulia,chicken gizzards and liver,1
+Friuli Venezia Giulia,roe deer offal,1
+Friuli Venezia Giulia,salted cheese,1
+Lazio,salt,89
+Lazio,olive oil,88
+Lazio,garlic,59
+Lazio,black pepper,38
+Lazio,chili pepper,29
+Lazio,onion,27
+Lazio,parsley,20
+Lazio,white wine,19
+Lazio,egg,18
+Lazio,celery,18
+Lazio,wheat flour,16
+Lazio,tomato passata,15
+Lazio,peeled tomato,11
+Lazio,carrot,11
+Lazio,water,10
+Lazio,tomato paste,10
+Lazio,bread,8
+Lazio,potato,8
+Lazio,butter,8
+Lazio,tomato,8
+Lazio,vinegar,7
+Lazio,basil,7
+Lazio,parmigiano cheese,7
+Lazio,spaghetti,7
+Lazio,breadcrumb,6
+Lazio,anchovy,6
+Lazio,grated parmigiano cheese,5
+Lazio,lemon juice,5
+Lazio,rice,5
+Lazio,red wine,5
+Lazio,hot water,5
+Lazio,salted anchovy,5
+Lazio,cherry tomato,4
+Lazio,nutmeg,4
+Lazio,tomato sauce,4
+Lazio,pea,4
+Lazio,pecorino cheese,4
+Lazio,lemon,4
+Lazio,rosemary sprig,4
+Lazio,cannolicchi pasta,4
+Lazio,sugar,4
+Lazio,scallion,3
+Lazio,zucchini,3
+Lazio,prosciutto fat,3
+Lazio,frying oil,3
+Lazio,broth,3
+Lazio,mozzarella,3
+Lazio,rosemary,3
+Lazio,lemon zest,3
+Lazio,guanciale,3
+Lazio,artichoke,3
+Lazio,lardo,3
+Lazio,bay leaf,3
+Lazio,milk,3
+Lazio,egg white,3
+Lazio,ground cinnamon,3
+Lazio,pine nut,3
+Lazio,brewer's yeast,3
+Lazio,egg yolk,3
+Lazio,lard,3
+Lazio,ground meat,2
+Lazio,fava bean,2
+Lazio,calamint,2
+Lazio,semolina,2
+Lazio,sage,2
+Lazio,prosciutto crudo,2
+Lazio,black olive,2
+Lazio,sausage,2
+Lazio,caper,2
+Lazio,boiling water,2
+Lazio,penne pasta,2
+Lazio,lentil,2
+Lazio,fresh rosemary sprig,2
+Lazio,chickpea,2
+Lazio,green broccoli,2
+Lazio,sultana raisin,2
+Lazio,walnut,2
+Lazio,candied orange,2
+Lazio,lamb,2
+Lazio,marjoram,2
+Lazio,salted cod,2
+Lazio,vanilla sugar,2
+Lazio,broccoli rabe,2
+Lazio,dark chocolate,2
+Lazio,lamb coratella,2
+Lazio,romanesco artichoke,2
+Lazio,chicken giblet,2
+Lazio,black-eyed pea,1
+Lazio,yellow pumpkin,1
+Lazio,romaine lettuce,1
+Lazio,romanesco artichoke heart,1
+Lazio,pancetta,1
+Lazio,grated pecorino romano,1
+Lazio,roman mint leaf,1
+Lazio,pre-cooked tripe,1
+Lazio,ground beef,1
+Lazio,mutton,1
+Lazio,lean adult beef,1
+Lazio,meat broth,1
+Lazio,thick spaghetti,1
+Lazio,pecorino abruzzese,1
+Lazio,sea urchin,1
+Lazio,fresh small cuttlefish,1
+Lazio,cuttlefish,1
+Lazio,lean ventresca,1
+Lazio,lettuce leaf,1
+Lazio,veal cutlet,1
+Lazio,salsa verde,1
+Lazio,pig's trotter,1
+Lazio,endive,1
+Lazio,rigatoni,1
+Lazio,milk-fed veal pajata,1
+Lazio,oregano,1
+Lazio,octopus,1
+Lazio,baby octopus,1
+Lazio,young chicken,1
+Lazio,chicken,1
+Lazio,stale bread roll,1
+Lazio,mortadella,1
+Lazio,yellow pepper,1
+Lazio,gaeta black olive,1
+Lazio,bell pepper,1
+Lazio,prosciutto,1
+Lazio,borlotti or cannellini bean,1
+Lazio,yellow carrot,1
+Lazio,cannellini bean,1
+Lazio,slice of minced lardo,1
+Lazio,medium ditalini pasta,1
+Lazio,dried borlotti bean,1
+Lazio,cannolicchi or conchigliette pasta,1
+Lazio,medium ditalini pasta (cannolicchi),1
+Lazio,dried chickpea,1
+Lazio,cannolicchi (ditalini) pasta,1
+Lazio,saffron,1
+Lazio,hazelnut,1
+Lazio,almond,1
+Lazio,candied citron,1
+Lazio,bread dough,1
+Lazio,stale bread slice,1
+Lazio,cured lardo,1
+Lazio,fresh pork rind,1
+Lazio,white turnip,1
+Lazio,borlotti bean,1
+Lazio,wine vinegar,1
+Lazio,suckling lamb,1
+Lazio,wine,1
+Lazio,abbacchio lamb,1
+Lazio,pork rind,1
+Lazio,chard,1
+Lazio,wild chicory,1
+Lazio,white endive,1
+Lazio,argentine,1
+Lazio,soaked salted cod,1
+Lazio,radish,1
+Lazio,green tomato,1
+Lazio,green olive,1
+Lazio,balsamic vinegar,1
+Lazio,romanesco broccoli,1
+Lazio,pecorino romano,1
+Lazio,bucatini (or spaghetti),1
+Lazio,béchamel sauce,1
+Lazio,green bean,1
+Lazio,squid,1
+Lazio,white wine vinegar,1
+Lazio,large female eel,1
+Lazio,fresh calamint,1
+Lazio,beef cheek,1
+Lazio,oxtail,1
+Lazio,sweet romanesco pea,1
+Lazio,ciriole (small eel),1
+Lazio,beef oxtail,1
+Lazio,tender donkey meat,1
+Lazio,candied fruit,1
+Lazio,rum,1
+Lazio,orange zest,1
+Lazio,chocolate shaving,1
+Lazio,fresh ricotta,1
+Lazio,warm water,1
+Lazio,green,1
+Lazio,fresh sage leaf,1
+Lazio,wild chicory plant,1
+Lazio,bitter olive,1
+Lazio,spleen,1
+Lazio,guinea fowl,1
+Lazio,egg fettuccine,1
+Lazio,salted cod fillet,1
+Lazio,anchovy in oil,1
+Lazio,zucchini flower,1
+Lazio,lamb sweetbread,1
+Lazio,veal spinal cord,1
+Lazio,veal brain,1
+Lazio,lamb brain,1
+Lazio,clof,1
+Lazio,beef eye of round,1
+Lazio,meat sauce,1
+Lazio,lean meat slice,1
+Lazio,sea snail,1
+Lazio,olive sprig,1
+Lazio,bay leaf sprig,1
+Lazio,fennel,1
+Lazio,suckling pig,1
+Lazio,zibibbo raisin,1
+Lazio,puntarelle,1
+Lazio,thornback ray (arzilla),1
+Lazio,bread crouton,1
+Lazio,cardoon,1
+Lazio,capon,1
+Lazio,fresh egg quadrucci,1
+Lazio,fish,1
+Lazio,honey,1
+Lazio,anchovy fillet,1
+Lazio,stale bread,1
+Lazio,fish broth,1
+Lazio,moray eel,1
+Liguria,salt,72
+Liguria,olive oil,70
+Liguria,garlic,41
+Liguria,black pepper,32
+Liguria,parsley,28
+Liguria,onion,28
+Liguria,egg,27
+Liguria,wheat flour,26
+Liguria,butter,23
+Liguria,tomato,18
+Liguria,white wine,18
+Liguria,carrot,16
+Liguria,sugar,16
+Liguria,milk,14
+Liguria,celery,14
+Liguria,parmigiano cheese,13
+Liguria,pine nut,13
+Liguria,marjoram,12
+Liguria,breadcrumb,11
+Liguria,dried mushroom,11
+Liguria,water,10
+Liguria,potato,10
+Liguria,salted anchovy,9
+Liguria,chard,7
+Liguria,vinegar,7
+Liguria,bay leaf,6
+Liguria,grated parmigiano cheese,6
+Liguria,powdered sugar,6
+Liguria,artichoke,6
+Liguria,lemon,6
+Liguria,oregano,5
+Liguria,orange blossom water,4
+Liguria,broth,4
+Liguria,meat broth,4
+Liguria,pea,4
+Liguria,grated grana padano,4
+Liguria,egg yolk,4
+Liguria,egg white,4
+Liguria,anchovy,4
+Liguria,zucchini,3
+Liguria,meat sauce,3
+Liguria,tomato paste,3
+Liguria,lean veal,3
+Liguria,lettuce,3
+Liguria,stockfish,3
+Liguria,soaked stockfish,3
+Liguria,ground cinnamon,3
+Liguria,white wine vinegar,3
+Liguria,rice,3
+Liguria,pesto,3
+Liguria,green bean,3
+Liguria,fennel seed,3
+Liguria,sailor's biscuit,3
+Liguria,nutmeg,3
+Liguria,pecorino cheese,2
+Liguria,fava bean,2
+Liguria,chili pepper,2
+Liguria,chickpea,2
+Liguria,cannellini bean,2
+Liguria,veal slice,2
+Liguria,bell pepper,2
+Liguria,eggplant,2
+Liguria,veal breast,2
+Liguria,red wine,2
+Liguria,rosemary,2
+Liguria,green olive,2
+Liguria,white onion,2
+Liguria,lemon zest,2
+Liguria,pistachio,2
+Liguria,toasted bread,2
+Liguria,soft bread crumb,2
+Liguria,salsiccia sausage,2
+Liguria,preboggion,2
+Liguria,borage,2
+Liguria,basil,2
+Liguria,baking powder,2
+Liguria,cream,2
+Liguria,anise seed,2
+Liguria,marsala wine,2
+Liguria,caesar's mushroom,2
+Liguria,bean,2
+Liguria,baking soda,2
+Liguria,fish broth,2
+Liguria,vanilla sugar,2
+Liguria,honey,2
+Liguria,unsweetened cocoa powder,2
+Liguria,brewer's yeast,2
+Liguria,warm water,2
+Liguria,caper,2
+Liguria,mosciame di tonno,2
+Liguria,thyme,2
+Liguria,sultana raisin,2
+Liguria,chestnut flour,2
+Liguria,beef and veal broth,2
+Liguria,veal pocket,2
+Liguria,brain,2
+Liguria,sweetbread,2
+Liguria,hard-boiled egg,2
+Liguria,oven-dried black olive,2
+Liguria,pickled pepper,2
+Liguria,zucchini flower,2
+Liguria,lemon juice,2
+Liguria,mint,1
+Liguria,borlotti bean,1
+Liguria,farro,1
+Liguria,ricotta,1
+Liguria,grated pecorino cheese,1
+Liguria,lard,1
+Liguria,tripe,1
+Liguria,alchermes liqueur,1
+Liguria,almond,1
+Liguria,flying squid,1
+Liguria,white pepper,1
+Liguria,lukewarm water,1
+Liguria,heavy cream,1
+Liguria,quagliata,1
+Liguria,bone marrow,1
+Liguria,lean beef,1
+Liguria,mussel,1
+Liguria,gurnard,1
+Liguria,yellow onion,1
+Liguria,fresh porcini mushroom,1
+Liguria,lardo,1
+Liguria,dried porcini mushroom,1
+Liguria,ox bone marrow,1
+Liguria,beef pulp,1
+Liguria,tomato sauce,1
+Liguria,olive,1
+Liguria,"pine nut, walnut, and hazelnut mix",1
+Liguria,mackerel,1
+Liguria,vanilla,1
+Liguria,tripe sauce,1
+Liguria,tripe (foiolo),1
+Liguria,hard-boiled egg yolk,1
+Liguria,firm bread crumb,1
+Liguria,fresh marjoram leaf,1
+Liguria,walnut,1
+Liguria,reginette pasta,1
+Liguria,escarole,1
+Liguria,sweetbreads and brain,1
+Liguria,veal udder,1
+Liguria,chicken,1
+Liguria,aged pecorino sardo,1
+Liguria,sage,1
+Liguria,"bogue, anchovy, or sardine",1
+Liguria,fresh ricotta,1
+Liguria,coffee,1
+Liguria,raisin,1
+Liguria,yeast,1
+Liguria,parmigiano cheese rind,1
+Liguria,cabbage,1
+Liguria,mantovana pumpkin,1
+Liguria,pasta,1
+Liguria,fresh pecorino cheese,1
+Liguria,spelt,1
+Liguria,bitter armelline kernel,1
+Liguria,sweet almond,1
+Liguria,arselle clam,1
+Liguria,yellow potato,1
+Liguria,savory pie crust,1
+Liguria,dark chocolate,1
+Liguria,piedmont hazelnut,1
+Liguria,leek,1
+Liguria,brussu,1
+Liguria,pumpkin,1
+Liguria,lamb's small intestine,1
+Liguria,lamb's pluck (coratella),1
+Liguria,lamb's spleen,1
+Liguria,lamb's liver,1
+Liguria,lamb's lung,1
+Liguria,polenta flour,1
+Liguria,toasted bread slice,1
+Liguria,anise liqueur,1
+Liguria,fish,1
+Liguria,rosemary sprig,1
+Liguria,squid,1
+Liguria,taggiasca olive,1
+Liguria,dried white bean,1
+Liguria,young goat meat ('bima'),1
+Liguria,juniper berry,1
+Liguria,wild fennel leaf,1
+Liguria,scallion,1
+Liguria,kid goat,1
+Liguria,ground clof,1
+Liguria,strong brewed coffee,1
+Liguria,dried chickpea,1
+Liguria,olive oil or butter,1
+Liguria,fresh marjoram,1
+Liguria,fresh sage,1
+Liguria,beef marrow,1
+Liguria,veal ear,1
+Liguria,veal offal (strigolo/castagnetta),1
+Liguria,veal testicle,1
+Liguria,udder,1
+Liguria,"fish (dentex, gurnard, sea bream, or scorpionfish)",1
+Liguria,stockfish tail,1
+Liguria,tuna belly in oil,1
+Liguria,mosciamme (tuna fillet),1
+Liguria,tuna or ventresca in oil,1
+Liguria,rabbit,1
+Liguria,orange,1
+Liguria,hazelnut,1
+Liguria,vanillin,1
+Liguria,chickpea flour,1
+Liguria,veal udder or spleen,1
+Liguria,veal liver,1
+Liguria,dentex,1
+Liguria,apricot jam,1
+Liguria,stracchino,1
+Liguria,waxy potato,1
+Liguria,floury potato,1
+Liguria,pesto alla genovese,1
+Liguria,cocoa powder,1
+Liguria,veal,1
+Liguria,veal broth,1
+Liguria,capon broth,1
+Liguria,"long, lean sausage (luganega)",1
+Liguria,cardoon,1
+Liguria,centopelli tripe,1
+Liguria,maccheroni,1
+Lombardia,salt,109
+Lombardia,butter,102
+Lombardia,olive oil,53
+Lombardia,wheat flour,52
+Lombardia,egg,49
+Lombardia,black pepper,39
+Lombardia,onion,36
+Lombardia,garlic,34
+Lombardia,grated grana padano,30
+Lombardia,parsley,28
+Lombardia,sage,28
+Lombardia,sugar,28
+Lombardia,breadcrumb,28
+Lombardia,carrot,27
+Lombardia,white wine,27
+Lombardia,milk,26
+Lombardia,nutmeg,23
+Lombardia,celery,22
+Lombardia,broth,20
+Lombardia,pancetta,16
+Lombardia,bay leaf,13
+Lombardia,egg yolk,12
+Lombardia,rosemary,11
+Lombardia,rice,11
+Lombardia,meat broth,11
+Lombardia,grana padano,10
+Lombardia,lemon zest,9
+Lombardia,red wine,9
+Lombardia,carnaroli rice,9
+Lombardia,scallion,8
+Lombardia,sultana raisin,8
+Lombardia,water,8
+Lombardia,vinegar,8
+Lombardia,pork loin,7
+Lombardia,lardo,7
+Lombardia,tomato,7
+Lombardia,cream,6
+Lombardia,clove,6
+Lombardia,savoy cabbage,6
+Lombardia,buckwheat flour,6
+Lombardia,mascarpone,5
+Lombardia,lemon juice,5
+Lombardia,marsala wine,5
+Lombardia,rum,5
+Lombardia,powdered sugar,5
+Lombardia,cognac,5
+Lombardia,casera,5
+Lombardia,lemon,5
+Lombardia,tomato paste,5
+Lombardia,salt and pepper,4
+Lombardia,sausage,4
+Lombardia,tomato sauce,4
+Lombardia,borlotti bean,4
+Lombardia,egg white,4
+Lombardia,baking powder,4
+Lombardia,potato starch,4
+Lombardia,yellow polenta,4
+Lombardia,caper,4
+Lombardia,walnut,4
+Lombardia,yellow onion,4
+Lombardia,basil,4
+Lombardia,perch fillet,4
+Lombardia,parmigiano cheese,4
+Lombardia,ground cinnamon,4
+Lombardia,apple,4
+Lombardia,red wine vinegar,4
+Lombardia,prosciutto crudo,4
+Lombardia,guinea fowl,4
+Lombardia,anchovy,3
+Lombardia,raisin,3
+Lombardia,chard,3
+Lombardia,peeled almond,3
+Lombardia,corn flour,3
+Lombardia,potato,3
+Lombardia,stale bread,3
+Lombardia,meat extract,3
+Lombardia,leek,3
+Lombardia,pork rib,3
+Lombardia,salami,3
+Lombardia,beef,3
+Lombardia,unsweetened cocoa powder,3
+Lombardia,brewer's yeast,3
+Lombardia,white pepper,3
+Lombardia,dried chickpea,2
+Lombardia,zucchini,2
+Lombardia,candied citron,2
+Lombardia,white onion,2
+Lombardia,almond nougat,2
+Lombardia,vanilla sugar,2
+Lombardia,eggplant,2
+Lombardia,bread dough,2
+Lombardia,grappa,2
+Lombardia,veal shank,2
+Lombardia,almond,2
+Lombardia,bell pepper,2
+Lombardia,salted anchovy,2
+Lombardia,soft bread crumb,2
+Lombardia,pine nut,2
+Lombardia,rosemary sprig,2
+Lombardia,chiodini mushroom,2
+Lombardia,black-eyed pea,2
+Lombardia,vialone nano rice,2
+Lombardia,taleggio,2
+Lombardia,herbs,2
+Lombardia,marjoram,2
+Lombardia,grated parmigiano cheese,2
+Lombardia,cheese,2
+Lombardia,dried porcini mushroom,2
+Lombardia,juniper berry,2
+Lombardia,chicken liver,2
+Lombardia,polenta,2
+Lombardia,pork pulp,2
+Lombardia,pear,2
+Lombardia,dried fig,2
+Lombardia,beef pulp,2
+Lombardia,hen,2
+Lombardia,dried borlotti bean,2
+Lombardia,agoni (lake shad),2
+Lombardia,eel,2
+Lombardia,borettane onion,2
+Lombardia,heavy cream,2
+Lombardia,dried chestnut,2
+Lombardia,pork rind,2
+Lombardia,clof,2
+Lombardia,cinnamon stick,2
+Lombardia,veal top round,2
+Lombardia,pork temple,1
+Lombardia,lean pork pulp,1
+Lombardia,amaretti cooky,1
+Lombardia,pickled gherkin,1
+Lombardia,tuna,1
+Lombardia,veal topside,1
+Lombardia,pork caul fat,1
+Lombardia,pork liver,1
+Lombardia,roast dripping,1
+Lombardia,spanish bean,1
+Lombardia,ricciolotta francese (lampredotto),1
+Lombardia,foiolo (omasum tripe),1
+Lombardia,bread,1
+Lombardia,tomato pulp,1
+Lombardia,beef oxtail,1
+Lombardia,mixed veal tripe,1
+Lombardia,grated mint candy,1
+Lombardia,mostaccino,1
+Lombardia,dark amaretti cookie,1
+Lombardia,warm water,1
+Lombardia,mostarda mantovana,1
+Lombardia,amaretti cookie,1
+Lombardia,pumpkin,1
+Lombardia,costmary leaf,1
+Lombardia,fresh ricotta,1
+Lombardia,baking soda,1
+Lombardia,whipped cream,1
+Lombardia,vanillin,1
+Lombardia,amaretti,1
+Lombardia,tench,1
+Lombardia,shelled bean,1
+Lombardia,green bean,1
+Lombardia,veal kidney,1
+Lombardia,turkey,1
+Lombardia,donkey meat,1
+Lombardia,acquavite,1
+Lombardia,rabbit meat,1
+Lombardia,bird (thrush),1
+Lombardia,missoltini,1
+Lombardia,spaghetti,1
+Lombardia,pickled cucumber,1
+Lombardia,mustard powder,1
+Lombardia,horseradish root,1
+Lombardia,lugànega sausage,1
+Lombardia,sage sprig,1
+Lombardia,chickpea,1
+Lombardia,vegetable broth,1
+Lombardia,pannerone,1
+Lombardia,williams pear,1
+Lombardia,pear acquavite,1
+Lombardia,salted lardo,1
+Lombardia,strigoli,1
+Lombardia,saffron thread,1
+Lombardia,beef marrow,1
+Lombardia,pea,1
+Lombardia,soffritto mix,1
+Lombardia,fish broth,1
+Lombardia,frog,1
+Lombardia,cold water,1
+Lombardia,chicken wing,1
+Lombardia,beef rib,1
+Lombardia,raspadüra,1
+Lombardia,tender turnip,1
+Lombardia,assorted seasonal vegetable,1
+Lombardia,salted lard,1
+Lombardia,asparagus,1
+Lombardia,salamelle mantovane,1
+Lombardia,wine,1
+Lombardia,frog leg,1
+Lombardia,rabbit,1
+Lombardia,boiled meat,1
+Lombardia,fish scrap,1
+Lombardia,latteria,1
+Lombardia,valtellina cheese,1
+Lombardia,gruyère,1
+Lombardia,truffle,1
+Lombardia,salsiccia,1
+Lombardia,biade,1
+Lombardia,very firm polenta,1
+Lombardia,leftover polenta,1
+Lombardia,chard or curly white cabbage,1
+Lombardia,maraschino or rum,1
+Lombardia,amaretto cookie,1
+Lombardia,marsala,1
+Lombardia,yellow peach,1
+Lombardia,partridge,1
+Lombardia,peeled tomato,1
+Lombardia,candied citron and orange,1
+Lombardia,bread dough starter,1
+Lombardia,"pine nuts, candied citron and orange",1
+Lombardia,honey,1
+Lombardia,chocolate,1
+Lombardia,cocoa powder,1
+Lombardia,brown sugar,1
+Lombardia,bitto,1
+Lombardia,rye bread,1
+Lombardia,elderflower,1
+Lombardia,coarse yellow polenta,1
+Lombardia,fine-grain yellow polenta,1
+Lombardia,lean lard,1
+Lombardia,bouquet garni,1
+Lombardia,fat goose,1
+Lombardia,veal medallion,1
+Lombardia,frying oil,1
+Lombardia,mustard syrup,1
+Lombardia,liquid mustard,1
+Lombardia,fruit,1
+Lombardia,missoltino,1
+Lombardia,fresh pork rind,1
+Lombardia,green celery,1
+Lombardia,cold butter,1
+Lombardia,small pasta,1
+Lombardia,chicken gizzard,1
+Lombardia,chicken,1
+Lombardia,veal heart,1
+Lombardia,grated breadcrumb,1
+Lombardia,pork rind or other scrap part,1
+Lombardia,pearl barley,1
+Lombardia,bone,1
+Lombardia,chard leaf,1
+Lombardia,soaked salted cod,1
+Lombardia,parasol mushroom (lepiota procera),1
+Lombardia,pandispagna (sponge cake),1
+Lombardia,veal,1
+Lombardia,lean beef,1
+Lombardia,beef chuck ('cappello da prete'),1
+Lombardia,beef shoulder,1
+Lombardia,maltagliati,1
+Lombardia,thyme sprig,1
+Lombardia,anchovy fillet,1
+Lombardia,agoni,1
+Lombardia,wild thyme,1
+Lombardia,veal rump,1
+Lombardia,white asparagus,1
+Lombardia,gelatin,1
+Lombardia,tongue,1
+Lombardia,pistachio,1
+Lombardia,cockerel comb,1
+Lombardia,sweetbread,1
+Lombardia,chestnut honey,1
+Lombardia,yeast,1
+Lombardia,vanilla,1
+Lombardia,fennel seed,1
+Lombardia,beef chuck,1
+Lombardia,passito wine,1
+Lombardia,carp,1
+Lombardia,ground beef,1
+Lombardia,spadona pear,1
+Lombardia,lardo or pancetta,1
+Lombardia,verzino sausage,1
+Lombardia,chocolate cream,1
+Lombardia,ladyfinger biscuit,1
+Lombardia,cauliflower,1
+Lombardia,stale sandwich bread,1
+Lombardia,reinette apple,1
+Lombardia,fresh salsiccia sausage,1
+Lombardia,veal cutlet,1
+Lombardia,dark chocolate,1
+Lombardia,alcherme,1
+Lombardia,pandispagna,1
+Lombardia,thyme,1
+Lombardia,pheasant,1
+Lombardia,soft clay,1
+Lombardia,heavy waxed paper,1
+Lombardia,dried basil,1
+Lombardia,dried rosemary,1
+Lombardia,dried bay leaf,1
+Lombardia,mostarda,1
+Lombardia,roasted chestnut,1
+Lombardia,veal liver,1
+Lombardia,black truffle,1
+Lombardia,ready-made aspic,1
+Lombardia,red onion,1
+Lombardia,parsley and celery leaf,1
+Lombardia,acacia honey,1
+Lombardia,moscato wine,1
+Lombardia,green apple,1
+Lombardia,porcini mushroom,1
+Lombardia,puffed roll,1
+Lombardia,mortadella,1
+Lombardia,"beef (knee, shin, foot)",1
+Lombardia,roasted beef,1
+Lombardia,lavarello,1
+Lombardia,beef bouillon cube,1
+Lombardia,hare,1
+Lombardia,zampone di modena,1
+Lombardia,capon,1
+Lombardia,veal head,1
+Lombardia,beef brisket,1
+Lombardia,white wine vinegar,1
+Lombardia,lettuce leaf,1
+Lombardia,dried mushroom,1
+Lombardia,purged snail,1
+Marche,salt,89
+Marche,olive oil,64
+Marche,black pepper,52
+Marche,garlic,43
+Marche,onion,28
+Marche,egg,27
+Marche,white wine,26
+Marche,parsley,26
+Marche,wheat flour,25
+Marche,celery,17
+Marche,carrot,16
+Marche,tomato paste,16
+Marche,chili pepper,14
+Marche,water,13
+Marche,marjoram,12
+Marche,nutmeg,11
+Marche,peeled tomato,11
+Marche,tomato,10
+Marche,lemon zest,9
+Marche,breadcrumb,9
+Marche,milk,9
+Marche,lardo,8
+Marche,parmigiano cheese,8
+Marche,butter,7
+Marche,pecorino cheese,7
+Marche,tomato passata,6
+Marche,sage,6
+Marche,sausage,6
+Marche,bay leaf,6
+Marche,rosemary,6
+Marche,sugar,6
+Marche,tagliatelle,5
+Marche,potato,5
+Marche,wild fennel,5
+Marche,grated parmigiano cheese,4
+Marche,lemon,4
+Marche,clam,4
+Marche,chicken giblet,4
+Marche,lard,4
+Marche,mussel,4
+Marche,red wine,4
+Marche,basil,4
+Marche,prosciutto crudo,4
+Marche,brewer's yeast,4
+Marche,frying oil,4
+Marche,bread,3
+Marche,broth,3
+Marche,mantis shrimp,3
+Marche,squid,3
+Marche,cuttlefish,3
+Marche,thyme sprig,3
+Marche,pork lard,3
+Marche,anchovy,3
+Marche,egg yolk,3
+Marche,rice,3
+Marche,clove,3
+Marche,polenta flour,3
+Marche,dried fig,3
+Marche,wine vinegar,3
+Marche,sea snail,3
+Marche,verdicchio wine,2
+Marche,pork rind,2
+Marche,dried borlotti bean,2
+Marche,ground cinnamon,2
+Marche,sand crab,2
+Marche,prugnoli mushroom,2
+Marche,wine,2
+Marche,mosciolo (mussel),2
+Marche,duck,2
+Marche,cold water,2
+Marche,pancetta,2
+Marche,rosemary sprig,2
+Marche,beef,2
+Marche,grated pecorino cheese,2
+Marche,stale bread,2
+Marche,vinegar,2
+Marche,mixed fish,2
+Marche,cauliflower,2
+Marche,toasted bread slice,2
+Marche,candied fruit,2
+Marche,raisin,2
+Marche,walnut,2
+Marche,bread dough,2
+Marche,fish broth,1
+Marche,lentil,1
+Marche,white onion,1
+Marche,tomato sauce,1
+Marche,dried mushroom,1
+Marche,ground meat,1
+Marche,cheese,1
+Marche,scampi,1
+Marche,lamb shoulder,1
+Marche,pork fat and lean meat,1
+Marche,mud red mullet,1
+Marche,sole,1
+Marche,mackerel,1
+Marche,scampo,1
+Marche,whole clove,1
+Marche,mutton shoulder,1
+Marche,trout,1
+Marche,semolina,1
+Marche,stockfish,1
+Marche,honey,1
+Marche,alcherme,1
+Marche,mistrà,1
+Marche,bell pepper,1
+Marche,skate wing,1
+Marche,monkfish,1
+Marche,murex snail,1
+Marche,chicken part,1
+Marche,marrow bone,1
+Marche,piece of pork and rib,1
+Marche,meat broth,1
+Marche,marsala wine,1
+Marche,pea,1
+Marche,quail,1
+Marche,octopus,1
+Marche,chard,1
+Marche,pork pancetta,1
+Marche,pork rib,1
+Marche,sapa,1
+Marche,grated orange peel,1
+Marche,grasselli,1
+Marche,pigeon,1
+Marche,tomato pulp,1
+Marche,veal round,1
+Marche,mountain herb,1
+Marche,white pepper,1
+Marche,eel,1
+Marche,untreated orange,1
+Marche,liqueur,1
+Marche,unsweetened cocoa powder,1
+Marche,sultana raisin,1
+Marche,hazelnut and walnut,1
+Marche,mixed fish soup,1
+Marche,capon broth,1
+Marche,prosciutto,1
+Marche,veal brain,1
+Marche,chicken breast,1
+Marche,veal,1
+Marche,roasted pork,1
+Marche,pistachio,1
+Marche,prosciutto cotto,1
+Marche,turkey breast fillet,1
+Marche,pork fillet,1
+Marche,lean veal pulp,1
+Marche,capon,1
+Marche,anchovy fillet,1
+Marche,cauliflower floret,1
+Marche,rabbit,1
+Marche,beer,1
+Marche,baking powder,1
+Marche,caper,1
+Marche,herring,1
+Marche,wild green,1
+Marche,monkfish liver,1
+Marche,anchovy paste,1
+Marche,fresh white truffle,1
+Marche,peanut oil,1
+Marche,mixed seafood,1
+Marche,zucchini with flower,1
+Marche,artichoke,1
+Marche,lamb chop,1
+Marche,calamint,1
+Marche,garagoli (pelican's foot snail),1
+Marche,salt and pepper,1
+Marche,diced tomato,1
+Marche,herbs,1
+Marche,small snail,1
+Marche,truffle slice,1
+Marche,goose liver pâté medallion,1
+Marche,madeira wine,1
+Marche,bread slice,1
+Marche,beef fillet medallion,1
+Marche,vegetable broth,1
+Marche,spaghetti,1
+Marche,baking soda,1
+Marche,chickpea,1
+Marche,spaghettini,1
+Marche,hot water,1
+Marche,wheat,1
+Marche,fresh corn,1
+Marche,bean,1
+Marche,red onion,1
+Marche,baby octopus,1
+Marche,pork tenderloin,1
+Marche,whole goose,1
+Marche,boiling water,1
+Marche,pork,1
+Marche,green olive,1
+Marche,yeast,1
+Marche,stewing hare meat,1
+Marche,turkey broth,1
+Molise,salt,116
+Molise,olive oil,97
+Molise,garlic,57
+Molise,parsley,46
+Molise,egg,43
+Molise,wheat flour,43
+Molise,onion,35
+Molise,black pepper,27
+Molise,chili pepper,27
+Molise,sugar,23
+Molise,celery,17
+Molise,white wine,17
+Molise,water,15
+Molise,breadcrumb,14
+Molise,parmigiano cheese,13
+Molise,bell pepper,13
+Molise,milk,12
+Molise,pecorino cheese,11
+Molise,carrot,10
+Molise,brewer's yeast,10
+Molise,tomato,10
+Molise,basil,9
+Molise,potato,8
+Molise,tomato sauce,8
+Molise,butter,8
+Molise,lemon,7
+Molise,stale bread,7
+Molise,nutmeg,7
+Molise,polenta flour,7
+Molise,scamorza,6
+Molise,warm water,6
+Molise,red wine,6
+Molise,peeled tomato,6
+Molise,frying oil,6
+Molise,lemon zest,6
+Molise,lard,6
+Molise,egg yolk,6
+Molise,wild chicory,6
+Molise,ground veal,5
+Molise,salted anchovy,5
+Molise,remilled semolina flour,5
+Molise,rosemary,5
+Molise,white wine vinegar,5
+Molise,bay leaf,4
+Molise,free-range hen,4
+Molise,oregano,4
+Molise,grated pecorino cheese,4
+Molise,lardo,4
+Molise,hot water,4
+Molise,mussel,4
+Molise,white onion,4
+Molise,sourdough starter,4
+Molise,pork rind,4
+Molise,honey,4
+Molise,fennel seed,3
+Molise,baking powder,3
+Molise,lukewarm water,3
+Molise,pancetta,3
+Molise,cherry tomato,3
+Molise,mixed fish soup,3
+Molise,walnut,3
+Molise,scallion,3
+Molise,prosciutto,3
+Molise,ground cinnamon,3
+Molise,cinnamon stick,3
+Molise,vinegar,3
+Molise,prosciutto crudo,3
+Molise,parmigiano or pecorino cheese,3
+Molise,caciocavallo,3
+Molise,grated parmigiano cheese,3
+Molise,clove,3
+Molise,rosemary sprig,3
+Molise,chestnut,2
+Molise,sweet pepper,2
+Molise,chicken,2
+Molise,tomato paste,2
+Molise,escarole,2
+Molise,saffron,2
+Molise,remilled semolina,2
+Molise,pickled pepper,2
+Molise,rice,2
+Molise,tomato passata,2
+Molise,untreated lemon,2
+Molise,pork rib,2
+Molise,raisin,2
+Molise,pig's ear,2
+Molise,pig's trotter,2
+Molise,aged pecorino cheese,2
+Molise,aged cow's milk cheese,2
+Molise,orange zest,2
+Molise,dried chili pepper,2
+Molise,cured pancetta,2
+Molise,almond,2
+Molise,unsweetened cocoa powder,2
+Molise,powdered sugar,2
+Molise,shelled almond,2
+Molise,orange,2
+Molise,primo sale cheese,2
+Molise,hard-boiled egg,2
+Molise,mosto cotto,2
+Molise,cardoon,2
+Molise,cauliflower,2
+Molise,ricotta,2
+Molise,cow's milk cheese,2
+Molise,white celery,1
+Molise,octopus,1
+Molise,white pepper,1
+Molise,hake,1
+Molise,mountain lentil,1
+Molise,white escarole,1
+Molise,black spaghetti (whole wheat),1
+Molise,large lemon,1
+Molise,torpedo ray,1
+Molise,pigeon,1
+Molise,sage,1
+Molise,salt and pepper,1
+Molise,boiled chestnut,1
+Molise,cheese,1
+Molise,sausage,1
+Molise,young turkey,1
+Molise,black olive,1
+Molise,desalted salted cod,1
+Molise,dried plum,1
+Molise,anchovy fillet,1
+Molise,eel,1
+Molise,chopped spaghetti,1
+Molise,salted cod,1
+Molise,spaghetti,1
+Molise,lamb pluck,1
+Molise,chili powder,1
+Molise,"intense, full-bodied red wine",1
+Molise,anchovy,1
+Molise,truffle,1
+Molise,"firm, aged scamorza cheese",1
+Molise,horse mackerel (sauri),1
+Molise,copertella beef,1
+Molise,fresh wild mint leaf,1
+Molise,dried 'a mmurecene' bean,1
+Molise,semolina flour,1
+Molise,vanilla,1
+Molise,sour cherry jam,1
+Molise,vanillin,1
+Molise,corn oil,1
+Molise,thornback ray,1
+Molise,cured pork liver sausage,1
+Molise,cured pork sausage,1
+Molise,cockerel giblet,1
+Molise,cockerel,1
+Molise,baby octopus,1
+Molise,grated grana padano,1
+Molise,tuna in oil,1
+Molise,pork sausage,1
+Molise,fontina,1
+Molise,semi-aged pecorino cheese,1
+Molise,pine nut,1
+Molise,caper,1
+Molise,green olive,1
+Molise,smooth-leaf escarole,1
+Molise,sultana raisin,1
+Molise,anchovy fillet in oil,1
+Molise,boiling water,1
+Molise,pig's tail,1
+Molise,dried red pinto bean,1
+Molise,milk liqueur,1
+Molise,paper cup,1
+Molise,fresh edible herb leaf,1
+Molise,alchermes liqueur,1
+Molise,vov liqueur,1
+Molise,sugar syrup,1
+Molise,liqueur,1
+Molise,custard,1
+Molise,green pepper,1
+Molise,black truffle,1
+Molise,penne,1
+Molise,borlotti bean,1
+Molise,wild chicory or turnip green,1
+Molise,small fish soup,1
+Molise,thyme,1
+Molise,candied fruit,1
+Molise,chard,1
+Molise,yellow pumpkin,1
+Molise,pork with bone and rind,1
+Molise,dry pork sausage,1
+Molise,country bread loaf,1
+Molise,coffee powder,1
+Molise,dark chocolate,1
+Molise,lamb tripe,1
+Molise,egg white,1
+Molise,warm milk,1
+Molise,baker's ammonia,1
+Molise,mutton (or large lamb),1
+Molise,bread crust,1
+Molise,ventricina,1
+Molise,eggplant,1
+Molise,cotechino,1
+Molise,lentil,1
+Molise,durum wheat semolina,1
+Molise,lampascione,1
+Molise,dry sausage and prosciutto,1
+Molise,wheat kernel,1
+Molise,long lettuce leaf,1
+Molise,caul fat (omento),1
+Molise,lamb intestine,1
+Molise,lamb or kid coratella,1
+Molise,muscari (lampascioni),1
+Molise,lamb,1
+Molise,anchovy in oil,1
+Molise,dried grape,1
+Molise,fig,1
+Molise,salted cod fillet,1
+Molise,black broccoli,1
+Molise,lupini clam,1
+Molise,sweet green pepper,1
+Molise,mixed fish,1
+Molise,black and green olive,1
+Molise,tortarello,1
+Molise,tarallo,1
+Molise,lard or strutto,1
+Molise,parsley sprig,1
+Molise,grated aged goat and cow cheese,1
+Molise,capon giblet,1
+Molise,capon,1
+Molise,small round artichoke,1
+Molise,turkey broth,1
+Molise,fior di latte,1
+Molise,minced meat,1
+Molise,capon meat,1
+Molise,vanillin sachet,1
+Molise,mutton,1
+Molise,tomato pulp,1
+Molise,catalogna,1
+Molise,turnip green,1
+Molise,herbs,1
+Molise,prosciutto lard,1
+Molise,wild boar pulp,1
+Molise,cavatelli,1
+Molise,green cabbage,1
+Molise,cannellini bean,1
+Molise,dried cannellini bean,1
+Molise,hen broth,1
+Molise,broth,1
+Molise,celery heart,1
+Molise,rabbit,1
+Molise,leg of goat,1
+Molise,"aromatic herbs (sage, rosemary, bay leaf)",1
+Molise,"mixed ground meat (pork, veal)",1
+Molise,boneless lamb leg,1
+Molise,béchamel sauce,1
+Molise,emmental,1
+Molise,mortadella,1
+Molise,salami,1
+Molise,cured ham,1
+Molise,prosciutto cotto,1
+Molise,pea,1
+Molise,mushroom,1
+Molise,meat broth,1
+Molise,egg tagliolini,1
+Molise,hen,1
+Molise,veal,1
+Molise,farfalline pasta,1
+Molise,wild fennel seed,1
+Molise,orange slice,1
+Molise,caul fat (omento or rezza),1
+Molise,pork liver,1
+Molise,veal liver,1
+Molise,sheep's milk ricotta,1
+Molise,trout,1
+Molise,zucchini flower,1
+Molise,porcini mushroom,1
+Molise,prosciutto cotto or prosciutto crudo,1
+Molise,hen giblet,1
+Molise,free-range chicken meat,1
+Molise,new potato,1
+Molise,eye of round or shoulder clod,1
+Piemonte,salt,130
+Piemonte,butter,93
+Piemonte,black pepper,81
+Piemonte,olive oil,68
+Piemonte,onion,59
+Piemonte,wheat flour,52
+Piemonte,garlic,51
+Piemonte,egg,47
+Piemonte,parsley,40
+Piemonte,sugar,37
+Piemonte,carrot,31
+Piemonte,celery,31
+Piemonte,milk,28
+Piemonte,broth,27
+Piemonte,egg yolk,26
+Piemonte,white wine,24
+Piemonte,parmigiano cheese,24
+Piemonte,sage,22
+Piemonte,bay leaf,21
+Piemonte,breadcrumb,18
+Piemonte,water,17
+Piemonte,nutmeg,17
+Piemonte,potato,16
+Piemonte,rosemary,16
+Piemonte,lardo,16
+Piemonte,grated parmigiano cheese,16
+Piemonte,rice,15
+Piemonte,cream,14
+Piemonte,leek,13
+Piemonte,lemon zest,12
+Piemonte,vinegar,12
+Piemonte,clove,12
+Piemonte,lemon,11
+Piemonte,meat broth,11
+Piemonte,tomato sauce,9
+Piemonte,fontina,8
+Piemonte,tomato,8
+Piemonte,salted anchovy,7
+Piemonte,raisin,7
+Piemonte,red wine,7
+Piemonte,zucchini,6
+Piemonte,rum,6
+Piemonte,baking powder,6
+Piemonte,vanilla,6
+Piemonte,ground cinnamon,6
+Piemonte,bell pepper,6
+Piemonte,caper,6
+Piemonte,anchovy,6
+Piemonte,marsala wine,6
+Piemonte,powdered sugar,5
+Piemonte,tomato paste,5
+Piemonte,egg white,5
+Piemonte,rabbit,5
+Piemonte,pancetta,5
+Piemonte,savoy cabbage,5
+Piemonte,anchovy fillet,5
+Piemonte,white wine vinegar,5
+Piemonte,sausage,5
+Piemonte,grana padano,5
+Piemonte,basil,5
+Piemonte,chili pepper,5
+Piemonte,polenta flour,4
+Piemonte,amaretti cookie,4
+Piemonte,dark chocolate,4
+Piemonte,pork rind,4
+Piemonte,herbs,4
+Piemonte,chicken liver,4
+Piemonte,barolo wine,4
+Piemonte,pork loin,4
+Piemonte,lemon juice,4
+Piemonte,cocoa powder,4
+Piemonte,spinach,4
+Piemonte,chard,4
+Piemonte,vegetable broth,4
+Piemonte,juniper berry,4
+Piemonte,bread slice,3
+Piemonte,cinnamon stick,3
+Piemonte,hard-boiled egg yolk,3
+Piemonte,walnut,3
+Piemonte,frying oil,3
+Piemonte,sultana raisin,3
+Piemonte,rosemary sprig,3
+Piemonte,vanilla sugar,3
+Piemonte,shallot,3
+Piemonte,barbera wine,3
+Piemonte,white truffle,3
+Piemonte,pine nut,3
+Piemonte,toma,3
+Piemonte,sheep's milk ricotta,3
+Piemonte,potato starch,3
+Piemonte,marjoram,3
+Piemonte,sweetbread,3
+Piemonte,fish broth,3
+Piemonte,zucchini flower,3
+Piemonte,yellow pumpkin,3
+Piemonte,ricotta,3
+Piemonte,bread crouton,3
+Piemonte,salame duja,3
+Piemonte,chestnut,3
+Piemonte,hard-boiled egg,3
+Piemonte,tuna in oil,2
+Piemonte,salted caper,2
+Piemonte,borlotti bean,2
+Piemonte,lard,2
+Piemonte,vanillin,2
+Piemonte,toasted hazelnut,2
+Piemonte,reinette apple,2
+Piemonte,almond,2
+Piemonte,fresh chestnut,2
+Piemonte,topinambur,2
+Piemonte,bouquet garni,2
+Piemonte,pig's trotter,2
+Piemonte,champignon mushroom,2
+Piemonte,sweetened cocoa powder,2
+Piemonte,veal shank,2
+Piemonte,veal,2
+Piemonte,stale bread,2
+Piemonte,amaretti,2
+Piemonte,yellow peach,2
+Piemonte,pea,2
+Piemonte,prosciutto cotto,2
+Piemonte,lung,2
+Piemonte,mustard,2
+Piemonte,spices,2
+Piemonte,frog,2
+Piemonte,perch fillet,2
+Piemonte,baldo or carnaroli rice,2
+Piemonte,beef marrow,2
+Piemonte,porcini mushroom,2
+Piemonte,pork rib,2
+Piemonte,lukewarm water,2
+Piemonte,ground veal,2
+Piemonte,chicken,2
+Piemonte,yellow polenta,2
+Piemonte,scallion,2
+Piemonte,thyme,2
+Piemonte,rabbit meat,2
+Piemonte,chopped parsley,2
+Piemonte,tagliatelle,2
+Piemonte,dried chestnut,2
+Piemonte,dark rum,2
+Piemonte,coffee,2
+Piemonte,celery heart,2
+Piemonte,veal spinal cord,2
+Piemonte,veal brain,2
+Piemonte,salsiccia,2
+Piemonte,pork,2
+Piemonte,red wine vinegar,2
+Piemonte,marsala,2
+Piemonte,lamb leg,2
+Piemonte,acacia and elderflower blossom,1
+Piemonte,gruyère,1
+Piemonte,warm water,1
+Piemonte,dry marsala,1
+Piemonte,veal round (girello),1
+Piemonte,trout,1
+Piemonte,white wine or marsala,1
+Piemonte,white potato,1
+Piemonte,flowering basil,1
+Piemonte,prosciutto crudo,1
+Piemonte,veal trotter,1
+Piemonte,tripe,1
+Piemonte,grappa,1
+Piemonte,brandy,1
+Piemonte,unsweetened cocoa powder,1
+Piemonte,pumpkin pulp,1
+Piemonte,yeast,1
+Piemonte,artichoke heart,1
+Piemonte,large sage leaf,1
+Piemonte,nutmeg powder,1
+Piemonte,pig's tail,1
+Piemonte,pig's ear,1
+Piemonte,aromatic bouquet,1
+Piemonte,cannellini bean,1
+Piemonte,candied fruit,1
+Piemonte,brewer's yeast,1
+Piemonte,tench,1
+Piemonte,duck breast,1
+Piemonte,bitter almond,1
+Piemonte,toasted hazelnut grit,1
+Piemonte,toasted hazelnut paste,1
+Piemonte,white chocolate,1
+Piemonte,whipping cream,1
+Piemonte,donkey meat,1
+Piemonte,langhe wine,1
+Piemonte,pitted olive,1
+Piemonte,stockfish,1
+Piemonte,starch,1
+Piemonte,large savoy cabbage leaf,1
+Piemonte,brown butter,1
+Piemonte,bagna cauda,1
+Piemonte,tender cardoon,1
+Piemonte,wine vinegar,1
+Piemonte,tarragon,1
+Piemonte,small pickled gherkin,1
+Piemonte,veal cover cut,1
+Piemonte,heart,1
+Piemonte,buckwheat flour,1
+Piemonte,pickled caper,1
+Piemonte,veal kidney,1
+Piemonte,gizzard,1
+Piemonte,fino or superfino rice,1
+Piemonte,chicken broth,1
+Piemonte,watercress,1
+Piemonte,seed oil,1
+Piemonte,vialone nano rice,1
+Piemonte,lake tench,1
+Piemonte,saffron,1
+Piemonte,sant'andrea rice,1
+Piemonte,spicy gorgonzola,1
+Piemonte,sweet gorgonzola,1
+Piemonte,arborio or carnaroli rice,1
+Piemonte,"toma del maccagno, bettelmatt, or fontina cheese",1
+Piemonte,balilla rice or other originario rice,1
+Piemonte,mountain pansies (malastre),1
+Piemonte,hunchback cardoon,1
+Piemonte,broccoli,1
+Piemonte,"chard, spinach, or wild herbs",1
+Piemonte,black truffle,1
+Piemonte,quail,1
+Piemonte,chopped herb mix,1
+Piemonte,béchamel sauce,1
+Piemonte,fresh porcini mushroom,1
+Piemonte,crayfish,1
+Piemonte,cured pancetta,1
+Piemonte,ajucche (rampion),1
+Piemonte,crumbled sponge cake,1
+Piemonte,almond paste,1
+Piemonte,almond flour,1
+Piemonte,cornstarch,1
+Piemonte,robiola di roccaverano,1
+Piemonte,crema di latte,1
+Piemonte,crostoni,1
+Piemonte,partridge,1
+Piemonte,martin sec or williams pear,1
+Piemonte,celery leaf,1
+Piemonte,ready-made gelatin,1
+Piemonte,corn flour,1
+Piemonte,fresh lard,1
+Piemonte,ravisse,1
+Piemonte,malga cheese,1
+Piemonte,ditalini pasta,1
+Piemonte,chive,1
+Piemonte,gelatin sheet,1
+Piemonte,vanilla extract,1
+Piemonte,dried borlotti bean,1
+Piemonte,superfino rice,1
+Piemonte,fernet,1
+Piemonte,sweet pear,1
+Piemonte,pork ossobuco,1
+Piemonte,young goose,1
+Piemonte,baking soda,1
+Piemonte,bread crostini,1
+Piemonte,dried mushroom,1
+Piemonte,chickpea,1
+Piemonte,beef broth,1
+Piemonte,pumpkin,1
+Piemonte,luvertìn (wild hop shoots),1
+Piemonte,rônséle (tender poppy plants),1
+Piemonte,veal lung,1
+Piemonte,beer,1
+Piemonte,lentil,1
+Piemonte,dried bean,1
+Piemonte,salted cod,1
+Piemonte,hazelnut grain,1
+Piemonte,mascarpone,1
+Piemonte,ladyfinger,1
+Piemonte,snail,1
+Piemonte,wine,1
+Piemonte,hare,1
+Piemonte,mayonnaise,1
+Piemonte,tuna,1
+Piemonte,thinly sliced beef,1
+Piemonte,sweet and sour gherkin,1
+Piemonte,caesar's mushroom,1
+Piemonte,radish,1
+Piemonte,sunflower oil,1
+Piemonte,apple,1
+Piemonte,cucumber,1
+Piemonte,zander,1
+Piemonte,pork caul fat or omentum,1
+Piemonte,lean pork pulp (or sausage),1
+Piemonte,pork liver,1
+Piemonte,parsley stalk,1
+Piemonte,cotechino sausage,1
+Piemonte,hen,1
+Piemonte,calf's head,1
+Piemonte,tongue,1
+Piemonte,oxtail,1
+Piemonte,mixed veal cut,1
+Piemonte,durum wheat semolina,1
+Piemonte,dry amaretti cookie,1
+Piemonte,young calf's liver,1
+Piemonte,veal steak,1
+Piemonte,cipolline d'ivrea,1
+Piemonte,grignolino wine,1
+Piemonte,mixed pork and veal stew meat,1
+Piemonte,dark chocolate shaving,1
+Piemonte,grated grana padano,1
+Piemonte,minced veal,1
+Piemonte,fresh sage,1
+Piemonte,cold water,1
+Piemonte,salami or sausage,1
+Piemonte,fresh seasonal vegetable,1
+Piemonte,fresh veal or young beef,1
+Piemonte,savoy cabbage leaf,1
+Piemonte,white risotto,1
+Piemonte,veal rump,1
+Piemonte,roast dripping,1
+Piemonte,cabbage,1
+Piemonte,pork neck,1
+Piemonte,veal neck,1
+Piemonte,escarole (endive),1
+Piemonte,rabbit leg,1
+Piemonte,veal pulp,1
+Piemonte,duck,1
+Piemonte,white pepper,1
+Piemonte,eel,1
+Piemonte,moscato wine,1
+Piemonte,sour cherry jam,1
+Piemonte,candied citron and orange,1
+Piemonte,untreated lemon,1
+Piemonte,whipped cream,1
+Piemonte,asparagus,1
+Piemonte,giardiniera,1
+Piemonte,green asparagus,1
+Piemonte,peeled almond,1
+Piemonte,cold butter,1
+Piemonte,spanish red anchovy,1
+Piemonte,walnut oil,1
+Piemonte,sweet pepper,1
+Piemonte,clof,1
+Piemonte,stone-ground polenta,1
+Piemonte,barbera d’asti wine,1
+Piemonte,wild boar pulp,1
+Piemonte,beef,1
+Piemonte,bean,1
+Piemonte,toasted bread slice,1
+Piemonte,white tripe,1
+Piemonte,cheese,1
+Piemonte,cooked sausage,1
+Piemonte,parmigiano cheese or toma,1
+Piemonte,cognac,1
+Piemonte,vanillin sachet,1
+Piemonte,mostarda di frutta,1
+Piemonte,capon,1
+Piemonte,kid goat meat,1
+Piemonte,artichoke,1
+Piemonte,lemon juice or vinegar,1
+Piemonte,cardoon,1
+Piemonte,flaked fleur de sel,1
+Piemonte,veal pulp (round or topside),1
+Piemonte,chicken breast,1
+Piemonte,veal sirloin,1
+Piemonte,dried plum,1
+Piemonte,martin sech pear,1
+Piemonte,"aromatic herbs (parsley, sage, rosemary, thyme)",1
+Piemonte,breadcrumbs from a stale roll,1
+Piemonte,borettane onion,1
+Piemonte,rolled pork rind,1
+Piemonte,dried chickpea,1
+Piemonte,rabbit liver,1
+Piemonte,candied orange,1
+Piemonte,torrone,1
+Piemonte,marsala and cognac mix,1
+Piemonte,honey,1
+Piemonte,veal liver,1
+Piemonte,chanterelle mushroom,1
+Piemonte,pike-perch,1
+Piemonte,egg fettuccine,1
+Piemonte,pickled mushroom,1
+Piemonte,beef fillet,1
+Piemonte,"chicken combs, wattles, and unlaid egg",1
+Puglia,olive oil,76
+Puglia,salt,64
+Puglia,garlic,34
+Puglia,black pepper,34
+Puglia,wheat flour,32
+Puglia,parsley,31
+Puglia,onion,27
+Puglia,breadcrumb,22
+Puglia,sugar,21
+Puglia,egg,20
+Puglia,tomato,14
+Puglia,chili pepper,13
+Puglia,pecorino cheese,12
+Puglia,water,12
+Puglia,white wine,10
+Puglia,tomato sauce,10
+Puglia,celery,9
+Puglia,potato,9
+Puglia,grated pecorino cheese,7
+Puglia,butter,6
+Puglia,ground cinnamon,6
+Puglia,almond,6
+Puglia,lemon zest,6
+Puglia,caper,6
+Puglia,oregano,6
+Puglia,brewer's yeast,6
+Puglia,salted anchovy,6
+Puglia,baking powder,5
+Puglia,tomato passata,5
+Puglia,mussel,5
+Puglia,lemon,4
+Puglia,egg yolk,4
+Puglia,basil,4
+Puglia,dark chocolate,4
+Puglia,milk,4
+Puglia,pecorino pugliese,4
+Puglia,peeled tomato,3
+Puglia,ricotta,3
+Puglia,black olive,3
+Puglia,lemon juice,3
+Puglia,powdered sugar,3
+Puglia,sausage,3
+Puglia,lamb,3
+Puglia,pitted black olive,3
+Puglia,frying oil,3
+Puglia,chickpea,3
+Puglia,mozzarella,3
+Puglia,eggplant,3
+Puglia,cherry tomato,3
+Puglia,stale bread,3
+Puglia,vinegar,3
+Puglia,white onion,2
+Puglia,ricotta forte,2
+Puglia,lukewarm water,2
+Puglia,semolina flour,2
+Puglia,carrot,2
+Puglia,grated pecorino pugliese,2
+Puglia,pancetta,2
+Puglia,warm water,2
+Puglia,red wine,2
+Puglia,orange zest,2
+Puglia,walnut,2
+Puglia,mosto cotto,2
+Puglia,scamorza,2
+Puglia,cuttlefish,2
+Puglia,alcohol,2
+Puglia,vegetable broth,2
+Puglia,octopus,2
+Puglia,arugula,2
+Puglia,honey,2
+Puglia,anchovy,2
+Puglia,vincotto,2
+Puglia,candied orange,2
+Puglia,rabbit,2
+Puglia,bell pepper,2
+Puglia,lampascioni,2
+Puglia,linguine,2
+Puglia,pork,1
+Puglia,artichoke,1
+Puglia,bread,1
+Puglia,pumpkin,1
+Puglia,pearl barley,1
+Puglia,cooked legume,1
+Puglia,chili powder,1
+Puglia,large slice of rustic bread,1
+Puglia,dried bean,1
+Puglia,catalogna chicory top,1
+Puglia,sour cherry jam,1
+Puglia,cherry acquavite,1
+Puglia,vanillin,1
+Puglia,unsweetened cocoa powder,1
+Puglia,diced tomato,1
+Puglia,black mussel,1
+Puglia,rice,1
+Puglia,mutton,1
+Puglia,fresh zucchini,1
+Puglia,handmade buckwheat strascinati,1
+Puglia,cooked fig sugar,1
+Puglia,vanilla sugar,1
+Puglia,cooked chickpea,1
+Puglia,tender artichoke,1
+Puglia,colored sprinkle,1
+Puglia,egg white,1
+Puglia,sardine,1
+Puglia,green bean,1
+Puglia,mushroom,1
+Puglia,lasagna,1
+Puglia,monkfish,1
+Puglia,orecchiette pasta,1
+Puglia,tomato paste,1
+Puglia,chicken,1
+Puglia,beef,1
+Puglia,horse meat,1
+Puglia,white wine vinegar,1
+Puglia,baking soda,1
+Puglia,anchovy fillet in oil,1
+Puglia,yellow pepper,1
+Puglia,fresh leek,1
+Puglia,small pasta,1
+Puglia,mixed fish soup,1
+Puglia,lentil,1
+Puglia,ditalini or spaghetti,1
+Puglia,mezzi ziti,1
+Puglia,broccoli or cauliflower,1
+Puglia,homemade pasta,1
+Puglia,white pepper,1
+Puglia,clam,1
+Puglia,fresh langoustine,1
+Puglia,parmigiano cheese,1
+Puglia,wafer,1
+Puglia,sweet almond,1
+Puglia,stale black bread,1
+Puglia,vanilla,1
+Puglia,yellow potato,1
+Puglia,suckling lamb,1
+Puglia,pea,1
+Puglia,soaked baccalà,1
+Puglia,pear jam,1
+Puglia,candied fruit,1
+Puglia,pastry cream,1
+Puglia,jam,1
+Puglia,horse meat slice,1
+Puglia,squid,1
+Puglia,grated grana padano,1
+Puglia,ground pork and veal pulp,1
+Puglia,allspice,1
+Puglia,sweetened white dried fig,1
+Puglia,lamb pulp,1
+Puglia,capunti pasta,1
+Puglia,cardoon,1
+Puglia,colored sprinkles (anicini),1
+Puglia,rosemary,1
+Puglia,oyster,1
+Puglia,acidulated water,1
+Puglia,muscari,1
+Puglia,broth,1
+Puglia,locorotondo wine,1
+Puglia,dark chocolate shaving,1
+Puglia,sheep's milk ricotta,1
+Puglia,bay leaf,1
+Puglia,sweet pecorino cheese,1
+Puglia,white fava bean,1
+Puglia,loane,1
+Puglia,chicory,1
+Puglia,dried fava bean,1
+Puglia,sheep rib,1
+Puglia,focaccia dough,1
+Puglia,lardelli and lard,1
+Puglia,cinnamon stick,1
+Puglia,candied citron,1
+Puglia,ripe pomegranate,1
+Puglia,soft wheat,1
+Puglia,dried white fava bean,1
+Puglia,lagane pasta,1
+Puglia,lampascione,1
+Puglia,meat broth,1
+Puglia,nutmeg,1
+Puglia,provola,1
+Puglia,prosciutto cotto,1
+Puglia,small meatball,1
+Puglia,egg pasta,1
+Puglia,cornstarch,1
+Puglia,shelled almond,1
+Puglia,shrimp,1
+Puglia,calamari,1
+Puglia,"mortadella, homemade salami, or small meatball",1
+Puglia,maccheroni,1
+Puglia,wine vinegar,1
+Puglia,lamb caul fat,1
+Puglia,kid or lamb offal and giblet,1
+Puglia,white zucchini,1
+Puglia,chard or spinach,1
+Puglia,garden chicory,1
+Puglia,fennel,1
+Puglia,curly endive,1
+Puglia,savoy cabbage,1
+Puglia,prosciutto bone,1
+Puglia,dried pea,1
+Puglia,turnip green,1
+Puglia,homemade orecchiette,1
+Sardegna,salt,195
+Sardegna,olive oil,172
+Sardegna,garlic,128
+Sardegna,onion,96
+Sardegna,parsley,91
+Sardegna,water,51
+Sardegna,wheat flour,44
+Sardegna,sugar,40
+Sardegna,egg,38
+Sardegna,black pepper,38
+Sardegna,bay leaf,35
+Sardegna,white wine,34
+Sardegna,basil,32
+Sardegna,chili pepper,32
+Sardegna,tomato,30
+Sardegna,sun-dried tomato,27
+Sardegna,lard,24
+Sardegna,celery,23
+Sardegna,potato,23
+Sardegna,carrot,20
+Sardegna,lemon,16
+Sardegna,breadcrumb,15
+Sardegna,lemon zest,15
+Sardegna,tomato pulp,13
+Sardegna,vinegar,13
+Sardegna,rosemary,13
+Sardegna,wild fennel,12
+Sardegna,tomato paste,12
+Sardegna,milk,12
+Sardegna,fava bean,12
+Sardegna,lardo,11
+Sardegna,peeled tomato,10
+Sardegna,almond,10
+Sardegna,white wine vinegar,9
+Sardegna,egg white,8
+Sardegna,saffron,8
+Sardegna,tomato passata,8
+Sardegna,tomato sauce,7
+Sardegna,fresh pecorino cheese,7
+Sardegna,walnut,7
+Sardegna,vernaccia wine,7
+Sardegna,egg yolk,7
+Sardegna,sardinian spiny artichoke,7
+Sardegna,peanut oil,6
+Sardegna,thyme,6
+Sardegna,powdered sugar,6
+Sardegna,vegetable broth,6
+Sardegna,saffron thread,6
+Sardegna,honey,6
+Sardegna,semolina,6
+Sardegna,raisin,6
+Sardegna,ground cinnamon,6
+Sardegna,arborio rice,6
+Sardegna,cheese,6
+Sardegna,vanillin,6
+Sardegna,orange zest,6
+Sardegna,chickpea,5
+Sardegna,cauliflower,5
+Sardegna,baking powder,5
+Sardegna,pancetta,5
+Sardegna,red wine,5
+Sardegna,partridge,5
+Sardegna,butter,5
+Sardegna,eel,5
+Sardegna,mint,5
+Sardegna,fine durum wheat semolina,5
+Sardegna,sweet almond,5
+Sardegna,brewer's yeast,5
+Sardegna,lamb,5
+Sardegna,pecorino sardo,4
+Sardegna,dried chestnut,4
+Sardegna,mussel,4
+Sardegna,eggplant,4
+Sardegna,marjoram,4
+Sardegna,wildflower honey,4
+Sardegna,lemon juice,4
+Sardegna,oregano,4
+Sardegna,mullet bottarga,4
+Sardegna,sage,4
+Sardegna,spaghetti,4
+Sardegna,grated cow's milk cheese,4
+Sardegna,meat broth,4
+Sardegna,pecorino cheese,4
+Sardegna,rosemary sprig,4
+Sardegna,fresh pecorino sardo,4
+Sardegna,orange blossom water,4
+Sardegna,sugar sprinkle,4
+Sardegna,scallion,4
+Sardegna,carasau bread,3
+Sardegna,savoy cabbage,3
+Sardegna,parsley sprig,3
+Sardegna,arselle clam,3
+Sardegna,zucchini,3
+Sardegna,pork rind,3
+Sardegna,caper,3
+Sardegna,green olive,3
+Sardegna,broth,3
+Sardegna,pine nut,3
+Sardegna,olbia mussel,3
+Sardegna,nutmeg,3
+Sardegna,wild asparagus,3
+Sardegna,baking soda,3
+Sardegna,sausage,3
+Sardegna,wild boar meat,3
+Sardegna,vernaccia di oristano,3
+Sardegna,spiny artichoke,3
+Sardegna,squid,3
+Sardegna,durum wheat semolina,3
+Sardegna,cuttlefish,3
+Sardegna,lukewarm water,3
+Sardegna,wine vinegar,3
+Sardegna,hot water,3
+Sardegna,rice,3
+Sardegna,carnaroli rice,3
+Sardegna,dried bean,3
+Sardegna,bread,3
+Sardegna,white onion,3
+Sardegna,ricotta,3
+Sardegna,chard,3
+Sardegna,frying oil,3
+Sardegna,bitter almond,3
+Sardegna,fresh mint leaf,3
+Sardegna,barley semolina,3
+Sardegna,dried fava bean,3
+Sardegna,warm water,3
+Sardegna,juniper berry,3
+Sardegna,rabbit,3
+Sardegna,stale bread,2
+Sardegna,green bean,2
+Sardegna,beef broth,2
+Sardegna,bell pepper,2
+Sardegna,cherry tomato,2
+Sardegna,pork meat,2
+Sardegna,clam,2
+Sardegna,clove,2
+Sardegna,sea crab,2
+Sardegna,sardine,2
+Sardegna,chili powder,2
+Sardegna,semi-aged pecorino cheese,2
+Sardegna,fine semolina,2
+Sardegna,pork pulp,2
+Sardegna,fish broth,2
+Sardegna,artichoke,2
+Sardegna,octopus,2
+Sardegna,sheep's milk ricotta,2
+Sardegna,skate,2
+Sardegna,aged pecorino sardo,2
+Sardegna,sardinian saffron,2
+Sardegna,grated pecorino cheese,2
+Sardegna,baby octopus,2
+Sardegna,mutton leg,2
+Sardegna,chickpea flour,2
+Sardegna,orange,2
+Sardegna,bean,2
+Sardegna,fregola,2
+Sardegna,fresh cheese in brine (casu e' murgia),2
+Sardegna,hare,2
+Sardegna,dogfish,2
+Sardegna,myrtle berry,2
+Sardegna,olive,2
+Sardegna,nuragus wine,2
+Sardegna,lard or pancetta,2
+Sardegna,salted lardo,1
+Sardegna,caul fat,1
+Sardegna,small intestine,1
+Sardegna,kid goat or suckling lamb coratella,1
+Sardegna,borlotti bean,1
+Sardegna,lardo with rind,1
+Sardegna,semi-cured salsiccia,1
+Sardegna,pig's head,1
+Sardegna,fregula,1
+Sardegna,aged pecorino cheese,1
+Sardegna,peretta,1
+Sardegna,grated peretta,1
+Sardegna,pork rib,1
+Sardegna,borage and cardoon,1
+Sardegna,crustless bread,1
+Sardegna,cow's milk cheese,1
+Sardegna,spianata bread,1
+Sardegna,picarel,1
+Sardegna,veal meat,1
+Sardegna,vermicelli,1
+Sardegna,calamint,1
+Sardegna,trout,1
+Sardegna,wheat flour wafer,1
+Sardegna,smoked pancetta,1
+Sardegna,thrush,1
+Sardegna,topinambur,1
+Sardegna,tuna,1
+Sardegna,fresh tagliolini,1
+Sardegna,sardinian partridge,1
+Sardegna,garden pea,1
+Sardegna,lamb meat,1
+Sardegna,wild fennel frond,1
+Sardegna,boneless lamb,1
+Sardegna,salted sardine,1
+Sardegna,cooked chickpea,1
+Sardegna,sardinian sausage,1
+Sardegna,cannonau wine,1
+Sardegna,pork sausage,1
+Sardegna,sea urchin,1
+Sardegna,crab,1
+Sardegna,wine,1
+Sardegna,medium fregola,1
+Sardegna,sour fresh cheese,1
+Sardegna,mutton broth,1
+Sardegna,brined olive,1
+Sardegna,sea bass,1
+Sardegna,toasted bread,1
+Sardegna,beef for stew,1
+Sardegna,fresh cuttlefish,1
+Sardegna,sea urchin pulp,1
+Sardegna,thin spaghettini,1
+Sardegna,mackerel,1
+Sardegna,corbezzolo or wildflower honey,1
+Sardegna,caciotta,1
+Sardegna,live lobster,1
+Sardegna,salted caper,1
+Sardegna,salted selargius caper,1
+Sardegna,fresh ricotta,1
+Sardegna,verbena,1
+Sardegna,sweetened coffee,1
+Sardegna,dried orange peel,1
+Sardegna,"mixed dried fruit (walnuts, almonds, hazelnuts)",1
+Sardegna,prickly pear sapa (cooked prickly pear must),1
+Sardegna,pesto,1
+Sardegna,vermentino wine,1
+Sardegna,fresh sardinian sausage,1
+Sardegna,fresh sage leaf,1
+Sardegna,chicken liver and heart,1
+Sardegna,ground pork,1
+Sardegna,king prawn,1
+Sardegna,calamari,1
+Sardegna,grated pecorino sardo,1
+Sardegna,stock concentrate,1
+Sardegna,anchovy paste,1
+Sardegna,rigatoni,1
+Sardegna,wild mint,1
+Sardegna,leaf spinach,1
+Sardegna,cow's milk ricotta,1
+Sardegna,primo sale cheese,1
+Sardegna,lemon or orange zest,1
+Sardegna,monkfish,1
+Sardegna,large spianate bread,1
+Sardegna,ricotta mustia,1
+Sardegna,moddizzosu bread,1
+Sardegna,brined black olive,1
+Sardegna,chicken,1
+Sardegna,yellow polenta,1
+Sardegna,sugared water,1
+Sardegna,orange liqueur,1
+Sardegna,ground almond,1
+Sardegna,confettate olife,1
+Sardegna,pitted green olive,1
+Sardegna,anchovy,1
+Sardegna,canned tuna,1
+Sardegna,mutton pulp,1
+Sardegna,salted water,1
+Sardegna,grated lemon zest,1
+Sardegna,grated orange zest,1
+Sardegna,semolina flour,1
+Sardegna,traggera (sprinkles),1
+Sardegna,"grated, unaged pecorino cheese",1
+Sardegna,chopped parsley,1
+Sardegna,hard-boiled egg,1
+Sardegna,sapa,1
+Sardegna,dried fruit and nut mix,1
+Sardegna,orange juice,1
+Sardegna,anise liqueur or grappa,1
+Sardegna,very fine durum wheat semolina,1
+Sardegna,veal foot,1
+Sardegna,pischidu,1
+Sardegna,salted curd,1
+Sardegna,sorrel leaf,1
+Sardegna,strigoli leaf,1
+Sardegna,pork pancetta,1
+Sardegna,dried borlotti bean,1
+Sardegna,beef marrow,1
+Sardegna,ditalini pasta,1
+Sardegna,corallini pasta or fried durum wheat bread croutons (coccoi),1
+Sardegna,mullet,1
+Sardegna,small pasta,1
+Sardegna,mixed fish,1
+Sardegna,porcini mushroom,1
+Sardegna,sardinian fregola,1
+Sardegna,spider crab,1
+Sardegna,pane fresa,1
+Sardegna,pork lard,1
+Sardegna,mixed wild herb,1
+Sardegna,homemade tagliolini pasta,1
+Sardegna,dried chickpea,1
+Sardegna,pig's trotter,1
+Sardegna,pasta,1
+Sardegna,bavette pasta,1
+Sardegna,short pasta,1
+Sardegna,cultivated fennel,1
+Sardegna,salted pork,1
+Sardegna,dry pasta,1
+Sardegna,very salty sheep's milk curd (merca),1
+Sardegna,fregolina (tempestine pasta),1
+Sardegna,sourdough bread,1
+Sardegna,red wine vinegar,1
+Sardegna,pork loin or pulp,1
+Sardegna,pork with rind,1
+Sardegna,lesser calamint,1
+Sardegna,remilled semolina flour,1
+Sardegna,meat,1
+Sardegna,linguine,1
+Sardegna,sea urchin roe,1
+Sardegna,liqueur,1
+Sardegna,colored tissue paper,1
+Sardegna,semi-aged pecorino cheese and peretta,1
+Sardegna,sweet pecorino cheese,1
+Sardegna,sardinian gnocchetti,1
+Sardegna,campidanese sausage,1
+Sardegna,pork ear,1
+Sardegna,pork tail,1
+Sardegna,pork trotter,1
+Sardegna,remilled durum wheat semolina,1
+Sardegna,hen,1
+Sardegna,coarse semolina,1
+Sardegna,sea anemone,1
+Sardegna,olive oil or lard,1
+Sardegna,vanilla sugar,1
+Sardegna,leek,1
+Sardegna,re-milled durum wheat semolina,1
+Sardegna,ciccioli,1
+Sardegna,zucchini flower,1
+Sardegna,balsamic vinegar,1
+Sardegna,starch,1
+Sardegna,mustard,1
+Sardegna,apple,1
+Sardegna,pork fillet,1
+Sardegna,carp,1
+Sardegna,guanciale,1
+Sardegna,cream,1
+Sardegna,fresh wild mint sprig,1
+Sardegna,new potato,1
+Sardegna,dentex,1
+Sardegna,salt and pepper,1
+Sardegna,coarse durum wheat semolina,1
+Sardegna,fava bean and shelled pea,1
+Sardegna,cabbage leaf,1
+Sardegna,sprinkle,1
+Sardegna,saporita spice mix,1
+Sardegna,clof,1
+Sardegna,mandarin zest,1
+Sardegna,bread slice,1
+Sardegna,fig,1
+Sardegna,salted anchovy,1
+Sardegna,vanillin sachet,1
+Sardegna,lemon or orange,1
+Sardegna,anise liqueur,1
+Sardegna,candied olives with fennel and bay leaf,1
+Sardegna,suckling lamb,1
+Sardegna,whole almond,1
+Sardegna,aged vernaccia di oristano,1
+Sardegna,medium eel,1
+Sardegna,semi-aged pecorino sardo,1
+Sardegna,wedge clam,1
+Sardegna,dried mushroom,1
+Sardegna,salted cod,1
+Sardegna,soaked salted cod fillet,1
+Sardegna,sardinian spiny artichoke top,1
+Sardegna,white or rosé wine vinegar,1
+Sardegna,gattuccio (small shark),1
+Sardegna,aged vernaccia di cabra,1
+Sardegna,royal icing,1
+Sardegna,gold leaf,1
+Sardegna,colored sprinkle,1
+Sardegna,scorpionfish,1
+Sardegna,pea,1
+Sardegna,mint sprig,1
+Sardegna,salted pork rib,1
+Sardegna,clarified lard,1
+Sardegna,wild cardoon,1
+Sardegna,wild thistle,1
+Sardegna,thyme sprig,1
+Sardegna,beef or pork pulp,1
+Sardegna,mixed seafood,1
+Sardegna,fish soup,1
+Sardegna,chemical rennet,1
+Sardegna,sheep's milk,1
+Sardegna,larded wild boar pulp,1
+Sardegna,parmigiano cheese,1
+Sardegna,chife,1
+Sardegna,myrtle,1
+Sardegna,wild boar,1
+Sardegna,selargius caper,1
+Sicilia,olive oil,98
+Sicilia,salt,94
+Sicilia,sugar,54
+Sicilia,black pepper,44
+Sicilia,garlic,33
+Sicilia,onion,32
+Sicilia,breadcrumb,31
+Sicilia,parsley,29
+Sicilia,wheat flour,28
+Sicilia,egg,27
+Sicilia,ground cinnamon,22
+Sicilia,water,18
+Sicilia,caciocavallo,18
+Sicilia,caper,16
+Sicilia,tomato sauce,14
+Sicilia,powdered sugar,13
+Sicilia,basil,13
+Sicilia,lard,13
+Sicilia,eggplant,12
+Sicilia,tomato,12
+Sicilia,lemon zest,11
+Sicilia,dark chocolate,11
+Sicilia,white wine,11
+Sicilia,vinegar,10
+Sicilia,milk,10
+Sicilia,ricotta,9
+Sicilia,egg white,9
+Sicilia,pine nut,9
+Sicilia,celery,9
+Sicilia,tomato paste,8
+Sicilia,almond,8
+Sicilia,honey,8
+Sicilia,lemon,8
+Sicilia,chili pepper,7
+Sicilia,bay leaf,7
+Sicilia,salted anchovy,7
+Sicilia,grated caciocavallo,7
+Sicilia,pitted green olive,7
+Sicilia,white onion,7
+Sicilia,brewer's yeast,6
+Sicilia,tuma,6
+Sicilia,butter,6
+Sicilia,mint,6
+Sicilia,peeled tomato,6
+Sicilia,saffron,6
+Sicilia,spaghetti,6
+Sicilia,carrot,6
+Sicilia,marsala wine,6
+Sicilia,bell pepper,6
+Sicilia,scallion,5
+Sicilia,anchovy,5
+Sicilia,toasted almond,5
+Sicilia,baking powder,5
+Sicilia,swordfish,5
+Sicilia,potato,5
+Sicilia,tomato passata,5
+Sicilia,salt and pepper,5
+Sicilia,celery heart,4
+Sicilia,anchovy fillet,4
+Sicilia,zuccata,4
+Sicilia,wheat starch,4
+Sicilia,egg yolk,4
+Sicilia,oregano,4
+Sicilia,sultana raisin,4
+Sicilia,lemon juice,4
+Sicilia,raisin,4
+Sicilia,rice,4
+Sicilia,pecorino cheese,4
+Sicilia,wild fennel,4
+Sicilia,white wine vinegar,4
+Sicilia,orange,3
+Sicilia,salted caper,3
+Sicilia,chili flake,3
+Sicilia,tender artichoke,3
+Sicilia,green olive,3
+Sicilia,lukewarm water,3
+Sicilia,orange zest,3
+Sicilia,black olive,3
+Sicilia,passolina raisin,3
+Sicilia,pasta,3
+Sicilia,salted cod,3
+Sicilia,dry ricotta,3
+Sicilia,vanillin,3
+Sicilia,wine vinegar,2
+Sicilia,warm water,2
+Sicilia,grated caciocavallo or pecorino cheese,2
+Sicilia,salami,2
+Sicilia,tripe,2
+Sicilia,tuna,2
+Sicilia,tuna steak,2
+Sicilia,unsweetened cocoa powder,2
+Sicilia,sardine,2
+Sicilia,chickpea flour,2
+Sicilia,bucatini,2
+Sicilia,cauliflower,2
+Sicilia,sprinkle,2
+Sicilia,frying oil,2
+Sicilia,shelled pea,2
+Sicilia,candied orange,2
+Sicilia,olive oil or lard,2
+Sicilia,veal topside,2
+Sicilia,candied fruit,2
+Sicilia,rabbit,2
+Sicilia,wheat,2
+Sicilia,tender fennel,1
+Sicilia,mixed fish,1
+Sicilia,calamint,1
+Sicilia,pumpkin,1
+Sicilia,sweet pepper,1
+Sicilia,sicilian green olive,1
+Sicilia,vermicelli,1
+Sicilia,small chard,1
+Sicilia,elderflower,1
+Sicilia,guanciale,1
+Sicilia,broth,1
+Sicilia,walnut,1
+Sicilia,flying squid,1
+Sicilia,ground clof,1
+Sicilia,dried orange peel powder,1
+Sicilia,rosemary,1
+Sicilia,dried oregano,1
+Sicilia,tombarello,1
+Sicilia,ground lard,1
+Sicilia,ridged macaroni,1
+Sicilia,diavoletti sprinkle,1
+Sicilia,dark chocolate shard,1
+Sicilia,pancetta,1
+Sicilia,fava bean,1
+Sicilia,pea,1
+Sicilia,semolina flour,1
+Sicilia,sour cherry,1
+Sicilia,pitted black olive,1
+Sicilia,orange juice,1
+Sicilia,large sardine,1
+Sicilia,sweet almond,1
+Sicilia,squid,1
+Sicilia,mussel,1
+Sicilia,clam,1
+Sicilia,shrimp,1
+Sicilia,"mixed vegetables (borage, chard, cauliflower, cabbage, etc.)",1
+Sicilia,limoncello,1
+Sicilia,grappa,1
+Sicilia,citron or lemon zest,1
+Sicilia,wildflower honey,1
+Sicilia,pine nut and raisin,1
+Sicilia,sauce,1
+Sicilia,vanilla extract,1
+Sicilia,broccoletti,1
+Sicilia,ditalini rigati pasta,1
+Sicilia,tuna bottarga,1
+Sicilia,green zucchini,1
+Sicilia,bottarga,1
+Sicilia,aged pecorino cheese,1
+Sicilia,trapanese busiati pasta,1
+Sicilia,ricotta salata,1
+Sicilia,medium-sized cuttlefish,1
+Sicilia,mutton or lamb,1
+Sicilia,beef,1
+Sicilia,semolina,1
+Sicilia,veal pulp,1
+Sicilia,starch,1
+Sicilia,clove,1
+Sicilia,toasted hazelnut,1
+Sicilia,prickly pear,1
+Sicilia,dried fava bean,1
+Sicilia,curly lasagna,1
+Sicilia,salted ricotta,1
+Sicilia,caciocavallo or primo sale cheese,1
+Sicilia,beef or veal slice,1
+Sicilia,lamb offal,1
+Sicilia,veal cartilage mix,1
+Sicilia,veal eye of round,1
+Sicilia,primo sale cheese,1
+Sicilia,ground veal pulp,1
+Sicilia,anelletti pasta,1
+Sicilia,orange honey,1
+Sicilia,ground beef,1
+Sicilia,arborio rice,1
+Sicilia,veal cutlet,1
+Sicilia,wild asparagus,1
+Sicilia,lamb or kid intestine,1
+Sicilia,vinegar or marsala wine,1
+Sicilia,artichoke,1
+Sicilia,fresh mint,1
+Sicilia,pecorino cheese or caciocavallo,1
+Sicilia,kid goat,1
+Sicilia,cardoon,1
+Sicilia,vanilla sugar,1
+Sicilia,pandispagna,1
+Sicilia,amaretto,1
+Sicilia,dry biscuit,1
+Sicilia,chocolate chip,1
+Sicilia,cognac,1
+Sicilia,almond and walnut,1
+Sicilia,dried fig,1
+Sicilia,orange blossom water,1
+Sicilia,liqueur,1
+Sicilia,pasta reale (marzipan),1
+Sicilia,sponge cake (pandispagna),1
+Sicilia,chocolate flake,1
+Sicilia,grouper,1
+Sicilia,small snail,1
+Sicilia,vermouth,1
+Sicilia,seed oil,1
+Sicilia,nutmeg,1
+Sicilia,brandy,1
+Sicilia,vanillin sachet,1
+Sicilia,vanilla,1
+Sicilia,untreated orange peel,1
+Sicilia,orange blossom honey,1
+Sicilia,sesame seed,1
+Sicilia,dark chocolate chip,1
+Sicilia,fish broth,1
+Sicilia,fish soup,1
+Sicilia,coarse durum wheat semolina,1
+Sicilia,chili powder,1
+Sicilia,sun-dried tomato,1
+Sicilia,ditalini rigati,1
+Sicilia,hard-boiled egg,1
+Sicilia,pork lard,1
+Sicilia,veal liver,1
+Sicilia,meat broth,1
+Sicilia,jasmine flower,1
+Sicilia,watermelon,1
+Sicilia,organic lemon juice,1
+Sicilia,untreated lemon,1
+Sicilia,bread dough,1
+Sicilia,tomato pulp,1
+Sicilia,samphire (salicornia),1
+Toscana,salt,130
+Toscana,olive oil,114
+Toscana,black pepper,89
+Toscana,garlic,63
+Toscana,onion,55
+Toscana,wheat flour,49
+Toscana,egg,39
+Toscana,celery,32
+Toscana,sugar,30
+Toscana,carrot,28
+Toscana,parsley,25
+Toscana,butter,24
+Toscana,water,24
+Toscana,chili pepper,23
+Toscana,tomato paste,22
+Toscana,sage,22
+Toscana,white wine,21
+Toscana,peeled tomato,20
+Toscana,red wine,18
+Toscana,rosemary,16
+Toscana,broth,15
+Toscana,tomato,15
+Toscana,milk,14
+Toscana,grated parmigiano cheese,13
+Toscana,potato,13
+Toscana,parmigiano cheese,12
+Toscana,breadcrumb,12
+Toscana,bay leaf,11
+Toscana,basil,10
+Toscana,stale bread,9
+Toscana,vinegar,9
+Toscana,nutmeg,9
+Toscana,chard,9
+Toscana,lemon,9
+Toscana,powdered sugar,8
+Toscana,chicken liver,7
+Toscana,baking powder,7
+Toscana,lemon zest,5
+Toscana,egg yolk,5
+Toscana,grated pecorino cheese,5
+Toscana,pancetta,5
+Toscana,walnut,5
+Toscana,ground cinnamon,5
+Toscana,brewer's yeast,5
+Toscana,chestnut flour,5
+Toscana,dark chocolate,4
+Toscana,orange zest,4
+Toscana,rice,4
+Toscana,red onion,4
+Toscana,cuttlefish,4
+Toscana,lard,4
+Toscana,salted cod,4
+Toscana,tomato pulp,4
+Toscana,cannellini bean,4
+Toscana,hot water,4
+Toscana,salt and pepper,4
+Toscana,salted caper,3
+Toscana,anchovy,3
+Toscana,meat broth,3
+Toscana,ricotta,3
+Toscana,rum,3
+Toscana,sheep's milk ricotta,3
+Toscana,tomato sauce,3
+Toscana,stockfish,3
+Toscana,white onion,3
+Toscana,orange,3
+Toscana,honey,3
+Toscana,bread slice,3
+Toscana,wine vinegar,3
+Toscana,eel,3
+Toscana,scallion,3
+Toscana,bread,3
+Toscana,nepitella,3
+Toscana,white wine vinegar,3
+Toscana,egg white,3
+Toscana,candied orange,3
+Toscana,dried cannellini bean,3
+Toscana,octopus,3
+Toscana,yellow polenta,3
+Toscana,sausage,3
+Toscana,vin santo,3
+Toscana,pine nut,3
+Toscana,zucchini,3
+Toscana,pecorino cheese,3
+Toscana,sultana raisin,3
+Toscana,chicken,2
+Toscana,candied citron,2
+Toscana,aromatic bouquet,2
+Toscana,tomato passata,2
+Toscana,vanillin,2
+Toscana,baking soda,2
+Toscana,black olive,2
+Toscana,clove,2
+Toscana,ground veal,2
+Toscana,rosemary sprig,2
+Toscana,bread dough,2
+Toscana,tuna in oil,2
+Toscana,leftover boiled meat,2
+Toscana,cavolo nero,2
+Toscana,borlotti bean,2
+Toscana,veal lung,2
+Toscana,veal pulp,2
+Toscana,red wine vinegar,2
+Toscana,hare,2
+Toscana,pea,2
+Toscana,thyme,2
+Toscana,originario rice,2
+Toscana,ginger,2
+Toscana,juniper berry,2
+Toscana,spinach,2
+Toscana,frying oil,2
+Toscana,raisin,2
+Toscana,chard leaf,2
+Toscana,tuscan bread,2
+Toscana,fennel seed,2
+Toscana,salted anchovy,2
+Toscana,wild fennel,2
+Toscana,almond,2
+Toscana,sassolino liqueur,2
+Toscana,mantis shrimp,2
+Toscana,veal spleen,1
+Toscana,mixed liqueur,1
+Toscana,sponge cake,1
+Toscana,candied cherry,1
+Toscana,whipping cream,1
+Toscana,cognac,1
+Toscana,unsweetened cocoa powder,1
+Toscana,picarel,1
+Toscana,pork pancetta,1
+Toscana,veal tripe,1
+Toscana,tripe,1
+Toscana,red mullet,1
+Toscana,borage leaf,1
+Toscana,semolina,1
+Toscana,"raisins, pine nuts, and candied fruit",1
+Toscana,cocoa powder,1
+Toscana,white potato,1
+Toscana,basil pesto,1
+Toscana,wedge clam,1
+Toscana,"pork offal (cheek, liver, lung, intestines, sweetbreads, and tongue)",1
+Toscana,egg tagliolini,1
+Toscana,veal trotter and bone broth,1
+Toscana,spices,1
+Toscana,veal muscle stew meat,1
+Toscana,boneless veal,1
+Toscana,vin santo wine,1
+Toscana,meat sauce,1
+Toscana,cheese,1
+Toscana,mixed meat,1
+Toscana,dried zibibbo grape,1
+Toscana,dried fig,1
+Toscana,vanilla baking powder,1
+Toscana,small light zucchini,1
+Toscana,milk mixed with water,1
+Toscana,small zucchini,1
+Toscana,sardine,1
+Toscana,pork sausage,1
+Toscana,pickled caper,1
+Toscana,fresh tarragon,1
+Toscana,boiling water,1
+Toscana,baking wafer,1
+Toscana,wheat starch,1
+Toscana,bitter almond,1
+Toscana,peeled almond,1
+Toscana,savoy cabbage,1
+Toscana,lacinato kale,1
+Toscana,frog,1
+Toscana,lean meat,1
+Toscana,prosciutto cotto,1
+Toscana,cold water,1
+Toscana,shelled pea,1
+Toscana,pici,1
+Toscana,beef muscle,1
+Toscana,pork loin,1
+Toscana,beef pulp,1
+Toscana,smooth penne,1
+Toscana,mutton meat,1
+Toscana,maltagliati or tagliolini pasta,1
+Toscana,wild boar meat,1
+Toscana,pappardelle,1
+Toscana,warm water,1
+Toscana,fresh pappardelle,1
+Toscana,cucumber,1
+Toscana,coriander seed,1
+Toscana,shelled almond,1
+Toscana,candied black melon,1
+Toscana,vegetable broth,1
+Toscana,bonito slice,1
+Toscana,veal ossobuco,1
+Toscana,chestnut leaf,1
+Toscana,mustard powder,1
+Toscana,pear,1
+Toscana,red apple,1
+Toscana,white grape,1
+Toscana,lampredotto,1
+Toscana,"aromatic herbs (basil, parsley, nepitella)",1
+Toscana,snail,1
+Toscana,short ridged pasta,1
+Toscana,herbs,1
+Toscana,black-eyed pea,1
+Toscana,anchovy fillet,1
+Toscana,dried mushroom,1
+Toscana,black olife,1
+Toscana,lean prosciutto crudo,1
+Toscana,duck liver,1
+Toscana,boneless duck meat,1
+Toscana,maccheroni,1
+Toscana,veal tongue,1
+Toscana,broth or water,1
+Toscana,zampone broth,1
+Toscana,red bean,1
+Toscana,eggplant,1
+Toscana,green pepper,1
+Toscana,hunchback cardoon,1
+Toscana,whipped cream,1
+Toscana,pastry cream,1
+Toscana,alchermes liqueur,1
+Toscana,potato starch,1
+Toscana,liqueur,1
+Toscana,vitalba shoot,1
+Toscana,green bean,1
+Toscana,zucchini flower,1
+Toscana,yellow potato,1
+Toscana,fig,1
+Toscana,tuscan kale,1
+Toscana,pork caul fat,1
+Toscana,pork liver,1
+Toscana,pig's trotter,1
+Toscana,spelt,1
+Toscana,veal heart,1
+Toscana,lukewarm water,1
+Toscana,toasted bread,1
+Toscana,porcini mushroom,1
+Toscana,large sage leaf,1
+Toscana,celery leaf,1
+Toscana,lardo,1
+Toscana,lamb leg,1
+Toscana,unripe grape,1
+Toscana,duck,1
+Toscana,seed oil,1
+Toscana,polenta flour,1
+Toscana,pork loin (bone-in),1
+Toscana,green asparagus,1
+Toscana,leek,1
+Toscana,caper,1
+Toscana,chickpea,1
+Toscana,maraschino liqueur,1
+Toscana,candied citron and orange,1
+Toscana,anise liqueur,1
+Toscana,sweet vin santo,1
+Toscana,alcherme,1
+Toscana,ground almond,1
+Toscana,margarine,1
+Toscana,veal loin steak,1
+Toscana,chianti wine,1
+Toscana,pork chop,1
+Toscana,anise seed,1
+Toscana,homemade bread slice,1
+Toscana,lamb shoulder,1
+Toscana,fish soup,1
+Toscana,smooth-hound and/or moray eel,1
+Toscana,cuttlefish and squid,1
+Toscana,clam and mussel,1
+Toscana,mixed small fish,1
+Toscana,baby octopus,1
+Toscana,dogfish and monkfish,1
+Toscana,limpet,1
+Toscana,moray eel,1
+Toscana,conger eel,1
+Toscana,king prawn,1
+Toscana,tub gurnard,1
+Toscana,weever fish,1
+Toscana,john dory,1
+Toscana,scorpionfish,1
+Toscana,cauliflower,1
+Toscana,vegetable broth or water,1
+Toscana,marinelle snail,1
+Toscana,sea snail,1
+Toscana,puff pastry,1
+Toscana,corn flour,1
+Toscana,chicken testicle,1
+Toscana,chicken heart,1
+Toscana,chicken comb and wattle,1
+Toscana,baby eel,1
+Toscana,glass eel,1
+Toscana,black panforte,1
+Toscana,cavallucci,1
+Toscana,lean wild boar pulp,1
+Toscana,"veal head parts (snout, ears, lips, and cheeks)",1
+Toscana,rabbit,1
+Toscana,pastry wafer,1
+Toscana,veal fillet or topside,1
+Toscana,kid goat coratella,1
+Toscana,pork rind,1
+Toscana,béchamel sauce,1
+Toscana,whole wheat bread,1
+Toscana,fresh myrtle berry,1
+Trentino Alto Adige,salt,76
+Trentino Alto Adige,butter,59
+Trentino Alto Adige,wheat flour,55
+Trentino Alto Adige,black pepper,52
+Trentino Alto Adige,olive oil,39
+Trentino Alto Adige,onion,35
+Trentino Alto Adige,egg,30
+Trentino Alto Adige,milk,27
+Trentino Alto Adige,parmigiano cheese,19
+Trentino Alto Adige,parsley,19
+Trentino Alto Adige,sugar,16
+Trentino Alto Adige,garlic,16
+Trentino Alto Adige,white wine,16
+Trentino Alto Adige,bay leaf,12
+Trentino Alto Adige,broth,12
+Trentino Alto Adige,water,11
+Trentino Alto Adige,stale bread,10
+Trentino Alto Adige,potato,9
+Trentino Alto Adige,grated parmigiano cheese,9
+Trentino Alto Adige,carrot,9
+Trentino Alto Adige,celery,9
+Trentino Alto Adige,breadcrumb,9
+Trentino Alto Adige,red wine,8
+Trentino Alto Adige,juniper berry,8
+Trentino Alto Adige,nutmeg,8
+Trentino Alto Adige,sage,7
+Trentino Alto Adige,meat broth,7
+Trentino Alto Adige,ground cinnamon,6
+Trentino Alto Adige,spinach,6
+Trentino Alto Adige,cream,5
+Trentino Alto Adige,rosemary,5
+Trentino Alto Adige,lemon zest,4
+Trentino Alto Adige,rum,4
+Trentino Alto Adige,pine nut,4
+Trentino Alto Adige,sultana raisin,4
+Trentino Alto Adige,lard,4
+Trentino Alto Adige,egg yolk,4
+Trentino Alto Adige,marjoram,4
+Trentino Alto Adige,tomato paste,4
+Trentino Alto Adige,speck,4
+Trentino Alto Adige,lingonberry jam,3
+Trentino Alto Adige,powdered sugar,3
+Trentino Alto Adige,raisin,3
+Trentino Alto Adige,tomato sauce,3
+Trentino Alto Adige,vegetable broth,3
+Trentino Alto Adige,thyme,3
+Trentino Alto Adige,minced lard,3
+Trentino Alto Adige,apple,3
+Trentino Alto Adige,chife,3
+Trentino Alto Adige,vinegar,2
+Trentino Alto Adige,pimento,2
+Trentino Alto Adige,tripe,2
+Trentino Alto Adige,brewer's yeast,2
+Trentino Alto Adige,walnut,2
+Trentino Alto Adige,dried fig,2
+Trentino Alto Adige,veal top round,2
+Trentino Alto Adige,prosciutto cotto,2
+Trentino Alto Adige,buckwheat flour,2
+Trentino Alto Adige,lucanica,2
+Trentino Alto Adige,veal brain,2
+Trentino Alto Adige,polenta flour,2
+Trentino Alto Adige,brandy,2
+Trentino Alto Adige,clove,2
+Trentino Alto Adige,leek,2
+Trentino Alto Adige,pearl barley,2
+Trentino Alto Adige,porcini mushroom,2
+Trentino Alto Adige,stale bread roll,2
+Trentino Alto Adige,white lard,2
+Trentino Alto Adige,roe deer meat,2
+Trentino Alto Adige,rosemary sprig,2
+Trentino Alto Adige,bread roll,2
+Trentino Alto Adige,lardo,2
+Trentino Alto Adige,cinnamon stick,2
+Trentino Alto Adige,wine vinegar,2
+Trentino Alto Adige,hare,2
+Trentino Alto Adige,snail,2
+Trentino Alto Adige,peeled almond,1
+Trentino Alto Adige,candied citron and orange,1
+Trentino Alto Adige,pancetta,1
+Trentino Alto Adige,salt and pepper,1
+Trentino Alto Adige,cumin,1
+Trentino Alto Adige,sauerkraut,1
+Trentino Alto Adige,rye flour,1
+Trentino Alto Adige,cheese,1
+Trentino Alto Adige,heavy cream,1
+Trentino Alto Adige,vanilla sugar,1
+Trentino Alto Adige,baking powder,1
+Trentino Alto Adige,whipped cream,1
+Trentino Alto Adige,chestnut,1
+Trentino Alto Adige,tench,1
+Trentino Alto Adige,shallot,1
+Trentino Alto Adige,fish (grayling or trout),1
+Trentino Alto Adige,ground clove,1
+Trentino Alto Adige,reinette apple,1
+Trentino Alto Adige,pork shank,1
+Trentino Alto Adige,olive oil or lard,1
+Trentino Alto Adige,white potato,1
+Trentino Alto Adige,teroldego wine,1
+Trentino Alto Adige,rice,1
+Trentino Alto Adige,savoy cabbage,1
+Trentino Alto Adige,lemon,1
+Trentino Alto Adige,filoncini bread,1
+Trentino Alto Adige,puzzone di moena,1
+Trentino Alto Adige,sugar syrup,1
+Trentino Alto Adige,honey,1
+Trentino Alto Adige,star anise,1
+Trentino Alto Adige,bread dough,1
+Trentino Alto Adige,orange,1
+Trentino Alto Adige,candied orange,1
+Trentino Alto Adige,candied citron,1
+Trentino Alto Adige,unpeeled almond,1
+Trentino Alto Adige,date,1
+Trentino Alto Adige,pork loin,1
+Trentino Alto Adige,sparkling wine,1
+Trentino Alto Adige,pork caul fat (omento),1
+Trentino Alto Adige,veal kidney,1
+Trentino Alto Adige,veal loin,1
+Trentino Alto Adige,celeriac,1
+Trentino Alto Adige,baccalà (soaked stockfish),1
+Trentino Alto Adige,salted caper,1
+Trentino Alto Adige,anchovy in oil,1
+Trentino Alto Adige,salted cod,1
+Trentino Alto Adige,stock cube,1
+Trentino Alto Adige,fresh trentina lucanica sausage,1
+Trentino Alto Adige,potato starch,1
+Trentino Alto Adige,kid goat,1
+Trentino Alto Adige,borlotti bean,1
+Trentino Alto Adige,cured beef (carne salada),1
+Trentino Alto Adige,lamb,1
+Trentino Alto Adige,tomato passata,1
+Trentino Alto Adige,rabbit,1
+Trentino Alto Adige,beef rib steak,1
+Trentino Alto Adige,black truffle,1
+Trentino Alto Adige,white turnip,1
+Trentino Alto Adige,béchamel sauce,1
+Trentino Alto Adige,grated grana padano,1
+Trentino Alto Adige,veal spleen,1
+Trentino Alto Adige,ox spleen,1
+Trentino Alto Adige,currant sauce,1
+Trentino Alto Adige,prune,1
+Trentino Alto Adige,black bread,1
+Trentino Alto Adige,well-aged beef fillet,1
+Trentino Alto Adige,vanilla baking powder,1
+Trentino Alto Adige,boiled spinach,1
+Trentino Alto Adige,graukäse,1
+Trentino Alto Adige,emmental,1
+Trentino Alto Adige,fresh ricotta,1
+Trentino Alto Adige,nettle shoot,1
+Trentino Alto Adige,floury potato,1
+Trentino Alto Adige,salted sardine,1
+Trentino Alto Adige,grana padano,1
+Trentino Alto Adige,veal offal,1
+Trentino Alto Adige,paprika,1
+Trentino Alto Adige,beef muscle,1
+Trentino Alto Adige,oxtail,1
+Trentino Alto Adige,red radicchio,1
+Trentino Alto Adige,mixed meat,1
+Trentino Alto Adige,seed oil,1
+Trentino Alto Adige,gorgonzola,1
+Trentino Alto Adige,cheese (tilsiter and graukäse),1
+Trentino Alto Adige,apricot,1
+Trentino Alto Adige,prosciutto crudo,1
+Trentino Alto Adige,sultana,1
+Trentino Alto Adige,bouillon cube,1
+Trentino Alto Adige,well-aged venison loin,1
+Trentino Alto Adige,marsala wine,1
+Trentino Alto Adige,hot paprika,1
+Trentino Alto Adige,caraway seeds (kümmel),1
+Trentino Alto Adige,sweet paprika,1
+Trentino Alto Adige,olive oil or butter,1
+Trentino Alto Adige,beef,1
+Trentino Alto Adige,smoked pork hock,1
+Trentino Alto Adige,yellow carrot,1
+Trentino Alto Adige,veal musetto,1
+Umbria,olive oil,49
+Umbria,salt,46
+Umbria,black pepper,28
+Umbria,garlic,23
+Umbria,wheat flour,18
+Umbria,onion,18
+Umbria,egg,15
+Umbria,white wine,13
+Umbria,carrot,10
+Umbria,celery,10
+Umbria,sage,9
+Umbria,sugar,8
+Umbria,rosemary,8
+Umbria,parsley,7
+Umbria,water,7
+Umbria,lemon,7
+Umbria,tomato passata,6
+Umbria,tomato,6
+Umbria,vinegar,6
+Umbria,butter,6
+Umbria,milk,5
+Umbria,lemon juice,5
+Umbria,chili pepper,5
+Umbria,pecorino cheese,5
+Umbria,black truffle,5
+Umbria,potato,5
+Umbria,bay leaf,5
+Umbria,brewer's yeast,5
+Umbria,grated pecorino cheese,5
+Umbria,peeled tomato,4
+Umbria,guanciale,4
+Umbria,baking powder,3
+Umbria,lemon zest,3
+Umbria,egg yolk,3
+Umbria,chickpea,3
+Umbria,sweet almond,3
+Umbria,eel,3
+Umbria,basil,3
+Umbria,lard,3
+Umbria,caper,3
+Umbria,pancetta,3
+Umbria,sausage,3
+Umbria,bean,3
+Umbria,walnut,3
+Umbria,pastry cream,2
+Umbria,alchermes liqueur,2
+Umbria,fresh marjoram,2
+Umbria,spaghetti,2
+Umbria,scallion,2
+Umbria,fava bean,2
+Umbria,lamb,2
+Umbria,wild fennel,2
+Umbria,thyme,2
+Umbria,bell pepper,2
+Umbria,breadcrumb,2
+Umbria,vanillin,2
+Umbria,liqueur,2
+Umbria,toasted bread,2
+Umbria,coffee,2
+Umbria,bread dough,2
+Umbria,prosciutto,2
+Umbria,grana padano,2
+Umbria,alcherme,2
+Umbria,rum,2
+Umbria,dark chocolate,2
+Umbria,lardo,2
+Umbria,cherry tomato,2
+Umbria,spelt,2
+Umbria,tomato sauce,2
+Umbria,polenta flour,2
+Umbria,honey,2
+Umbria,rosolio,2
+Umbria,nutmeg,2
+Umbria,parmigiano or pecorino cheese,2
+Umbria,unsweetened cocoa powder,1
+Umbria,bread,1
+Umbria,chestnut,1
+Umbria,baking soda,1
+Umbria,anisette,1
+Umbria,candied fruit,1
+Umbria,royal perch fillet,1
+Umbria,anchovy paste,1
+Umbria,dried wild fennel flower,1
+Umbria,chard or spinach,1
+Umbria,anchovy,1
+Umbria,agoni (whitefish),1
+Umbria,duck,1
+Umbria,tomato pulp,1
+Umbria,raisin,1
+Umbria,prune,1
+Umbria,baccalà,1
+Umbria,guanciale (baffo),1
+Umbria,potato starch,1
+Umbria,salted anchovy,1
+Umbria,mustard powder,1
+Umbria,lesser calamint leaf,1
+Umbria,veal chop,1
+Umbria,cauliflower,1
+Umbria,tench,1
+Umbria,royal perch,1
+Umbria,whipped cream,1
+Umbria,prosciutto fat,1
+Umbria,queen carp,1
+Umbria,sweet pecorino cheese,1
+Umbria,chicken or rabbit offal,1
+Umbria,fresh fennel,1
+Umbria,rabbit,1
+Umbria,gruyère,1
+Umbria,sourdough starter,1
+Umbria,stale bread,1
+Umbria,chocolate,1
+Umbria,anchovy fillet,1
+Umbria,prosciutto crudo,1
+Umbria,guinea fowl,1
+Umbria,mascarpone,1
+Umbria,rosemary sprig,1
+Umbria,chicken,1
+Umbria,marjoram,1
+Umbria,artichoke,1
+Umbria,asparagus,1
+Umbria,spinach,1
+Umbria,salami,1
+Umbria,frying oil,1
+Umbria,salted cod,1
+Umbria,orvieto wine,1
+Umbria,free-range hen,1
+Umbria,nepitella,1
+Umbria,freshwater shrimp,1
+Umbria,boiled bean,1
+Umbria,goose,1
+Umbria,lentil,1
+Umbria,grass pea,1
+Umbria,corn,1
+Umbria,barley,1
+Umbria,wheat,1
+Umbria,sausage meat,1
+Umbria,lumache pasta (durum wheat),1
+Umbria,trout,1
+Umbria,lumachine pasta,1
+Umbria,borettane onion,1
+Umbria,pork loin,1
+Umbria,lardo or prosciutto fat,1
+Umbria,prosciutto bone,1
+Umbria,orange zest,1
+Umbria,egg white,1
+Umbria,black olife,1
+Umbria,red wine,1
+Umbria,wood pigeon,1
+Umbria,ristretto coffee,1
+Umbria,cooked must,1
+Umbria,sultana raisin,1
+Umbria,candied citron,1
+Umbria,ground cinnamon,1
+Umbria,sweetened cocoa powder,1
+Umbria,hazelnut,1
+Umbria,black olive,1
+Umbria,hare,1
+Umbria,maltagliati,1
+Umbria,vegetable broth,1
+Umbria,pork cracklings (ciccioli),1
+Umbria,warm milk,1
+Umbria,marsala wine,1
+Umbria,vinsanto,1
+Umbria,orange,1
+Umbria,warm water,1
+Umbria,salt and pepper,1
+Valle d'Aosta,salt,33
+Valle d'Aosta,butter,29
+Valle d'Aosta,sugar,13
+Valle d'Aosta,milk,12
+Valle d'Aosta,wheat flour,11
+Valle d'Aosta,onion,10
+Valle d'Aosta,potato,10
+Valle d'Aosta,egg,8
+Valle d'Aosta,rice,8
+Valle d'Aosta,water,8
+Valle d'Aosta,black pepper,5
+Valle d'Aosta,polenta flour,5
+Valle d'Aosta,garlic,5
+Valle d'Aosta,clove,5
+Valle d'Aosta,cream,5
+Valle d'Aosta,sage,4
+Valle d'Aosta,carrot,4
+Valle d'Aosta,red wine,4
+Valle d'Aosta,lardo,4
+Valle d'Aosta,herbs,4
+Valle d'Aosta,fontina,4
+Valle d'Aosta,cinnamon stick,4
+Valle d'Aosta,toma,4
+Valle d'Aosta,savoy cabbage,3
+Valle d'Aosta,ground cinnamon,3
+Valle d'Aosta,bay leaf,3
+Valle d'Aosta,tomato,3
+Valle d'Aosta,salami,2
+Valle d'Aosta,baking powder,2
+Valle d'Aosta,grappa,2
+Valle d'Aosta,raisin,2
+Valle d'Aosta,brewer's yeast,2
+Valle d'Aosta,lardo or pancetta,2
+Valle d'Aosta,cold water,2
+Valle d'Aosta,reinette apple,2
+Valle d'Aosta,olive oil,2
+Valle d'Aosta,chestnut,2
+Valle d'Aosta,savory,2
+Valle d'Aosta,melted butter,2
+Valle d'Aosta,borage leaf,2
+Valle d'Aosta,leek,2
+Valle d'Aosta,nettle leaf,2
+Valle d'Aosta,beef,2
+Valle d'Aosta,bell pepper,2
+Valle d'Aosta,vinegar,2
+Valle d'Aosta,chili pepper,2
+Valle d'Aosta,celery,2
+Valle d'Aosta,meat broth,2
+Valle d'Aosta,juniper berry,2
+Valle d'Aosta,rosemary sprig,2
+Valle d'Aosta,rosemary,1
+Valle d'Aosta,parsley,1
+Valle d'Aosta,trout,1
+Valle d'Aosta,meadow herb,1
+Valle d'Aosta,corn flour,1
+Valle d'Aosta,spices,1
+Valle d'Aosta,amaretti,1
+Valle d'Aosta,stale bread or breadstick,1
+Valle d'Aosta,tomato pulp,1
+Valle d'Aosta,crétchan or williams pear,1
+Valle d'Aosta,egg white,1
+Valle d'Aosta,almond,1
+Valle d'Aosta,hazelnut,1
+Valle d'Aosta,salt and pepper,1
+Valle d'Aosta,onion or leek,1
+Valle d'Aosta,boudeun,1
+Valle d'Aosta,sausage,1
+Valle d'Aosta,cheese,1
+Valle d'Aosta,nettle,1
+Valle d'Aosta,rye flour,1
+Valle d'Aosta,nutmeg,1
+Valle d'Aosta,martin sec or williams pear,1
+Valle d'Aosta,black bread crouton,1
+Valle d'Aosta,buckwheat flour,1
+Valle d'Aosta,lemon,1
+Valle d'Aosta,rum,1
+Valle d'Aosta,grappa or rum,1
+Valle d'Aosta,cocoa powder,1
+Valle d'Aosta,pearl barley,1
+Valle d'Aosta,seasonal vegetable,1
+Valle d'Aosta,butter or lard,1
+Valle d'Aosta,borlotti bean,1
+Valle d'Aosta,bread crouton,1
+Valle d'Aosta,boiling water,1
+Valle d'Aosta,lard,1
+Valle d'Aosta,dried chestnut,1
+Valle d'Aosta,pasta,1
+Valle d'Aosta,stale bread,1
+Valle d'Aosta,grappa or liqueur,1
+Valle d'Aosta,white wine,1
+Valle d'Aosta,cabbage,1
+Valle d'Aosta,clarified butter,1
+Valle d'Aosta,basil,1
+Valle d'Aosta,thyme,1
+Valle d'Aosta,pancetta,1
+Valle d'Aosta,celery heart,1
+Valle d'Aosta,zucchini,1
+Valle d'Aosta,green bean,1
+Valle d'Aosta,beetroot,1
+Valle d'Aosta,chard,1
+Valle d'Aosta,turnip,1
+Valle d'Aosta,apple cider vinegar,1
+Valle d'Aosta,walnut oil,1
+Valle d'Aosta,salted anchovy,1
+Valle d'Aosta,endive,1
+Valle d'Aosta,acquavite,1
+Valle d'Aosta,santoreggia sausage,1
+Valle d'Aosta,whole wheat bread,1
+Valle d'Aosta,tomato sauce,1
+Valle d'Aosta,short pasta,1
+Valle d'Aosta,fava bean,1
+Valle d'Aosta,unsweetened cocoa powder,1
+Valle d'Aosta,egg yolk,1
+Valle d'Aosta,milk or cream,1
+Valle d'Aosta,clof,1
+Valle d'Aosta,bouquet garni,1
+Valle d'Aosta,red or white wine,1
+Valle d'Aosta,thyme sprig,1
+Valle d'Aosta,dried mushroom,1
+Valle d'Aosta,goat meat,1
+Valle d'Aosta,vegetable broth,1
+Valle d'Aosta,beef eye of round,1
+Valle d'Aosta,vanilla,1
+Valle d'Aosta,gelatin sheet,1
+Veneto,salt,97
+Veneto,butter,68
+Veneto,olive oil,67
+Veneto,black pepper,56
+Veneto,wheat flour,50
+Veneto,onion,46
+Veneto,garlic,38
+Veneto,parsley,33
+Veneto,egg,29
+Veneto,sugar,27
+Veneto,white wine,24
+Veneto,parmigiano cheese,22
+Veneto,milk,21
+Veneto,celery,21
+Veneto,bay leaf,18
+Veneto,carrot,15
+Veneto,vialone nano rice,14
+Veneto,rosemary,13
+Veneto,water,11
+Veneto,egg yolk,10
+Veneto,lemon,9
+Veneto,sage,9
+Veneto,broth,9
+Veneto,grated parmigiano cheese,8
+Veneto,lardo,8
+Veneto,rice,8
+Veneto,ground cinnamon,8
+Veneto,vinegar,7
+Veneto,cheese,6
+Veneto,raisin,6
+Veneto,breadcrumb,6
+Veneto,clove,6
+Veneto,tomato,5
+Veneto,baking powder,5
+Veneto,pine nut,5
+Veneto,apple,5
+Veneto,pancetta,5
+Veneto,nutmeg,5
+Veneto,pike,4
+Veneto,meat broth,4
+Veneto,potato,4
+Veneto,dried fig,4
+Veneto,cream,4
+Veneto,lemon juice,4
+Veneto,white onion,4
+Veneto,wine,4
+Veneto,pea,4
+Veneto,beef broth,4
+Veneto,lemon zest,3
+Veneto,honey,3
+Veneto,walnut,3
+Veneto,caper,3
+Veneto,shallot,3
+Veneto,peeled tomato,3
+Veneto,pigeon,3
+Veneto,marsala wine,3
+Veneto,frying oil,3
+Veneto,chicken broth,3
+Veneto,bell pepper,3
+Veneto,tarragon,3
+Veneto,salt and pepper,3
+Veneto,red wine,3
+Veneto,thyme,3
+Veneto,tomato paste,3
+Veneto,grappa,3
+Veneto,seed oil,3
+Veneto,stale bread,3
+Veneto,egg white,3
+Veneto,young turkey,2
+Veneto,powdered sugar,2
+Veneto,potato starch,2
+Veneto,olive oil or butter,2
+Veneto,golden apple,2
+Veneto,coffee,2
+Veneto,anchovy,2
+Veneto,tench,2
+Veneto,chili pepper,2
+Veneto,cognac,2
+Veneto,porcini mushroom,2
+Veneto,sultana raisin,2
+Veneto,white wine vinegar,2
+Veneto,sardine,2
+Veneto,luganega,2
+Veneto,quail,2
+Veneto,marjoram,2
+Veneto,lard,2
+Veneto,molass,2
+Veneto,sweet almond,2
+Veneto,pork liver,2
+Veneto,young duck,2
+Veneto,brewer's yeast,2
+Veneto,white potato,2
+Veneto,eel,2
+Veneto,herbs,2
+Veneto,anchovy fillet,2
+Veneto,stockfish (baccalà),2
+Veneto,salted anchovy,2
+Veneto,soaked stockfish,2
+Veneto,bigoli al torchio,2
+Veneto,salted sardine,2
+Veneto,capon,2
+Veneto,poppy seed,2
+Veneto,guinea fowl,2
+Veneto,hen,2
+Veneto,smoked pancetta,2
+Veneto,margarine,2
+Veneto,toasted bread slice,1
+Veneto,garda lemon,1
+Veneto,perch,1
+Veneto,freshwater shrimp,1
+Veneto,carp,1
+Veneto,bleak (alborelle),1
+Veneto,whitefish (lavarello),1
+Veneto,toasted bread,1
+Veneto,celeriac,1
+Veneto,young pigeon,1
+Veneto,free-range chicken,1
+Veneto,vanilla,1
+Veneto,medium-grain yellow polenta,1
+Veneto,black truffle,1
+Veneto,red radicchio,1
+Veneto,monte baldo cheese,1
+Veneto,vol-au-vent,1
+Veneto,anise liqueur,1
+Veneto,sweet potato,1
+Veneto,apple ice cream,1
+Veneto,mostarda veneta,1
+Veneto,cocoa powder,1
+Veneto,savoiardi,1
+Veneto,mascarpone,1
+Veneto,tuna in oil,1
+Veneto,tomato pulp,1
+Veneto,large cuttlefish,1
+Veneto,cuttlefish ink sac,1
+Veneto,lean pork,1
+Veneto,pomegranate,1
+Veneto,black grape must,1
+Veneto,sturgeon,1
+Veneto,thyme sprig,1
+Veneto,spaghetti,1
+Veneto,fish cheek,1
+Veneto,red wine vinegar,1
+Veneto,veneto sopressa,1
+Veneto,celery heart,1
+Veneto,stock concentrate,1
+Veneto,montasù bread,1
+Veneto,truffle cream,1
+Veneto,langoustine,1
+Veneto,fish broth,1
+Veneto,cherry tomato,1
+Veneto,fresh egg pasta,1
+Veneto,cold butter,1
+Veneto,schille,1
+Veneto,grated lemon zest,1
+Veneto,clof,1
+Veneto,marrow,1
+Veneto,sausage,1
+Veneto,chicken heart,1
+Veneto,pork,1
+Veneto,turkey meat,1
+Veneto,chicken gizzard,1
+Veneto,duck liver,1
+Veneto,chicken meat,1
+Veneto,soave wine,1
+Veneto,basil,1
+Veneto,asparagus,1
+Veneto,artichoke heart,1
+Veneto,zucchini,1
+Veneto,eggplant,1
+Veneto,scampi,1
+Veneto,white asparagus,1
+Veneto,hop shoot,1
+Veneto,cauliflower,1
+Veneto,frog,1
+Veneto,tastasal paste,1
+Veneto,chiodini mushroom,1
+Veneto,pork loin,1
+Veneto,lean veal,1
+Veneto,vegetable broth,1
+Veneto,cuttlefish,1
+Veneto,sea bass,1
+Veneto,polenta flour,1
+Veneto,mixed tripe,1
+Veneto,shelled pea,1
+Veneto,piave,1
+Veneto,lamon borlotti bean,1
+Veneto,gizzard,1
+Veneto,chicken liver,1
+Veneto,"good, degreased broth",1
+Veneto,cold water,1
+Veneto,stock cube,1
+Veneto,pork crackling,1
+Veneto,wild radicchio,1
+Veneto,borlotti bean,1
+Veneto,red port,1
+Veneto,giblets (livers and hearts),1
+Veneto,bellunese salami,1
+Veneto,mushroom,1
+Veneto,chicken,1
+Veneto,baking soda,1
+Veneto,polenta,1
+Veneto,juniper berry,1
+Veneto,ammonium bicarbonate,1
+Veneto,white pepper,1
+Veneto,amaretti,1
+Veneto,yellow peach,1
+Veneto,catfish,1
+Veneto,bone marrow,1
+Veneto,dark chocolate leaf,1
+Veneto,alcherme,1
+Veneto,polentina di cittadella,1
+Veneto,dark chocolate glaze,1
+Veneto,bitter almond,1
+Veneto,horse meat,1
+Veneto,dried mushroom,1
+Veneto,ziti pasta,1
+Veneto,grapes or cherry,1
+Veneto,pear,1
+Veneto,goose,1
+Veneto,vanilla sugar,1
+Veneto,soft-shell crab,1
+Veneto,egg tagliolini,1
+Veneto,chicken giblet,1
+Veneto,pearl barley,1
+Veneto,smoked pork,1
+Veneto,wide homemade tagliatelle,1
+Veneto,pork rind,1
+Veneto,dried lamon borlotti bean,1
+Veneto,corn flour,1
+Veneto,white wafer,1
+Veneto,candied citron,1
+Veneto,peeled sweet almond,1
+Veneto,wildflower honey,1
+Veneto,aromatic reduction,1
+Veneto,marasca cherry,1
+Veneto,bread,1
+Veneto,sangue morlacco liqueur,1
+Veneto,duck breast,1
+Veneto,snail,1
+Veneto,large eel,1
+Veneto,bread roll,1
+Veneto,fatty sausage,1
+Veneto,duck,1
+Veneto,hard-boiled egg,1
+Veneto,bassano asparagus,1
+Veneto,baccalà ragno (stockfish),1
+Veneto,salted lard,1
+Veneto,aged woodcock,1
+Veneto,salted àola,1
+Veneto,bigoli pasta,1
+Veneto,fresh porcini mushroom,1
+Veneto,goose breast,1
+Veneto,bigoli,1
+Veneto,large snail,1
+Veneto,dry liqueur,1
+Veneto,yeast,1
+Veneto,chive,1
+Veneto,montasio,1
+Veneto,bread crouton,1
+Veneto,razor clam,1
+Veneto,pork bladder,1
+Veneto,yellow mountain turnip,1
+Veneto,red beet,1
+Veneto,ground meat,1
+Veneto,goose neck skin,1
+Veneto,savoy cabbage,1
+Veneto,pork rib,1
+Veneto,treviso radicchio,1
+Veneto,soppressa,1
+Veneto,guinea fowl liver and gizzard,1
+Veneto,prosciutto crudo,1
+Veneto,fresh pistachio,1
+Veneto,white wine vinegar or lemon juice,1
+Veneto,veal liver,1
+Veneto,robinia flower (or acacia),1
+Veneto,salami,1
+Veneto,minced pork,1
+Veneto,maresina leaf,1
+Veneto,originario rice,1
+Veneto,brown sugar,1
+Veneto,orange zest,1
+Veneto,yellow polenta,1
+Veneto,brandy,1
+Veneto,champignon mushroom,1
+Veneto,cabernet wine,1
+Veneto,prosecco wine,1
+Veneto,mallard duck,1
+Veneto,smoked ricotta,1
+Veneto,yellow pumpkin,1
+Veneto,horseradish in vinegar,1
+Veneto,salsa verde,1
+Veneto,cured tongue,1
+Veneto,veal head,1
+Veneto,beef brisket,1
+Veneto,rosemary sprig,1
+Veneto,donkey steak,1
+Veneto,cooked cherry,1
+Veneto,lingonberry jam,1
+Veneto,chife,1
+Veneto,field spinach or cultivated spinach,1
+Veneto,plum,1
+Veneto,durum wheat semolina,1
+Veneto,stale bread roll,1
