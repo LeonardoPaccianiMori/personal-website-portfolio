@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "x": [
+        "DCGAN-1",
+        "DCGAN-2",
+        "DCGAN-3",
+        "DCGAN-4"
+      ],
+      "y": [
+        12.524082124233246,
+        12.428684337933857,
+        18.842858680089314,
+        40.50416982968648
+      ],
+      "type": "bar",
+      "marker": {
+        "color": [
+          "#1f77b4",
+          "#ff7f0e",
+          "#2ca02c",
+          "#d62728"
+        ]
+      }
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "DCGAN Training Time Comparison"
+    },
+    "yaxis": {
+      "title": {
+        "text": "Training Time (minutes)"
+      }
+    },
+    "margin": {
+      "t": 50,
+      "b": 50
+    }
+  }
+}

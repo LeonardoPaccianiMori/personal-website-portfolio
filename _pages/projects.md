@@ -4,8 +4,8 @@ title: projects
 permalink: /projects/
 description: Personal projects demonstrating end-to-end data science capabilities.
 nav: true
-nav_order: 3
-display_categories: [portfolio]
+nav_order: 2
+display_categories: [portfolio, foundations]
 horizontal: false
 ---
 

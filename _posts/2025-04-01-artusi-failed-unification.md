@@ -7,6 +7,8 @@ tags: history data-science graph-neural-networks italy
 categories: data-science
 thumbnail: assets/img/projects/italian-cuisine/italian-cuisine-thumbnail.jpg
 featured: true
+chart:
+  plotly: true
 ---
 
 ## The Nation-Building Project That Failed
@@ -120,6 +122,14 @@ Artusi's butter-heavy recipes reflected his Northern/Central bias, not a unified
 #### 2. The Tomato Gradient
 
 Tomato usage increases as you move south:
+
+```plotly
+{% include plotly/italian-cuisine/tomato-usage.json %}
+```
+
+<div class="caption">
+    Tomato usage intensity map. The gradient clearly shows Mediterranean South vs Alpine North divide.
+</div>
 
 **Tomato frequency** (% of recipes using tomatoes):
 - **Campania** (Naples): 75%

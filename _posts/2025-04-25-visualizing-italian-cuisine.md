@@ -6,6 +6,8 @@ description: How custom visualizations—from RGB ternary maps to diverging chor
 tags: data-visualization plotly maps
 categories: data-science
 featured: false
+chart:
+  plotly: true
 ---
 
 ## The Challenge: Visualizing Multi-Dimensional Culinary Data

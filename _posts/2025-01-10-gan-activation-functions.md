@@ -7,6 +7,10 @@ tags: deep-learning GAN debugging
 categories: [data-science, learning]
 thumbnail: assets/img/projects/image-generation/image-generation-thumbnail.png
 featured: true
+chart:
+  plotly: true
+images:
+  photoswipe: true
 ---
 
 ## The Goal: Generate Handwritten Digits with GANs
@@ -24,13 +28,11 @@ I followed the standard DCGAN architecture from the [original paper](https://arx
 
 **The result?** Complete garbage.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/DCGAN1-examples.png" title="DCGAN-1 failed outputs" class="img-fluid rounded z-depth-1" %}
-    </div>
+<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 2px; max-width: 500px; margin: 0 auto;">
+{% for i in (0..99) %}{% assign padded = i | prepend: '00' | slice: -3, 3 %}<a href="{{ 'assets/img/projects/image-generation/galleries/dcgan-1/img-' | append: padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 48px;"><img src="{{ 'assets/img/projects/image-generation/galleries/dcgan-1/img-' | append: padded | append: '.png' | relative_url }}" alt="DCGAN-1 sample {{ i }}" style="width: 100%;" loading="lazy" /></a>{% endfor %}
 </div>
 <div class="caption">
-    DCGAN-1 results: Only vague shapes resembling 0s and 9s. Everything else is noise.
+    DCGAN-1 results: Only vague shapes resembling 0s and 9s. Everything else is noise. Click any image to zoom.
 </div>
 
 After 100 epochs of training, the generator could *barely* produce recognizable 0s and 9s. Everything else looked like static.
@@ -93,11 +95,9 @@ All standard choices from DCGAN papers and tutorials.
 
 ### Training Behavior: Red Flags Everywhere
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/DCGAN1-training.png" title="DCGAN-1 training curves" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+```plotly
+{% include plotly/image-generation/dcgan-1-training.json %}
+```
 <div class="caption">
     DCGAN-1 training curves showing discriminator plateauing and generator loss diverging.
 </div>
@@ -176,11 +176,9 @@ And re-normalized the input images to [0, 1] instead of [-1, 1].
 
 ### The Results: Night and Day Difference
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/DCGAN2-training.png" title="DCGAN-2 training curves" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+```plotly
+{% include plotly/image-generation/dcgan-2-training.json %}
+```
 <div class="caption">
     DCGAN-2 training curves showing healthy oscillation between generator and discriminator losses.
 </div>
@@ -191,13 +189,11 @@ And re-normalized the input images to [0, 1] instead of [-1, 1].
 -**Discriminator challenged** - Accuracy hovers around 70-80%
 -**Visible improvement** - Images get better every 10 epochs
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/DCGAN2-examples.png" title="DCGAN-2 outputs" class="img-fluid rounded z-depth-1" %}
-    </div>
+<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 2px; max-width: 500px; margin: 0 auto;">
+{% for i in (0..99) %}{% assign padded = i | prepend: '00' | slice: -3, 3 %}<a href="{{ 'assets/img/projects/image-generation/galleries/dcgan-2/img-' | append: padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 48px;"><img src="{{ 'assets/img/projects/image-generation/galleries/dcgan-2/img-' | append: padded | append: '.png' | relative_url }}" alt="DCGAN-2 sample {{ i }}" style="width: 100%;" loading="lazy" /></a>{% endfor %}
 </div>
 <div class="caption">
-    DCGAN-2 results: Most digits (0-9) are now recognizable! Not perfect, but a massive improvement.
+    DCGAN-2 results: Most digits (0-9) are now recognizable! Not perfect, but a massive improvement. Click any image to zoom.
 </div>
 
 **Generated images:**
@@ -287,13 +283,11 @@ Conv2DTranspose(128, (5, 5), strides=2, padding='same'),  # Was (3, 3)
 -**Better digit quality** - All 10 digits clearly visible
 -**Training time** - Only ~10% longer
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/DCGAN3-examples.png" title="DCGAN-3 outputs" class="img-fluid rounded z-depth-1" %}
-    </div>
+<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 2px; max-width: 500px; margin: 0 auto;">
+{% for i in (0..99) %}{% assign padded = i | prepend: '00' | slice: -3, 3 %}<a href="{{ 'assets/img/projects/image-generation/galleries/dcgan-3/img-' | append: padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 48px;"><img src="{{ 'assets/img/projects/image-generation/galleries/dcgan-3/img-' | append: padded | append: '.png' | relative_url }}" alt="DCGAN-3 sample {{ i }}" style="width: 100%;" loading="lazy" /></a>{% endfor %}
 </div>
 <div class="caption">
-    DCGAN-3 with 5×5 kernels: Noticeably smoother and more realistic digits.
+    DCGAN-3 with 5×5 kernels: Noticeably smoother and more realistic digits. Click any image to zoom.
 </div>
 
 ### DCGAN-4: One More Convolutional Layer
@@ -305,13 +299,11 @@ Added a 4th convolutional layer to both generator and discriminator:
 -**Fewer artifacts** - Cleaner backgrounds
 -**Longer training** - ~40% more time per epoch
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/DCGAN4-examples.png" title="DCGAN-4 outputs" class="img-fluid rounded z-depth-1" %}
-    </div>
+<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 2px; max-width: 500px; margin: 0 auto;">
+{% for i in (0..99) %}{% assign padded = i | prepend: '00' | slice: -3, 3 %}<a href="{{ 'assets/img/projects/image-generation/galleries/dcgan-4/img-' | append: padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 48px;"><img src="{{ 'assets/img/projects/image-generation/galleries/dcgan-4/img-' | append: padded | append: '.png' | relative_url }}" alt="DCGAN-4 sample {{ i }}" style="width: 100%;" loading="lazy" /></a>{% endfor %}
 </div>
 <div class="caption">
-    DCGAN-4 (final model): 100 generated digits showing consistent quality across all numbers 0-9.
+    DCGAN-4 (final model): 100 generated digits showing consistent quality across all numbers 0-9. Click any image to zoom.
 </div>
 
 ---
