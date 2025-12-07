@@ -2,14 +2,16 @@
 layout: page
 title: Mapping Italian Regional Cuisine with Graph Neural Networks
 description: Using AI to understand and classify regional Italian recipes through their ingredient and cooking relationships
-img: assets/img/projects/italian-cuisine/italian-cuisine-thumbnail.jpg
+img: assets/img/projects/italian-cuisine/italian-cuisine.jpg
 importance: 1
 category: portfolio
+chart:
+  plotly: true
 ---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/italian-cuisine/italian-cuisine-thumbnail.jpg" title="Italian regional cuisine" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/italian-cuisine/italian-cuisine.jpg" title="Italian regional cuisine" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -141,6 +143,14 @@ Different regions favor different starches:
 
 Tomato usage increases as you move south:
 
+```plotly
+{% include plotly/italian-cuisine/tomato-usage.json %}
+```
+
+<div class="caption">
+    Tomato usage intensity across regions. Southern regions show dramatically higher usage due to Mediterranean climate and historical Arab/Spanish influence.
+</div>
+
 **Regional tomato frequency** (% of recipes using tomatoes):
 - **Campania** (Naples): 75%
 - **Sicily**: 68%
@@ -149,6 +159,30 @@ Tomato usage increases as you move south:
 - **Valle d'Aosta** (Alpine): 18%
 
 Mediterranean climate and Spanish/Arab influences in the South made tomatoes central to cuisine, while Northern regions adopted them more slowly.
+
+### Cheese and Seafood Patterns
+
+Two more ingredient patterns reveal regional specialization:
+
+```plotly
+{% include plotly/italian-cuisine/cheese-usage.json %}
+```
+
+<div class="caption">
+    Cheese usage across regions. Note: This shows cheese used in recipes, not the diversity of cheese production.
+</div>
+
+```plotly
+{% include plotly/italian-cuisine/seafood-usage.json %}
+```
+
+<div class="caption">
+    Seafood usage clearly follows Italy's coastline, with landlocked regions showing minimal usage.
+</div>
+
+**Key insights**:
+- **Cheese**: Emilia-Romagna, Lombardy, and Campania lead (Parmigiano, Gorgonzola, Mozzarella regions)
+- **Seafood**: Coastal regions (Liguria, Campania, Sicily, Puglia) dominate, while Alpine regions use almost none
 
 ---
 

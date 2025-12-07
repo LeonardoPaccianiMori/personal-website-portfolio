@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "x": [
+        "CNN-1",
+        "CNN-2",
+        "CNN-3"
+      ],
+      "y": [
+        0.982699990272522,
+        0.986299991607666,
+        0.9842000007629395
+      ],
+      "type": "bar",
+      "marker": {
+        "color": [
+          "#1f77b4",
+          "#ff7f0e",
+          "#2ca02c"
+        ]
+      }
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "CNN Accuracy Comparison"
+    },
+    "yaxis": {
+      "title": {
+        "text": "Test Accuracy"
+      }
+    },
+    "margin": {
+      "t": 50,
+      "b": 50
+    }
+  }
+}

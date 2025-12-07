@@ -5,8 +5,10 @@ date: 2025-02-05 11:00:00
 description: Testing 7 different neural network architectures taught me that more layers doesn't mean better results—sometimes the baseline is the best choice
 tags: deep-learning CNN optimization
 categories: [data-science, learning]
-# thumbnail: assets/img/blog/cnn-comparison/thumbnail.jpg 
+# thumbnail: assets/img/blog/cnn-comparison/thumbnail.jpg
 featured: false
+chart:
+  plotly: true
 ---
 
 ## The Experiment: How Many Layers Do You Really Need?
@@ -92,11 +94,9 @@ model = Sequential([
 **Training time:** 19 minutes (+58% vs CNN-1)
 **Accuracy:** **98.6%**
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/CNN2-training.png" title="CNN-2 training curves" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+```plotly
+{% include plotly/image-generation/cnn-2-training.json %}
+```
 <div class="caption">
     CNN-2 training curves showing overfitting starting around epoch 40
 </div>
@@ -137,11 +137,9 @@ model = Sequential([
 **Training time:** 13 minutes (+8% vs CNN-1)
 **Accuracy:** **98.0%**
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/CNN3-training.png" title="CNN-3 training curves" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+```plotly
+{% include plotly/image-generation/cnn-3-training.json %}
+```
 <div class="caption">
     CNN-3 overfits earlier than CNN-2 (starts around epoch 15)
 </div>
@@ -241,11 +239,9 @@ model = Sequential([
 **Training time:** 13 minutes
 **Accuracy:** **97.5%** (best FCNN!)
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/FCNN-accuracy-comparison.png" title="FCNN comparison" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+```plotly
+{% include plotly/image-generation/fcnn-accuracy-comparison.json %}
+```
 <div class="caption">
     Accuracy comparison across all 4 FCNN architectures
 </div>
@@ -278,11 +274,9 @@ model = Sequential([
 
 ## Side-by-Side Comparison
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/Accuracy-and-training-time-comparison.png" title="All models comparison" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+```plotly
+{% include plotly/image-generation/accuracy-training-time-comparison.json %}
+```
 <div class="caption">
     Accuracy vs training time for all 7 architectures. Top-left corner is best (high accuracy, low time).
 </div>

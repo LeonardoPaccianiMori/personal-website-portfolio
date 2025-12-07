@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "x": [
+        "FCNN-1",
+        "FCNN-2",
+        "FCNN-3",
+        "FCNN-4"
+      ],
+      "y": [
+        102.59090638160706,
+        134.09967851638794,
+        107.68733429908752,
+        129.84823441505432
+      ],
+      "type": "bar",
+      "marker": {
+        "color": [
+          "#1f77b4",
+          "#ff7f0e",
+          "#2ca02c",
+          "#d62728"
+        ]
+      }
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "FCNN Training Time Comparison"
+    },
+    "yaxis": {
+      "title": {
+        "text": "Training Time (seconds)"
+      }
+    },
+    "margin": {
+      "t": 50,
+      "b": 50
+    }
+  }
+}

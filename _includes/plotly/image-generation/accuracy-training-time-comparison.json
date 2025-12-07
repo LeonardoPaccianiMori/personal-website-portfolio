@@ -1,0 +1,97 @@
+{
+  "data": [
+    {
+      "x": [
+        106.06419730186462,
+        151.75755667686462,
+        109.60192942619324
+      ],
+      "y": [
+        0.982699990272522,
+        0.986299991607666,
+        0.9842000007629395
+      ],
+      "text": [
+        "CNN-1",
+        "CNN-2",
+        "CNN-3"
+      ],
+      "name": "CNN",
+      "type": "scatter",
+      "mode": "markers+text",
+      "textposition": "top right",
+      "marker": {
+        "size": 12
+      }
+    },
+    {
+      "x": [
+        102.59090638160706,
+        134.09967851638794,
+        107.68733429908752,
+        129.84823441505432
+      ],
+      "y": [
+        0.8009999990463257,
+        0.8695999979972839,
+        0.9229000210762024,
+        0.9861999750137329
+      ],
+      "text": [
+        "FCNN-1",
+        "FCNN-2",
+        "FCNN-3",
+        "FCNN-4"
+      ],
+      "name": "FCNN",
+      "type": "scatter",
+      "mode": "markers+text",
+      "textposition": "top right",
+      "marker": {
+        "size": 12,
+        "symbol": "square"
+      }
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "Accuracy vs Training Time"
+    },
+    "xaxis": {
+      "title": {
+        "text": "Training Time (seconds)"
+      }
+    },
+    "yaxis": {
+      "title": {
+        "text": "Test Accuracy"
+      }
+    },
+    "showlegend": true,
+    "margin": {
+      "t": 50,
+      "b": 50
+    },
+    "annotations": [
+      {
+        "text": "<b>Best choice!</b>",
+        "x": 106.06419730186462,
+        "y": 0.982699990272522,
+        "ax": -40,
+        "ay": 35,
+        "arrowhead": 2,
+        "arrowsize": 1,
+        "arrowwidth": 2,
+        "arrowcolor": "#d62728",
+        "font": {
+          "color": "#d62728",
+          "size": 12
+        },
+        "bgcolor": "rgba(255,255,255,0.8)",
+        "bordercolor": "#d62728",
+        "borderwidth": 1,
+        "borderpad": 4
+      }
+    ]
+  }
+}

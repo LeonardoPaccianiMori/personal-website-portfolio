@@ -266,6 +266,177 @@ def create_oil_butter_diverging_choropleth(italy_gdf, regional_ingredients):
     return fig
 
 
+def create_tomato_choropleth(italy_gdf, regional_ingredients):
+    """
+    Create choropleth map showing tomato usage by region.
+
+    Args:
+        italy_gdf (GeoDataFrame): Italy regional boundaries
+        regional_ingredients (DataFrame): Regional ingredient usage data
+
+    Returns:
+        plotly.graph_objects.Figure: Interactive choropleth map
+    """
+    print("\n2. Creating tomato usage choropleth...")
+
+    # Extract tomato usage by region
+    tomato_regional = regional_ingredients[
+        regional_ingredients['ingredient'] == 'tomato'
+    ].set_index('region')['usage_count']
+
+    # Merge with geodataframe
+    geo_tomato = italy_gdf.merge(
+        tomato_regional.rename('tomato_count'),
+        left_on=REGION_COL,
+        right_index=True,
+        how='left'
+    ).fillna(0)
+
+    # Create choropleth
+    fig = go.Figure(go.Choroplethmapbox(
+        geojson=json.loads(geo_tomato.to_json()),
+        locations=geo_tomato[REGION_COL],
+        z=geo_tomato['tomato_count'],
+        featureidkey=f'properties.{REGION_COL}',
+        colorscale='Reds',
+        zmin=0,
+        marker_line_width=1,
+        marker_line_color='white',
+        colorbar=dict(title='Tomato<br>Usage'),
+        hovertemplate='<b>%{location}</b><br>Tomato usage: %{z:.0f}<extra></extra>'
+    ))
+
+    fig.update_layout(
+        title='Tomato Usage Across Italian Regions',
+        mapbox=dict(
+            style='carto-positron',
+            center=dict(lat=42.5, lon=12.5),
+            zoom=4.5
+        ),
+        height=600,
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)'
+    )
+
+    return fig
+
+
+def create_cheese_choropleth(italy_gdf, regional_ingredients):
+    """
+    Create choropleth map showing cheese usage by region.
+
+    Args:
+        italy_gdf (GeoDataFrame): Italy regional boundaries
+        regional_ingredients (DataFrame): Regional ingredient usage data
+
+    Returns:
+        plotly.graph_objects.Figure: Interactive choropleth map
+    """
+    print("\n3. Creating cheese usage choropleth...")
+
+    # Sum all cheese types (cheese, parmesan, ricotta, mozzarella, etc.)
+    cheese_ingredients = ['cheese', 'parmesan', 'ricotta', 'mozzarella',
+                         'gorgonzola', 'pecorino', 'fontina']
+
+    cheese_data = regional_ingredients[
+        regional_ingredients['ingredient'].isin(cheese_ingredients)
+    ].groupby('region')['usage_count'].sum()
+
+    # Merge with geodataframe
+    geo_cheese = italy_gdf.merge(
+        cheese_data.rename('cheese_count'),
+        left_on=REGION_COL,
+        right_index=True,
+        how='left'
+    ).fillna(0)
+
+    # Create choropleth
+    fig = go.Figure(go.Choroplethmapbox(
+        geojson=json.loads(geo_cheese.to_json()),
+        locations=geo_cheese[REGION_COL],
+        z=geo_cheese['cheese_count'],
+        featureidkey=f'properties.{REGION_COL}',
+        colorscale='YlOrBr',
+        zmin=0,
+        marker_line_width=1,
+        marker_line_color='white',
+        colorbar=dict(title='Cheese<br>Usage'),
+        hovertemplate='<b>%{location}</b><br>Cheese usage: %{z:.0f}<extra></extra>'
+    ))
+
+    fig.update_layout(
+        title='Cheese Usage Across Italian Regions',
+        mapbox=dict(
+            style='carto-positron',
+            center=dict(lat=42.5, lon=12.5),
+            zoom=4.5
+        ),
+        height=600,
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)'
+    )
+
+    return fig
+
+
+def create_seafood_choropleth(italy_gdf, regional_ingredients):
+    """
+    Create choropleth map showing seafood usage by region.
+
+    Args:
+        italy_gdf (GeoDataFrame): Italy regional boundaries
+        regional_ingredients (DataFrame): Regional ingredient usage data
+
+    Returns:
+        plotly.graph_objects.Figure: Interactive choropleth map
+    """
+    print("\n4. Creating seafood usage choropleth...")
+
+    # Sum all seafood types
+    seafood_ingredients = ['fish', 'seafood', 'tuna', 'anchovy', 'salmon',
+                          'cod', 'shrimp', 'mussel', 'clam', 'squid']
+
+    seafood_data = regional_ingredients[
+        regional_ingredients['ingredient'].isin(seafood_ingredients)
+    ].groupby('region')['usage_count'].sum()
+
+    # Merge with geodataframe
+    geo_seafood = italy_gdf.merge(
+        seafood_data.rename('seafood_count'),
+        left_on=REGION_COL,
+        right_index=True,
+        how='left'
+    ).fillna(0)
+
+    # Create choropleth
+    fig = go.Figure(go.Choroplethmapbox(
+        geojson=json.loads(geo_seafood.to_json()),
+        locations=geo_seafood[REGION_COL],
+        z=geo_seafood['seafood_count'],
+        featureidkey=f'properties.{REGION_COL}',
+        colorscale='Blues',
+        zmin=0,
+        marker_line_width=1,
+        marker_line_color='white',
+        colorbar=dict(title='Seafood<br>Usage'),
+        hovertemplate='<b>%{location}</b><br>Seafood usage: %{z:.0f}<extra></extra>'
+    ))
+
+    fig.update_layout(
+        title='Seafood Usage Across Italian Regions',
+        mapbox=dict(
+            style='carto-positron',
+            center=dict(lat=42.5, lon=12.5),
+            zoom=4.5
+        ),
+        height=600,
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)'
+    )
+
+    return fig
+
+
 def create_pasta_rice_polenta_ternary_map(italy_gdf, regional_ingredients):
     """
     Create RGB ternary choropleth showing pasta/rice/polenta distribution.
@@ -737,6 +908,15 @@ def main():
     # Generate all visualizations
     figures = {
         'olive-oil-butter-divide.json': create_oil_butter_diverging_choropleth(
+            italy_gdf, regional_ingredients
+        ),
+        'tomato-usage.json': create_tomato_choropleth(
+            italy_gdf, regional_ingredients
+        ),
+        'cheese-usage.json': create_cheese_choropleth(
+            italy_gdf, regional_ingredients
+        ),
+        'seafood-usage.json': create_seafood_choropleth(
             italy_gdf, regional_ingredients
         ),
         'pasta-rice-polenta-triangle.json': create_pasta_rice_polenta_ternary_map(

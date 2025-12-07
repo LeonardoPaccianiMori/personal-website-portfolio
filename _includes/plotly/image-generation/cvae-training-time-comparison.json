@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "x": [
+        "CVAE-1",
+        "CVAE-2",
+        "CVAE-3",
+        "CVAE-4",
+        "CVAE-5"
+      ],
+      "y": [
+        5.517786773045858,
+        8.508492263158162,
+        14.590377243359884,
+        22.074988885720572,
+        27.95699177980423
+      ],
+      "type": "bar",
+      "marker": {
+        "color": [
+          "#1f77b4",
+          "#ff7f0e",
+          "#2ca02c",
+          "#d62728",
+          "#9467bd"
+        ]
+      }
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "CVAE Training Time Comparison"
+    },
+    "yaxis": {
+      "title": {
+        "text": "Training Time (minutes)"
+      }
+    },
+    "margin": {
+      "t": 50,
+      "b": 50
+    }
+  }
+}
