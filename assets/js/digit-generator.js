@@ -1,7 +1,7 @@
 /**
  * Digit Generator Widget
  *
- * Uses DCGAN-4 with discovered seed vectors to generate
+ * Uses DCGAN-5 with discovered seed vectors to generate
  * handwritten digit images in the browser using TensorFlow.js.
  *
  * Instead of a conditional GAN, this uses "latent space inversion" -

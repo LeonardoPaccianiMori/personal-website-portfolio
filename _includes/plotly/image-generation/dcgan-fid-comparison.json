@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "x": [
+        "DCGAN-1",
+        "DCGAN-2",
+        "DCGAN-3",
+        "DCGAN-4",
+        "DCGAN-5"
+      ],
+      "y": [
+        8051.0,
+        395.5,
+        189.5,
+        153.5,
+        117.3
+      ],
+      "type": "bar",
+      "marker": {
+        "color": [
+          "#1f77b4",
+          "#1f77b4",
+          "#1f77b4",
+          "#1f77b4",
+          "#2ca02c"
+        ]
+      }
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "DCGAN Image Quality (FID Score)"
+    },
+    "yaxis": {
+      "title": {
+        "text": "FID Score (lower is better)"
+      }
+    },
+    "margin": {
+      "t": 50,
+      "b": 50
+    },
+    "annotations": [
+      {
+        "text": "Best",
+        "x": "DCGAN-5",
+        "y": 117.3,
+        "yanchor": "bottom",
+        "showarrow": true,
+        "arrowhead": 2,
+        "ax": 0,
+        "ay": -30,
+        "font": {
+          "color": "#2ca02c",
+          "size": 12
+        }
+      }
+    ]
+  }
+}
