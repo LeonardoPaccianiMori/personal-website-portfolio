@@ -2,75 +2,65 @@
   "data": [
     {
       "x": [
-        "DCGAN-1",
-        "DCGAN-2",
-        "DCGAN-3",
-        "DCGAN-4",
-        "DCGAN-5"
+        21.45910181601842,
+        24.785227421919505,
+        57.50690723260244,
+        113.06086833079657
       ],
       "y": [
-        500,
         395.5,
         189.5,
         153.5,
         117.3
       ],
-      "type": "bar",
-      "xaxis": "x",
-      "yaxis": "y",
-      "marker": {
-        "color": [
-          "#1f77b4",
-          "#1f77b4",
-          "#1f77b4",
-          "#1f77b4",
-          "#2ca02c"
-        ]
-      }
-    },
-    {
-      "x": [
-        "DCGAN-1",
+      "text": [
         "DCGAN-2",
         "DCGAN-3",
         "DCGAN-4",
         "DCGAN-5"
       ],
-      "y": [
-        8051.0,
-        null,
-        null,
-        null,
-        null
-      ],
-      "type": "bar",
-      "xaxis": "x2",
-      "yaxis": "y2",
+      "type": "scatter",
+      "mode": "markers+text",
+      "textposition": "top right",
       "marker": {
-        "color": [
-          "#1f77b4",
-          "#1f77b4",
-          "#1f77b4",
-          "#1f77b4",
-          "#2ca02c"
-        ]
+        "size": 12,
+        "color": "#1f77b4"
       },
-      "showlegend": false
+      "xaxis": "x",
+      "yaxis": "y"
+    },
+    {
+      "x": [
+        17.28002912203471
+      ],
+      "y": [
+        8051.0
+      ],
+      "text": [
+        "DCGAN-1"
+      ],
+      "type": "scatter",
+      "mode": "markers+text",
+      "textposition": "top right",
+      "marker": {
+        "size": 12,
+        "color": "#1f77b4"
+      },
+      "xaxis": "x2",
+      "yaxis": "y2"
     }
   ],
   "layout": {
     "title": {
-      "text": "DCGAN Image Quality (FID Score)"
+      "text": "FID Score vs Training Time (DCGAN)"
     },
     "xaxis": {
-      "type": "category",
-      "categoryorder": "array",
-      "categoryarray": [
-        "DCGAN-1",
-        "DCGAN-2",
-        "DCGAN-3",
-        "DCGAN-4",
-        "DCGAN-5"
+      "title": {
+        "text": "Training Time (minutes)"
+      },
+      "range": [
+        10,
+        130
       ],
       "domain": [
         0,
@@ -78,15 +68,6 @@
       ]
     },
     "xaxis2": {
-      "type": "category",
-      "categoryorder": "array",
-      "categoryarray": [
-        "DCGAN-1",
-        "DCGAN-2",
-        "DCGAN-3",
-        "DCGAN-4",
-        "DCGAN-5"
-      ],
       "matches": "x",
       "showticklabels": false,
       "domain": [
@@ -126,18 +107,23 @@
     },
     "annotations": [
       {
-        "text": "Best",
-        "x": "DCGAN-5",
+        "text": "<b>Best choice!</b>",
+        "x": 113.06086833079657,
         "y": 117.3,
-        "yanchor": "bottom",
-        "showarrow": true,
+        "ax": -50,
+        "ay": -40,
         "arrowhead": 2,
-        "ax": 0,
-        "ay": -30,
+        "arrowsize": 1,
+        "arrowwidth": 2,
+        "arrowcolor": "#d62728",
         "font": {
-          "color": "#2ca02c",
+          "color": "#d62728",
           "size": 12
-        }
+        },
+        "bgcolor": "rgba(255,255,255,0.8)",
+        "bordercolor": "#d62728",
+        "borderwidth": 1,
+        "borderpad": 4
       }
     ],
     "shapes": [

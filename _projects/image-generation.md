@@ -22,30 +22,31 @@ images:
 
 **November - December 2024**
 
-Ever since generative AI became popular in late 2022 with the first release of chatGPT and then the first text-to-image generators, I became deeply fascinated with generative AI. It was only natural then that when I started studying the basics of Machine Learning I also wanted to get started with generative AI. In particular, I wanted to understand how image generation works at a fundamental level, building the *actual* neural networks that create images from scratch. Unfortunately, since state-of-the-art image generation requires *a lot* of computational power (which was not available to me[^1]), I simply used the MNIST dataset for this project. It's not a very original choice, but I just wanted to get hands-on experience with image generation.
+## Intro
+Ever since generative AI became popular in late 2022 with the first release of ChatGPT and then the first text-to-image generators, I became deeply fascinated with generative AI. Since I wanted to get a deep understanding of the topic, and not just stop at the surface, when I started studying Machine Learning on my own I also started to learn how image generation works at a fundamental level, building the *actual* neural networks that create images from scratch. Unfortunately, since state-of-the-art image generation requires *a lot* of computational power (which was not available to me when working on this[^1]), I simply used the MNIST dataset for this project. It's not a very original choice, but I just wanted to get hands-on experience with image generation.
 
-The project has two parts: first, training networks to *recognize* handwritten digits (classification), then training them to generate those images of handwritten digits (generation). I tested 7 different architectures for classification and multiple approaches for generation to see what actually works better.
+The project consists of two parts: first, training networks to *recognize* handwritten digits (classification), to really get a handle on the basics of how to work with images using the techniques of Machine Learning, then training models to generate images of those handwritten digits (generation). I tested 7 different architectures for classification and 10 different configurations for generation to see what actually works better.
 
-Main finding: the simplest CNN model performed just as well as much more complex architectures, but trained ~30% faster. Turns out less really is more, sometimes.
+**Main finding**: overall, the simplest CNN model performed just as well as much more complex architectures but trained significantly faster (even ~30%!). Turns out less really *is* more, sometimes.
 
 ## What I Built
 
 ### Part 1: Classification - Recognizing Digits
 
-I tested 7 different neural network architectures (3 **C**onvolutional **N**eural **N**etworks and 4 **F**ully **C**onvolutional **N**eural **N**etworks) to see which one can achieve the highest classification accuracy with the shortest training time:
+I tested 7 different neural network architectures (3 ***C***onvolutional ***N***eural ***N***etworks and 4 ***F***ully ***C***onvolutional ***N***eural ***N***etworks) to see which one can achieve the highest classification accuracy with the shortest training time:
 
 ```plotly
 {% include plotly/image-generation/accuracy-training-time-comparison.json %}
 ```
 <div class="caption">
-    Comparing 7 different neural network architectures. The simplest model (CNN-1) is actually the best choice!
+    Comparing 7 different neural network architectures for image classification. The simplest model (CNN-1) is actually the best choice!
 </div>
 
-The simplest model (CNN-1) hit 98% accuracy while training ~30% faster than the deeper networks. For such a relatively simple task, adding more layers didn't improve accuracy, it just made training slower.
+The simplest model (CNN-1) hit 98% accuracy while training ~30% faster than some of the deeper networks. For such a relatively simple task, adding more layers didn't improve accuracy, it just made training slower.
 
 ### Part 2: Generation - Creating New Digits
 
-For image generation, I tried building both [Variational Autoencoders](https://en.wikipedia.org/wiki/Variational_autoencoder) (VAEs) and [Generative Adversarial Network](https://en.wikipedia.org/wiki/Generative_adversarial_network). While VAEs could generate *some* digits realistically, they struggled with all 10. On the other hand, GANs could generate realistic digits after some tweaking (see also [this blog post](_posts/2025-01-10-gan-activation-functions.md)).
+For image generation, I tried building both [***V***ariational ***A***uto***e***ncoders](https://en.wikipedia.org/wiki/Variational_autoencoder) (VAEs) and [***G***enerative ***A***dversarial ***N***etworks](https://en.wikipedia.org/wiki/Generative_adversarial_network). While VAEs could generate *some* digits realistically, they struggled with generating clear images of all 10. On the other hand, GANs could generate realistic digits after some tweaking (see also [this blog post](_posts/2025-01-10-gan-activation-functions.md)).
 
 <div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 2px; max-width: 500px; margin: 0 auto;">
 {% for i in (0..99) %}{% assign padded = i | prepend: '00' | slice: -3, 3 %}<a href="{{ 'assets/img/projects/image-generation/galleries/dcgan-5/img-' | append: padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 48px;"><img src="{{ 'assets/img/projects/image-generation/galleries/dcgan-5/img-' | append: padded | append: '.png' | relative_url }}" alt="DCGAN-5 sample {{ i }}" style="width: 100%;" loading="lazy" /></a>{% endfor %}
@@ -54,21 +55,49 @@ For image generation, I tried building both [Variational Autoencoders](https://e
     100 completely artificial handwritten digits, created by the best GAN model (DCGAN5). Click any image to zoom.
 </div>
 
+In this case, however, the best performance is achieved by the more complex (and longer to train) model:
+```plotly
+{% include plotly/image-generation/dcgan-fid-training-time-comparison.json %}
+```
+<div class="caption">
+    Comparing 5 different architectures for image generation. The most complex model (DCGAN-5) generates the highest quality images (lower FID score is better), but requires longer training.
+</div>
+
 ## What I Learned
 
-The most important lesson: complexity for the sake of complexity doesn't help. The simplest CNN matched or beat the deeper networks while training way faster. That applies to both classification (where the simplest CNN was best) and generation (where simpler architectures converged better).
+The most important lesson: the complexity of a model should reflect the complexity of its task (or in other words, simple tasks require simple models, and complex models are not necessarily the answer for simpler tasks). For a relatively simple task like classification, the simplest CNN matched or beat the deeper networks while training *significantly* faster. For a much more complex task like generation, however, we *do* need a more complex model (and therefore also a longer training time) to reach a good enough performance.
 
-For GANs specifically, activation functions matter **a lot**: `sigmoid` worked way better `than` for the discriminator. Also, batch normalization helped stabilize training, which makes sense given how sensitive GANs are to parameter changes.
-
-These techniques (VAEs and GANs) are the same ones used in modern image generators like DALL-E or Stable Diffusion, just scaled up ***massively*** with more data and compute power. The fundamentals are, however, identical.
+For GANs specifically, there are also several technical things that are highly influential. For example, activation functions matter **a lot**: `sigmoid` works way better than `tanh` for the discriminator. Also, batch normalization helps stabilize training, which makes sense given how sensitive GANs are to parameter changes.
 
 ## Technical deep dive
-For the curious, here is a deeper dive into the more techical aspects of each part of this project:
+For the more curious, here is a deeper dive into the more technical aspects of each part of this project:
 
 <details markdown="1">
+<summary><strong>At a Glance & Experiment Setup</strong></summary>
+
+### At a Glance
+
+- **Dataset**: MNIST (28x28 grayscale digits, 10 classes)
+- **Scope**: 7 classifiers (CNN/FCNN), 5 CVAEs, 5 DCGANs
+- **Best classifier**: CNN-1 at ~98% test accuracy in ~106s
+- **Best generator**: DCGAN-5 with FID 117.3 in ~113 minutes
+- **Stack**: TensorFlow/Keras (training and inference), TensorFlow.js (browser demo), Plotly (analysis)
+
+### Experiment Setup
+
+- **Dataset split**: Standard MNIST train/test split; test set used for reported accuracy/loss curves
+- **Preprocessing**: No data augmentation for classifiers; MNIST scaled to [-1, 1] for DCGAN-1 (tanh output) and [0, 1] for DCGAN-2+ (sigmoid output)
+- **Hyperparameters**: CNN/FCNN trained 100 epochs with fixed learning rate 0.001; CVAEs trained 50 epochs; DCGANs trained with Adam (lr=0.0002, beta_1=0.5), batch size 128, 100 epochs (DCGAN-5: 200 epochs)
+
+</details>
+
+---
+
+<details markdown="1">
+
 <summary><strong>Classification Models</strong></summary>
 
-## Convolutional Neural Networks (CNNs)
+### Convolutional Neural Networks (CNNs)
 
 I tested three CNN architectures to understand the impact of network depth and layer types on both classification accuracy and training time:
 
@@ -149,7 +178,8 @@ Adding convolutional layers costs ~43% more time but adding FC layers only costs
 </details>
 
 <br>
-## Fully Convolutional Neural Networks (FCNNs)
+
+### Fully Convolutional Neural Networks (FCNNs)
 
 Unlike CNNs, FCNNs use only convolutional layers (no fully connected layers at the end), and they use global pooling instead.
 
@@ -203,7 +233,7 @@ Unlike CNNs, FCNNs use only convolutional layers (no fully connected layers at t
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/FCNN1.png" title="FCNN-3 architecture" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/FCNN3.png" title="FCNN-3 architecture" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -246,7 +276,7 @@ Here is the comparison of accuracies and training times for these 4 models:
 
 <details markdown="1">
 <summary><strong>Conclusions</strong></summary>
-FCNNs can achieve CNN-level performance (~98.6% with FCNN-4), but require more layers and larger kernels to do so, and take longer times to train. CNNs remain simpler and faster for this task.
+FCNNs can achieve CNN-level performance (~98.6% with FCNN-4), but require more layers and larger kernels to do so, and take longer times to train. CNNs are the best suited network for this task.
 </details>
 
 </details>
@@ -256,9 +286,9 @@ FCNNs can achieve CNN-level performance (~98.6% with FCNN-4), but require more l
 <details markdown="1">
 <summary><strong>Generative Models</strong></summary>
 
-## Convolutional Variational Autoencoders (CVAEs)
+### Convolutional Variational Autoencoders (CVAEs)
 
-I tested 5 different architectures of CVAEs using a 2D latent space. Good separation in the latent space = good generation.
+I tested 5 different architectures of CVAEs using a 2D latent space. Good separation in the latent space *generally* means good generation.
 
 <details markdown="1">
 <summary><strong>CVAE-1 (Baseline)</strong></summary>
@@ -349,7 +379,7 @@ The grid below shows what the decoder generates at cell centers across a 16×16 
 <details markdown="1">
 <summary><strong>CVAE-4 & CVAE-5 (More Fully Connected Layers)</strong></summary>
 
-- **Architecture**: Same as CVAE-1, but with 3 or 4 (repectively) connected layers
+- **Architecture**: Same as CVAE-1, but with 3 or 4 (respectively) connected layers
 - **Median silhouette Score**: 0.01 and -0.06
 - **Comments**: Better latent space separation, but still incomplete (4, 7, 8 and 9 overlap with each other)
 
@@ -395,19 +425,15 @@ CVAEs with 2D latent space struggle to separate all 10 digits, and increasing th
 
 ---
 
-## Deep Convolutional Generative Adversarial Networks (DCGANs)
+### Deep Convolutional Generative Adversarial Networks (DCGANs)
 
-GANs use two competing networks:
-- **Generator**: Creates fake images
-- **Discriminator**: Tries to detect fakes
-
-They improve through adversarial training, and in the end .
+Also in this case I tested 5 different architectures.
 
 <details markdown="1">
 <summary><strong>DCGAN-1 (Baseline with Tanh)</strong></summary>
 
 - **Architecture**: 3 conv layers (generator + discriminator), `tanh` activation
-- **Result**: Poor! Only 0s and 9s barely recognizable
+- **Result**: Poor! Only a few digits barely recognizable, and images are *very* noisy
 - **Issue**: Discriminator plateaus, generator loss keeps increasing
 
 ```plotly
@@ -505,8 +531,9 @@ They improve through adversarial training, and in the end .
 
 </details>
 
-**Final Model**: DCGAN-5 produces the highest-quality generated images based on FID score!
-
+<details markdown="1">
+<summary><strong>DCGAN comparison</strong></summary>
+Here is the comparison of the [FID scores](https://en.wikipedia.org/wiki/Fr%C3%A9chet_inception_distance) and training times for these 5 models (lower FID score = better image generation):
 ```plotly
 {% include plotly/image-generation/dcgan-fid-comparison.json %}
 ```
@@ -514,6 +541,15 @@ They improve through adversarial training, and in the end .
 ```plotly
 {% include plotly/image-generation/dcgan-training-time-comparison.json %}
 ```
+</details>
+
+<details markdown="1">
+<summary><strong>Conclusions</strong></summary>
+**DCGAN-5** produces the highest-quality generated images (based on the FID score), but it also requires a significantly longer training time.
+</details>
+
+
+
 
 </details>
 
@@ -521,6 +557,8 @@ They improve through adversarial training, and in the end .
 
 ## Try It Yourself
 
+### CVAE-1
+Click or drag anywhere in the latent space of CVAE-1 to generate a digit. A red X marker will show the currently selected position. Scatter point colors indicate the digit class of each encoded point.
 <div id="cvae-explorer" class="my-3">
     <div class="row align-items-start">
         <div class="col-md-8">
@@ -537,12 +575,12 @@ They improve through adversarial training, and in the end .
         </div>
     </div>
 </div>
-<div class="caption">
+<!-- <div class="caption">
     Click or drag anywhere in the latent space to generate a digit. The red X marker shows the current position. Colors indicate the digit class of each encoded point.
-</div>
+</div> -->
 <script src="{{ '/assets/js/cvae-explorer.js' | relative_url }}"></script>
 
-
+### DCGAN-5
 Generate your own handwritten digits using DCGAN-5 (the best model)! Select a digit and click Generate to create a new image.
 
 <div id="digit-generator" class="my-4 p-3 border rounded text-center">
@@ -577,20 +615,15 @@ Generate your own handwritten digits using DCGAN-5 (the best model)! Select a di
 
 The DCGAN-5 model runs entirely in your browser using TensorFlow.js. The first generation may take a few seconds while the model loads.
 
-**Note**: This uses DCGAN-5 with pre-discovered "seed vectors" - noise inputs that reliably produce each digit class. This technique (latent space inversion) allows you to choose which digit to create, similar to a Conditional GAN but using the same unconditional DCGAN architecture from above.
+**Note**: This uses DCGAN-5 with pre-discovered "seed vectors", i.e. noise inputs that reliably produce each digit class. This way we can simulate using a Conditional GAN using the unchanged DCGAN-5 architecture.
 
 ---
 
 ## View the Code
 
-All code for this project is available on [GitHub](https://github.com/LeonardoPaccianiMori/image-generation).
+All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-image-generation).
 
-The code is shared to demonstrate:
-- Programming skills and clean code practices
-- Systematic experimentation methodology
-- Technical implementation abilities
-
-**Note**: Due to computational constraints (personal laptop), models here are simpler than state-of-the-art systems. However, the principles scale to more complex architectures.
+**Note**: This project's code was reorganized (not rewritten) in December 2025 using Codex 5.2, in order to make it tidier and better organized.
 
 ---
 
