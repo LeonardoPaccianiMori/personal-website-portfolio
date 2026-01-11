@@ -18,49 +18,55 @@ category: portfolio
 
 **January - April 2025**
 
-Real estate price prediction is one of those "classic" data science problems everyone tackles when learning. The issue: most people use the **same tired datasets**: Ames, Boston, California housing. You end up following (consciously or not) the same patterns as hundreds of existing tutorials. Hard to showcase real skills that way, or learn anything interesting and new. Besides, I live in Italy so I don't really have any practical interest in studying US real estate.
+## Intro
 
-I wanted to work on an end-to-end project that proves I can go out and get the data I need to solve a problem, not just download a CSV and run models. So instead of grabbing a pre-made dataset, I scraped my own: over a million property listings from across Italy. The specific problem (predicting returns on real estate investments) is standard, but the approach (building everything from data collection to dashboard) is what makes it interesting.
+Real estate price prediction is one of those "classic" data science problems everyone tackles when learning. The issue: most people use the **same trite datasets** (Ames, Boston, California housing), so one ends up following (consciously or not) the same patterns as hundreds of existing tutorials. Hard to showcase real skills this way, or learn anything interesting and new. Besides, I am from and live in Italy so I don't really have any practical interest in analyzing US real estate data.
 
-The goal: scrape rental and sale listings across all of Italy, build a model to predict rental income for properties on the market, and identify where the best returns are. I ended up with an interactive dashboard that lets you explore investment opportunities filtered by location, property type, and listing type (regular sale vs auction).
+I therefore decided to work on an end-to-end project that proves I can go out and get the data I need to solve a problem, not just download a CSV millions of other people have access to and run the same old models. So, instead of grabbing a clean pre-packaged dataset, I scraped and created my own: over *one million* property listings from across all Italy.
 
-Biggest surprise: auction properties crush regular sales on returns **even accounting for significant renovation costs**. They're often 30%+ cheaper!
+The problem I want to tackle with this data is the following: using the patterns in the listings of properties put up for rent, can we understand how profitable a property on sale or auction can be? In other words, I want to use the rent listings to build a model that can predict rental income for properties on the market (either on sale or auction), and identify where the best ROIs are. The results are shown in an interactive dashboard that lets the user explore investment opportunities filtered by location, property type, and listing type (regular sale vs auction), with the possibility to include several investment costs like mortgage down payment, renovation costs etc.
+
+The specific problem I want to tackle (predicting returns on real estate investments) is pretty standard (and I won't focus too much effort on getting a predictive model with crazy performance), but the approach I am using to tackle it, i.e. building a custom database *from scratch* and a whole data pipeline that goes *all the way* from data collection to a dashboard, is what makes this project *really* outstanding.
+
+**Main findings**: auction properties *crush* regular sales on returns, *even when accounting for **significant** renovation costs*. Rural properties also tend to have higher ROIs compared to urban ones. These findings are based on the synthetic dataset, which preserves the statistical properties and correlations of the original data.
 
 ## What I Built
 
+Here is a simple representation of the full pipeline I built:
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-project-structure.png" title="Project pipeline" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    End-to-end data pipeline from web scraping to interactive dashboard. Icons from <a href="https://www.flaticon.com/">Flaticon</a>
+    End-to-end data pipeline from web scraping to interactive dashboard. Icons from <a href="https://www.flaticon.com/">Flaticon</a>.
 </div>
 
 ### How it Works
 
 **Data Collection**
-Scraped <a href="https://www.immobiliare.it/en/">immobiliare.it</a> (Italy's largest real estate site) for all 107 provinces. Collected rentals, sales, and auction listings, and ended up with about 1 million properties total.
+Scraped the listing website (one of Italy's largest real estate websites) for all Italian provinces. Collected rentals, sales, and auction listings, and ended up with about 1 million properties in total.
 
 **Data Processing**
 Pulled out everything useful from the raw HTML (price, size, location, features, etc.), translated the Italian text to English, and organized it into a PostgreSQL database.
 
 **Synthetic Data**
-Since the data was scraped from a website, I didn't want to share publicly work done on the real listings data (also to avoid potential legal issues). So I built a custom algorithm to generate synthetic listings: it finds similar real properties and blends their features, this preserving the statistical patterns without exposing the actual scraped data. Both the ML model training and inference was done on the synthetic data.
+Since the data was scraped from a website, I don't want to share publicly any work done on the real listings data (also to avoid potential legal issues). So I built a custom algorithm to generate synthetic listings: it finds similar real properties and blends their features, thus preserving the statistical patterns without exposing the actual scraped data. Both the ML model training and inference were done on the synthetic data. The scraped data was deleted once the synthetic data was generated.
 
 **Machine Learning**
-Trained a **Random Forest** regressor model to predict rental prices based on property features. Then applied it to all the sale/auction listings to estimate what monthly rent they could bring in. The model gets about 75-78% accuracy (R² score), so good enough to spot trends but not perfect for individual properties. I chose Random Forest because:
+Trained a **Random Forest** regressor model to predict rental prices based on property features. Then applied it to all the sale/auction listings to estimate what monthly rent they could bring in. The model gets an R² of about 0.75-0.78, so good enough to spot trends but not perfect for individual properties. I chose Random Forest because:
 - It's simple and can catch well non-linear relationships
 - Handles outliers well
 - Is interpretable (we can evaluate feature importance)
-- It gets the job done with good accuracy and training time.
+- It gets the job done with good accuracy and training time
+As said in the info, the focus of this project is *not* to build a crazy accurate model, so what I have obtained here is good enough.
 
 **Dashboard**
 Built an interactive Tableau dashboard showing two key metrics:
 - Cash-on-cash return (annual return on the down payment)
 - Rental yield (annual rent / purchase price)
 
-You can filter by location, property type, energy rating, and more to explore different scenarios. For example, the dashboard allows to change the terms (e.g., duration and interest rate) of the mortgage used to buy the property (if any), and also to include renovation costs as a precentage of the property's sales price.
+The user can filter by location, property type, energy rating, and more to explore different scenarios. For example, the dashboard allows changing the terms (e.g., duration and interest rate) of the mortgage used to buy the property (if any), and also to include renovation costs as a percentage of the property's sales price.
 
 ## The Results
 
@@ -71,9 +77,9 @@ You can filter by location, property type, energy rating, and more to explore di
 
 ### What I Found
 
-A few things that surprised me:
+A few things that surprised me. These insights are based on the synthetic dataset, which preserves the statistical properties and correlations of the original data:
 
-- **Auction properties are way more profitable** (this is not the surprising part)**, even when accounting for significant renovation costs** (this is the surprising bit): they're often 30%+ cheaper than regular sales, which leads to significantly higher returns even after spending a significant amount of money in renovations.
+- **Auction properties are way more profitable** (this is not the surprising part), **even when accounting for significant renovation costs** (this is the surprising bit): they're often 30%+ cheaper than regular sales, which leads to significantly higher returns even after spending a significant amount of money in renovations.
 - **Energy efficiency doesn't matter as much as you'd think**. Lower-rated properties cost less but rent for almost the same as high-rated ones. The market doesn't seem to value it much.
 - **Rural outperforms urban**. Rural properties show higher returns even with extra maintenance factored in.
 - **No clear north/south divide**. I expected southern Italy to be cheaper and northern to be more expensive, but profitable deals exist in both.
@@ -103,9 +109,11 @@ This project taught me a lot about handling messy real-world data at scale:
 
 ## Limitations
 
-The model isn't perfect: the 75-78% R² means it's good for spotting trends and comparing properties, but you'd definitely want to verify specific listings yourself before making decisions. Also, this assumes you're buying to rent out long-term: if you're planning to flip or use it yourself, the metrics don't apply.
+The model isn't perfect: the 0.75-0.78 R² means it's good for spotting trends and comparing properties, but you'd definitely want to verify specific listings yourself before making decisions. As already said, building a model with high accuracy was not the central focus of this project. Also, this assumes you're buying to rent out long-term: if you're planning to flip or use it yourself, the metrics don't apply.
 
-The data is also a snapshot from early 2025, so the specific listings are already outdated (real estate moves fast). But the patterns and methods should still hold.
+The data is also a snapshot from early 2025, so the specific listings are now outdated.
+
+Results are based on the synthetic dataset, which preserves the statistical properties and correlations of the original data.
 
 ---
 
@@ -130,9 +138,9 @@ Scrape 107 provinces × 3 listing types = **321 independent scraping tasks**
 
 **Workflow**:
 1. For each province (e.g., Milan, Rome, Naples):
-   - Scrape RENT listings → Store in MongoDB
-   - Scrape AUCTION listings → Store in MongoDB
-   - Scrape SALE listings → Store in MongoDB
+   - Scrape `rent` listings → Store in MongoDB
+   - Scrape `auction` listings → Store in MongoDB
+   - Scrape `sale` listings → Store in MongoDB
 2. All provinces run in parallel for speed
 
 ### Technical Implementation
@@ -162,7 +170,7 @@ async def get_single_url(url, session):
 - Logging for monitoring
 
 ### Code Disclaimer
-The scraping code has been **redacted** to prevent out-of-the-box reproducibility. This is shared to demonstrate technical abilities, not to enable website scraping.
+The scraping code has been **redacted** to prevent out-of-the-box reproducibility. The code is shared to demonstrate technical abilities, not to enable or encourage website scraping.
 
 </details>
 
@@ -203,7 +211,7 @@ def mortgage_monthly_payment(principal, interest, term):
     """Calculate monthly mortgage payment"""
     i = interest / 12
     n = term * 12
-    return round(P * (i * (i + 1)**n) / ((i + 1)**n - 1), 2)
+    return round(principal * (i * (i + 1)**n) / ((i + 1)**n - 1), 2)
 ```
 
 **Output**: MongoDB warehouse with clean, structured documents
@@ -454,30 +462,8 @@ Applied to **970,000 sale/auction listings** to predict potential rental income.
 
 ## View the Code
 
-All code for this project is available on [GitHub](https://github.com/LeonardoPaccianiMori/italian-real-estate-pipeline). The code was originally written by me from scratch, and then I used Claude Code Sonnet 4.5 to re-organize it following DRY principles.
-
-**Repository Structure**:
-```
-italian-real-estate-pipeline/
-├── dags/              # Airflow workflows
-├── src/               # Shared utilities
-├── notebooks/         # Analysis notebooks
-├── data/              # Data files
-├── models/            # Saved ML models
-└── config.yaml        # Configuration
-```
-
-The code demonstrates:
-- **Production-ready practices**: Error handling, logging, configuration
-- **Scalable architecture**: Modular design, parallel processing
-- **Code quality**: DRY principles, documentation, type hints
+All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate).
 
 **Disclaimer**: Scraping code is redacted to prevent misuse. Shared for portfolio demonstration only.
 
----
-
-## Links
-
-- 📊 [Interactive Dashboard](https://public.tableau.com/views/Italianrealestate/Dashboard_1)
-- 💻 [GitHub Repository](https://github.com/LeonardoPaccianiMori/italian-real-estate-pipeline)
-- 📝 [Technical Documentation](https://github.com/LeonardoPaccianiMori/italian-real-estate-pipeline/tree/main/docs)
+**Note**: This project's code was reorganized (not rewritten) in January 2026 using Codex 5.2, in order to make it tidier and better organized.
