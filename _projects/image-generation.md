@@ -27,7 +27,10 @@ Ever since generative AI became popular in late 2022 with the first release of C
 
 The project consists of two parts: first, training networks to *recognize* handwritten digits (classification), to really get a handle on the basics of how to work with images using the techniques of Machine Learning, then training models to generate images of those handwritten digits (generation). I tested 7 different architectures for classification and 10 different configurations for generation to see what actually works better.
 
-**Main finding**: overall, the simplest CNN model performed just as well as much more complex architectures but trained significantly faster (even ~30%!). Turns out less really *is* more, sometimes.
+#### Main finding in a nutshell
+Overall, the simplest CNN model performed just as well as much more complex architectures but trained significantly faster (even ~30%!). Turns out less really *is* more, sometimes.
+
+---
 
 ## What I Built
 
@@ -63,11 +66,15 @@ In this case, however, the best performance is achieved by the more complex (and
     Comparing 5 different architectures for image generation. The most complex model (DCGAN-5) generates the highest quality images (lower FID score is better), but requires longer training.
 </div>
 
+---
+
 ## What I Learned
 
 The most important lesson: the complexity of a model should reflect the complexity of its task (or in other words, simple tasks require simple models, and complex models are not necessarily the answer for simpler tasks). For a relatively simple task like classification, the simplest CNN matched or beat the deeper networks while training *significantly* faster. For a much more complex task like generation, however, we *do* need a more complex model (and therefore also a longer training time) to reach a good enough performance.
 
 For GANs specifically, there are also several technical things that are highly influential. For example, activation functions matter **a lot**: `sigmoid` works way better than `tanh` for the discriminator. Also, batch normalization helps stabilize training, which makes sense given how sensitive GANs are to parameter changes.
+
+---
 
 ## Technical deep dive
 For the more curious, here is a deeper dive into the more technical aspects of each part of this project:
@@ -549,8 +556,6 @@ Here is the comparison of the [FID scores](https://en.wikipedia.org/wiki/Fr%C3%A
 </details>
 
 
-
-
 </details>
 
 ---
@@ -623,7 +628,7 @@ The DCGAN-5 model runs entirely in your browser using TensorFlow.js. The first g
 
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-image-generation).
 
-**Note**: This project's code was reorganized (not rewritten) in December 2025 using Codex 5.2, in order to make it tidier and better organized.
+**Note**: This project's code was originally written by my and later reorganized in December 2025 using Codex 5.2, in order to make it tidier and better organized.
 
 ---
 

@@ -28,7 +28,26 @@ The problem I want to tackle with this data is the following: using the patterns
 
 The specific problem I want to tackle (predicting returns on real estate investments) is pretty standard (and I won't focus too much effort on getting a predictive model with crazy performance), but the approach I am using to tackle it, i.e. building a custom database *from scratch* and a whole data pipeline that goes *all the way* from data collection to a dashboard, is what makes this project *really* outstanding.
 
-**Main findings**: auction properties *crush* regular sales on returns, *even when accounting for **significant** renovation costs*. Rural properties also tend to have higher ROIs compared to urban ones. These findings are based on the synthetic dataset, which preserves the statistical properties and correlations of the original data.
+#### Main findings in a nutshell
+Auction properties *crush* regular sales on returns, *even when accounting for **significant** renovation costs*. Rural properties also tend to have higher ROIs compared to urban ones. These findings are based on the synthetic dataset, which preserves the statistical properties and correlations of the original data.
+
+---
+
+## Technologies Used
+
+| **Area** | **Tools** |
+|----------|-----------|
+| Web Scraping | Selenium, BeautifulSoup, AsyncIO |
+| Workflow | Apache Airflow |
+| Databases | MongoDB, PostgreSQL |
+| Machine Learning | scikit-learn (Random Forest) |
+| Data Processing | Pandas, NumPy |
+| GPU Compute | TensorFlow |
+| Visualization | Tableau, Matplotlib |
+| Geospatial | Geopandas |
+| Translation | LibreTranslate API |
+
+---
 
 ## What I Built
 
@@ -68,6 +87,8 @@ Built an interactive Tableau dashboard showing two key metrics:
 
 The user can filter by location, property type, energy rating, and more to explore different scenarios. For example, the dashboard allows changing the terms (e.g., duration and interest rate) of the mortgage used to buy the property (if any), and also to include renovation costs as a percentage of the property's sales price.
 
+---
+
 ## The Results
 
 {% include dashboards/italian-real-estate-dashboard.html %}
@@ -84,19 +105,7 @@ A few things that surprised me. These insights are based on the synthetic datase
 - **Rural outperforms urban**. Rural properties show higher returns even with extra maintenance factored in.
 - **No clear north/south divide**. I expected southern Italy to be cheaper and northern to be more expensive, but profitable deals exist in both.
 
-## Technologies Used
-
-| **Area** | **Tools** |
-|----------|-----------|
-| Web Scraping | Selenium, BeautifulSoup, AsyncIO |
-| Workflow | Apache Airflow |
-| Databases | MongoDB, PostgreSQL |
-| Machine Learning | scikit-learn (Random Forest) |
-| Data Processing | Pandas, NumPy |
-| GPU Compute | TensorFlow |
-| Visualization | Tableau, Matplotlib, Seaborn |
-| Geospatial | Geopandas |
-| Translation | LibreTranslate API |
+---
 
 ## What I Learned
 
@@ -106,6 +115,8 @@ This project taught me a lot about handling messy real-world data at scale:
 - Designing database schemas that actually make sense for analytics (turns out the first attempt is never the right one)
 - Training ML models on sparse, noisy data where you don't control data quality
 - Making technical work useful for non-technical people
+
+---
 
 ## Limitations
 
@@ -466,4 +477,4 @@ All code for this project is available on GitHub [here](https://github.com/Leona
 
 **Disclaimer**: Scraping code is redacted to prevent misuse. Shared for portfolio demonstration only.
 
-**Note**: This project's code was reorganized (not rewritten) in January 2026 using Codex 5.2, in order to make it tidier and better organized.
+**Note**: This project's code was originally written by me and later reorganized in January 2026 using Codex 5.2, in order to make it tidier and better organized.
