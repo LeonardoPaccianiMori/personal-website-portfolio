@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Italian Cuisine
-description: Understanding the historical evolution and geographical diversity of Italian cuisine with data science
+title: A Look Into Italian Cuisine
+description: Understanding the historical evolution and geographical diversity of Italian cuisine
 img: assets/img/projects/italian-cuisine/italian-cuisine.jpg
 importance: 1
 category: portfolio

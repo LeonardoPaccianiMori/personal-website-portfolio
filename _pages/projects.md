@@ -9,6 +9,8 @@ display_categories: [portfolio, foundations]
 horizontal: false
 ---
 
+A curated set of end-to-end data science projects; each card opens a concise overview with links to deeper technical notes and code.
+
 <!-- pages/projects.md -->
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}
