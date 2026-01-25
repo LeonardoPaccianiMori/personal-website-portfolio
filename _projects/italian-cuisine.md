@@ -7,6 +7,7 @@ importance: 1
 category: portfolio
 chart:
   plotly: true
+vis_network: true
 ---
 
 <div class="row">
@@ -78,7 +79,23 @@ I assembled **two complementary datasets**:
    - Represents contemporary regional cuisine
 
 In both datasets, recipes are represented by **graphs**:
---- INSERT EXAMPLE GRAPH ---
+<div
+  class="neo4j-graph"
+  data-neo4j-graph
+  data-graph-src="{{ '/assets/data/italian-cuisine/recipe-76-example-graph.json' | relative_url }}"
+>
+  <div class="neo4j-graph__canvas" data-neo4j-graph-canvas></div>
+  <div class="neo4j-graph__panel" data-neo4j-graph-panel>
+    <div class="neo4j-graph__panel-title" data-neo4j-graph-title>Graph details</div>
+    <div class="neo4j-graph__panel-body" data-neo4j-graph-body>
+      Zoom in for more detail. Click a node or relationship to inspect metadata. Drag nodes to rearrange the graph.
+    </div>
+  </div>
+</div>
+<div class="caption">
+  Graph representation of recipe #76 from Artusi's book (mushroom risotto). Zoom in for more detail, drag around the nodes,
+  and hover or click on a node or relationship to show its metadata.
+</div>
 This allows us to retain the entire recipe's **structure** and not lose fundamental information (e.g., the order of preparation steps).
 
 ### Data Extraction
@@ -231,8 +248,6 @@ A deep dive into the results of this analysis can be found [below](#the-results)
 
 As already stated, instead of treating recipes as flat lists I modeled them as **graphs** in Neo4j in order to capture the structure of **relationships** that ingredient lists miss (e.g., *how* ingredients are used, *when* they're added, *which* techniques transform them). For example:
 
---- INSERT EXAMPLE GRAPH (RECIPE 76 MUSHROOM RISOTTO) ---
-
 #### Nodes
 - `Recipe`: contains metadata like name, category, servings
 - `Ingredient`: normalized across recipes
@@ -285,16 +300,20 @@ When using ML to learn the differences between different geographical areas, I b
 The biggest change in italian cuisine since the late 19th century has been with the ingredient usage frequency, with some ingredients (e.g., garlic, onion and parsley) becoming more common in contemporary cuisine, while others (like butter) becoming markedly less frequently used.
 
 <details markdown="1">
-<summary><strong>Deeper dive</strong></summary>
+<summary><strong>Deep dive</strong></summary>
 The first thing we can to is to compare the two datasets with each other to understand how italian cuisine has evolved since the late 19th century (keeping in mind the fact that Artusi's book is somewhat geographically limited, while the modern dataset contains data from all 20 regions).
 
 #### Recipe Complexity
 For example, by looking at the distribution of numbers of steps/ingredients/tools per recipe we can see that there haven't been significant changes since the late 19th century:
---- INSERT PLOT 1---
+```plotly
+{% include plotly/italian-cuisine/recipe-complexity.json %}
+```
 
 #### Category Evolution
 We can also look at the difference in the distribution of recipe categories (i.e., appetizers, pasta, desserts etc.) between the two datasets:
---- INSERT PLOT 2---
+```plotly
+{% include plotly/italian-cuisine/category-evolution.json %}
+```
 
 There are definitely interesting differences. The most striking is the absense of "Pizzas and savory pies" from Artusi's dataset. In Artusi's book there are in fact only **three** recipes that contain the name "pizza", and they are all *desserts*. This is because at the end of the 19th century the word "pizza" in standard italian meant something different compared to today: it was used for any kind of baked pie (both sweet and savory). The "pizza" as we know it today (i.e., neapolitan pizza) at the time was only a regional southern dish, and was not part of the national culinary canon that Artusi was trying to codify with his book. It was eaten mostly by poor people using leftover ingredients that would have otherwise be wasted.
 
@@ -310,7 +329,9 @@ Historically, the first mention of "pizza" (meant more generally as bread or bak
 
 #### Ingredient Evolution
 Let's look at the evolution of ingredient frequency over time:
---- INSERT PLOT 3---
+```plotly
+{% include plotly/italian-cuisine/top-ingredients-scatter.json %}
+```
 There's definitely a few interesting trends:
 - In modern italian cuisine there is a *sharp* increase in the use of olive oil, marked by a concurrent decrease in the use of butter
 - Salt also seems to be more mentioned in modern recipes
@@ -318,7 +339,9 @@ There's definitely a few interesting trends:
 - The use of chili peppers is basically *completely absent* in Artusi's book (it appears only *once* in the whole book, for the recipe of Cacciucco). This is due to the fact that chili peppers are abundantly used in Southern Italy but not in Northern and Central Italy
 
 We can also look at which ingredients have disappeared from the "historical" cuisine and which have appeared in the modern one:
---- INSERT PLOT 4---
+```plotly
+{% include plotly/italian-cuisine/new-vs-disappeared-ingredients.json %}
+```
 We can see how some markedly southern ingredients like tomato have made their appearance in the modern dataset (again, likely because Artusi's book was more centered in Central and Northern Italy's recipes), while lardon (not lard!) for example seems to have disappeared.
 
 </details>
@@ -328,7 +351,7 @@ We can see how some markedly southern ingredients like tomato have made their ap
 When looking at contemporary cuisine across region, a clear North-South divide appears in the usage of many of the most common ingredients (olive oil/butter, tomato, cheese etc.). This divide is also clear in the usage of different starches, with the North preferring rice and polenta while the Center and South using pasta more commonly.
 
 <details markdown="1">
-<summary><strong>Deeper dive</strong></summary>
+<summary><strong>Deep dive</strong></summary>
 
 #### Data Distribution
 Beyond temporal evolution, we can use the AIC data to look at the following general geographic patterns in the data:
@@ -337,22 +360,35 @@ Beyond temporal evolution, we can use the AIC data to look at the following gene
 - recipe variety (i.e., average number of ingredients per recipe per region)
 - ingredient variety (i.e., total number of unique ingredients per region)
 - recipe size (i.e., average number of servings per recipe per region)
---- INSERT PLOT 5 ---
+```plotly
+{% include plotly/italian-cuisine/regional-characteristics-choropleth.json %}
+```
 
 #### Signature Regional Ingredients
 We can also perform a TF-IDF analysis to determine each region's signature ingredients:
---- INSERT PLOT 6---
+```plotly
+{% include plotly/italian-cuisine/regional-signature-ingredients-map.json %}
+```
+```plotly
+{% include plotly/italian-cuisine/regional-signature-ingredients-bar.json %}
+```
 Despite being an extremely simple approach, it really captures the characteristic ingredients for each region
 
 We can also look at the distribution of the usage frequency for the 10 most common ingredients:
---- INSERT PLOT 7---
-This map shows several interesting trends that we will analyze below.
+```plotly
+{% include plotly/italian-cuisine/ingredient-usage-choropleth.json %}
+```
+This map shows several interesting geographical patterns that we will look at in more detail below.
 
 #### Regional Similarity Analysis
 In order to better understand the relationships between regional cuisines, we can compute how *similar* they are to each other in terms of ingredients used. If we take the matrix showing the usage of ALL ingredients across ALL regions, and compute the cosine similarity between regions:
---- INSERT PLOT 8---
+```plotly
+{% include plotly/italian-cuisine/regional-similarity-choropleth.json %}
+```
 The same data plotted as a heatmap immediately shows interesting patterns:
---- INSERT PLOT 9---
+```plotly
+{% include plotly/italian-cuisine/regional-similarity-heatmap-macro.json %}
+```
 We can immediately notice the folliwing things:
 - regions within the same macroregion are generally more similar to each other
 - regions belonging to different macroregions are less similar to each other
@@ -360,7 +396,7 @@ We can immediately notice the folliwing things:
 - Liguria is also striking: despite being in Northern Italy its cuisine is more similar to Central/Southern Italy
 
 Similar conclusions can be reached if we perform hierarchical clustering on the data:
---- INSERT PLOT 10---
+{% include figure.liquid loading="lazy" path="assets/img/projects/italian-cuisine/italian-cuisine-hierarchical-clustering.png" title="Hierarchical Clustering of Italian Regional Cuisines" class="img-fluid rounded z-depth-1" %}
 
 ##### The Olive Oil vs Butter Line
 
@@ -371,7 +407,7 @@ The most striking geographic divide in the data is withot doubt the **oil-butter
 ```
 
 <div class="caption">
-    Diverging choropleth map showing fat preference by region: green = olive oil dominant, red = butter dominant. Interactive: hover for details, zoom/pan to explore.
+    Diverging choropleth map showing fat preference by region: green = olive oil dominant, red = butter dominant. Hover for details, zoom/pan to explore.
 </div>
 
 This is a fundamental agricultural/climatic divide that the GNN learns to recognize: historically, Central and Southern Italy has had a more favorable climate for growing olive trees, while in Northern Italy cattle farming has been more prominent, leading to a higher usage of butter.
@@ -397,7 +433,7 @@ Two more ingredient patterns reveal regional specialization:
 ```
 
 <div class="caption">
-    Cheese usage across regions. Note: This shows cheese used in recipes, not the diversity of cheese production.
+    Cheese usage across regions. Note: This shows cheese used in recipes, <i>not</i> the diversity of cheese production.
 </div>
 
 ```plotly
@@ -421,7 +457,7 @@ Different regions favor different starches (pasta, rice, polenta), but again a N
 ```
 
 <div class="caption">
-    RGB ternary visualization: Red = Pasta, Green = Rice, Blue = Polenta. Each region colored by proportional usage. Interactive: hover to see exact percentages.
+    RGB ternary visualization: Red = Pasta, Green = Rice, Blue = Polenta. Each region colored by proportional usage. Hover to see exact percentages.
 </div>
 
 While some regions have one clear preference for a single starch (e.g., Trentino-Alto Adige primarily using polenta, or Puglia using almost exclusively pasta), there are also regions where a more mixed approached is used for starch usage (e.g., Sardinia, and less markedly Tuscany).
@@ -444,7 +480,7 @@ The predictive performance is not uniform across macro-regions:
 - **Center**: 35% F1-score (challenging); the Center has traditionally been an area of transition between North and South, so its cuisine has aspects of both 
 
 <details markdown="1">
-<summary><strong>Deeper dive</strong></summary>
+<summary><strong>Deep dive</strong></summary>
 
 #### What the model learned: regional clustering
 PCA visualization reveals the model learns genuine geographic patterns:
@@ -454,7 +490,7 @@ PCA visualization reveals the model learns genuine geographic patterns:
 ```
 
 <div class="caption">
-    PCA projection of recipe embeddings colored by macro-region. Clear clustering shows the model learns geographic patterns, not random correlations. Interactive: hover to see region names.
+    PCA projection of recipe embeddings colored by macro-region. Clear clustering shows the model learns geographic patterns, not random correlations. Hover to see region names.
 </div>
 
 #### Key observations

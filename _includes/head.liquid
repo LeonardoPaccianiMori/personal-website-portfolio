@@ -94,6 +94,20 @@
   >
 {% endif %}
 
+{% if page.vis_network %}
+  <!-- vis-network -->
+  <link
+    defer
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/styles/vis-network.min.css"
+  >
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ '/assets/css/neo4j-graph.css' | relative_url | bust_file_cache }}"
+  >
+{% endif %}
+
 {% if page.code_diff %}
   <!-- diff2html -->
   <link
