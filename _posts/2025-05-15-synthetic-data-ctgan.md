@@ -495,3 +495,9 @@ Also learned that domain knowledge beats generic algorithms when you have it. CT
 GPU acceleration changed what's viable to implement. My custom K-NN approach would have been too slow on CPU (hours for 1 million samples), but with TensorFlow on GPU it ran in minutes. That 10× speedup opened up custom solutions that otherwise wouldn't be practical.
 
 Geographic data needs special care. Spatial correlations are complex - properties close together tend to have similar prices, but "close" means different things in cities vs rural areas. Generic synthetic data tools don't understand that spatial structure, so you have to build it in yourself.
+
+---
+
+## Disclaimer
+
+The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.

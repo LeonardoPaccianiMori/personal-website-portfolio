@@ -421,3 +421,9 @@ generator_hidden = LeakyReLU(alpha=0.2)
 discriminator_hidden = LeakyReLU(alpha=0.2)
 discriminator_output = 'sigmoid'
 ```
+
+---
+
+## Disclaimer
+
+The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.

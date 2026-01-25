@@ -478,3 +478,9 @@ All code for this project is available on GitHub [here](https://github.com/Leona
 **Disclaimer**: Scraping code is redacted to prevent misuse. Shared for portfolio demonstration only.
 
 **Note**: This project's code was originally written by me and later reorganized in January 2026 using Codex 5.2, in order to make it tidier and better organized.
+
+---
+
+## Disclaimer
+
+The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.

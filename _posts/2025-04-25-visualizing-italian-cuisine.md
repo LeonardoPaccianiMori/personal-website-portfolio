@@ -591,3 +591,9 @@ These weren't just "prettier" versions of bar charts. They were **different ques
 Also learned: **invest time in custom visualizations early**. I spent two weeks making standard plots, then one day building the RGB ternary map, which became the most insightful visualization in the project. The upfront effort (learning PIL, barycentric coordinates, Plotly customization) paid off immediately.
 
 Finally: **geographic context matters for geographic data**. PCA and t-SNE embeddings are powerful for clustering, but they lose the spatial relationships that make Italian cuisine geographic (neighbors share ingredients, climate drives choices). Keeping the map view preserved that context and made patterns interpretable.
+
+---
+
+## Disclaimer
+
+The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.

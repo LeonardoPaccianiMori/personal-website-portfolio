@@ -362,3 +362,9 @@ Representing those relationships explicitly (as graphs) lets the model learn pat
 Also, Neo4j surprised me. I expected it to be overkill for 3,000 recipes, something you'd only use at Google scale. But the ability to query complex patterns in Cypher, visualize subgraphs, and export directly to GNN format made development much faster. I'd use it again for any project where relationships matter.
 
 The meta-lesson: **before reaching for fancy algorithms, make sure your data representation captures the problem structure**. I spent weeks tuning hyperparameters on flat features. Switching to graphs gave a bigger improvement in one day.
+
+---
+
+## Disclaimer
+
+The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.

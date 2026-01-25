@@ -472,3 +472,9 @@ Kernel size had a bigger impact than I expected. FCNN-3 with 5×5 kernels outper
 The meta-lesson: don't default to complexity. I started this experiment assuming deeper networks would perform better, but the data disagreed. Sometimes the "simple" approach really is better - you get the same accuracy with faster training, fewer parameters, and less risk of overfitting.
 
 Also learned to measure what actually matters. Accuracy alone doesn't tell the story. CNN-2 and CNN-3 matched CNN-1's accuracy but trained slower and had way more parameters. If you don't measure training time and model size, you might pick a worse model.
+
+---
+
+## Disclaimer
+
+The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.
