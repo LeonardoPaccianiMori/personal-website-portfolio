@@ -1,0 +1,149 @@
+---
+layout: none
+title: wanderer
+permalink: /wanderer/
+nav: true
+nav_order: 4
+new_tab: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderer - 3D Gravity Simulator</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #ui-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            font-size: 14px;
+            pointer-events: none;
+            z-index: 100;
+            min-width: 350px;
+        }
+
+        #ui-overlay h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #00ff88;
+        }
+
+        #ui-overlay .stat {
+            margin: 5px 0;
+        }
+
+        #ui-overlay .controls {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #444;
+        }
+
+        #ui-overlay .control-item {
+            margin: 3px 0;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        #ui-overlay .key {
+            display: inline-block;
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #00ff88;
+            margin-right: 5px;
+        }
+
+        #mode-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 255, 136, 0.2);
+            padding: 20px 40px;
+            border-radius: 8px;
+            border: 2px solid #00ff88;
+            font-size: 18px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 101;
+        }
+
+        #mode-indicator.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <div id="ui-overlay">
+        <h1>WANDERER</h1>
+        <div class="stat">Bodies: <span id="body-count">0</span></div>
+        <div class="stat">Energy: <span id="energy">0.00</span></div>
+        <div class="stat">FPS: <span id="fps">60</span></div>
+        <div class="stat">Time: <span id="time-scale">1.0x</span></div>
+        <div class="stat">Mode: <span id="mode">Normal</span></div>
+        <div class="stat" id="planet-mass-stat" style="display: none;">Planet Mass: <span id="planet-mass">0</span></div>
+
+        <div class="controls-header" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #444; margin-bottom: 5px; font-size: 12px; color: #00ff88;">Press H to hide/show controls</div>
+
+        <div id="controls-section">
+            <div class="controls">
+            <div class="control-item"><span class="key">E</span> Add Planet</div>
+            <div class="control-item"><span class="key">Q</span> Add random Planet</div>
+            <div class="control-item"><span class="key">Click</span> Delete Planet</div>
+            <div class="control-item"><span class="key">Alt+Click</span> Follow Planet</div>
+            <div class="control-item"><span class="key">WASD</span> Move Camera</div>
+            <div class="control-item"><span class="key">Alt+WASD</span> Rotate Camera</div>
+            <div class="control-item"><span class="key">Shift</span> Fast Move</div>
+            <div class="control-item"><span class="key">Mouse</span> Look Around</div>
+            <div class="control-item"><span class="key">Space</span> Pause/Resume</div>
+            <div class="control-item"><span class="key">T</span> Toggle Trails</div>
+            <div class="control-item"><span class="key">C</span> Slow Time</div>
+            <div class="control-item"><span class="key">V</span> Speed Time</div>
+            <div class="control-item"><span class="key">Alt+C/V</span> Reset Time (1x)</div>
+            <div class="control-item"><span class="key">F</span> Follow CoM</div>
+            <div class="control-item"><span class="key">R</span> Reset Game</div>
+            <div class="control-item"><span class="key">Scroll</span> Zoom / Resize Planet</div>
+        </div>
+        </div>
+    </div>
+
+    <div id="mode-indicator"></div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
