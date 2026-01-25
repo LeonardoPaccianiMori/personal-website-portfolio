@@ -109,6 +109,15 @@
   <script defer src="{{ '/assets/js/plotly-setup.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
 {% endif %}
 
+{% if page.vis_network %}
+  <!-- vis-network -->
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/dist/vis-network.min.js"
+  ></script>
+  <script defer src="{{ '/assets/js/neo4j-graph.js' | relative_url | bust_file_cache }}"></script>
+{% endif %}
+
 {% if page.chart and page.chart.vega_lite %}
   <!-- Vega -->
   <script

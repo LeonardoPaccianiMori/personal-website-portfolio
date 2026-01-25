@@ -47,6 +47,110 @@ document.addEventListener("readystatechange", () => {
       }
 
       Plotly.react(chartElement, jsonData.data, jsonData.layout);
+      attachPlotlyInteractions(chartElement, jsonData);
     });
   }
 });
+
+function attachPlotlyInteractions(chartElement, jsonData) {
+  const meta = jsonData && jsonData.layout && jsonData.layout.meta;
+  if (!meta || !meta.plot_id) {
+    return;
+  }
+
+  if (chartElement.dataset.plotlyInteractions === meta.plot_id) {
+    return;
+  }
+
+  chartElement.dataset.plotlyInteractions = meta.plot_id;
+  if (meta.group_id) {
+    chartElement.dataset.plotlyGroup = meta.group_id;
+  }
+
+  if (meta.plot_id === "regional-signature-ingredients") {
+    attachSignatureIngredients(chartElement, meta);
+  } else if (meta.plot_id === "regional-signature-ingredients-map") {
+    attachSignatureIngredients(chartElement, meta);
+  } else if (meta.plot_id === "regional-similarity-choropleth") {
+    attachSimilarityChoropleth(chartElement, meta);
+  }
+}
+
+function attachSignatureIngredients(chartElement, meta) {
+  const regions = meta.regions || [];
+  const signatureData = meta.signature_data || {};
+  const groupId = meta.group_id;
+
+  if (!regions.length) {
+    return;
+  }
+
+  chartElement.on("plotly_click", (eventData) => {
+    const point = eventData && eventData.points && eventData.points[0];
+    if (!point || point.curveNumber !== 0) {
+      return;
+    }
+
+    const region = point.customdata;
+    if (!region || !signatureData[region]) {
+      return;
+    }
+
+    const zValues = regions.map((item) => (item === region ? 1 : 0));
+    const barData = signatureData[region];
+
+    Plotly.restyle(chartElement, { z: [zValues] }, [0]);
+    Plotly.relayout(chartElement, {
+      "title.text": `Regional Signature Ingredients - Click to Explore (Currently: ${region})`,
+    });
+
+    if (chartElement.data && chartElement.data.length > 1) {
+      Plotly.restyle(chartElement, { x: [barData.x], y: [barData.y], name: [region] }, [1]);
+      return;
+    }
+
+    if (!groupId) {
+      return;
+    }
+
+    const selector = `[data-plotly-group=\"${groupId}\"]`;
+    const plots = Array.from(document.querySelectorAll(selector));
+    const barPlot = plots.find(
+      (plot) => plot.dataset.plotlyInteractions === "regional-signature-ingredients-bar"
+    );
+
+    if (!barPlot) {
+      return;
+    }
+
+    Plotly.restyle(barPlot, { x: [barData.x], y: [barData.y], name: [region] }, [0]);
+  });
+}
+
+function attachSimilarityChoropleth(chartElement, meta) {
+  const regions = meta.regions || [];
+  const similarityData = meta.similarity_data || {};
+
+  if (!regions.length) {
+    return;
+  }
+
+  chartElement.on("plotly_click", (eventData) => {
+    const point = eventData && eventData.points && eventData.points[0];
+    if (!point || point.curveNumber !== 0) {
+      return;
+    }
+
+    const region = point.location;
+    if (!region || !similarityData[region]) {
+      return;
+    }
+
+    const regionData = similarityData[region];
+
+    Plotly.restyle(chartElement, { z: [regionData.z], text: [regionData.text] }, [0]);
+    Plotly.relayout(chartElement, {
+      "title.text": `Cuisine Similarity to ${region} (Click a Region to Change)`,
+    });
+  });
+}
