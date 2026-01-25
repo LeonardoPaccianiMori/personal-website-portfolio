@@ -5,11 +5,26 @@ $(document).ready(function () {
   if ($("#toc-sidebar").length) {
     var navSelector = "#toc-sidebar";
     var $myNav = $(navSelector);
-    Toc.init($myNav);
-    $("body").scrollspy({
-      target: navSelector,
-      offset: 100,
-    });
+    if (typeof Toc !== "undefined") {
+      var $scope = $("#markdown-content");
+      if (!$scope.length) {
+        $scope = $("article").first();
+      }
+
+      $myNav.empty();
+      $myNav.attr("data-toggle", "toc");
+
+      var $headings = $scope.find("h2, h3").filter(":not([data-toc-skip])");
+      if ($headings.length) {
+        var $navList = Toc.helpers.createChildNavList($myNav);
+        Toc.helpers.populateNav($navList, 2, $headings);
+      }
+
+      $("body").scrollspy({
+        target: navSelector,
+        offset: 100,
+      });
+    }
   }
 
   // add css to jupyter notebooks
