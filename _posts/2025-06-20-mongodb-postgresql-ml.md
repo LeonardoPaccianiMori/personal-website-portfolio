@@ -600,3 +600,9 @@ ETL is where the real work happens. The databases themselves are just storage - 
 Normalization matters more for ML than I expected. Having clean, typed, non-redundant data in PostgreSQL meant fewer data quality issues during feature engineering. The snowflake schema forced me to think through relationships upfront, which caught inconsistencies that would have broken the model later.
 
 Also learned not to over-architect upfront. I started with a simple MongoDB dump of raw HTML, then evolved to a warehouse structure, then migrated to PostgreSQL. If I'd tried to design the "perfect" database schema on day one, I would have gotten it wrong because I didn't understand the data yet.
+
+---
+
+## Disclaimer
+
+The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.

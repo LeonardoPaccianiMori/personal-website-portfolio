@@ -563,3 +563,9 @@ All code for this project is available on [GitHub](https://github.com/LeonardoPa
 [^1]: Keep in mind that at the time of unification, what is now considered "standard italian" was only a written and literary language that was used daily as a spoken language only by the educated minority (aristocrats, urban middle class, clergy, bureaucrats, teachers, lawyers etc.): the general population spoke their [regional language](https://en.wikipedia.org/wiki/Languages_of_Italy), nowadays improperly called *dialects*: these are languages that evolved *independently* from latin (their common ancestor), and *not* from standard italian itself (as would be the case with *proper* dialects). These languages are not mutually intelligible: for example, the sicilian language is strongly influenced by spanish and arabic (due to *centuries* of arab and spanish dominion over the island), while the piedmontese language is strongly influenced by french (due to historical and cultural proximity with France). Therefore, at the time of unification the majority of people from different parts of Italy would *not* have been able to understand each other. Thus, Artusi wrote his book also as a way to create a shared national identity through cuisine (since the educated minority would still have their own regional cultures and cuisines).
 
 [^2]: Italy is one of just a few European countries, another notable example being Germany, whose standard language does *not* come from the capital's dialect. Note how both Italy and Germany have had a history of being divided into smaller countries or city-states for *centuries* before being unified in the 19th century (contrarily to, for example, France, Spain, or the UK, which have existed as a unitary entity for *centuries*).
+
+---
+
+## Disclaimer
+
+The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.

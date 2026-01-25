@@ -633,3 +633,9 @@ All code for this project is available on GitHub [here](https://github.com/Leona
 ---
 
 [^1]: This project was executed on my personal laptop, a [System76 Kudu](https://tech-docs.system76.com/models/kudu6/README.html).
+
+---
+
+## Disclaimer
+
+The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.

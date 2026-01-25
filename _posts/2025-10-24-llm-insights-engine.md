@@ -279,3 +279,9 @@ The opportunity with LLMs isn't to replace human analysts—it's to **amplify th
 **Questions or comments?** I'd love to hear from other data scientists working on production LLM systems. What approaches have you found effective for hallucination prevention?
 
 <!-- TODO: If you want comments enabled, update the front matter to enable Giscus -->
+
+---
+
+## Disclaimer
+
+The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.
