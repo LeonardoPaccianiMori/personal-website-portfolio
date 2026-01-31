@@ -31,7 +31,7 @@ Auction properties outperform regular sales on ROI even after significant renova
 
 ---
 
-## Technologies Used
+## Tools Used
 
 | **Area** | **Tools** |
 |----------|-----------|

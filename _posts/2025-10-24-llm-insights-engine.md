@@ -93,7 +93,7 @@ The system has [X] main components:
 1. **Data Integration Layer**
    - [How you unified the different data sources]
    - [What transformations or standardizations were needed]
-   - [Technologies used: databases, APIs, etc.]
+   - [Tools used: databases, APIs, etc.]
 
 2. **Query Processing**
    - [How you parse user questions]
@@ -254,7 +254,7 @@ The opportunity with LLMs isn't to replace human analysts—it's to **amplify th
 
 ---
 
-## Technologies Used
+## Tools Used
 
 | **Category** | **Technology** |
 |--------------|----------------|

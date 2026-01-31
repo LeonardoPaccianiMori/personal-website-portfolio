@@ -1,7 +1,7 @@
 /**
  * Physics Engine for Wanderer
  * Implements N-body gravitational simulation with Leapfrog (Verlet) integration
- * Barnes-Hut O(N log N) gravity + Spatial hashing O(N) collisions + Dynamic trail scaling!
+ * Brute-force gravity + Spatial hashing collisions + Dynamic trail scaling!
  * Version: 2025-11-22-v9
  */
 
@@ -50,6 +50,10 @@ function blendColorsWeighted(color1, color2) {
     return '#' + toHex(r) + toHex(g) + toHex(b);
 }
 
+function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+}
+
 export class Vector3 {
     constructor(x = 0, y = 0, z = 0) {
         this.x = x;
@@ -90,159 +94,25 @@ export class Vector3 {
         return m > 0 ? this.div(m) : new Vector3();
     }
 
+    dot(v) {
+        return this.x * v.x + this.y * v.y + this.z * v.z;
+    }
+
+    cross(v) {
+        return new Vector3(
+            this.y * v.z - this.z * v.y,
+            this.z * v.x - this.x * v.z,
+            this.x * v.y - this.y * v.x
+        );
+    }
+
     dist(v) {
         return this.sub(v).mag();
-    }
-
-    distSq(v) {
-        return this.sub(v).magSq();
-    }
-}
-
-/**
- * Octree Node for Barnes-Hut algorithm
- * Represents a cubic region of space that can contain bodies
- */
-class OctreeNode {
-    constructor(center, size) {
-        this.center = center;      // Center of this cubic region
-        this.size = size;          // Side length of the cube
-        this.body = null;          // If leaf: the single body in this node
-        this.totalMass = 0;        // Total mass of all bodies in this node
-        this.centerOfMass = null;  // Center of mass of all bodies in this node
-        this.children = null;      // Array of 8 children (if internal node)
-        this.isLeaf = true;        // Whether this is a leaf node
-    }
-
-    /**
-     * Check if a position is within this node's boundaries
-     */
-    contains(pos) {
-        const halfSize = this.size / 2;
-        return Math.abs(pos.x - this.center.x) <= halfSize &&
-               Math.abs(pos.y - this.center.y) <= halfSize &&
-               Math.abs(pos.z - this.center.z) <= halfSize;
-    }
-
-    /**
-     * Insert a body into this node
-     */
-    insert(body) {
-        // If this node doesn't contain the body, ignore it
-        if (!this.contains(body.pos)) {
-            return false;
-        }
-
-        // Case 1: Empty node - just add the body
-        if (this.totalMass === 0) {
-            this.body = body;
-            this.totalMass = body.mass;
-            this.centerOfMass = body.pos.clone();
-            return true;
-        }
-
-        // Case 2: Leaf node with one body - subdivide and redistribute
-        if (this.isLeaf) {
-            const oldBody = this.body;
-            this.body = null;
-            this.isLeaf = false;
-            this.subdivide();
-
-            // Reinsert old body into children
-            this.insertIntoChildren(oldBody);
-        }
-
-        // Case 3: Internal node - insert into appropriate child
-        this.insertIntoChildren(body);
-
-        // Update this node's center of mass and total mass
-        const totalMass = this.totalMass + body.mass;
-        this.centerOfMass = this.centerOfMass.mult(this.totalMass)
-            .add(body.pos.mult(body.mass))
-            .div(totalMass);
-        this.totalMass = totalMass;
-
-        return true;
-    }
-
-    /**
-     * Create 8 children subdividing this node's space
-     */
-    subdivide() {
-        this.children = [];
-        const quarterSize = this.size / 4;
-        const halfSize = this.size / 2;
-
-        // Create 8 octants
-        for (let i = 0; i < 8; i++) {
-            const offsetX = (i & 1) ? quarterSize : -quarterSize;
-            const offsetY = (i & 2) ? quarterSize : -quarterSize;
-            const offsetZ = (i & 4) ? quarterSize : -quarterSize;
-
-            const childCenter = new Vector3(
-                this.center.x + offsetX,
-                this.center.y + offsetY,
-                this.center.z + offsetZ
-            );
-
-            this.children.push(new OctreeNode(childCenter, halfSize));
-        }
-    }
-
-    /**
-     * Insert a body into the appropriate child node
-     */
-    insertIntoChildren(body) {
-        for (const child of this.children) {
-            if (child.insert(body)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Calculate gravitational force on a body using Barnes-Hut approximation
-     * theta: threshold for approximation (typically 0.5)
-     * Lower theta = more accurate but slower
-     */
-    calculateForce(body, theta, gConst, gravExp) {
-        // Empty node - no force
-        if (this.totalMass === 0 || this.totalMass < 0.001) {
-            return new Vector3();
-        }
-
-        const r = this.centerOfMass.sub(body.pos);
-        const distSq = r.magSq();
-
-        // Avoid self-interaction
-        if (distSq < 0.01) {
-            return new Vector3();
-        }
-
-        const dist = Math.sqrt(distSq);
-
-        // If this is a leaf with a single body, or if the node is far enough away,
-        // treat it as a single point mass
-        if (this.isLeaf || (this.size / dist) < theta) {
-            const forceMag = gConst * this.totalMass / Math.pow(dist, gravExp);
-            return r.normalize().mult(forceMag);
-        }
-
-        // Otherwise, recursively calculate force from children
-        let totalForce = new Vector3();
-        if (this.children) {
-            for (const child of this.children) {
-                totalForce = totalForce.add(child.calculateForce(body, theta, gConst, gravExp));
-            }
-        }
-
-        return totalForce;
     }
 }
 
 export class Body {
-    constructor(pos, velocity, mass, radius, color) {
+    constructor(pos, velocity, mass, radius, color, spinAxis = null, spinRate = 0, spinAngle = 0) {
         this.pos = pos instanceof Vector3 ? pos : new Vector3();
         this.velocity = velocity instanceof Vector3 ? velocity : new Vector3();
         this.mass = mass || 1.0;
@@ -250,27 +120,51 @@ export class Body {
         this.color = color || '#ffffff';
         this.id = Math.random().toString(36).substr(2, 9);
         this.trail = [];
+
+        const axis = spinAxis instanceof Vector3 ? spinAxis.clone() : new Vector3(0, 1, 0);
+        this.spinAxis = axis.magSq() > 0 ? axis.normalize() : new Vector3(0, 1, 0);
+        this.spinRate = Math.max(0, spinRate || 0);
+        this.spinAngle = spinAngle || 0;
+        this.k2 = 0.3;
+        this.tidalLag = 0.5;
+        this.tidalStrength = 10.0;
+        this.obliquityAlignRate = 0.03;
+        this.axes = { a: this.radius, b: this.radius, c: this.radius };
+        this.axisX = new Vector3(1, 0, 0);
+        this.axisY = new Vector3(0, 1, 0);
+        this.axisZ = new Vector3(0, 0, 1);
+        this.inertiaDiag = new Vector3();
+        this.quadDiag = new Vector3();
+        this.maxExtent = this.radius;
+        this.tideAxis = new Vector3(1, 0, 0);
+        this.updateInertia();
     }
 
-    clone() {
-        const body = new Body(
-            this.pos.clone(),
-            this.velocity.clone(),
-            this.mass,
-            this.radius,
-            this.color
-        );
-        body.id = this.id;
-        return body;
+    updateInertia() {
+        if (this.axes) {
+            const a = this.axes.a;
+            const b = this.axes.b;
+            const c = this.axes.c;
+            const Ixx = 0.2 * this.mass * (b * b + c * c);
+            const Iyy = 0.2 * this.mass * (a * a + b * b);
+            const Izz = 0.2 * this.mass * (a * a + c * c);
+            this.inertiaDiag = new Vector3(Ixx, Iyy, Izz);
+            this.momentOfInertia = Iyy;
+        } else {
+            this.momentOfInertia = 0.4 * this.mass * this.radius * this.radius;
+            this.inertiaDiag = new Vector3(this.momentOfInertia, this.momentOfInertia, this.momentOfInertia);
+        }
     }
 
-    updateTrail(showTrails, maxTrailLength = 500) {
+    updateTrail(showTrails, maxTrailLength = 500, referenceOffset = null) {
         if (!showTrails) {
             this.trail = [];
             return;
         }
 
-        this.trail.push(this.pos.clone());
+        // Store trail points in the chosen reference frame.
+        const offset = referenceOffset || new Vector3();
+        this.trail.push(this.pos.sub(offset));
 
         // Dynamically limit trail length based on body count
         if (this.trail.length > maxTrailLength) {
@@ -288,8 +182,12 @@ export class PhysicsEngine {
         this.paused = false;
         this.showTrails = true;
         this.timeScale = 1.0; // Time scale multiplier (0.1 to 100)
-        this.theta = 0.5;   // Barnes-Hut approximation threshold (lower = more accurate, higher = faster)
-        this.useBarnesHut = true; // Toggle Barnes-Hut algorithm (set to false for brute force)
+        this.maxSpinRate = 2.0; // Clamp to avoid extreme spin
+        this.useQuadrupole = true;
+        this.maxFlattening = 0.5;
+        this.minAxisRatio = 0.5;
+        this.flatteningOmegaMax = 5.0;
+        this.flatteningExponent = 0.7;
     }
 
     addBody(body) {
@@ -303,91 +201,301 @@ export class PhysicsEngine {
         }
     }
 
-    removeBodyById(id) {
-        const index = this.bodies.findIndex(b => b.id === id);
-        if (index > -1) {
-            this.bodies.splice(index, 1);
-        }
-    }
-
     clear() {
         this.bodies = [];
     }
 
-    /**
-     * Build octree from current bodies
-     * Returns the root node of the octree
-     */
-    buildOctree() {
-        if (this.bodies.length === 0) {
-            return null;
+    getSupportRadius(body, direction) {
+        if (!body.axes || !body.axisX || !body.axisY || !body.axisZ) {
+            return body.radius;
         }
 
-        // Find bounding box of all bodies
-        let minX = Infinity, minY = Infinity, minZ = Infinity;
-        let maxX = -Infinity, maxY = -Infinity, maxZ = -Infinity;
+        const dir = direction.magSq() > 0 ? direction.normalize() : new Vector3(1, 0, 0);
+        const dx = body.axisX.dot(dir);
+        const dy = body.axisY.dot(dir);
+        const dz = body.axisZ.dot(dir);
+        const a = body.axes.a;
+        const b = body.axes.b;
+        const c = body.axes.c;
 
-        for (const body of this.bodies) {
-            minX = Math.min(minX, body.pos.x);
-            minY = Math.min(minY, body.pos.y);
-            minZ = Math.min(minZ, body.pos.z);
-            maxX = Math.max(maxX, body.pos.x);
-            maxY = Math.max(maxY, body.pos.y);
-            maxZ = Math.max(maxZ, body.pos.z);
-        }
-
-        // Create root node with padding to ensure all bodies fit
-        const centerX = (minX + maxX) / 2;
-        const centerY = (minY + maxY) / 2;
-        const centerZ = (minZ + maxZ) / 2;
-        const center = new Vector3(centerX, centerY, centerZ);
-
-        // Size is the maximum extent plus some padding
-        const size = Math.max(
-            maxX - minX,
-            maxY - minY,
-            maxZ - minZ
-        ) * 1.2; // 20% padding
-
-        const root = new OctreeNode(center, size);
-
-        // Insert all bodies into the octree
-        for (const body of this.bodies) {
-            root.insert(body);
-        }
-
-        return root;
+        const denom = (dx * dx) / (a * a) + (dy * dy) / (c * c) + (dz * dz) / (b * b);
+        if (denom <= 0) return body.radius;
+        return 1 / Math.sqrt(denom);
     }
 
-    /**
-     * Calculate gravitational acceleration on a body
-     * Uses Barnes-Hut algorithm if enabled, otherwise brute force
-     */
-    calculateAcceleration(body, octree = null) {
-        // Barnes-Hut algorithm
-        if (this.useBarnesHut && octree) {
-            return octree.calculateForce(body, this.theta, this.gConst, this.gravExp);
+    tensorMultiply(t, v) {
+        return new Vector3(
+            t.xx * v.x + t.xy * v.y + t.xz * v.z,
+            t.xy * v.x + t.yy * v.y + t.yz * v.z,
+            t.xz * v.x + t.yz * v.y + t.zz * v.z
+        );
+    }
+
+    dominantEigenvector(tensor, seed) {
+        let v = seed && seed.magSq() > 0 ? seed.normalize() : new Vector3(1, 0, 0);
+        for (let i = 0; i < 5; i++) {
+            const tv = this.tensorMultiply(tensor, v);
+            const mag = tv.mag();
+            if (mag < 1e-9) {
+                return v;
+            }
+            v = tv.div(mag);
+        }
+        return v;
+    }
+
+    getPerpendicularAxis(axis) {
+        const up = Math.abs(axis.y) < 0.9 ? new Vector3(0, 1, 0) : new Vector3(1, 0, 0);
+        const perp = up.cross(axis);
+        return perp.magSq() > 0 ? perp.normalize() : new Vector3(1, 0, 0);
+    }
+
+    updateBodyShapes() {
+        const n = this.bodies.length;
+        if (n === 0) return;
+
+        // Estimate tidal tensor field to derive deformation axes.
+        const tensors = Array.from({ length: n }, () => ({
+            xx: 0,
+            xy: 0,
+            xz: 0,
+            yy: 0,
+            yz: 0,
+            zz: 0
+        }));
+
+        const eps = 1e-9;
+
+        // Symmetric pairwise gravity with optional quadrupole correction.
+        for (let i = 0; i < n; i++) {
+            for (let j = i + 1; j < n; j++) {
+                const bi = this.bodies[i];
+                const bj = this.bodies[j];
+                const r = bj.pos.sub(bi.pos);
+                const distSq = r.magSq();
+                if (distSq < eps) continue;
+
+                const dist = Math.sqrt(distSq);
+                const invDist = 1 / dist;
+                const invDist3 = invDist * invDist * invDist;
+                const nx = r.x * invDist;
+                const ny = r.y * invDist;
+                const nz = r.z * invDist;
+
+                const nn_xx = nx * nx;
+                const nn_xy = nx * ny;
+                const nn_xz = nx * nz;
+                const nn_yy = ny * ny;
+                const nn_yz = ny * nz;
+                const nn_zz = nz * nz;
+
+                const txx = 3 * nn_xx - 1;
+                const txy = 3 * nn_xy;
+                const txz = 3 * nn_xz;
+                const tyy = 3 * nn_yy - 1;
+                const tyz = 3 * nn_yz;
+                const tzz = 3 * nn_zz - 1;
+
+                const factorI = this.gConst * bj.mass * invDist3;
+                const factorJ = this.gConst * bi.mass * invDist3;
+
+                const Ti = tensors[i];
+                Ti.xx += factorI * txx;
+                Ti.xy += factorI * txy;
+                Ti.xz += factorI * txz;
+                Ti.yy += factorI * tyy;
+                Ti.yz += factorI * tyz;
+                Ti.zz += factorI * tzz;
+
+                const Tj = tensors[j];
+                Tj.xx += factorJ * txx;
+                Tj.xy += factorJ * txy;
+                Tj.xz += factorJ * txz;
+                Tj.yy += factorJ * tyy;
+                Tj.yz += factorJ * tyz;
+                Tj.zz += factorJ * tzz;
+            }
         }
 
-        // Brute force (fallback)
-        let acc = new Vector3();
+        for (let i = 0; i < n; i++) {
+            const body = this.bodies[i];
+            const tensor = tensors[i];
+            const mass = Math.max(body.mass, eps);
+            const baseRadius = body.radius;
 
-        for (const other of this.bodies) {
-            if (body === other) continue;
+            let spinAxis = body.spinAxis && body.spinAxis.magSq() > 0
+                ? body.spinAxis.normalize()
+                : new Vector3(0, 1, 0);
+            body.spinAxis = spinAxis;
 
-            const r = other.pos.sub(body.pos);
-            const distSq = r.magSq();
+            let tideAxis = this.dominantEigenvector(tensor, body.tideAxis);
+            const lambda = tideAxis.dot(this.tensorMultiply(tensor, tideAxis));
+            if (!isFinite(lambda) || Math.abs(lambda) < 1e-9) {
+                tideAxis = this.getPerpendicularAxis(spinAxis);
+            }
 
-            if (distSq < 0.01) continue; // Avoid singularity
+            let axisX = tideAxis.sub(spinAxis.mult(spinAxis.dot(tideAxis)));
+            if (axisX.magSq() < eps) {
+                axisX = this.getPerpendicularAxis(spinAxis);
+            } else {
+                axisX = axisX.normalize();
+            }
 
-            const dist = Math.sqrt(distSq);
-            const forceMag = this.gConst * other.mass / Math.pow(dist, this.gravExp);
-            const forceDir = r.normalize();
+            const axisY = spinAxis;
+            const axisZ = axisX.cross(axisY).normalize();
 
-            acc = acc.add(forceDir.mult(forceMag));
+            body.axisX = axisX;
+            body.axisY = axisY;
+            body.axisZ = axisZ;
+            body.tideAxis = axisX;
+
+            const omegaRatio = this.flatteningOmegaMax > 0
+                ? clamp(body.spinRate / this.flatteningOmegaMax, 0, 1)
+                : 0;
+            const fRot = this.maxFlattening * Math.pow(omegaRatio, this.flatteningExponent);
+            const a0 = baseRadius * Math.pow(1 - fRot, -1 / 3);
+            const b0 = a0;
+            const c0 = a0 * (1 - fRot);
+
+            const lambdaClamped = Math.max(0, lambda);
+            const fTide = clamp(
+                body.k2 * body.tidalStrength * lambdaClamped * Math.pow(baseRadius, 3) / (this.gConst * mass),
+                0,
+                this.maxFlattening
+            );
+
+            let a = a0 * (1 + fTide);
+            let b = b0 * (1 - fTide / 2);
+            let c = c0 * (1 - fTide / 2);
+
+            const minAxis = this.minAxisRatio * baseRadius;
+            const minCurrent = Math.min(a, b, c);
+            if (minCurrent < minAxis && minCurrent > 0) {
+                const scale = minAxis / minCurrent;
+                a *= scale;
+                b *= scale;
+                c *= scale;
+            }
+
+            body.axes = { a, b, c };
+            body.maxExtent = Math.max(a, b, c);
+
+            const Ixx = 0.2 * body.mass * (b * b + c * c);
+            const Iyy = 0.2 * body.mass * (a * a + b * b);
+            const Izz = 0.2 * body.mass * (a * a + c * c);
+            body.inertiaDiag = new Vector3(Ixx, Iyy, Izz);
+            body.momentOfInertia = Iyy;
+
+            const Qxx = (body.mass / 5) * (2 * a * a - b * b - c * c);
+            const Qyy = (body.mass / 5) * (2 * c * c - a * a - b * b);
+            const Qzz = (body.mass / 5) * (2 * b * b - a * a - c * c);
+            body.quadDiag = new Vector3(Qxx, Qyy, Qzz);
+        }
+    }
+
+    calculateQuadrupoleAccel(source, r) {
+        if (!source.quadDiag || !source.axisX || !source.axisY || !source.axisZ) {
+            return new Vector3();
         }
 
-        return acc;
+        const distSq = r.magSq();
+        if (distSq < 1e-9) return new Vector3();
+        const dist = Math.sqrt(distSq);
+        const invDist = 1 / dist;
+        const invDist2 = 1 / distSq;
+        const invDist5 = invDist * invDist2 * invDist2;
+        const invDist7 = invDist5 * invDist2;
+
+        const x = source.axisX.dot(r);
+        const y = source.axisY.dot(r);
+        const z = source.axisZ.dot(r);
+
+        const Qxx = source.quadDiag.x;
+        const Qyy = source.quadDiag.y;
+        const Qzz = source.quadDiag.z;
+
+        const qx = Qxx * x;
+        const qy = Qyy * y;
+        const qz = Qzz * z;
+
+        const rTQr = Qxx * x * x + Qyy * y * y + Qzz * z * z;
+
+        const Qr = source.axisX.mult(qx).add(source.axisY.mult(qy)).add(source.axisZ.mult(qz));
+        const term1 = Qr.mult(this.gConst * invDist5);
+        const term2 = r.mult(this.gConst * 2.5 * rTQr * invDist7);
+        return term1.sub(term2);
+    }
+
+    computeAccelerations() {
+        const n = this.bodies.length;
+        const accelerations = new Array(n);
+        for (let i = 0; i < n; i++) {
+            accelerations[i] = new Vector3();
+        }
+
+        const eps = 1e-9;
+
+        for (let i = 0; i < n; i++) {
+            for (let j = i + 1; j < n; j++) {
+                const b1 = this.bodies[i];
+                const b2 = this.bodies[j];
+                const r = b2.pos.sub(b1.pos);
+                const distSq = r.magSq();
+                if (distSq < eps) continue;
+
+                const dist = Math.sqrt(distSq);
+                const dir = r.div(dist);
+                const accelMag1 = this.gConst * b2.mass / Math.pow(dist, this.gravExp);
+                const accelMag2 = this.gConst * b1.mass / Math.pow(dist, this.gravExp);
+
+                accelerations[i] = accelerations[i].add(dir.mult(accelMag1));
+                accelerations[j] = accelerations[j].add(dir.mult(-accelMag2));
+
+                if (this.useQuadrupole) {
+                    accelerations[i] = accelerations[i].add(this.calculateQuadrupoleAccel(b2, r.mult(-1)));
+                    accelerations[j] = accelerations[j].add(this.calculateQuadrupoleAccel(b1, r));
+                }
+            }
+        }
+
+        return accelerations;
+    }
+
+    calculateGravityGradientTorque(body, rHat, dist, otherMass) {
+        if (!body.inertiaDiag || !body.axisX || !body.axisY || !body.axisZ) {
+            return new Vector3();
+        }
+
+        const ux = body.axisX.dot(rHat);
+        const uy = body.axisY.dot(rHat);
+        const uz = body.axisZ.dot(rHat);
+        const u = new Vector3(ux, uy, uz);
+        const Iu = new Vector3(
+            body.inertiaDiag.x * ux,
+            body.inertiaDiag.y * uy,
+            body.inertiaDiag.z * uz
+        );
+        const torqueBody = u.cross(Iu).mult(3 * this.gConst * otherMass / (dist * dist * dist));
+        const scaled = torqueBody.mult(body.k2 * body.tidalStrength);
+
+        return body.axisX.mult(scaled.x)
+            .add(body.axisY.mult(scaled.y))
+            .add(body.axisZ.mult(scaled.z));
+    }
+
+    calculateTidalDampingTorque(body, r, vRel, otherMass) {
+        const distSq = r.magSq();
+        if (distSq < 1e-9) return new Vector3();
+        const dist = Math.sqrt(distSq);
+        const safeDist = Math.max(dist, body.radius);
+        const invDist6 = 1 / Math.pow(safeDist, 6);
+        const h = r.cross(vRel);
+        const omegaOrb = distSq > 0 ? h.div(distSq) : new Vector3();
+        const omegaProj = body.spinAxis.dot(omegaOrb);
+        const torqueCoeff = -3 * this.gConst * otherMass * otherMass * body.k2 *
+            Math.pow(body.radius, 5) * body.tidalLag;
+        const torque = torqueCoeff * invDist6 * (body.spinRate - omegaProj) * body.tidalStrength;
+        return body.spinAxis.mult(torque);
     }
 
     /**
@@ -397,15 +505,11 @@ export class PhysicsEngine {
      */
     integrateLeapfrog(dt) {
         const n = this.bodies.length;
-        const accelerations = [];
+        if (n === 0) return;
+        let accelerations = [];
 
-        // Build octree for initial positions (if using Barnes-Hut)
-        let octree = this.useBarnesHut ? this.buildOctree() : null;
-
-        // Calculate initial accelerations
-        for (let i = 0; i < n; i++) {
-            accelerations[i] = this.calculateAcceleration(this.bodies[i], octree);
-        }
+        this.updateBodyShapes();
+        accelerations = this.computeAccelerations();
 
         // Kick: Update velocities by half step
         for (let i = 0; i < n; i++) {
@@ -417,13 +521,8 @@ export class PhysicsEngine {
             this.bodies[i].pos = this.bodies[i].pos.add(this.bodies[i].velocity.mult(dt));
         }
 
-        // Rebuild octree for new positions
-        octree = this.useBarnesHut ? this.buildOctree() : null;
-
-        // Recalculate accelerations at new positions
-        for (let i = 0; i < n; i++) {
-            accelerations[i] = this.calculateAcceleration(this.bodies[i], octree);
-        }
+        this.updateBodyShapes();
+        accelerations = this.computeAccelerations();
 
         // Kick: Update velocities by half step again
         for (let i = 0; i < n; i++) {
@@ -443,7 +542,7 @@ export class PhysicsEngine {
 
         // Use spatial hashing for faster collision detection
         // Grid cell size is 2x the largest body radius
-        const maxRadius = Math.max(...this.bodies.map(b => b.radius));
+        const maxRadius = Math.max(...this.bodies.map(b => b.maxExtent || b.radius));
         const cellSize = maxRadius * 4; // Use 4x to account for both radii
 
         // Hash function to convert position to grid cell
@@ -494,8 +593,10 @@ export class PhysicsEngine {
                             checked.add(pairKey);
 
                             const b2 = this.bodies[j];
-                            const distSq = b1.pos.distSq(b2.pos);
-                            const minDist = b1.radius + b2.radius;
+                            const diff = b2.pos.sub(b1.pos);
+                            const distSq = diff.magSq();
+                            const minDist = this.getSupportRadius(b1, diff) +
+                                this.getSupportRadius(b2, diff.mult(-1));
 
                             if (distSq < minDist * minDist) {
                                 // Collision detected - merge bodies
@@ -511,7 +612,39 @@ export class PhysicsEngine {
 
                                 // Blend colors
                                 const blendedColor = blendColorsWeighted(b1.color, b2.color);
-                                const merged = new Body(newPos, newVel, totalMass, newRadius, blendedColor);
+                                const omega1 = b1.spinAxis.mult(b1.spinRate);
+                                const omega2 = b2.spinAxis.mult(b2.spinRate);
+                                const L1 = omega1.mult(b1.momentOfInertia);
+                                const L2 = omega2.mult(b2.momentOfInertia);
+                                const r1 = b1.pos.sub(newPos);
+                                const r2 = b2.pos.sub(newPos);
+                                const Lorb = r1.cross(b1.velocity.mult(b1.mass))
+                                    .add(r2.cross(b2.velocity.mult(b2.mass)));
+                                const totalL = L1.add(L2).add(Lorb);
+                                const newI = 0.4 * totalMass * newRadius * newRadius;
+                                let mergedSpinAxis = new Vector3(0, 1, 0);
+                                let mergedSpinRate = 0;
+                                let mergedSpinAngle = 0;
+                                if (newI > 0 && totalL.magSq() > 1e-12) {
+                                    mergedSpinRate = totalL.mag() / newI;
+                                    mergedSpinAxis = totalL.normalize();
+                                }
+
+                                const merged = new Body(
+                                    newPos,
+                                    newVel,
+                                    totalMass,
+                                    newRadius,
+                                    blendedColor,
+                                    mergedSpinAxis,
+                                    mergedSpinRate,
+                                    mergedSpinAngle
+                                );
+                                merged.k2 = (b1.k2 * b1.mass + b2.k2 * b2.mass) / totalMass;
+                                merged.tidalLag = (b1.tidalLag * b1.mass + b2.tidalLag * b2.mass) / totalMass;
+                                merged.tidalStrength = (b1.tidalStrength * b1.mass + b2.tidalStrength * b2.mass) / totalMass;
+                                merged.obliquityAlignRate = (b1.obliquityAlignRate * b1.mass + b2.obliquityAlignRate * b2.mass) / totalMass;
+                                merged.updateInertia();
 
                                 // Preserve ID priority
                                 let preservedId;
@@ -595,8 +728,9 @@ export class PhysicsEngine {
     /**
      * Main physics update step
      * @param {string|null} followedPlanetId - ID of the planet being followed (if any)
+     * @param {{mode: string, targetId: string|null}|null} trailReference - Trail reference frame
      */
-    update(followedPlanetId = null) {
+    update(followedPlanetId = null, trailReference = null) {
         if (this.paused || this.bodies.length === 0) return;
 
         // Calculate substeps to maintain stability at high time scales
@@ -613,6 +747,9 @@ export class PhysicsEngine {
         // Target: ~30,000 total vertices for good FPS even with many bodies
         const numBodies = this.bodies.length;
         const maxTrailLength = Math.max(20, Math.min(500, Math.floor(30000 / numBodies)));
+        const trailMode = trailReference ? trailReference.mode : 'world';
+        const trailTargetId = trailReference ? trailReference.targetId : null;
+        const zeroOffset = new Vector3(0, 0, 0);
 
         // Run integration multiple times with smaller steps
         for (let step = 0; step < substeps; step++) {
@@ -621,11 +758,94 @@ export class PhysicsEngine {
             // Handle collisions after each substep, passing followed planet ID
             this.handleCollisions(followedPlanetId);
 
+            // Update shapes after merges before rotational dynamics
+            this.updateBodyShapes();
+
+            // Update rotational dynamics (spin + obliquity)
+            this.updateRotationalDynamics(substepDt);
+
             // Update trails periodically (not every substep at high time scales)
             if (step % trailUpdateInterval === 0) {
-                for (const body of this.bodies) {
-                    body.updateTrail(this.showTrails, maxTrailLength);
+                let referenceOffset = zeroOffset;
+                if (trailMode === 'com') {
+                    referenceOffset = this.getCenterOfMass();
+                } else if (trailMode === 'planet' && trailTargetId) {
+                    const target = this.bodies.find((body) => body.id === trailTargetId);
+                    if (target) {
+                        referenceOffset = target.pos;
+                    }
                 }
+
+                for (const body of this.bodies) {
+                    const skipTargetTrail = trailMode === 'planet'
+                        && trailTargetId
+                        && body.id === trailTargetId
+                        && this.showTrails;
+                    if (skipTargetTrail) {
+                        continue;
+                    }
+                    body.updateTrail(this.showTrails, maxTrailLength, referenceOffset);
+                }
+            }
+        }
+    }
+
+    updateRotationalDynamics(dt) {
+        const n = this.bodies.length;
+        if (n === 0) return;
+
+        // Accumulate tidal torques and apply spin/axis evolution.
+        const torques = new Array(n);
+        for (let i = 0; i < n; i++) {
+            torques[i] = new Vector3();
+        }
+
+        const eps = 1e-9;
+
+        for (let i = 0; i < n; i++) {
+            for (let j = i + 1; j < n; j++) {
+                const b1 = this.bodies[i];
+                const b2 = this.bodies[j];
+                const r = b2.pos.sub(b1.pos);
+                const distSq = r.magSq();
+                if (distSq < eps) continue;
+
+                const dist = Math.sqrt(distSq);
+                const rHat = r.div(dist);
+                const rHatNeg = rHat.mult(-1);
+
+                torques[i] = torques[i].add(this.calculateGravityGradientTorque(b1, rHat, dist, b2.mass));
+                torques[j] = torques[j].add(this.calculateGravityGradientTorque(b2, rHatNeg, dist, b1.mass));
+
+                const vRel = b2.velocity.sub(b1.velocity);
+                torques[i] = torques[i].add(this.calculateTidalDampingTorque(b1, r, vRel, b2.mass));
+                torques[j] = torques[j].add(this.calculateTidalDampingTorque(b2, r.mult(-1), vRel.mult(-1), b1.mass));
+            }
+        }
+
+        for (let i = 0; i < n; i++) {
+            const body = this.bodies[i];
+            if (!body.spinAxis || body.momentOfInertia <= 0) continue;
+
+            const Ispin = body.inertiaDiag ? body.inertiaDiag.y : body.momentOfInertia;
+            if (Ispin <= 0) continue;
+
+            let L = body.spinAxis.mult(body.spinRate * Ispin);
+            L = L.add(torques[i].mult(dt));
+
+            const Lmag = L.mag();
+            if (Lmag > eps) {
+                body.spinAxis = L.div(Lmag);
+                body.spinRate = Lmag / Ispin;
+            } else {
+                body.spinRate = 0;
+            }
+
+            body.spinRate = Math.min(this.maxSpinRate, Math.max(0, body.spinRate));
+
+            body.spinAngle += body.spinRate * dt;
+            if (body.spinAngle > Math.PI * 2) {
+                body.spinAngle -= Math.PI * 2;
             }
         }
     }

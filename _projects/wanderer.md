@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Wanderer
-description: Vibecoded Three.js gravity sandbox where you spawn planets, bend orbits, and drift through a living system
+description: Three.js gravity sandbox with tidal interactions
 img: assets/img/projects/wanderer/wanderer-thumbnail.png
 importance: 2
 category: portfolio
@@ -13,35 +13,45 @@ category: portfolio
     </div>
 </div>
 <div class="caption">
-    A snapshot from the Wanderer gravity sandbox.
+    A screenshot from the game (<i>Shepherd Rings</i> preset)
 </div>
 
-**November 2025**
+**February 2026**
 
 ## Overview
-Wanderer is a vibecoding experiment that turned into a playable 3D gravity sandbox. Spawn planets, adjust their mass and velocity, and watch orbits emerge, destabilize, and reorganize in real time. The focus is on feel, experimentation, and visual feedback instead of strict realism.
+I’ve always liked videogames, and even though I’m not a game developer, I thought for a long time that I would have loved to build one as a hobby. However, nor being familiar with game engines or with programming languages other than Python (which is not really the first choice for game development), I've always felt an obstacle and never really felt the steep learning curve required to build games was worth the effort.
 
-<a href="/wanderer/" target="_blank" rel="noopener noreferrer">Play the game in a new tab</a>.
+Now, with the rise of coding LLMs and agents, creating software with minimal prior experience feels more possible than ever.
 
----
+Therefore, I decided to try vibecoding and make a small game for fun. As a kid, I spent a lot of time on the old Ubuntu [`planets`](https://manpages.ubuntu.com/manpages/focal/man1/planets.1.html) game, so I set out to build a modern 3D version with extra features and more depth.
 
-## Controls (Quick)
-- E to add a planet, Q for a random planet.
-- Click to delete, Alt+Click to follow a planet.
-- WASD to move the camera, Alt+WASD to rotate, Scroll to zoom or resize.
-- Space to pause, C/V to slow or speed time, T to toggle trails.
+The result is a gravity sandbox where you can drop in planets, shape their motion and rotation, and watch tidal effects and orbital dynamics emerge in real time.
 
----
+The entire game was vibecoded in a couple of afternoons.
 
-## Tech Stack
-- Three.js (module build via CDN)
-- Custom N-body physics loop
-- Trail rendering and camera controls
-- Lightweight UI overlay with live stats
+You can <a href="/wanderer/" target="_blank" rel="noopener noreferrer">play the game in a new tab</a> or click the `wanderer (game)` tab in the navigation bar at the top.
 
 ---
 
-## What I Learned
-- Small tweaks to time scale and damping can change the whole feel of a physics sandbox.
-- Camera controls and visual cues make complex motion understandable.
-- Vibecoding works best when the feedback loop is immediate and visual.
+## What you can do
+- Add/remove planets
+- Follow the system's center of mass
+- Follow a specific planet
+- Choose between 8 preset systems
+
+---
+
+## Technical highlights
+- Real‑time N‑body simulation
+- Tidal torques + rotational dynamics
+- Deformable bodies (oblateness)
+- Interactive placement workflow and camera controls
+
+---
+
+## Tools Used
+
+| **Area** | **Tools** |
+|----------|-----------|
+| Code writing and editing | Codex 5.2 |
+| Programming language | JavaScript, Three.js |
