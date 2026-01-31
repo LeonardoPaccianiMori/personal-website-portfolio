@@ -37,7 +37,7 @@ export class ChunkManager {
         this.scene = scene;
         this.chunkSize = 100;  // Size of each chunk in world units
         this.loadRadius = 2;   // How many chunks to load in each direction
-        this.cubesPerChunk = 40; // Number of reference cubes per chunk
+        this.cubesPerChunk = 30; // Number of reference cubes per chunk
 
         this.loadedChunks = new Map(); // Map of "x,y,z" -> chunk data
         this.currentCameraChunk = null;
@@ -182,16 +182,5 @@ export class ChunkManager {
     initialize() {
         const origin = new THREE.Vector3(0, 0, 0);
         this.update(origin);
-    }
-
-    /**
-     * Clear all loaded chunks
-     */
-    clear() {
-        const keys = Array.from(this.loadedChunks.keys());
-        for (const key of keys) {
-            this.unloadChunk(key);
-        }
-        this.currentCameraChunk = null;
     }
 }

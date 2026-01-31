@@ -38,7 +38,7 @@ I built two complementary datasets of Italian recipes (late 19th century vs toda
 
 ---
 
-## Technologies Used
+## Tools Used
 
 | **Area** | **Tools** |
 |----------|-----------|
