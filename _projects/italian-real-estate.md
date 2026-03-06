@@ -108,6 +108,12 @@ Full scraping, ETL, synthetic data, and modeling details are in [Italian Real Es
 
 ---
 
+## Related Blog Posts
+- [Why I Replaced CTGAN with a Custom Synthetic Data Generator](/blog/2025/synthetic-data-ctgan/): The decision to abandon an off-the-shelf tabular generator when it failed on the correlations that actually mattered.
+- [How My Real Estate Pipeline Outgrew MongoDB and Moved to PostgreSQL](/blog/2025/mongodb-postgresql-ml/): Why the right database changed as my real-estate pipeline moved from messy extraction to analytics-ready modeling.
+
+---
+
 ## View the Code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate).
 

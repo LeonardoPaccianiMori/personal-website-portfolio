@@ -141,6 +141,12 @@ Full extraction prompts, analysis, and model details are in [Italian Cuisine: Fu
 
 ---
 
+## Related Blog Posts
+- [Why I Represented Recipes as Graphs (Not Just Ingredient Lists)](/blog/2025/why-graphs-for-recipes/): The modeling decision that changed my Italian cuisine project from a feature-engineering exercise into a structural one.
+- [How I Visualized Regional Patterns in Italian Cuisine](/blog/2025/visualizing-italian-cuisine/): Three visualization choices that made the geographic story in my Italian cuisine dataset much easier to see.
+
+---
+
 ## View the Code
 All code for this project is available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine).
 
