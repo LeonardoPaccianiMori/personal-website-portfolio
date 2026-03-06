@@ -157,6 +157,11 @@ Full experiment details, architecture diagrams, and per-model results are in [Im
 
 ---
 
+## Related Blog Posts
+- [Activation Functions Killed My GAN: A Debugging Story](/blog/2025/gan-activation-functions/): How changing one line of code in my MNIST GAN turned a failing model into one that finally produced recognizable digits.
+
+---
+
 ## View the Code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-image-generation).
 
