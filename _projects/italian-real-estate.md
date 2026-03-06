@@ -47,7 +47,7 @@ Auction properties outperform regular sales on ROI even after significant renova
 
 ---
 
-## Data and Pipeline (Brief)
+## Data and Pipeline
 Here is a simplified view of the full pipeline:
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">

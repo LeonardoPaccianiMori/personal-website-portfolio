@@ -32,7 +32,7 @@ Measure how model complexity changes performance and training cost for image cla
 
 ---
 
-## Data and Methods (Brief)
+## Data and Methods
 - **Dataset**: MNIST (28x28 grayscale digits, 10 classes).
 - **Models**: 3 CNNs, 4 FCNNs, 5 CVAEs, 5 DCGANs.
 - **Metrics**: test accuracy and training time for classifiers; FID and training time for generators.

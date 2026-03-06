@@ -88,7 +88,7 @@ Each recipe is represented as a **graph** so the full structure (ingredients, to
   and hover or click on a node or relationship to show its metadata.
 </div>
 
-### Data Extraction (Brief)
+### Data Extraction
 Both datasets were text-only, so I converted recipes into structured graphs using an LLM-based extraction pipeline and then normalized ingredients/tools to avoid duplicate terms. Full prompts and extraction details are in the [deep dive](/blog/2026/italian-cuisine-deep-dive/).
 
 ### Neo4j Graph Database

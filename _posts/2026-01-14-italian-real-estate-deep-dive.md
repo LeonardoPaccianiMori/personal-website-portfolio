@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Italian Real Estate Deep Dive: Pipeline, Synthetic Data, and ROI Dashboard"
-date: 2026-01-14 10:00:00
+date: 2025-04-14 10:00:00
 description: Full technical details for the Italian real estate project, from scraping and ETL to modeling and dashboard design.
 tags: data-engineering scraping machine-learning
 categories: [data-science, projects]
