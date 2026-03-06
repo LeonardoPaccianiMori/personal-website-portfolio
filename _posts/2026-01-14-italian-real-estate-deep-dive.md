@@ -1,18 +1,19 @@
 ---
 layout: post
 title: "Italian Real Estate Deep Dive: Pipeline, Synthetic Data, and ROI Dashboard"
-date: 2025-04-14 10:00:00
-description: Full technical details for the Italian real estate project, from scraping and ETL to modeling and dashboard design.
+date: 2025-07-18 10:00:00
+description: The technical appendix to my Italian real-estate project, covering scraping, ETL, synthetic data, modeling, and dashboard design.
 tags: data-engineering scraping machine-learning
 categories: [data-science, projects]
 ---
 
 ## Overview
-This post is the technical deep dive for my [Italian Real Estate project](/projects/italian-real-estate-v2/). It covers the scraping architecture, ETL, synthetic data generation, modeling choices, and dashboard design.
+This post is the technical appendix to my [Italian real-estate project](/projects/italian-real-estate/). The project page focuses on the portfolio story; this page keeps the scraping architecture, ETL choices, synthetic-data method, modeling setup, and dashboard design in one place.
 
 ---
 
 ## Data Collection
+The first hard problem in this project was operational rather than statistical: collecting a national dataset reliably enough that the later modeling work was worth doing.
 
 ### Challenge
 Scrape 107 provinces x 3 listing types = **321 independent scraping tasks**.
@@ -63,6 +64,7 @@ async def get_single_url(url, session):
 ---
 
 ## ETL Pipeline
+Once the raw collection was working, the next problem was turning HTML fragments into something I could actually analyze.
 
 ### Challenge
 Extract 50+ fields from unstructured HTML and organize them coherently.
@@ -102,6 +104,7 @@ def mortgage_monthly_payment(principal, interest, term):
 ---
 
 ## PostgreSQL Migration
+The project changed shape at this point. Early on, flexibility mattered more than elegance; later, queryability and consistency mattered more.
 
 ### Why PostgreSQL?
 - **Relational integrity**: enforce data consistency
@@ -146,6 +149,7 @@ Example translations:
 ---
 
 ## Synthetic Data Generation
+Synthetic data was not an optional extra here. It was the only way to publish and demonstrate the project without exposing the scraped source listings.
 
 ### Why Generate Synthetic Data?
 - **Privacy**: cannot share scraped data publicly
@@ -204,6 +208,7 @@ The custom KNN approach preserved correlations better.
 ---
 
 ## Machine Learning Model
+By the time I reached modeling, the question was no longer "what algorithm is fashionable?" It was "what gives stable, interpretable predictions on noisy market data with reasonable effort?"
 
 ### Random Forest Rent Predictor
 
@@ -257,6 +262,7 @@ Applied to **970,000 sale/auction listings** to predict rental income and build 
 ---
 
 ## Dashboard Design
+I treated the dashboard as part of the model output, not as a presentation layer added afterward. The project was only useful if a non-technical user could move from prediction to decision.
 
 ### User Personas
 **Target audience**: real estate investors (novice and experienced).
@@ -300,9 +306,3 @@ Applied to **970,000 sale/auction listings** to predict rental income and build 
 
 ## Look at the Code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate).
-
----
-
-## Disclaimer
-
-The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.

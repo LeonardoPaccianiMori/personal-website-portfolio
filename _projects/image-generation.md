@@ -22,28 +22,28 @@ images:
 
 **November - December 2024**
 
-## Abstract
-I built and compared neural networks for two tasks on MNIST: recognizing digits and generating new ones. The focus is on understanding tradeoffs in model complexity, training time, and output quality, not on chasing state-of-the-art results. I evaluated 7 classifiers and 10 generative setups, then summarized the results with plots and interactive demos.
+## Summary
+I used MNIST as a controlled environment to study two related problems: image classification and image generation. Instead of treating the project as a benchmark chase, I used it to understand what extra model complexity actually buys you, how fragile generative training can be, and how to make those tradeoffs visible to another practitioner.
 
 ---
 
-## Objective
-Measure how model complexity changes performance and training cost for image classification and image generation.
+## Why This Matters
+This project is less about handwritten digits and more about experimental judgment. It shows how I compare alternatives, debug unstable training, and communicate the difference between a technically interesting model and a practically useful one.
 
 ---
 
-## Data and Methods
-- **Dataset**: MNIST (28x28 grayscale digits, 10 classes).
-- **Models**: 3 CNNs, 4 FCNNs, 5 CVAEs, 5 DCGANs.
-- **Metrics**: test accuracy and training time for classifiers; FID and training time for generators.
-- **Stack**: TensorFlow/Keras, Plotly, TensorFlow.js for in-browser demos.
+## What I Built
+- A comparison of **7 classifiers** and **10 generative configurations** on MNIST.
+- A consistent evaluation setup using **accuracy**, **FID**, and **training time**.
+- Plotly visualizations to make model tradeoffs easy to scan.
+- Two in-browser demos built with **TensorFlow.js**, so the project ends in something interactive rather than only notebooks and plots.
 
 ---
 
-## Key Results
-- The simplest CNN reached 98% accuracy while training about 30% faster than deeper models.
-- Generation quality improved with more capacity and longer training; DCGAN-5 produced the best FID.
-- Training stability depended heavily on activation functions and normalization choices.
+## Results
+- The baseline CNN reached **about 98.3% test accuracy** while remaining the clearest speed/complexity tradeoff; the highest raw classifier accuracy came from a deeper FCNN variant.
+- The strongest generator was **DCGAN-5**, which produced the best FID after combining a better architecture with longer training.
+- The most important debugging lesson was that **activation and normalization choices strongly affected training stability**. A small change in the output layer turned a failing GAN into a working one.
 
 ### Evidence: Classification tradeoff
 ```plotly
@@ -69,7 +69,12 @@ Measure how model complexity changes performance and training cost for image cla
     100 artificial handwritten digits created by the best GAN model (DCGAN-5). Click any image to zoom.
 </div>
 
-For full architecture details and per-model results, see the deep dive linked below.
+---
+
+## Technical Approach
+- **Classification**: I compared CNN and FCNN variants to see whether extra layers or different heads paid off enough to justify the added training cost.
+- **Generation**: I used CVAEs for latent-space exploration and DCGANs for image quality, evaluating them with both metrics and visual inspection.
+- **Presentation**: I exported selected models to TensorFlow.js so visitors could interact with the project directly in the browser.
 
 ---
 
@@ -96,7 +101,7 @@ Click or drag anywhere in the latent space of CVAE-1 to generate a digit. A red 
 <script src="{{ '/assets/js/cvae-explorer.js' | relative_url }}"></script>
 
 ### DCGAN-5
-Generate your own handwritten digits using DCGAN-5 (the best model). Select a digit and click Generate to create a new image.
+Generate your own handwritten digits using DCGAN-5. Select a digit and click Generate to create a new image.
 
 <div id="digit-generator" class="my-4 p-3 border rounded text-center">
     <div class="d-flex align-items-center justify-content-center gap-3 mb-3 flex-wrap">
@@ -130,42 +135,33 @@ Generate your own handwritten digits using DCGAN-5 (the best model). Select a di
 
 The DCGAN-5 model runs entirely in your browser using TensorFlow.js. The first generation may take a few seconds while the model loads.
 
-**Note**: This uses DCGAN-5 with pre-discovered "seed vectors", i.e. noise inputs that reliably produce each digit class. This way we simulate using a conditional GAN with the unchanged DCGAN-5 architecture.
+**Note**: This demo uses pre-discovered seed vectors that reliably produce specific digits, which lets me approximate conditional generation without changing the underlying DCGAN-5 architecture.
 
 ---
 
-## Takeaways
-- Match model complexity to task complexity; deeper models are not always better.
-- Generation quality depends on capacity, training time, and stability tricks.
-- Clear evaluation criteria (accuracy, FID, training time) make tradeoffs visible.
+## What This Project Shows
+- I can run controlled comparisons instead of reporting isolated wins.
+- I care about deployable communication, not just model training.
+- I trust evidence over “best practice” when the two conflict.
 
 ---
 
 ## Limitations
-- MNIST is a small dataset; results do not generalize to complex images.
+- MNIST is a small dataset; the results do not generalize directly to complex image domains.
 - Training ran on a personal laptop with limited compute[^1].
 
 ---
 
 ## Deep Dive
-Full experiment details, architecture diagrams, and per-model results are in [Image Generation: Full Technical Deep Dive](/blog/2026/image-generation-deep-dive/).
+Full experiment details, architecture diagrams, and per-model results are in [Image Generation: Full Technical Deep Dive](/blog/2025/image-generation-deep-dive/).
 
 ---
 
 ## View the Code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-image-generation).
 
-**Note**: This project's code was originally written by me and later reorganized in December 2025 using Codex 5.2, in order to make it tidier and better organized.
-
----
-
-## Disclaimer
-
-The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.
-
 ---
 
 ## Footnotes
 
 [^1]: This project was executed on my personal laptop, a [System76 Kudu](https://tech-docs.system76.com/models/kudu6/README.html).
-

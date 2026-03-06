@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Italian Cuisine Deep Dive: Graph Recipes and Regional Patterns"
-date: 2026-01-13 10:00:00
-description: Full technical details for the Italian cuisine project, including extraction prompts, graph schema, analysis, and model results.
+date: 2026-01-16 10:00:00
+description: The technical appendix to my Italian cuisine project, including extraction prompts, graph modeling choices, and the main analytical outputs.
 tags: data-science graphs GNN NLP
 categories: [data-science, projects]
 chart:
@@ -10,12 +10,12 @@ chart:
 ---
 
 ## Overview
-This post is the technical deep dive for my [Italian Cuisine project](/projects/italian-cuisine-v2/). It includes extraction prompts, graph modeling details, and the full analysis.
+This post is the technical appendix to my [Italian cuisine project](/projects/italian-cuisine/). The project page focuses on the portfolio story; this page keeps the extraction prompts, graph-modeling choices, and analytical outputs together in one reference.
 
 ---
 
 ## Data Extraction Pipeline
-Both datasets were unstructured text. I used Gemini 2.5 Pro to convert each recipe into a structured JSON schema, then normalized ingredients and tools before loading into Neo4j.
+Both datasets started as unstructured text. I used Gemini 2.5 Pro to convert each recipe into a structured JSON schema, then normalized ingredients and tools before loading the results into Neo4j.
 
 ### Prompts used for extraction
 
@@ -149,7 +149,7 @@ Return ONLY the JSON object, nothing else.
 ---
 
 ## Analysis: Temporal Evolution
-I compared the two datasets to understand how Italian cuisine changed over time.
+I used the two datasets to ask a simple question: once Artusi is treated as a historical baseline rather than as a complete picture of Italy, what actually changes?
 
 ### Recipe Complexity
 Distribution of steps, ingredients, and tools per recipe highlights how overall complexity shifted across eras.
@@ -184,7 +184,7 @@ This view highlights ingredients that are new in the modern dataset or absent co
 ---
 
 ## Analysis: Geographical Diversity
-I analyzed the modern dataset to identify regional patterns.
+I then focused on the modern dataset to see which regional patterns were stable enough to show up in both the visual analysis and the model outputs.
 
 ### Regional Characteristics
 Use the dropdown to switch between five metrics:
@@ -272,7 +272,7 @@ The North leans toward rice and polenta, the South toward pasta; transitional re
 ---
 
 ## ML Classification Deep Dive
-The macro-region classifier reached ~60% F1-score, while the region-level model overfit heavily.
+The macro-region classifier reached about 60% F1-score, while the full region-level model overfit heavily. That gap is useful: it suggests the broad geographic structure is real, but the finer regional boundary problem is data-hungry and noisy.
 
 ### PCA Clustering
 Key observations:
@@ -297,9 +297,3 @@ PCA projection of recipe embeddings colored by macro-region.
 
 ## Look at the Code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine).
-
----
-
-## Disclaimer
-
-The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.

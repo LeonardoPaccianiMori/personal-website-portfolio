@@ -3,7 +3,7 @@ layout: page
 title: Wanderer
 description: Three.js gravity sandbox with tidal interactions
 img: assets/img/projects/wanderer/wanderer-thumbnail.png
-importance: 2
+importance: 3
 category: portfolio
 ---
 
@@ -18,34 +18,38 @@ category: portfolio
 
 **February 2026**
 
-## Overview
-I’ve always liked videogames, and even though I’m not a game developer, I thought for a long time that I would have loved to build one as a hobby. However, nor being familiar with game engines or with programming languages other than Python (which is not really the first choice for game development), I've always felt an obstacle and never really felt the steep learning curve required to build games was worth the effort.
+## Summary
+Wanderer is a browser-based gravity sandbox built with JavaScript and Three.js. The goal was to prototype an interactive physics toy rather than a full game: drop planets into a system, manipulate their motion, and watch orbital and tidal behavior emerge in real time.
 
-Now, with the rise of coding LLMs and agents, creating software with minimal prior experience feels more possible than ever.
+---
 
-Therefore, I decided to try vibecoding and make a small game for fun. As a kid, I spent a lot of time on the old Ubuntu [`planets`](https://manpages.ubuntu.com/manpages/focal/man1/planets.1.html) game, so I set out to build a modern 3D version with extra features and more depth.
+## Why This Matters
+This project sits outside my core data-science work, which is exactly why it earns a place in the portfolio. It shows that I can move into a new technical domain quickly, ship an interactive browser experience, and still care about simulation behavior, controls, and user feedback loops.
 
-The result is a gravity sandbox where you can drop in planets, shape their motion and rotation, and watch tidal effects and orbital dynamics emerge in real time.
+---
 
-The entire game was vibecoded in a couple of afternoons.
+## What You Can Do
+- Add and remove planets
+- Follow the system center of mass
+- Lock the camera to a specific planet
+- Switch between eight preset systems
+- Pause, speed up, or slow down time
 
 You can <a href="/wanderer/" target="_blank" rel="noopener noreferrer">play the game in a new tab</a> or click the `wanderer (game)` tab in the navigation bar at the top.
 
 ---
 
-## What you can do
-- Add/remove planets
-- Follow the system's center of mass
-- Follow a specific planet
-- Choose between 8 preset systems
+## Technical Highlights
+- Real-time N-body simulation
+- Tidal torques and rotational dynamics
+- Deformable bodies with visible oblateness
+- Interactive placement workflow and camera controls
+- Preset systems designed to show different orbital behaviors
 
 ---
 
-## Technical highlights
-- Real‑time N‑body simulation
-- Tidal torques + rotational dynamics
-- Deformable bodies (oblateness)
-- Interactive placement workflow and camera controls
+## Build Notes
+I built Wanderer as a fast AI-assisted prototyping exercise, but the work that mattered was still engineering work: defining the simulation rules, shaping the interaction model, and deciding what needed to feel responsive and legible in the browser.
 
 ---
 
@@ -53,5 +57,6 @@ You can <a href="/wanderer/" target="_blank" rel="noopener noreferrer">play the 
 
 | **Area** | **Tools** |
 |----------|-----------|
-| Code writing and editing | Codex 5.2 |
-| Programming language | JavaScript, Three.js |
+| Prototyping and editing | Codex 5.2 |
+| Programming language | JavaScript |
+| Rendering | Three.js |

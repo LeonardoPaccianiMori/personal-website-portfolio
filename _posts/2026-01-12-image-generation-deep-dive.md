@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Image Generation Deep Dive: CNNs, VAEs, and GANs on MNIST"
-date: 2026-01-12 10:00:00
-description: A full technical breakdown of the architectures, training setups, and results behind my MNIST image generation project.
+date: 2025-02-21 10:00:00
+description: The technical appendix to my MNIST image-generation project, covering the experiment setup, architecture choices, and per-model results.
 tags: deep-learning GAN VAE CNN
 categories: [data-science, learning]
 chart:
@@ -12,14 +12,15 @@ images:
 ---
 
 ## Overview
-This post is the technical deep dive for my [Image Generation project](/projects/image-generation-v2/). It covers the full experiment setup, model architectures, and per-model results.
+This post is the technical appendix to my [image generation project](/projects/image-generation/). The project page gives the portfolio-level summary; this page keeps the experiment setup, architecture choices, and per-model results in one place.
 
 ---
 
 ## At a Glance
 - **Dataset**: MNIST (28x28 grayscale digits, 10 classes)
 - **Scope**: 7 classifiers (CNN/FCNN), 5 CVAEs, 5 DCGANs
-- **Best classifier**: CNN-1 at ~98% test accuracy in ~106s
+- **Highest classifier accuracy**: FCNN-4 at ~98.6% test accuracy in ~130s
+- **Most practical classifier**: CNN-1 at ~98.3% test accuracy in ~106s
 - **Best generator**: DCGAN-5 with FID 117.3 in ~113 minutes
 - **Stack**: TensorFlow/Keras (training and inference), TensorFlow.js (browser demo), Plotly (analysis)
 
@@ -35,7 +36,7 @@ This post is the technical deep dive for my [Image Generation project](/projects
 ## Classification Models
 
 ### Convolutional Neural Networks (CNNs)
-I tested three CNN architectures to understand the impact of depth and layer types on accuracy and training time.
+I used the CNN family as the clean baseline for the project: standard convolutions, easy-to-read behavior, and a good reference point for the later FCNN and generative experiments.
 
 #### CNN-1 (Baseline)
 - **Architecture**: 3 convolutional layers + 1 fully connected layer
@@ -89,7 +90,7 @@ Training curves for CNN-3 (accuracy and loss over epochs).
 ```
 
 #### CNN comparison
-**Conclusion**: Adding convolutional layers costs ~43% more time but does not improve accuracy enough to justify it. CNN-1 is the most efficient choice.
+**Conclusion**: CNN-2 edges out the rest on raw accuracy, but CNN-1 remains the clearest speed-to-performance tradeoff in the family.
 
 Accuracy comparison across the CNN variants.
 ```plotly
@@ -104,7 +105,7 @@ Training time comparison across the CNN variants.
 ---
 
 ### Fully Convolutional Neural Networks (FCNNs)
-Unlike CNNs, FCNNs use only convolutional layers and global pooling (no fully connected layers).
+Unlike the CNN family, these models replace the dense head with global pooling. I included them because they are architecturally cleaner, but I wanted to see how much accuracy that simplicity would cost or recover.
 
 #### FCNN-1 (Baseline)
 - **Architecture**: 3 convolutional layers + global pooling
@@ -175,7 +176,7 @@ Training curves for FCNN-4 (accuracy and loss over epochs).
 ```
 
 #### FCNN comparison
-**Conclusion**: FCNNs can match CNN performance but require more depth and larger kernels, leading to longer training times.
+**Conclusion**: FCNNs only became competitive once they gained enough capacity. In this experiment, FCNN-4 matched the top CNN results, but the simpler CNN baseline was still easier to justify as a default choice.
 
 Accuracy comparison across the FCNN variants.
 ```plotly
@@ -192,7 +193,7 @@ Training time comparison across the FCNN variants.
 ## Generative Models
 
 ### Convolutional Variational Autoencoders (CVAEs)
-I tested 5 CVAE architectures using a 2D latent space. Good separation in the latent space generally means better generation.
+I tested five CVAE variants with a 2D latent space. The point here was not image quality alone; it was to see how architecture changes affected the interpretability of the latent space.
 
 #### CVAE-1 (Baseline)
 - **Architecture**: 3 convolutional layers (encoder + decoder), 100-neuron hidden layer, 2D latent space
@@ -303,7 +304,7 @@ Training curves for CVAE-4.
 </div>
 
 #### CVAE comparison
-**Conclusion**: CVAEs with 2D latent space struggle to separate all 10 digits, and higher complexity can make separation worse. A higher-dimensional latent space might help.
+**Conclusion**: A 2D latent space is visually pleasant but restrictive. None of these CVAEs cleanly separated all ten digits, and extra complexity often made the latent structure harder rather than clearer.
 
 Silhouette score comparison across CVAE variants.
 ```plotly
@@ -318,7 +319,7 @@ Training time comparison across CVAE variants.
 ---
 
 ### Deep Convolutional Generative Adversarial Networks (DCGANs)
-I tested five different DCGAN configurations.
+I tested five DCGAN configurations in sequence, with each one responding to the failure mode or tradeoff in the previous version.
 
 #### DCGAN-1 (Baseline with Tanh)
 - **Architecture**: 3 conv layers (generator + discriminator), tanh activation
@@ -342,7 +343,7 @@ Generator and discriminator loss curves for DCGAN-1.
 - **Result**: Dramatic improvement; losses oscillate healthily
 - **Quality**: Most digits recognizable but still imperfect
 
-**Key insight**: Activation function choice is critical for GANs.
+**Key insight**: The activation and normalization pairing mattered more than any of the smaller tuning changes I tried earlier.
 
 Generator and discriminator loss curves for DCGAN-2.
 ```plotly
@@ -408,8 +409,8 @@ Generator and discriminator loss curves for DCGAN-5.
 </div>
 
 #### DCGAN comparison
-Here is the comparison of the [FID scores](https://en.wikipedia.org/wiki/Fr%C3%A9chet_inception_distance) and training times for these 5 models (lower FID is better):
-**Conclusion**: DCGAN-5 produces the highest-quality images but requires significantly longer training.
+Here is the comparison of the [FID scores](https://en.wikipedia.org/wiki/Fr%C3%A9chet_inception_distance) and training times for these five models (lower FID is better):
+**Conclusion**: DCGAN-5 produces the strongest samples in the set, but the gains came from iterative architecture work plus extra training time, not from one final tweak.
 
 FID comparison across DCGAN variants (lower is better).
 ```plotly
@@ -424,17 +425,11 @@ Training time comparison across DCGAN variants.
 ---
 
 ## Summary
-- Model complexity is not automatically better for classification.
-- For generation, capacity and training time matter, and training stability is highly sensitive to activation functions and normalization.
-- Clear metrics (accuracy, FID, training time) make these tradeoffs visible.
+- The cleanest classification result came from being explicit about tradeoffs, not from picking the single highest-accuracy point.
+- For generation, stability and output quality were tightly linked to architecture, normalization, and training time.
+- Keeping the plots, galleries, and timing data side by side made the project far easier to reason about than raw accuracy numbers alone.
 
 ---
 
 ## Look at the Code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-image-generation).
-
----
-
-## Disclaimer
-
-The content of this page was originally written by me. I used AI tools for editing and clarity only; the ideas, analysis, and conclusions are mine.
