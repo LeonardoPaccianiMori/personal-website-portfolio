@@ -117,4 +117,4 @@ Full scraping, ETL, synthetic data, and modeling details are in [Italian Real Es
 ## View the Code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate).
 
-**Note**: Scraping code is redacted to prevent misuse. Shared for portfolio demonstration only.
+**Note**: This project used publicly accessible listing data for research and portfolio purposes. To avoid republishing source listings, I do not share the raw scraped data, and all public analysis and dashboards shown here are based on synthetic data. Scraping code is redacted to prevent misuse.
