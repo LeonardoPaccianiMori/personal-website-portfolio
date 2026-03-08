@@ -10,9 +10,9 @@ chart:
   plotly: true
 ---
 
-The visualization work in my [Italian cuisine project](/projects/italian-cuisine/) only got interesting once I stopped asking, "What chart fits this data?" and started asking, "What view would make the pattern obvious?"
+I like making plots, but I do not trust custom visuals just because they look clever. The visualization work in my [Italian cuisine project](/projects/italian-cuisine/) only got interesting once I stopped asking, "What chart fits this data?" and started asking, "What view would make the pattern obvious?"
 
-That sounds minor, but it changed the project.
+That sounds minor, but it changed the whole standard I was using.
 
 At the beginning I had what looked like a comfortable analytics setup: regional counts, ingredient frequencies, a time dimension, and a geographic dimension. Standard charts covered each piece separately. What they did not do well was show the relationships between them.
 
@@ -79,7 +79,7 @@ This mattered because it confirmed something the classification model was alread
 
 I do not think every project needs custom visuals. Most do not.
 
-But when the structure of the data is the story, standard plots can flatten the analysis without you noticing. In this project, the right custom view did not make the charts prettier. It made the conclusions easier to reach and easier to defend.
+In fact, I actively dislike bespoke charts that exist mostly to advertise effort. But when the structure of the data *is* the story, standard plots can flatten the analysis without you noticing. In this project, the right custom view did not make the charts prettier. It made the conclusions easier to reach and easier to defend.
 
 That is the bar I now use for bespoke visualization work: if a custom chart does not make the underlying reasoning clearer, it is decoration.
 

@@ -19,12 +19,12 @@ category: portfolio
 **February 2026**
 
 ## Summary
-Wanderer is a browser-based gravity sandbox built with JavaScript and Three.js. The goal was to prototype an interactive physics toy rather than a full game: drop planets into a system, manipulate their motion, and watch orbital and tidal behavior emerge in real time.
+Wanderer is a browser-based gravity sandbox built with JavaScript and Three.js. I made it because I wanted a small interactive world I could poke at: drop planets into a system, disturb their motion, and watch orbital and tidal behavior emerge in real time. It is closer to a physics toy than a full game, and that was part of the appeal.
 
 ---
 
-## Why This Matters
-This project sits outside my core data-science work, which is exactly why it earns a place in the portfolio. It shows that I can move into a new technical domain quickly, ship an interactive browser experience, and still care about simulation behavior, controls, and user feedback loops.
+## Why I Made This
+Most of my portfolio lives in data science, which is exactly why I wanted one project that did not. I liked the idea of working on something immediate and visual, where the feedback loop was not a metric or a notebook but a moving system that either felt convincing or did not.
 
 ---
 
@@ -48,8 +48,8 @@ You can <a href="/wanderer/" target="_blank" rel="noopener noreferrer">play the 
 
 ---
 
-## Build Notes
-I built Wanderer as a fast AI-assisted prototyping exercise, but the work that mattered was still engineering work: defining the simulation rules, shaping the interaction model, and deciding what needed to feel responsive and legible in the browser.
+## What the Prototype Actually Taught Me
+I built Wanderer quickly, with AI helping on the prototyping side, but the interesting part was still the engineering judgment. The prototype forced me to decide which parts of the simulation had to feel physically suggestive, which parts could be simplified, and what kinds of controls made the system legible instead of chaotic.
 
 ---
 

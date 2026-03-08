@@ -13,9 +13,9 @@ images:
   photoswipe: true
 ---
 
-When I started my [image generation project](/projects/image-generation/), I expected the hard part to be architecture design. Instead, the hardest part was noticing that my supposedly standard setup was broken in a very ordinary way.
+When I started my [image generation project](/projects/image-generation/), I assumed the hard part would be inventing something clever. What actually slowed me down was more embarrassing: I had built a GAN that looked standard enough to avoid suspicion, including from me.
 
-I had a DCGAN that looked reasonable on paper, followed common tutorials, and trained without crashing. It also produced terrible images.
+I had a DCGAN that looked reasonable on paper, followed familiar tutorials, and trained without crashing. That combination was almost worse than an obvious bug, because it let me spend too long treating a broken setup like a normal tuning problem.
 
 ## The Failure Looked Stable Enough to Fool Me
 
@@ -95,10 +95,12 @@ More importantly, switching the activation forced me to revisit the full preproc
 
 ## What I Took From It
 
-Three habits came out of this experiment that I still trust:
+Three habits came out of this debugging session that I still trust:
 
 1. Do not keep treating a structural problem like a hyperparameter problem.
 2. When a model feels "almost standard," check the assumptions you stopped noticing.
 3. Save the plots and sample outputs. They make it much easier to tell the difference between a noisy model and a broken one.
+
+I still like this episode because the fix was small but the mistake was conceptual. It reminded me that debugging deep learning often means questioning the part of the pipeline that has become invisible to you.
 
 If you want the broader context, the [project page](/projects/image-generation/) gives the portfolio-level summary, and the [full technical deep dive](/blog/2025/image-generation-deep-dive/) has the rest of the experiment set.
