@@ -2,117 +2,88 @@
 layout: post
 title: "Italian Real Estate Deep Dive: Pipeline, Synthetic Data, and ROI Dashboard"
 date: 2025-07-18 10:00:00
-description: The technical appendix to my Italian real-estate project, covering scraping, ETL, synthetic data, modeling, and dashboard design.
+description: Technical appendix to my Italian real-estate project, covering scraping, ETL, synthetic data, modeling, and dashboard design.
 tags: data-engineering scraping machine-learning
 categories: [data-science, projects]
 ---
 
 ## Overview
-This post is the technical appendix to my [Italian real-estate project](/projects/italian-real-estate/). The project page focuses on the portfolio story; this page keeps the scraping architecture, ETL choices, synthetic-data method, modeling setup, and dashboard design in one place.
+This post is the technical appendix to my [Italian real-estate project](/projects/italian-real-estate/). I wanted this project to feel like *real* data work from beginning to end: messy data collection, shifting schemas, privacy constraints, and a public-facing output that had to be *actually* useful rather than merely decorative. The project page focuses on the portfolio story; this page keeps the scraping architecture, ETL choices, synthetic-data method, modeling setup, and dashboard design in one place.
 
 ---
 
 ## Data Collection
-The first hard problem in this project was operational rather than statistical: collecting a national dataset reliably enough that the later modeling work was worth doing.
+The first hard problem in this project was *operational* rather than *statistical*: collecting a nation-wide dataset reliably enough that the later modeling work was worth doing.
 
 ### Challenge
-Scrape 107 provinces x 3 listing types = **321 independent scraping tasks**.
+I had to scrape 3 listing types (`rent`, `auction` and `sale`) for 107 italian provinces. This means **321 independent scraping tasks**.
 
 ### Solution: Apache Airflow Orchestration
-
+I used Apache Airflow to orchestrate each of these 321 tasks. Here is a representation of the workflow I used:
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-extraction-DAG.png" title="Airflow DAG" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
-**Workflow**:
-1. For each province (e.g., Milan, Rome, Naples):
-   - Scrape `rent` listings -> store in MongoDB
-   - Scrape `auction` listings -> store in MongoDB
-   - Scrape `sale` listings -> store in MongoDB
-2. All provinces run in parallel for speed
+In particular, for each province (e.g., Milan, Rome, Naples) I:
+1. scraped `rent` listings -> store raw data in MongoDB
+2. scraped `auction` listings -> store raw data in MongoDB
+3. scraped `sale` listings -> store raw data in MongoDB
+
+All provinces were processed in parallel for speed.
 
 ### Technical Implementation
 
-**Asynchronous scraping**:
-```python
-# Concurrent HTTP requests with semaphore
-semaphore = asyncio.Semaphore(50)  # Max 50 concurrent requests
+From a technical point of view, each listing's scraping was done as follows:
+1. For a given province and listing type, we select a price range
+2. We extract the links to all the listings of this given price range
+3. We scrape all these listings
+4. We move on to the next price range
 
-async def get_single_url(url, session):
-    async with semaphore:
-        async with session.get(url, timeout=60) as response:
-            return await response.text()
-```
+Other details:
+- Each listing was scraped with an asynchronous HTTP request
+- Requests were processed in batches with error handling and retry logic for failed requests
+- `selenium` was used for JavaScript-rendered content, as some pages required browser automation and handling complex interactions and dynamic loading
+- Raw HTML data was stored in a mongoDB datalake
 
-**Selenium for JavaScript-rendered content**:
-- Some pages require browser automation
-- Handles complex interactions and dynamic loading
-
-**Data storage**:
-- MongoDB "datalake" stores raw HTML
-- Includes timestamp for tracking changes over time
-
-**Performance**:
-- Batch processing with error handling
-- Retry logic for failed requests
-- Logging for monitoring
-
-**Code disclaimer**: Scraping code has been **redacted** to prevent out-of-the-box reproducibility. Shared for portfolio demonstration only.
+**Code disclaimer**: the parts of the code that do the *actual* scraping have been **redacted** to prevent out-of-the-box reproducibility. The code is shared for portfolio demonstration only.
 
 ---
 
 ## ETL Pipeline
-Once the raw collection was working, the next problem was turning HTML fragments into something I could actually analyze.
+Once the raw data collection was working, the next problem was turning HTML fragments into something I could actually analyze.
 
 ### Challenge
-Extract 50+ fields from unstructured HTML and organize them coherently.
+I wanted to extract 50+ fields from unstructured HTML raw data and organize them coherently.
 
 ### Solution: BeautifulSoup + Airflow
-
+The workflow I used to this is was very simple, and again orchestrated with Airflow:
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-ETL-DAG.png" title="ETL DAG" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
-**Extracted fields** (50+ total):
+Very simply, I had three tasks that executed the ETL pipeline on the three different listing types in parallel.
+
+Some of the fields I extracted in the mongoDB warehouse are:
 - **Pricing**: price, price/m<sup>2</sup>, condominium expenses, heating costs
-- **Property features**: surface, rooms, bathrooms, floor, elevator, condition
-- **Building info**: construction year, floors, residential units
-- **Energy**: efficiency class, consumption, heating type, AC
+- **Property features**: surface, number of rooms, bathrooms, floors, presence of elevators, conditions
+- **Building info**: construction year, how many total floors in the building, how many residential units
+- **Energy**: efficiency class, consumption, heating type, presence of AC
 - **Location**: latitude, longitude, province, city, address
-- **Auction data**: court, minimum offer, procedure number
+- **Description**: text of the actual listing's description
 
-**Data transformations**:
-```python
-def remove_non_numbers(string):
-    """Convert 'EUR300.000,00' -> 300000"""
-    string = string.replace(",", ".")
-    return ''.join(c for c in string if c.isdigit() or c == '.')
-
-def mortgage_monthly_payment(principal, interest, term):
-    """Calculate monthly mortgage payment"""
-    i = interest / 12
-    n = term * 12
-    return round(principal * (i * (i + 1)**n) / ((i + 1)**n - 1), 2)
-```
-
-**Output**: MongoDB warehouse with clean, structured documents.
+The output of this step is a MongoDB warehouse with clean, structured documents. At this point the data still contains non-relational data (e.g., the listing's textual descriptions).
 
 ---
 
 ## PostgreSQL Migration
-The project changed shape at this point. Early on, flexibility mattered more than elegance; later, queryability and consistency mattered more.
-
-### Why PostgreSQL?
-- **Relational integrity**: enforce data consistency
-- **Query performance**: better for analytical queries
-- **Normalization**: reduce redundancy with a snowflake schema
+At this point I needed to organize my data in a relational database to be able to do standard analyses and train my rental income prediction model. Therefore, I decided to migrate all the structured data into a PostgreSQL database. At this step, I keep *only* the structured data and discard the non-structured one (e.g., the text of each listing's description).
 
 ### Database Schema
-
+To enforce data consistency and reduce redundancy, I decided to create a database using a *snowflake* schema with full data normalization:
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/PostgreSQL_warehouse_ERD.png" title="ERD" class="img-fluid rounded z-depth-1" %}
@@ -122,114 +93,43 @@ The project changed shape at this point. Early on, flexibility mattered more tha
     Snowflake schema with fact table and dimension tables. <a href="https://dbdiagram.io/">Created with dbdiagram.io</a>
 </div>
 
-**Design pattern**: Snowflake schema
-- **Fact table**: `listings`
-- **Dimension tables**: `property_types`, `conditions`, `energy_classes`, etc.
-- **Benefits**: normalized data, no redundancy, faster queries
-
 ### Translation Pipeline
+At this step, there is still one challenge. There are many categorical features in the dataset, and some of them have values that are written in italian. Such features are, for example, the listing's property type (e.g., if a listing is a house, an apartment, a townhouse etc.) or the listing's features (e.g., if a listing has a balcony, which type of heating it has, if it is already furnished or not).
 
-**Challenge**: Translate Italian real estate jargon to English.
-
-**Solution**:
-1. **LibreTranslate API**: local instance for privacy and speed
-2. **SQLite cache**: avoid re-translating identical text
-3. **Custom dictionary**: 100+ real estate-specific phrases
-
-Example translations:
-- "cucina abitabile" -> "eat-in kitchen"
-- "occupato" -> "inhabited"
-- "libero" -> "vacant"
-
-**Performance**:
-- Batch processing: 10,000 records per batch
-- Translation cache hits: ~80% (saves API calls)
-- Parallel processing with ThreadPoolExecutor
+To make these variables understandable, I needed to translate all of them in English. In order to do this, I used a local [LibreTranslate](https://libretranslate.com/) instance, with a custom SQLite cache to avoid re-translating identical text and a custom dictionary for real estate-specific jargon.
 
 ---
 
 ## Synthetic Data Generation
-Synthetic data was not an optional extra here. It was the only way to publish and demonstrate the project without exposing the scraped source listings.
+As explained in the [other post](/blog/2025/synthetic-data-ctgan/) relating to this project, I used a custom synthetic data generator to create synthetic data that retained all the properties of the *real* data but without exposing the scraped source listings.
 
-### Why Generate Synthetic Data?
-- **Privacy**: cannot share scraped data publicly
-- **Demonstration**: show the dashboard without exposing source listings
-- **Statistical preservation**: keep real-world correlations
-
-### Custom K-Nearest Neighbors Algorithm
-
-**Concept**: For each synthetic listing, find 5 real listings that are:
-- geographically close (similar lat/lon)
-- similar in price
-- similar in size (surface area)
-
-Then create a synthetic listing by blending their features.
-
-**Implementation**:
-```python
-# Distance metric (weighted)
-weights = {
-    'price': 0.25,
-    'surface': 0.25,
-    'latitude': 0.25,
-    'longitude': 0.25
-}
-
-# For numerical features: weighted average
-synthetic_price = sum(neighbor_prices * inverse_distance_weights)
-
-# For categorical features: weighted voting
-synthetic_property_type = most_common(neighbor_types, weights=inverse_distance)
-```
-
-**GPU acceleration**:
-- TensorFlow with CUDA support
-- Batch processing to manage memory
-- 10x speedup vs CPU
-
-**Output**:
-- **1,050,000 synthetic listings**
-  - 80,000 rental
-  - 120,000 auction
-  - 850,000 sale
-
-**Validation**:
-- Geographic coherence: coordinates within Italy
-- Statistical similarity: distributions match real data
-- Visual inspection: property characteristics look realistic
-
-### Why Not Use CTGAN?
-I tried [CTGAN](https://github.com/sdv-dev/CTGAN) first but found:
-- It learned feature distributions but not correlations
-- Key relationships like *location <-> price* were lost
-
-The custom KNN approach preserved correlations better.
+I first tried using CTGAN (the "classical" solution for this type of problems), but it failed to recreate the complex relationships between the dataset's features. I therefore build my own KNN-based algorithm. More details can be found in the [dedicated post](/blog/2025/synthetic-data-ctgan/).
 
 ---
 
 ## Machine Learning Model
-By the time I reached modeling, the question was no longer "what algorithm is fashionable?" It was "what gives stable, interpretable predictions on noisy market data with reasonable effort?"
+For this step, I was not interested in using a "fashionable" model, but rather something that gives stable, interpretable predictions with reasonable effort. My final choice was a simple Random Forest predictor:
+- it can capture complex non-linear relationships
+- it is robust to outliers
+- its results can be interpreted using feature importance
+- it is easy and fast to train
 
 ### Random Forest Rent Predictor
+The model's aim was to predict the monthly rental price for properties listed for sale or auction. In other words, we use the `rent` listings to train the model, and then apply it to `sale` and `auction` listings to predict what rent can be obtained from a given listing after buying it.
 
-**Problem statement**: Predict monthly rental price for properties listed for sale/auction.
-
-**Why Random Forest?**
-- Non-linear relationships
-- Robust to outliers
-- Interpretable feature importance
-- Good accuracy with reasonable training time
 
 ### Feature Engineering
-- **Property types**: 30+ categories -> 7 main types
-- **Heating**: decomposed into type, delivery, power source
-- **Air conditioning**: separated into type, hot capability, cold capability
+Before training the model, I did some feature engineering
+- **Property types**: this feature had 30+ categories, many of which were however similar (e.g., "apartment" and "condo") -> they were grouped into 7 broader values
+- **Heating**: decomposed into `type`, `delivery`, `power source` (originally it was a unique string with all possible combinations of these features)
+- **Air conditioning**: separated into `type`, `hot_capability`, `cold_capability`
 - **Windows**: combined glass type and frame material
 - **One-hot encoding**: 14 categorical features -> 70+ binary columns
 - **Outliers**: removed 1st and 99th percentiles
 - **Target**: log-transform rent for better predictions
 
 ### Model Architecture
+The architectore of the model used for training was the following:
 ```python
 RandomForestRegressor(
     n_estimators=100,
@@ -241,49 +141,47 @@ RandomForestRegressor(
 ```
 
 ### Performance Metrics
+The model performed fairly well on the test split (30% of the synthetic `rent` listings):
 
 | Metric | Value |
 |--------|-------|
-| R2 Score | 0.75 - 0.78 |
+| R2 Score | 0.75 |
 | RMSE (log scale) | 0.25 |
 | MAE (log scale) | 0.14 |
 | MAPE | 2.07% |
 
-**Feature importance (top 5)**:
-1. **Surface area** (m2)
-2. **Latitude** (location)
-3. **Longitude** (location)
+<br>
+The top 5 most important features are:
+1. **Surface area**
+2. **Latitude** and **longitude** (i.e., location)
 4. **Condominium expenses**
 5. **Milan indicator** (premium pricing)
 
+The importance of these features is pretty easy to understand:
+- surface and location are *naturally* relevant to determine a property's rent
+- the more luxurious and pricier properties will also have generally higher maintenance costs and therefore higher condominum expenses
+- Milan is notoriously the hottest real estate market in Italy, so it make sense that any given property in Milan will be priced higher
+
 ### Model Application
-Applied to **970,000 sale/auction listings** to predict rental income and build dashboard-ready outputs.
+The model was applied to **970,000 sale/auction synthetic listings** to predict their rental income and build dashboard-ready outputs.
 
 ---
 
 ## Dashboard Design
-I treated the dashboard as part of the model output, not as a presentation layer added afterward. The project was only useful if a non-technical user could move from prediction to decision.
+I treated the dashboard as part of the model output itself, and not as a presentation layer. The project was only useful if a non-technical user could move from *prediction* to *decision*.
 
-### User Personas
-**Target audience**: real estate investors (novice and experienced).
-
-**Use cases**:
-1. Explore profitable regions/cities
-2. Compare auction vs sale listings
-3. Assess impact of property characteristics
-4. Calculate ROI with custom mortgage parameters
+### Target Audience
+The dashboard is thought for real estate investors who want to explore profitable areas (*not* single listings).
 
 ### Dashboard Features
 
-**Investment metrics**:
-1. **Annual cash-on-cash return**
-   ```
-   (Annual Rent - Annual Mortgage Payment) / Down Payment
-   ```
-2. **Rental yield**
-   ```
-   Annual Rent / Purchase Price
-   ```
+The dashboard allows to:
+- use two different investment metrics:
+    1. **Annual cash-on-cash return:** `(Annual Rent - Annual Mortgage Payment) / Down Payment`
+    2. **Rental yield:** `Annual Rent / Purchase Price`
+- compare `auction` vs `sale` listings
+- asses the impact of property characteristincs (energy class, property type, conditions)
+- calculate ROI with custom mortgage parameters and include renovation costs
 
 **User controls**:
 - Mortgage parameters (interest rate, down payment %, loan term)
@@ -296,11 +194,10 @@ I treated the dashboard as part of the model output, not as a presentation layer
 - Bar charts: metrics by province/property type
 - Summary stats: counts, medians, top opportunities
 
-**Design principles**:
-- Progressive disclosure
-- Interactivity
-- Context through tooltips and legends
-- Performance via aggregation
+---
+
+## Closing Reflection
+What I learned from this project is not just to "scrape real-estate listings". It is a more practical lesson: if you want a model-driven product to be credible, the upstream engineering and the publication constraints *have to* be part of the design *from the start. The parts that held up best here were the pipeline decisions, the synthetic-data requirement, and the fact that the dashboard was treated as part of the project rather than as an afterthought.
 
 ---
 

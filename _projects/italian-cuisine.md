@@ -22,19 +22,19 @@ vis_network: true
 **October - November 2025**
 
 ## Summary
-I built two complementary recipe datasets, one from Pellegrino Artusi's 1891 cookbook and one from a contemporary regional corpus, then converted each recipe into a graph so I could study Italian cuisine across both time and geography. The project combines extraction, data modeling, visualization, and graph machine learning in one workflow.
+I built two complementary recipe datasets, one from Pellegrino Artusi's 1891 cookbook and one from a contemporary regional corpus, because I wanted to treat Italian cuisine as both a historical record and a machine-learning problem. Once I started thinking seriously about what a recipe actually is, flat ingredient lists stopped feeling adequate, so I converted each recipe into a graph and used that representation to study change across both time and geography.
 
 ---
 
-## Why This Matters
-The key decision in this project was representational, not just algorithmic. Once recipes are treated as structured processes instead of flat ingredient lists, it becomes much easier to connect historical change, regional identity, and model behavior.
+## Why I Cared About This Question
+I cared about this project before I cared about the model. Italian cuisine was already a subject I found culturally interesting, but the project only became compelling once the representation question took over. I did not want a dressed-up ingredient-frequency exercise. I wanted a way to keep process, sequence, and regional identity in the data instead of flattening them away.
 
 ---
 
 ## Historical Context
 In 1891, shortly after Italian unification, Pellegrino Artusi published *"La Scienza in cucina e l'arte di mangiar bene"*, a collection of 790 recipes that helped shape a shared national culinary identity[^1]. Artusi knew Tuscany and Emilia-Romagna especially well, so his book offers an influential but regionally biased baseline rather than a neutral picture of all Italian cuisine.
 
-The modern dataset fills that gap with regional recipes from all 20 Italian regions, which makes the comparison historically uneven but analytically useful.
+The modern dataset fills that gap with regional recipes from all 20 Italian regions, which makes the comparison historically uneven but analytically useful. That imbalance was part of what interested me: I was not comparing two neat snapshots, but a canonical and biased historical source against a broader contemporary map of regional cooking.
 
 ---
 
@@ -109,10 +109,7 @@ Per-class performance in the macro-region setup:
 
 ---
 
-## What This Project Shows
-- I can turn unstructured domain material into a reusable analytical dataset.
-- I care about data representation, not just model choice.
-- I can connect technical outputs back to historical and geographic interpretation.
+The part that stayed with me most is that the representation choice ended up doing most of the intellectual work. Once I stopped treating recipes as bags of ingredients, the historical analysis, the visualizations, and even the model errors became much easier to interpret.
 
 ---
 

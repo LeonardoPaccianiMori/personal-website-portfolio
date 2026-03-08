@@ -19,17 +19,17 @@ category: portfolio
 **January - April 2025**
 
 ## Summary
-I built an end-to-end real estate pipeline that starts with web scraping and ends with an investor-facing dashboard. Rather than relying on a public dataset, I collected and structured more than one million Italian property listings, generated a privacy-preserving synthetic dataset, trained a rental-price model, and used the results to surface high-return opportunities.
+I built an end-to-end pipeline that starts with the scraping of real estate listings and ends with an investor-facing dashboard because I wanted a project where data acquisition mattered as much as modeling. Instead of starting from a pre-packaged housing dataset, I built my own by collecting and structuring more than **one million** Italian property listings, so the project demonstrates data acquisition and pipeline design rather than just modeling on a well-known and already cleaned dataset. I then generated a privacy-preserving synthetic dataset, trained a rental-price model, and used the results to identify areas with high-return opportunities.
 
 ---
 
-## Why This Matters
-This is the most product-oriented project in the portfolio. It shows the full chain from acquisition and orchestration to modeling, analytics, and interface design, with an emphasis on decision support rather than on model novelty for its own sake.
+## Why I Built the Dataset Myself
+Real-estate modeling is a familiar data-science problem, but I was not interested in doing a polished version of a project built on a CSV that thousands of other people had already used (like the [Ames](https://www.kaggle.com/datasets/marcopale/housing/), [Boston](https://www.kaggle.com/datasets/schirmerchad/bostonhoustingmlnd/) or [California](https://www.kaggle.com/datasets/camnugent/california-housing-prices/) datasets). I wanted something closer to *real* analytical work: messy source data, evolving schemas, operational constraints, and a decision-support output at the end. Using Italian listings also made the problem feel more concrete to me rather than using a dataset from a market I was not familiar with.
 
 ---
 
 ## What I Built
-Here is the simplified view of the pipeline:
+Here is a simplified view of the pipeline:
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-project-structure.png" title="Project pipeline" class="img-fluid rounded z-depth-1" %}
@@ -39,11 +39,12 @@ Here is the simplified view of the pipeline:
     End-to-end data pipeline from web scraping to interactive dashboard. Icons from <a href="https://www.flaticon.com/">Flaticon</a>.
 </div>
 
-- Scraped rentals, sales, and auction listings for all Italian provinces, for a total of roughly **one million listings**.
-- Built an ETL flow that cleaned, translated, and organized the data into an analytics-ready warehouse.
-- Generated a synthetic dataset to preserve the useful structure of the original data without exposing scraped listings.
-- Trained a Random Forest model to estimate rental income from property features.
-- Published the outputs in a Tableau dashboard designed for investors exploring ROI.
+What I did was:
+- I scraped rentals, sales, and auction listings for all Italian provinces, for a total of roughly **one million listings**.
+- I built an ETL pipeline that cleaned, translated, and organized the data into an analytics-ready warehouse.
+- I developed a custom algorithm to generate a synthetic dataset to preserve the useful structure of the original data without exposing scraped listings.
+- I trained a simple Random Forest model to estimate rental income from property features.
+- I published the outputs in a Tableau dashboard designed for investors exploring ROI.
 
 ---
 
@@ -52,31 +53,27 @@ Here is the simplified view of the pipeline:
 {% include dashboards/italian-real-estate-dashboard.html %}
 
 <br>
-(Works best on desktop or tablet - you can also <a href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">open it in full screen</a>)
+(The dashboard works best on desktops or tablets. You can also <a href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">open it in full screen</a>)
 
 ### Key Findings
-These insights come from the synthetic dataset, which was designed to preserve the key statistical relationships of the original data:
+Analyzing the synthetic dataset (designed to preserve the key statistical relationships of the original data) I identified the following insights:
 - **Auction properties outperform regular sales**, even after accounting for significant renovation costs.
 - **Energy efficiency impacts rent less than expected**; lower-rated properties often rent for similar amounts.
 - **Rural areas often deliver higher returns** than urban ones.
 - **No clear North-South divide** appears in profitability; interesting opportunities exist across the country.
 
-These are directional insights for exploration, not investment advice. The system is meant to triage where to look more closely, not to claim exact property-level forecasts.
+**Note:** The rental income prediction model is quite simple, and although it performes quite well to capture the main trends in the data (its R2 is 0.75), it is not sophisticated enough for precise pricing (which was not the main aim of this project). This system is meant to identify profitable *areas*, and not claim exact *property-level* forecasts.
 
 ---
 
 ## Technical Approach
-- **Data collection**: Apache Airflow orchestrated scraping jobs across provinces and listing types; MongoDB stored raw and intermediate data.
-- **Data modeling**: once the schema stabilized, I migrated the cleaned data into PostgreSQL for analytics and feature engineering.
-- **Synthetic data**: I used a custom KNN-based generator instead of CTGAN because preserving geographic and price correlations mattered more than reproducing marginal distributions alone.
+Here is a brief overview of the technical approach used in this project:
+- **Data collection**: Apache Airflow orchestrated scraping jobs across provinces and listing types; MongoDB stored both raw and processed non-relational data.
+- **Data modeling**: I then chose a fixed relational schema and migrated the processed data into PostgreSQL.
+- **Synthetic data**: I used a custom KNN-based synthetic data generator instead of CTGAN because preserving geographic and price correlations mattered more than reproducing marginal distributions alone.
 - **Decision support**: I paired the model with an interactive dashboard so the project ended in a usable product rather than a notebook.
 
----
-
-## What This Project Shows
-- I can build and operate multi-stage data pipelines.
-- I think about privacy and product usability alongside modeling.
-- I can translate technical outputs into tools a non-technical user can act on.
+An aspect of this project I really liked is that no single component gets to pretend it is the whole story. The scraper, the schema decisions, the synthetic-data generation, and the dashboard *all* matter because the project only becomes useful when they work together.
 
 ---
 
@@ -97,9 +94,9 @@ These are directional insights for exploration, not investment advice. The syste
 ---
 
 ## Limitations
-- Model accuracy is good for trends (R2 about 0.75-0.78), but not for precise pricing.
+- The accuracy of the rental income prediction model is good for trends (R2 = 0.75), but not for precise pricing.
 - The data is a snapshot from early 2025, so the listings are now outdated.
-- Results are based on synthetic data rather than the original scraped listings.
+- Results are *all* based on synthetic data rather than the original scraped listings.
 
 ---
 
@@ -109,7 +106,7 @@ Full scraping, ETL, synthetic data, and modeling details are in [Italian Real Es
 ---
 
 ## Related Blog Posts
-- [Why I Replaced CTGAN with a Custom Synthetic Data Generator](/blog/2025/synthetic-data-ctgan/): The decision to abandon an off-the-shelf tabular generator when it failed on the correlations that actually mattered.
+- [Why I Replaced CTGAN with a Custom Synthetic Data Generator](/blog/2025/synthetic-data-ctgan/): The decision to abandon an off-the-shelf synthetic tabular data generator when it failed on the correlations that actually mattered.
 - [How My Real Estate Pipeline Outgrew MongoDB and Moved to PostgreSQL](/blog/2025/mongodb-postgresql-ml/): Why the right database changed as my real-estate pipeline moved from messy extraction to analytics-ready modeling.
 
 ---

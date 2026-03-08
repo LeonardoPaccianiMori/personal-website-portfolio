@@ -10,7 +10,7 @@ chart:
 ---
 
 ## Overview
-This post is the technical appendix to my [Italian cuisine project](/projects/italian-cuisine/). The project page focuses on the portfolio story; this page keeps the extraction prompts, graph-modeling choices, and analytical outputs together in one reference.
+This post is the technical appendix to my [Italian cuisine project](/projects/italian-cuisine/). I cared about the question before I cared about the model: I wanted a way to treat Italian cuisine as both historical evidence and structured data, and once I took that seriously, the representation problem became the real center of the work. The project page focuses on the portfolio story; this page keeps the extraction prompts, graph-modeling choices, and analytical outputs together in one reference.
 
 ---
 
@@ -289,9 +289,9 @@ PCA projection of recipe embeddings colored by macro-region.
 ---
 
 ## Takeaways
-- Graph structure captures relationships and sequence that flat ingredient lists miss.
-- Macro-regions are more learnable than individual regions because of data volume and culinary overlap.
-- The patterns learned by the model match geography and history, not arbitrary boundaries.
+- Graph structure earned its keep because it kept relationships and sequence visible instead of turning recipes into ingredient bags.
+- Macro-regions are more learnable than individual regions, which says as much about culinary overlap and data sparsity as it does about model quality.
+- The most satisfying result for me was that the patterns learned by the model still made historical and geographic sense instead of feeling like arbitrary clusters.
 
 ---
 

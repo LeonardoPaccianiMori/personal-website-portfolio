@@ -10,7 +10,7 @@ featured: false
 
 One of the more useful design decisions in my [Italian real estate project](/projects/italian-real-estate/) was accepting that the "right" database changed over the life of the project.
 
-At the beginning I had messy HTML, half-understood fields, and a schema that changed whenever I found a new edge case. By the end I had an ML pipeline, a translation layer, and a normalized dataset that needed joins, constraints, and analytical queries.
+I resisted that shift longer than I should have, mostly because once a pipeline is working you start wanting the current tool to remain the right one. At the beginning I had messy HTML, half-understood fields, and a schema that changed whenever I found a new edge case. By the end I had an ML pipeline, a translation layer, and a normalized dataset that needed joins, constraints, and analytical queries.
 
 Those are not the same storage problem.
 
@@ -81,7 +81,7 @@ Once I migrated the cleaned layer into PostgreSQL, a lot of later work got easie
 
 ## What I Took From It
 
-I used to think choosing a database meant choosing a camp. This project made the more practical lesson obvious: storage decisions should match the maturity of the data, not your loyalty to one tool.
+I came away from this project less interested in database ideology than before. The more practical lesson was simpler: storage decisions should match the maturity of the data, not your loyalty to one tool.
 
 If I were doing the project again, I would make the same high-level move:
 

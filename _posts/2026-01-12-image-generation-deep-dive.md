@@ -12,7 +12,7 @@ images:
 ---
 
 ## Overview
-This post is the technical appendix to my [image generation project](/projects/image-generation/). The project page gives the portfolio-level summary; this page keeps the experiment setup, architecture choices, and per-model results in one place.
+This post is the technical appendix to my [image generation project](/projects/image-generation/). I used MNIST because it is simple enough to expose bad assumptions quickly, which made it a good setting for comparing classifier architectures, watching generative models fail in public, and figuring out which improvements were real instead of just fashionable. The project page gives the portfolio-level summary; this page keeps the experiment setup, architecture choices, and per-model results in one place.
 
 ---
 
@@ -425,9 +425,9 @@ Training time comparison across DCGAN variants.
 ---
 
 ## Summary
-- The cleanest classification result came from being explicit about tradeoffs, not from picking the single highest-accuracy point.
-- For generation, stability and output quality were tightly linked to architecture, normalization, and training time.
-- Keeping the plots, galleries, and timing data side by side made the project far easier to reason about than raw accuracy numbers alone.
+- The most useful classification result was not the single highest-accuracy point; it was realizing how often the simple CNN was the model I would actually choose.
+- For generation, the turning points were mostly mundane but consequential: output scaling, architecture, and training time mattered more than cleverness.
+- Keeping the plots, galleries, and timing data side by side changed how I reasoned about the models. Without that, I would have overvalued the headline numbers and undervalued the failure modes.
 
 ---
 

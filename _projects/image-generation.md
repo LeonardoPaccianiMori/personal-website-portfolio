@@ -23,12 +23,12 @@ images:
 **November - December 2024**
 
 ## Summary
-I used MNIST as a controlled environment to study two related problems: image classification and image generation. Instead of treating the project as a benchmark chase, I used it to understand what extra model complexity actually buys you, how fragile generative training can be, and how to make those tradeoffs visible to another practitioner.
+I used MNIST as a controlled environment because I wanted a problem small enough to make architectural choices visible instead of burying them under dataset complexity. I was less interested in chasing the single best number than in figuring out what extra model complexity actually buys you, how fragile generative training becomes once you have to debug it yourself, and how to make those tradeoffs legible to another practitioner.
 
 ---
 
-## Why This Matters
-This project is less about handwritten digits and more about experimental judgment. It shows how I compare alternatives, debug unstable training, and communicate the difference between a technically interesting model and a practically useful one.
+## What I Wanted to Learn
+I did not choose this project because handwritten digits are inherently exciting. I chose it because MNIST is simple enough to expose bad assumptions quickly. What I cared about was seeing which ideas genuinely improved the result, which ones only sounded sophisticated, and where "best practice" stopped being useful once the training dynamics became unstable.
 
 ---
 
@@ -139,10 +139,7 @@ The DCGAN-5 model runs entirely in your browser using TensorFlow.js. The first g
 
 ---
 
-## What This Project Shows
-- I can run controlled comparisons instead of reporting isolated wins.
-- I care about deployable communication, not just model training.
-- I trust evidence over “best practice” when the two conflict.
+What I still like most about this project is that it does not hide behind a final score. The useful part was learning where the simple baseline was already enough, where generative models became fragile, and how much easier those tradeoffs are to discuss once the outputs are visible in the browser instead of trapped in a notebook.
 
 ---
 

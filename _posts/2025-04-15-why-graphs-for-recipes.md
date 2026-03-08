@@ -10,7 +10,7 @@ featured: false
 
 When I started the [Italian cuisine project](/projects/italian-cuisine/), the obvious representation was also the safest one: treat each recipe as a list of ingredients, one-hot encode it, and train a classifier from there.
 
-That would have worked well enough for a baseline. It also would have thrown away the part of the data I cared about most.
+That would have been the respectable baseline. It also would have reduced the whole project to ingredient frequencies, which was exactly what I did not want.
 
 ## The Problem With Ingredient Lists
 
@@ -81,6 +81,6 @@ I would not take "use graphs" as a generic recipe-ML rule.
 
 If the task is simple, the data is small, or the relationships are not central, flat features are probably the right first move. Graphs are worthwhile when the structure is doing real work, not when they merely sound more advanced.
 
-That is the broader lesson I kept from this project: representation decisions deserve as much attention as model decisions. I spent less time tuning once I accepted that the bigger improvement was upstream.
+What I kept from this project is a stronger suspicion of downstream tinkering. Once I accepted that the real decision was representational, I stopped asking the model to recover structure I had already thrown away upstream.
 
 For the full project context, start with the [project page](/projects/italian-cuisine/). For the implementation details, prompts, and analysis outputs, see the [technical deep dive](/blog/2026/italian-cuisine-deep-dive/).
