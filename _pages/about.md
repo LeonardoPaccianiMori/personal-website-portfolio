@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Senior Data Scientist at VeryCoolCompany
+subtitle: Senior Data Scientist at Merkle
 
 profile:
   align: right
@@ -16,7 +16,7 @@ profile:
 social: true # includes social icons at the bottom of the page
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
@@ -24,12 +24,10 @@ latest_posts:
 
 # About Me
 
-I'm a Senior Data Scientist at VeryCoolCompany, where I help companies understand their customers and make data-driven marketing decisions. I work on exploratory data analysis, customer segmentation, propensity modeling, and econometric analysis.
+I'm a Senior Data Scientist at [Merkle](https://www.merkle.com/en.html) Italy, where I work on the space between data, models, and business decisions: customer segmentation, propensity modeling, econometric analysis, and AI-assisted insight generation.
 
-One recent project: I built an LLM-powered system that integrates multiple data sources to automatically generate audience insights. The key challenge was eliminating hallucinations for client-facing work—the solution delivers accurate, automated insights that received overwhelmingly positive feedback.
+Before moving into industry, I worked in academic biophysics, with research experience at UC San Diego and Harvard. That background still shapes how I approach data science: I care about evidence, uncertainty, experimental design, and whether an analysis can survive contact with messy real-world data.
 
-Before joining VeryCoolCompany, I spent years in academic research studying biophysics, focusing on bacterial ecology and physiology. I worked at UC San Diego and Harvard, publishing research and developing machine learning algorithms for biological data. While I loved the intellectual challenge, I realized I needed to work on problems with tangible impact. In academia, you can spend years on a single question with no guarantee of finding an answer. I wanted to build things that matter to people.
+What I enjoy most is turning ambiguous questions into useful systems. Sometimes that means building a model; sometimes it means designing a better dataset, a clearer dashboard, or a more reliable way to translate technical results into decisions.
 
-My academic background taught me how to break down complex problems, design experiments, and think rigorously about evidence. My transition to data science has taught me how to move fast, deliver value, and translate technical work into business impact.
-
-When I'm not analyzing data or building dashboards, you'll find me reading (Italo Calvino is my favorite author), cooking when I have time to do it properly, or going on long walks with my brown Dalmatian Bruno.
+This site collects projects, technical notes, and a few side experiments that reflect how I think through data problems: practically, carefully, and with a bias toward work that can actually be used.
