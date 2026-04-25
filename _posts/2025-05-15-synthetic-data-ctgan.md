@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Why I Replaced CTGAN with a Custom Synthetic Data Generator
+title: When CTGAN Failed to Preserve the Correlations That Mattered
 date: 2025-05-15 09:00:00
-description: Why I abandoned an off-the-shelf synthetic tabular data generator when it failed on the correlations that actually mattered
+description: "A practical synthetic-data decision from an Italian real-estate project: preserving geographic and price correlations mattered more than matching marginal distributions."
 tags: machine-learning synthetic-data algorithms
-categories: [data-science, learning]
+categories: [technical-notes]
 featured: true
 ---
 

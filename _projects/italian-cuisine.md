@@ -134,13 +134,13 @@ The part that stayed with me most is that the representation choice ended up doi
 ---
 
 ## Deep Dive
-Full extraction prompts, analysis, and model details are in [Italian Cuisine: Full Technical Deep Dive](/blog/2026/italian-cuisine-deep-dive/).
+Full extraction prompts, analysis, and model details are in [Technical Appendix: Recipe Graphs and Regional Cuisine Modeling](/blog/2026/italian-cuisine-deep-dive/).
 
 ---
 
 ## Related Blog Posts
-- [Why I Represented Recipes as Graphs (Not Just Ingredient Lists)](/blog/2025/why-graphs-for-recipes/): The modeling decision that changed my Italian cuisine project from a feature-engineering exercise into a structural one.
-- [How I Visualized Regional Patterns in Italian Cuisine](/blog/2025/visualizing-italian-cuisine/): Three visualization choices that made the geographic story in my Italian cuisine dataset much easier to see.
+- [Modeling Recipes as Graphs Instead of Ingredient Lists](/blog/2025/why-graphs-for-recipes/): The modeling decision that changed my Italian cuisine project from a feature-engineering exercise into a structural one.
+- [Visualizing Regional Structure in Italian Cuisine](/blog/2025/visualizing-italian-cuisine/): Three visualization choices that made the geographic story in my Italian cuisine dataset much easier to see.
 
 ---
 
