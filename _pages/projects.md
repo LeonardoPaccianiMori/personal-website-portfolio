@@ -2,14 +2,16 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Personal projects demonstrating end-to-end data science capabilities.
+description: Personal projects and anonymized professional work demonstrating end-to-end data science capabilities.
 nav: true
 nav_order: 2
-display_categories: [portfolio, foundations]
+display_categories: [portfolio, work, foundations]
 horizontal: false
 ---
 
-A curated set of end-to-end data science projects; each card opens a concise overview with links to deeper technical notes and code.
+A curated set of end-to-end data science projects and anonymized professional AI case studies. Each card opens a concise overview, with links to deeper technical notes and code where public sharing is possible.
+
+The `work` entries describe professional systems in anonymized form: no client details, internal product names, vendor details, or proprietary implementation specifics.
 
 <!-- pages/projects.md -->
 <div class="projects">
