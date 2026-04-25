@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Image Generation Deep Dive: CNNs, VAEs, and GANs on MNIST"
+title: "Technical Appendix: MNIST Classifiers, VAEs, and GANs"
 date: 2025-02-21 10:00:00
 description: The technical appendix to my MNIST image-generation project, covering the experiment setup, architecture choices, and per-model results.
 tags: deep-learning GAN VAE CNN
-categories: [data-science, learning]
+categories: [technical-notes]
 chart:
   plotly: true
 images:

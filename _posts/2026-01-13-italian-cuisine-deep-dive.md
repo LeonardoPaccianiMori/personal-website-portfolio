@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Italian Cuisine Deep Dive: Graph Recipes and Regional Patterns"
+title: "Technical Appendix: Recipe Graphs and Regional Cuisine Modeling"
 date: 2026-01-16 10:00:00
 description: The technical appendix to my Italian cuisine project, including extraction prompts, graph modeling choices, and the main analytical outputs.
 tags: data-science graphs GNN NLP
-categories: [data-science, projects]
+categories: [technical-notes]
 chart:
   plotly: true
 ---

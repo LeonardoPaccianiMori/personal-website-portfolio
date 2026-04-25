@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "How I Visualized Regional Patterns in Italian Cuisine"
+title: "Visualizing Regional Structure in Italian Cuisine"
 date: 2025-12-19 11:00:00
 description: Three visualization choices that made the geographic story in my Italian cuisine dataset much easier to see
 tags: data-visualization plotly maps
-categories: data-science
+categories: [technical-notes]
 featured: false
 chart:
   plotly: true

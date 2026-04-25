@@ -77,14 +77,14 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: inference # blog_name will be displayed in your blog page
-blog_description: learning from evidence
+blog_name: technical notes # blog_name will be displayed in your blog page
+blog_description: decisions, tradeoffs, and lessons from applied data science
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
 # Pagination
 pagination:
-  enabled: true
+  enabled: false
 
 related_blog_posts:
   enabled: false
@@ -217,7 +217,7 @@ jekyll-archives:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
 display_tags: ["machine-learning", "deep-learning", "data-engineering", "algorithms", "databases"] # these tags will be displayed on the front page of your blog
-display_categories: ["data-science", "learning"] # these categories will be displayed on the front page of your blog
+display_categories: ["technical-notes", "essays"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Link Attributes

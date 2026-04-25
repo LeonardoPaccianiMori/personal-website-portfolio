@@ -63,7 +63,9 @@
               {% if p.dropdown %}
                 {% assign has_active_child = false %}
                 {% for child in p.children %}
-                  {% if page.title == child.title %}
+                  {% assign child_active = false %}
+                  {% if page.title == child.title or page.url == child.permalink or child.category and page.categories contains child.category %}
+                    {% assign child_active = true %}
                     {% assign has_active_child = true %}
                   {% endif %}
                 {% endfor %}
@@ -87,8 +89,12 @@
                       {% if child.title == 'divider' %}
                         <div class="dropdown-divider"></div>
                       {% else %}
+                        {% assign child_active = false %}
+                        {% if page.title == child.title or page.url == child.permalink or child.category and page.categories contains child.category %}
+                          {% assign child_active = true %}
+                        {% endif %}
                         <a
-                          class="dropdown-item {% if page.title == child.title %}active{% endif %}"
+                          class="dropdown-item {% if child_active %}active{% endif %}"
                           href="{% if child.permalink contains '://' %}{{ child.permalink }}{% else %}{{ child.permalink | relative_url }}{% endif %}"
                           {% if child.new_tab %}
                             target="_blank"

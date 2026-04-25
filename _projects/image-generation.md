@@ -150,12 +150,7 @@ What I still like most about this project is that it does not hide behind a fina
 ---
 
 ## Deep Dive
-Full experiment details, architecture diagrams, and per-model results are in [Image Generation: Full Technical Deep Dive](/blog/2025/image-generation-deep-dive/).
-
----
-
-## Related Blog Posts
-- [Activation Functions Killed My GAN: A Debugging Story](/blog/2025/gan-activation-functions/): How changing one line of code in my MNIST GAN turned a failing model into one that finally produced recognizable digits.
+Full experiment details, architecture diagrams, and per-model results are in [Technical Appendix: MNIST Classifiers, VAEs, and GANs](/blog/2025/image-generation-deep-dive/).
 
 ---
 

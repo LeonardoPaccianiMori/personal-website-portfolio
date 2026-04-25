@@ -101,13 +101,13 @@ An aspect of this project I really liked is that no single component gets to pre
 ---
 
 ## Deep Dive
-Full scraping, ETL, synthetic data, and modeling details are in [Italian Real Estate: Full Technical Deep Dive](/blog/2025/italian-real-estate-deep-dive/).
+Full scraping, ETL, synthetic data, and modeling details are in [Technical Appendix: Real Estate Data Pipeline and ROI Modeling](/blog/2025/italian-real-estate-deep-dive/).
 
 ---
 
 ## Related Blog Posts
-- [Why I Replaced CTGAN with a Custom Synthetic Data Generator](/blog/2025/synthetic-data-ctgan/): The decision to abandon an off-the-shelf synthetic tabular data generator when it failed on the correlations that actually mattered.
-- [How My Real Estate Pipeline Outgrew MongoDB and Moved to PostgreSQL](/blog/2025/mongodb-postgresql-ml/): Why the right database changed as my real-estate pipeline moved from messy extraction to analytics-ready modeling.
+- [When CTGAN Failed to Preserve the Correlations That Mattered](/blog/2025/synthetic-data-ctgan/): The decision to abandon an off-the-shelf synthetic tabular data generator when it failed on the correlations that actually mattered.
+- [Moving the Real Estate Pipeline from MongoDB to PostgreSQL](/blog/2025/mongodb-postgresql-ml/): How the storage layer changed as the project moved from messy scraping to analytics-ready modeling.
 
 ---
 
