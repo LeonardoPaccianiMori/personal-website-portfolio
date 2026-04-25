@@ -90,6 +90,10 @@
                         <a
                           class="dropdown-item {% if page.title == child.title %}active{% endif %}"
                           href="{% if child.permalink contains '://' %}{{ child.permalink }}{% else %}{{ child.permalink | relative_url }}{% endif %}"
+                          {% if child.new_tab %}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          {% endif %}
                         >
                           {{- child.title -}}
                         </a>
