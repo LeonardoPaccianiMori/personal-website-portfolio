@@ -268,6 +268,13 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+@media (min-width: 576px) {
+  .navbar .dropdown:hover > .dropdown-menu,
+  .navbar .dropdown:focus-within > .dropdown-menu {
+    display: block;
+  }
+}
+
 .dropdown-item {
   color: var(--global-text-color);
 
