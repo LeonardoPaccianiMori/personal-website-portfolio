@@ -3,15 +3,15 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Pinco
+first_name: Leonardo
 middle_name:
-last_name: Pallino
+last_name: Pacciani-Mori
 contact_note: >
   The best way to reach out to me is via email.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>, forked from <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.<br>All writing on this site is mine. AI tools are used only for writing first drafts (which are then edited by me), organization, and code cleanup.<br>
+  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>, forked from <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.<br>All writing on this site is mine. AI tools are used only for writing first drafts (which are then edited by me), and cleaning up code I wrote.<br>
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty (which are then edited by me): en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 👨🏻‍💻 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -67,7 +67,7 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 
 # For Google Analytics, see https://support.google.com/analytics/answer/10447272?hl=en&ref_topic=14088998&sjid=5129943941510317771-SA#zippy=%2Cgoogle-sites
 # and follow the instructions for Google Sites. You will need to create a Google Analytics property and copy the Google tag ID.
-google_analytics: # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
+google_analytics: G-78CBT9DDSL # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
 
 # For Google Search Console, see https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification&zippy=%2Chtml-tag
 google_site_verification: # your google-site-verification ID (Google Search Console)
