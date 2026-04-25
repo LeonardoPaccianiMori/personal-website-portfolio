@@ -37,7 +37,7 @@ The better choice was a diverging choropleth where the scale itself expresses th
     Diverging choropleth of regional fat preference. A single map makes the transition zone easier to see than two separate usage maps.
 </div>
 
-This was the point where the pattern stopped being a set of statistics and became a story. You could see the boundary immediately, and once it was visible, it became easier to connect it back to climate, agriculture, and regional culinary history.
+This was the point where the pattern stopped being a set of statistics and became a story. You could see the boundary immediately, and once it was visible, it became easier to ask better questions about climate, agriculture, and regional culinary history.
 
 ## 2. The Pasta-Rice-Polenta Triangle
 
@@ -73,7 +73,7 @@ The useful move was to keep the heatmap, but reorder it by clustered similarity 
     Regional similarity heatmap reordered by clustering. Grouping similar regions together makes the block structure legible.
 </div>
 
-This mattered because it confirmed something the classification model was already hinting at: macro-regions are not arbitrary convenience labels. They show up as real structure in the data.
+This mattered because it supported something the classification model was already hinting at: macro-regions are not arbitrary convenience labels. They show up as real structure in the data.
 
 ## What I Took From This
 

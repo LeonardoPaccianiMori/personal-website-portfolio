@@ -21,7 +21,7 @@ This post is the technical appendix to my [image generation project](/projects/i
 - **Scope**: 7 classifiers (CNN/FCNN), 5 CVAEs, 5 DCGANs
 - **Highest classifier accuracy**: FCNN-4 at ~98.6% test accuracy in ~130s
 - **Most practical classifier**: CNN-1 at ~98.3% test accuracy in ~106s
-- **Best generator**: DCGAN-5 with FID 117.3 in ~113 minutes
+- **Best generator in this comparison**: DCGAN-5, using FID as a relative metric, with FID 117.3 in ~113 minutes
 - **Stack**: TensorFlow/Keras (training and inference), TensorFlow.js (browser demo), Plotly (analysis)
 
 ---
@@ -376,8 +376,8 @@ Generator and discriminator loss curves for DCGAN-3.
 
 #### DCGAN-4 (More Layers)
 - **Change**: 4 conv layers (generator + discriminator)
-- **Result**: Best quality; all digits clear, fewer artifacts
-- **Training Time**: Significantly longer, but worth it
+- **Result**: Best visual quality among the 100-epoch runs; all digits clear, fewer artifacts
+- **Training Time**: Significantly longer than the earlier variants, but worth it
 
 Generator and discriminator loss curves for DCGAN-4.
 ```plotly
@@ -410,6 +410,7 @@ Generator and discriminator loss curves for DCGAN-5.
 
 #### DCGAN comparison
 Here is the comparison of the [FID scores](https://en.wikipedia.org/wiki/Fr%C3%A9chet_inception_distance) and training times for these five models (lower FID is better):
+
 **Conclusion**: DCGAN-5 produces the strongest samples in the set, but the gains came from iterative architecture work plus extra training time, not from one final tweak.
 
 FID comparison across DCGAN variants (lower is better).

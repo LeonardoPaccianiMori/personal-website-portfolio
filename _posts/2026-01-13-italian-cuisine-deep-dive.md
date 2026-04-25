@@ -146,6 +146,9 @@ Return ONLY the JSON object, nothing else.
 {%endraw%}
 </details>
 
+### Limitations
+These results should be read as patterns in curated recipe datasets, not as direct measurements of what Italians ate. Artusi is useful as a historical baseline, but it is not a complete picture of nineteenth-century Italian cuisine. The AIC data is also curated, and the extraction pipeline depends on LLM-produced structured JSON, so ingredient frequencies and step-level structure may include normalization errors. I treated the results as directional evidence and looked for patterns that appeared consistently across visualizations, similarity analysis, and model behavior.
+
 ---
 
 ## Analysis: Temporal Evolution
@@ -166,7 +169,7 @@ One striking difference is the absence of "Pizzas and savory pies" from Artusi's
 
 ### Ingredient Evolution
 Key trends:
-- Olive oil rises while butter declines (butter used to me more frequently used than salt *and* olive oil)
+- Olive oil rises while butter declines (butter appears more frequently than both salt and olive oil in Artusi)
 - Salt appears more often in contemporary recipes
 - Garlic, onion, and parsley become staples
 - Chili peppers are almost absent in Artusi (only one mention)
@@ -272,7 +275,7 @@ The North leans toward rice and polenta, the South toward pasta; transitional re
 ---
 
 ## ML Classification Deep Dive
-The macro-region classifier reached about 60% F1-score, while the full region-level model overfit heavily. That gap is useful: it suggests the broad geographic structure is real, but the finer regional boundary problem is data-hungry and noisy.
+The macro-region classifier reached about 60% macro-F1 on my held-out evaluation split, while the full region-level model overfit heavily. That gap is useful: it suggests the broad geographic structure is real, but the finer regional boundary problem is data-hungry and noisy.
 
 ### PCA Clustering
 Key observations:

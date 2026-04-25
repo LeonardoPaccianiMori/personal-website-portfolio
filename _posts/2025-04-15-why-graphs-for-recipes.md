@@ -59,9 +59,9 @@ Recipes are not naturally rows. They are little process networks.
 
 If I had been working on a simpler question like "does this recipe contain tomato?", graphs would have been overkill. But for regional identity, the structural information was part of the signal.
 
-### 2. It changed what the model could learn
+### 2. It changed what the model could represent
 
-The eventual macro-region model was far from perfect, but it could learn patterns that are hard to express in bag-of-ingredients form:
+The eventual macro-region model was far from perfect, but the graph representation let me preserve patterns that are hard to express in bag-of-ingredients form:
 
 - rice plus broth plus repeated sautéing in Northern dishes
 - olive oil plus tomato-based step patterns in Southern dishes
