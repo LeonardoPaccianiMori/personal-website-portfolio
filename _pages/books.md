@@ -11,4 +11,5 @@ collection: books
 >
 > -- Italo Calvino, from the essay *A Book, Books* in [*The Written World and the Unwritten World*](/_books/written_and_unwritten_world.md) (2002).
 
-## Books that I am reading, have read, or will read
+### Books I have read or returned to.
+Mostly fiction, but can include also essays and a few technical books; included because they shaped how I think, not because they are all directly related to data science.
