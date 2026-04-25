@@ -26,8 +26,8 @@ latest_posts:
 
 I'm a Senior Data Scientist at [Merkle](https://www.merkle.com/en.html) Italy, where I work on the space between data, models, and business decisions: customer segmentation, propensity modeling, econometric analysis, and AI-assisted insight generation.
 
-Before moving into industry, I worked in academic biophysics, with research experience at UC San Diego and Harvard. That background still shapes how I approach data science: I care about evidence, uncertainty, experimental design, and whether an analysis can survive contact with messy real-world data.
+Before moving into industry I worked in biophysics research in the academic world, with experience at UC San Diego and Harvard. That background still shapes how I approach data science: I care about evidence, uncertainty, experimental design, and whether an analysis can survive contact with messy real-world data.
 
-What I enjoy most is turning ambiguous questions into useful systems. Sometimes that means building a model; sometimes it means designing a better dataset, a clearer dashboard, or a more reliable way to translate technical results into decisions.
+What I enjoy most is turning ambiguous questions into useful systems. Sometimes that means building a model; sometimes it means designing a custom algorithm, a better dataset, a clearer dashboard, or a more reliable way to translate technical results into decisions.
 
-This site collects projects, technical notes, and a few side experiments that reflect how I think through data problems: practically, carefully, and with a bias toward work that can actually be used.
+This site collects projects, technical notes, and a few side experiments that reflect how I think through data problems: practically, carefully, and with a bias toward work that can *actually* be used.

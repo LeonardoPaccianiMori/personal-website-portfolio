@@ -9,12 +9,12 @@ children:
   - title: technical notes
     permalink: /notes/
     category: technical-notes
-  - title: essays
-    permalink: /essays/
-    category: essays
+  - title: thoughts
+    permalink: /thoughts/
+    category: thoughts
 ---
 
-Longer writing is split into technical notes and essays.
+Longer writing is split into technical notes and thoughts.
 
 - [Technical notes](/notes/) collect project appendices, implementation decisions, modeling tradeoffs, and applied data-science lessons.
-- [Essays](/essays/) is reserved for broader opinion pieces and reflections.
+- [Thoughts](/thoughts/) is reserved for occasional reflections on data science, work, and the judgment behind technical decisions.
