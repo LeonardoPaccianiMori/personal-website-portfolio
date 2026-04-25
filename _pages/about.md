@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Senior Data Scientist at Merkle
+subtitle: Senior Data Scientist at Merkle Italy
 
 profile:
   align: right
