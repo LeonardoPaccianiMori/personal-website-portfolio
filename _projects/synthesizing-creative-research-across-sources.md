@@ -19,7 +19,7 @@ I worked on an early-stage agentic prototype for creative research. The tool hel
 ---
 
 ## Problem
-Before developing campaign ideas, creative teams often spend a large amount of time researching the brand, product category, previous communication, cultural context, and relevant examples. That research can span brand websites, public articles, video sources, podcasts, and external creative-reference archives.
+Before developing campaign ideas, creative teams often spend a large amount of time researching the brand, product category, previous communication, cultural context, and relevant examples. That research can span public web pages, video sources, audio material, and creative-reference material.
 
 The work is valuable, but fragmented: teams have to collect sources, inspect them manually, compare observations, and turn everything into a coherent brief before strategic creative work can begin.
 
@@ -50,4 +50,4 @@ The main technical challenge is coordinating multiple agents without losing trac
 ---
 
 ## Status
-This remains a working prototype. The next step is user validation to understand whether the generated reports are useful in real creative-research workflows.
+This remains a working prototype. The next step is further validation of report usefulness in realistic creative-research workflows.
