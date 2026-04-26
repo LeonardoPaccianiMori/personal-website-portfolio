@@ -19,7 +19,7 @@ I supervised the development of a working prototype chatbot that helps client-fa
 ---
 
 ## Problem
-The company had a broad catalogue of analytics capabilities, but the people closest to clients did not always know which solutions existed, how they worked, or when they were relevant. As a result, useful internal capabilities could be missed during client-facing workflows.
+Large analytics catalogues can be difficult to navigate, especially when client-facing teams need to quickly connect a business problem with the right internal capability. The goal was to make those capabilities easier to discover, compare, and explain during client-facing work.
 
 The challenge was to make the catalogue easier to use: starting from a client problem, the tool needed to suggest relevant capabilities, explain why they fit, and help users understand what questions to ask next.
 
@@ -40,13 +40,13 @@ I helped scope the prototype, define the interaction flow, and supervise the dev
 ---
 
 ## Reliability and Constraints
-The prototype depends heavily on the quality of the internal capabilities catalogue. If the catalogue is incomplete, outdated, or too vague, the chatbot's recommendations become less reliable.
+The prototype depends heavily on the quality and completeness of the underlying capabilities catalogue; recommendation quality improves as the catalogue becomes more structured and current.
 
-For that reason, the tool is currently treated as decision support rather than an authoritative recommendation engine. Full development would require improving the catalogue itself and validating whether the intended users would rely on the tool in real client-facing workflows.
+For that reason, the tool is currently treated as decision support rather than an authoritative recommendation engine. Further development would require continued catalogue refinement and validation with intended users.
 
 ---
 
 ## Status
-This remains a working prototype. Further development depends on user validation to understand whether the tool would be useful enough to justify the catalogue maintenance and additional implementation work.
+This remains a working prototype. Further development depends on user validation, catalogue refinement, and prioritization against other internal workflow needs.
 
-Planned extensions include connecting recommendations to richer capability documentation and past use-case material, so users can understand not only which solution fits but also how similar work has been delivered before.
+Planned extensions include connecting recommendations to supporting documentation and example use cases, so users can better understand why a recommendation fits.

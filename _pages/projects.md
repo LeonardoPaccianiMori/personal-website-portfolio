@@ -11,7 +11,7 @@ horizontal: false
 
 The projects are grouped into three sections:
 - **portfolio**: personal projects I have worked on in my free time
-- **work**: projects described in anonymized, high-level terms with employer, client, vendor, dataset, and proprietary implementation details omitted
+- **work**: anonymized professional projects, described at a high level with identifying and proprietary details omitted
 - **foundations**: smaller projects focused on learning core modeling ideas by building them from scratch
 
 <!-- pages/projects.md -->

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Cleaning Open-Ended Survey Responses at Scale
-description: An internal workflow that standardizes respondent-written brand names so analysts can move from raw survey files to usable metrics in minutes
+description: An internal workflow that standardizes respondent-written survey answers so analysts can move from raw files to usable metrics in minutes
 img: assets/img/projects/work/survey-response-cleaning.png
 importance: 2
 category: work
@@ -14,14 +14,14 @@ category: work
 </div>
 
 ## Summary
-I supervised the development of an internal LLM-assisted workflow that standardizes messy open-ended brand survey responses into analysis-ready labels. The tool takes survey Excel files, uses the relevant product category as context, and cleans respondent-written brand names in minutes instead of multiple days.
+I supervised the development of an internal LLM-assisted workflow that standardizes messy open-ended survey responses into analysis-ready labels. The tool takes survey Excel files, uses the relevant product category as context, and cleans respondent-written answers in minutes instead of multiple days.
 
 ---
 
 ## Problem
 Brand tracking surveys often include open-ended questions such as which brand first comes to mind within a product category. These answers are valuable, but they arrive as messy free text: misspellings, abbreviations, partial names, and inconsistent variants of the same brand.
 
-Before analysts could compute brand metrics or compare results across respondent segments, they had to manually build correction dictionaries and clean the raw answers. This was repetitive, error-prone work that could take multiple days, and sometimes longer, for a single survey wave.
+Before analysts could compute metrics or compare results across respondent segments, they had to manually build correction dictionaries and clean the raw answers. This was repetitive, error-prone work that could take multiple days, and sometimes longer, for a single survey wave.
 
 ---
 
@@ -47,4 +47,4 @@ The workflow was therefore designed around conservative cleaning, reviewable out
 ---
 
 ## Impact
-The tool turned a multi-day brand-response cleaning process into a minutes-scale workflow and has been used by internal teams handling recurring survey analysis.
+The tool turned a multi-day survey-response cleaning process into a minutes-scale workflow and supports recurring survey-analysis workflows.
