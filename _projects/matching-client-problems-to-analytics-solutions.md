@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Matching Client Problems to Analytics Solutions
-description: Working prototype chatbot that recommends internal analytics offerings from a client brief and a curated product catalogue
+title: Matching Client Briefs to Analytics Capabilities
+description: A working internal chatbot that turns client briefs into explainable analytics recommendations grounded in a capabilities catalogue
 img: assets/img/projects/work/analytics-solution-matching.png
-importance: 4
+importance: 3
 category: work
 ---
 
@@ -12,39 +12,41 @@ category: work
         {% include figure.liquid loading="eager" path="assets/img/projects/work/analytics-solution-matching.png" title="Generic business planning table" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Generic illustrative thumbnail.
-</div>
-
-**Professional AI prototype, anonymized**
 
 ## Summary
-I built a working prototype chatbot that mapped a client brief to relevant analytics offerings from a curated internal product catalogue.
+I supervised the development of a working prototype chatbot that helps client-facing teams match client problems to relevant internal analytics capabilities. The tool takes a client context, business challenge, and optional available data sources, then asks clarifying questions and recommends suitable solutions from an internal capabilities catalogue.
 
 ---
 
 ## Problem
-Choosing the right analytics solution from a broad catalogue can be difficult when the starting point is an unstructured business brief. Users need help translating a problem statement into possible methods, expected outputs, and follow-up questions without losing the nuance of the original request.
+The company had a broad catalogue of analytics capabilities, but the people closest to clients did not always know which solutions existed, how they worked, or when they were relevant. As a result, useful internal capabilities could be missed during client-facing workflows.
+
+The challenge was to make the catalogue easier to use: starting from a client problem, the tool needed to suggest relevant capabilities, explain why they fit, and help users understand what questions to ask next.
 
 ---
 
-## What I Built
-- A conversational prototype that accepted a business brief and identified likely analytics needs.
-- Retrieval over a curated product catalogue describing available methods and outputs.
-- Recommendation logic that explained why specific offerings matched the brief.
-- Clarifying-question generation for cases where the brief did not contain enough detail.
+## My Role
+I helped scope the prototype, define the interaction flow, and supervise the development of the recommendation logic. I also reviewed the outputs with a focus on whether the suggestions were understandable, useful for client-facing work, and appropriately grounded in the internal catalogue.
 
 ---
 
-## Reliability / Constraints
-The prototype was scoped as decision support. Recommendations were grounded in the curated catalogue and framed with caveats where the brief was incomplete, so users could treat the output as a starting point for expert review.
+## What the Prototype Does
+- Accepts structured input about the client, the business problem, and optionally the available data sources.
+- Asks clarifying questions when the brief is incomplete.
+- Searches an internal catalogue of analytics capabilities and identifies relevant options.
+- Explains why each recommended offering fits the client problem.
+- Supports follow-up questions and iteration, so users can refine the recommendation through conversation.
 
 ---
 
-## Impact
-The system reached working prototype stage and is pending user validation before broader rollout.
+## Reliability and Constraints
+The prototype depends heavily on the quality of the internal capabilities catalogue. If the catalogue is incomplete, outdated, or too vague, the chatbot's recommendations become less reliable.
+
+For that reason, the tool is currently treated as decision support rather than an authoritative recommendation engine. Full development would require improving the catalogue itself and validating whether the intended users would rely on the tool in real client-facing workflows.
 
 ---
 
-## What I Can Share
-I can share the chatbot interaction design, retrieval pattern, recommendation framing, and evaluation considerations. I cannot share the internal catalogue, client briefs, sales material, or proprietary product-positioning details.
+## Status
+This remains a working prototype. Further development depends on user validation to understand whether the tool would be useful enough to justify the catalogue maintenance and additional implementation work.
+
+Planned extensions include connecting recommendations to richer capability documentation and past use-case material, so users can understand not only which solution fits but also how similar work has been delivered before.

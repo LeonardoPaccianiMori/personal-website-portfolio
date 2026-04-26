@@ -53,7 +53,7 @@ What I did was:
 {% include dashboards/italian-real-estate-dashboard.html %}
 
 <br>
-(The dashboard works best on desktops or tablets. You can also <a href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">open it in full screen</a>)
+(The dashboard works best on desktops or tablets. You can also open it in full screen by clicking <a href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">here</a>)
 
 ### Key Findings
 Analyzing the synthetic dataset (designed to preserve the key statistical relationships of the original data) I identified the following insights:

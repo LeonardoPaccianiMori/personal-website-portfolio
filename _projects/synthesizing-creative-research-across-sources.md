@@ -1,50 +1,53 @@
 ---
 layout: page
-title: Synthesizing Creative Research Across Sources
-description: Early-stage agentic prototype for gathering and synthesizing web and video research into creative research briefs
+title: Building an Agentic Creative Research Assistant
+description: A working agentic prototype that turns scattered web and video sources into structured research reports for creative strategy
 img: assets/img/projects/work/creative-research-synthesis.png
-importance: 3
+importance: 4
 category: work
 ---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/work/creative-research-synthesis.png" title="Generic creative research moodboard" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/work/creative-research-synthesis.png" title="Building an Agentic Creative Research Assistant" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Generic illustrative thumbnail.
-</div>
-
-**Professional AI prototype, anonymized**
 
 ## Summary
-I built an early-stage agentic prototype that gathered and synthesized web and video research into structured creative research briefs.
+I worked on an early-stage agentic prototype for creative research. The tool helps creative teams move from scattered web and video sources to a structured research report that can support campaign strategy.
 
 ---
 
 ## Problem
-Creative research often spans articles, search results, video transcripts, social context, and prior examples. The early discovery phase can be fragmented: useful signals live across many sources, while the final brief needs to be concise, cited, and usable by people making creative decisions.
+Before developing campaign ideas, creative teams often spend a large amount of time researching the brand, product category, previous communication, cultural context, and relevant examples. That research can span brand websites, public articles, video sources, podcasts, and external creative-reference archives.
+
+The work is valuable, but fragmented: teams have to collect sources, inspect them manually, compare observations, and turn everything into a coherent brief before strategic creative work can begin.
 
 ---
 
 ## What I Built
-- A prototype research flow that decomposed a brief into search and synthesis tasks.
-- Source gathering across public web and video-derived material.
-- Structured brief generation that separated observations, supporting evidence, and open questions.
-- A review-oriented output format so users could inspect what was found before using it in creative work.
+- A working agentic prototype for the early discovery phase of creative strategy.
+- A form-based workflow where users provide relevant web pages or video links as starting points.
+- Parallel research agents that expand from those links, search for additional context, and inspect relevant sources.
+- Web and video processing that turns source material into observations.
+- A synthesis layer that combines the agents' findings into a structured research report.
+- A report format designed to separate findings, supporting evidence, source notes, and open questions.
 
 ---
 
-## Reliability / Constraints
-The prototype treated generated briefs as research support rather than final creative direction. It emphasized source grounding, visible uncertainty, and reviewable intermediate outputs because public-source research can be incomplete or noisy.
+## Current Scope
+The current prototype can complete the research loop for public web pages and video sources: starting from user-provided links, it gathers additional context, inspects the material, and produces a synthesized report.
+
+Possible extensions include support for additional audio and creative-reference sources, so the workflow can cover more of the research material creative teams already use.
 
 ---
 
-## Impact
-The system reached a working prototype stage and is pending user validation before any production use.
+## Reliability and Constraints
+The prototype is designed as research support, not as final creative direction. Public-source research can be incomplete, outdated, or noisy, so the system needs to make sources visible and keep uncertainty explicit.
+
+The main technical challenge is coordinating multiple agents without losing traceability: each synthesized observation needs to remain connected to the material that supported it.
 
 ---
 
-## What I Can Share
-I can discuss the agentic workflow, research decomposition, source-grounding approach, and prototype constraints. I cannot share internal prompts tied to proprietary workflows, non-public research briefs, or organization-specific evaluation material.
+## Status
+This remains a working prototype. The next step is user validation to understand whether the generated reports are useful in real creative-research workflows.
