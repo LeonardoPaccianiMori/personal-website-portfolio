@@ -12,6 +12,9 @@ category: work
         {% include figure.liquid loading="eager" path="assets/img/projects/work/survey-response-cleaning.png" title="Cleaning Open-Ended Survey Responses at Scale" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+<div class="caption">
+    Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
+</div>
 
 ## Summary
 I supervised the development of an internal LLM-assisted workflow that standardizes messy open-ended survey responses into analysis-ready labels. The tool takes survey Excel files, uses the relevant product category as context, and cleans respondent-written answers in minutes instead of multiple days.

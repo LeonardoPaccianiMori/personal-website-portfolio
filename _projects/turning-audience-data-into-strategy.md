@@ -12,6 +12,9 @@ category: work
         {% include figure.liquid loading="eager" path="assets/img/projects/work/interpreting-consumer-segments.png" title="Interpreting consumer segments at scale" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+<div class="caption">
+    Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
+</div>
 
 ## Summary
 I built an internal LLM workflow for exploring large consumer-segment profiles in a faster, more structured way. The system turns structured segment data into concise summaries, curated dashboard visualizations, and data-backed answers to custom questions.
