@@ -12,6 +12,9 @@ category: work
         {% include figure.liquid loading="eager" path="assets/img/projects/work/creative-research-synthesis.png" title="Building an Agentic Creative Research Assistant" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+<div class="caption">
+    Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
+</div>
 
 ## Summary
 I worked on an early-stage agentic prototype for creative research. The tool helps creative teams move from scattered web and video sources to a structured research report that can support campaign strategy.

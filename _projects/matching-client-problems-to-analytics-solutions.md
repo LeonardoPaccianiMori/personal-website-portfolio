@@ -12,6 +12,9 @@ category: work
         {% include figure.liquid loading="eager" path="assets/img/projects/work/analytics-solution-matching.png" title="Generic business planning table" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+<div class="caption">
+    Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
+</div>
 
 ## Summary
 I supervised the development of a working prototype chatbot that helps client-facing teams match client problems to relevant internal analytics capabilities. The tool takes a client context, business challenge, and optional available data sources, then asks clarifying questions and recommends suitable solutions from an internal capabilities catalogue.
