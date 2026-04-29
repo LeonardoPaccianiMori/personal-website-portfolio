@@ -7,7 +7,7 @@ cover: assets/img/book_covers/nineteen_eighty_four.jpg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
 # isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: literary-fiction
-tags: dystopian political-fiction totalitarianism
+tags: novel dystopian political-fiction totalitarianism
 # buy_link: https://www.amazon.com/Godfather-Deluxe-Mario-Puzo/dp/0593542592
 started: 2026-03-26
 finished: 2026-04-18
