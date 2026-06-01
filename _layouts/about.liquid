@@ -11,6 +11,9 @@ layout: default
         {{ site.title }}
       {% endif %}
     </h1>
+    {% if page.ipa_name %}
+      <p class="ipa-name">{{ page.ipa_name }}</p>
+    {% endif %}
     <p class="desc">{{ page.subtitle }}</p>
   </header>
 
