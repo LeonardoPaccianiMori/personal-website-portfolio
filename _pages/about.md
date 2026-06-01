@@ -2,6 +2,7 @@
 layout: about
 title: about
 permalink: /
+ipa_name: /leo'nardo pa't͡ʃaːni 'mɔːri/
 subtitle: Senior Data Scientist at Merkle Italy
 
 profile:

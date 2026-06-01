@@ -689,7 +689,9 @@ These features are **actively used** and should receive upstream updates:
 **Original Theme:** [alshedivat/al-folio](https://github.com/alshedivat/al-folio)
 **License:** MIT (preserved)
 
-When fetching upstream updates:
+Upstream updates are handled manually. There is no scheduled workflow that automatically opens pull requests from the original al-folio repository.
+
+When manually fetching upstream updates:
 ```bash
 git remote add upstream https://github.com/alshedivat/al-folio.git
 git fetch upstream

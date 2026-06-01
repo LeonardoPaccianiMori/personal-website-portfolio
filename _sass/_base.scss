@@ -241,6 +241,14 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+.ipa-name {
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--global-text-color-light);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
 // Navbar customization
 
 .navbar {
