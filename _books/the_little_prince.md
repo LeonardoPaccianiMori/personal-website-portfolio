@@ -3,7 +3,7 @@ layout: book-review
 title: Il Piccolo Principe
 subtitle: The Little Prince
 author: Antoine de Saint-Exupéry
-cover: assets/img/book_covers/il_piccolo_principe.jpg
+cover: assets/img/book_covers/il_piccolo_principe.jpeg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
 # isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: literary-fiction
