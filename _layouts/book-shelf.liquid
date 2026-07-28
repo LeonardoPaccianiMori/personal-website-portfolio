@@ -24,13 +24,13 @@ layout: page
 
       {% assign status = item.status | downcase | strip %}
       {% case status %}
-        {% when 'finished' %}
-          {% assign status_sort_key = '0' %}
-        {% when 'reread' %}
-          {% assign status_sort_key = '1' %}
         {% when 'reading' %}
-          {% assign status_sort_key = '2' %}
+          {% assign status_sort_key = '0' %}
         {% when 'paused' %}
+          {% assign status_sort_key = '1' %}
+        {% when 'finished' %}
+          {% assign status_sort_key = '2' %}
+        {% when 'reread' %}
           {% assign status_sort_key = '3' %}
         {% when 'interested' %}
           {% assign status_sort_key = '4' %}
@@ -50,8 +50,25 @@ layout: page
         {% assign finished_sort_key = '99999999' %}
       {% endif %}
 
+      {% if item.started %}
+        {% assign started_date_number = item.started | date: '%Y%m%d' | plus: 0 %}
+        {% assign started_sort_number = 99999999 | minus: started_date_number %}
+        {% assign started_sort_key = started_sort_number | prepend: '00000000' | slice: -8, 8 %}
+      {% else %}
+        {% assign started_sort_key = '99999999' %}
+      {% endif %}
+
+      {% case status %}
+        {% when 'finished', 'reread' %}
+          {% assign date_sort_key = finished_sort_key %}
+        {% when 'reading', 'paused' %}
+          {% assign date_sort_key = started_sort_key %}
+        {% else %}
+          {% assign date_sort_key = '99999999' %}
+      {% endcase %}
+
       {% assign title_sort_key = item.title | default: '' | downcase %}
-      {% capture book_row %}{{ year_sort_key }}-{{ status_sort_key }}-{{ finished_sort_key }}-{{ title_sort_key }}{{ field_delimiter }}{{ display_year }}{{ field_delimiter }}{{ item.url }}{% endcapture %}
+      {% capture book_row %}{{ year_sort_key }}-{{ status_sort_key }}-{{ date_sort_key }}-{{ title_sort_key }}{{ field_delimiter }}{{ display_year }}{{ field_delimiter }}{{ item.url }}{% endcapture %}
       {% assign book_rows = book_rows | append: book_row | append: row_delimiter %}
     {% endfor %}
 
