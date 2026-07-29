@@ -11,7 +11,7 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
     <h1 id="career-hero-title">Complex data. Clear decisions. Useful systems.</h1>
     <p class="career-hero__lead">
       I’m <strong>Pinco Pallino</strong>, a Senior Data Scientist at
-      <a href="https://www.merkle.com/en.html">Merkle Italy</a>. I work across
+      <a href="https://www.merkle.com/en/locations/europe/italy.html">Merkle Italy</a>. I work across
       analytics, geospatial analysis, LLM/RAG applications, solution
       prototyping, and the communication that turns technical work into
       decisions.

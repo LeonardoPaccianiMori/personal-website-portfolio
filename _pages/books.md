@@ -5,7 +5,7 @@ permalink: /books/
 nav: true
 nav_order: 4
 collection: books
-description: This shelf follows curiosity rather than a single theme. There are books that captured my attention, challenged me, or simply stayed with me.
+description: This page follows curiosity rather than a single theme. These are the books that captured my attention, challenged me, or simply stayed with me.
 eyebrow: Personal library
 wide: true
 ---
