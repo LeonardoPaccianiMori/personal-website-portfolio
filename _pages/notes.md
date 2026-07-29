@@ -3,6 +3,8 @@ layout: page
 title: technical notes
 permalink: /notes/
 description: Project appendices, implementation decisions, modeling tradeoffs, and applied data-science lessons.
+eyebrow: Writing · Technical
+wide: true
 nav: false
 ---
 

@@ -3,6 +3,8 @@ layout: page
 title: thoughts
 permalink: /thoughts/
 description: Occasional reflections on data science, work, and the judgment behind technical decisions.
+eyebrow: Writing · Reflections
+wide: true
 nav: false
 ---
 

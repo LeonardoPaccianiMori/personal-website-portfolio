@@ -2,69 +2,86 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Projects I have worked on demonstrating end-to-end data science capabilities.
+description: Selected professional, personal, and foundational work showing how I approach applied data-science problems.
+eyebrow: Evidence in practice
+wide: true
 nav: true
 nav_order: 2
-display_categories: [portfolio, work, foundations]
+display_categories: [work, portfolio, foundations]
 horizontal: false
 ---
 
-The projects are grouped into three sections:
-- **portfolio**: personal projects I have worked on in my free time
-- **work**: anonymized professional projects, described at a high level with identifying and proprietary details omitted
-- **foundations**: smaller projects focused on learning core modeling ideas by building them from scratch
-
-<!-- pages/projects.md -->
-<div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
+<nav class="project-category-nav" aria-label="Project categories">
+  <a href="#work">
+    <span>01</span>
+    <strong>Professional work</strong>
+    <small>Anonymized systems and workflows developed in industry.</small>
   </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
+  <a href="#portfolio">
+    <span>02</span>
+    <strong>Personal projects</strong>
+    <small>End-to-end investigations built independently.</small>
+  </a>
+  <a href="#foundations">
+    <span>03</span>
+    <strong>Foundations</strong>
+    <small>Smaller projects for understanding modelling ideas deeply.</small>
+  </a>
+</nav>
+
+<div class="projects site-project-groups">
+  {% if site.enable_project_categories and page.display_categories %}
+    {% for category in page.display_categories %}
+      {% assign categorized_projects = site.projects | where: 'category', category %}
+      {% assign sorted_projects = categorized_projects | sort: 'importance' %}
+      <section class="site-project-group" aria-labelledby="{{ category }}-title">
+        <header class="site-project-group__header">
+          <div>
+            <p class="career-eyebrow">
+              {% case category %}
+                {% when 'work' %}
+                  Work
+                {% when 'portfolio' %}
+                  Independent
+                {% when 'foundations' %}
+                  Learning by building
+              {% endcase %}
+            </p>
+            <h2 id="{{ category }}-title">
+              {% case category %}
+                {% when 'work' %}
+                  Professional work
+                {% when 'portfolio' %}
+                  Personal projects
+                {% when 'foundations' %}
+                  Foundations
+              {% endcase %}
+            </h2>
+          </div>
+          <p>
+            {% case category %}
+              {% when 'work' %}
+                Anonymized professional projects, described at a high level with identifying and proprietary details omitted.
+              {% when 'portfolio' %}
+                Personal projects developed in my own time, from data acquisition and modelling through the final interface.
+              {% when 'foundations' %}
+                Smaller studies focused on understanding core modelling ideas by implementing and testing them directly.
+            {% endcase %}
+          </p>
+        </header>
+        <div class="site-project-grid">
+          {% for project in sorted_projects %}
+            {% include projects.liquid %}
+          {% endfor %}
+        </div>
+      </section>
     {% endfor %}
-    </div>
-  </div>
   {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% endfor %}
-
-{% else %}
-
-<!-- Display projects without categories -->
-
-{% assign sorted_projects = site.projects | sort: "importance" %}
-
-  <!-- Generate cards for each project -->
-
-{% if page.horizontal %}
-
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
+    {% assign sorted_projects = site.projects | sort: 'importance' %}
+    <div class="site-project-grid">
+      {% for project in sorted_projects %}
+        {% include projects.liquid %}
+      {% endfor %}
     </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
   {% endif %}
-{% endif %}
 </div>

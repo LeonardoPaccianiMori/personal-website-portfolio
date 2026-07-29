@@ -7,15 +7,19 @@ first_name: Pinco
 middle_name:
 last_name: Pallino
 contact_note: >
-  The best way to reach out to me is via email.
+  The best way to reach me is by email.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  Pinco Pallino is a Senior Data Scientist working across applied AI,
+  analytics, decision-support systems, and data products.
 footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>, forked from <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.<br>I use LLMs to draft writing, scaffold code, and clean up code; all final content and code are reviewed and edited by me.<br>
-keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty (which are then edited by me): en # the language of your site (for example: en, fr, cn, ru, etc.)
+  Built with <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>
+  and adapted from <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a>.
+  <br>I use AI tools selectively in my writing and development process; the final work is reviewed and edited by me.<br>
+keywords: data science, applied AI, analytics, machine learning, decision support, portfolio
+lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 👨🏻‍💻 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://unique-cocada-065d88.netlify.app/ # the base hostname & protocol for your site
+url: https://unique-cocada-065d88.netlify.app/ # the base hostname & protocol for the site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: true # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
@@ -50,7 +54,7 @@ socials_in_search: true
 posts_in_search: true
 
 # Dimensions
-max_width: 1300px
+max_width: 1180px
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org

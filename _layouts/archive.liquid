@@ -1,38 +1,95 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    {% if page.type == 'categories' %}
-      <h1 class="post-title"><i class="fa-solid fa-tag fa-sm"></i> {{ page.title }}</h1>
-      <p class="post-description">an archive of {{ page.collection_name }} in this category</p>
-    {% elsif page.type == 'year' %}
-      <h1 class="post-title"><i class="fa-solid fa-calendar fa-sm"></i> {{ page.date | date: '%Y' }}</h1>
-      <p class="post-description">an archive of {{ page.collection_name }} from this year</p>
-    {% elsif page.type == 'tags' %}
-      <h1 class="post-title"><i class="fa-solid fa-hashtag fa-sm"></i> {{ page.title }}</h1>
-      <p class="post-description">an archive of {{ page.collection_name }} with this tag</p>
-    {% endif %}
+{% assign is_books_archive = false %}
+{% if page.collection_name == 'books' %}
+  {% assign is_books_archive = true %}
+  {% assign archive_back_url = '/books/' %}
+  {% assign archive_back_label = 'bookshelf' %}
+{% else %}
+  {% assign archive_back_url = '/writing/' %}
+  {% assign archive_back_label = 'writing' %}
+{% endif %}
+
+{% if page.type == 'year' %}
+  {% assign archive_title = page.date | date: '%Y' %}
+  {% assign archive_eyebrow = 'Year archive' %}
+  {% capture archive_description %}{{ page.collection_name | capitalize }} published in {{ archive_title }}.{% endcapture %}
+{% elsif page.type == 'tags' %}
+  {% assign archive_title = page.title | prepend: '#' %}
+  {% assign archive_eyebrow = 'Tagged' %}
+  {% capture archive_description %}{{ page.collection_name | capitalize }} connected by this topic.{% endcapture %}
+{% else %}
+  {% assign archive_title = page.title %}
+  {% assign archive_eyebrow = 'Category archive' %}
+  {% capture archive_description %}{{ page.collection_name | capitalize }} collected in this category.{% endcapture %}
+{% endif %}
+
+<div class="post site-page site-page--wide site-archive">
+  <header class="post-header site-page-header">
+    <nav class="site-back-link" aria-label="Archive navigation">
+      <a href="{{ archive_back_url | relative_url }}"><span aria-hidden="true">←</span> {{ archive_back_label }}</a>
+    </nav>
+    <p class="career-eyebrow">{{ archive_eyebrow }}</p>
+    <h1 class="post-title">{{ archive_title }}</h1>
+    <p class="post-description">{{ archive_description | strip }}</p>
   </header>
 
-  <article class="archive">
-    <div class="table-responsive">
-      <table class="table table-sm table-borderless">
-        {% for document in page.documents %}
-          <tr>
-            <th scope="row">{{ document.date | date: '%b %d, %Y' }}</th>
-            <td>
-              {% if document.redirect == blank %}
-                <a class="post-link" href="{{ document.url | relative_url }}">{{ document.title }}</a>
-              {% elsif document.redirect contains '://' %}
-                <a class="post-link" href="{{ document.redirect }}" target="_blank">{{ document.title }}</a>
-              {% else %}
-                <a class="post-link" href="{{ document.redirect | relative_url }}">{{ document.title }}</a>
+  <article class="site-archive-content">
+    <div class="site-archive-list">
+      {% for document in page.documents %}
+        {% assign document_url = document.url | relative_url %}
+        {% assign opens_new_window = false %}
+        {% if document.redirect contains '://' %}
+          {% assign document_url = document.redirect %}
+          {% assign opens_new_window = true %}
+        {% elsif document.redirect != blank %}
+          {% assign document_url = document.redirect | relative_url %}
+        {% endif %}
+        <article class="site-archive-card">
+          <a
+            href="{{ document_url }}"
+            {% if opens_new_window %}
+              target="_blank" rel="noopener noreferrer"
+            {% endif %}
+          >
+            <div class="site-archive-card__copy">
+              {% if is_books_archive %}
+                {% if document.status %}
+                  <p class="career-eyebrow">{{ document.status }}</p>
+                {% endif %}
+              {% elsif document.categories and document.categories.size > 0 %}
+                <p class="career-eyebrow">{{ document.categories | first | replace: '-', ' ' }}</p>
               {% endif %}
-            </td>
-          </tr>
-        {% endfor %}
-      </table>
+              <h2>{{ document.title }}</h2>
+              {% if is_books_archive and document.author %}
+                <p>{{ document.author }}</p>
+              {% elsif document.description %}
+                <p>{{ document.description }}</p>
+              {% endif %}
+            </div>
+            <div class="site-archive-card__meta">
+              {% if is_books_archive %}
+                {% if document.finished %}
+                  <span>Finished {{ document.finished | date: '%b %Y' }}</span>
+                {% elsif document.started %}
+                  <span>Started {{ document.started | date: '%b %Y' }}</span>
+                {% else %}
+                  <span>{{ document.date | date: '%Y' }}</span>
+                {% endif %}
+              {% else %}
+                <span>{{ document.date | date: '%b %d, %Y' }}</span>
+              {% endif %}
+              <span class="site-archive-card__arrow" aria-hidden="true">
+                <svg focusable="false" viewBox="0 0 24 24">
+                  <path d="M5 12h14"></path>
+                  <path d="m13 6 6 6-6 6"></path>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
     </div>
   </article>
 </div>

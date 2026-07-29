@@ -1,6 +1,6 @@
 ---
 layout: book-review
-title: The Written and the Unwritten World
+title: The Written World and the Unwritten World
 subtitle: Mondo scritto e mondo non scritto
 author: Italo Calvino
 cover: assets/img/book_covers/mondo_scritto_e_mondo_non_scritto.jpg

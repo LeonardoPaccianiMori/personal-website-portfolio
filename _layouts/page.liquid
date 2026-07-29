@@ -2,19 +2,47 @@
 layout: default
 ---
 {% if page._styles %}
-  <!-- Page/Post style -->
   <style type="text/css">
     {{ page._styles }}
   </style>
 {% endif %}
 
-<div class="post">
-  <header class="post-header">
+{% assign is_project = false %}
+{% if page.collection == 'projects' %}
+  {% assign is_project = true %}
+{% endif %}
+
+<div class="post site-page {% if page.wide %}site-page--wide{% endif %} {% if is_project %}site-page--project{% endif %}">
+  <header class="site-page-header">
+    {% if is_project %}
+      <nav class="site-back-link" aria-label="Project navigation">
+        <a href="{{ '/projects/' | relative_url }}"><span aria-hidden="true">←</span> all projects</a>
+      </nav>
+      <p class="career-eyebrow">
+        {% case page.category %}
+          {% when 'work' %}
+            Professional case study
+          {% when 'portfolio' %}
+            Personal project
+          {% when 'foundations' %}
+            Foundations
+          {% else %}
+            Project
+        {% endcase %}
+      </p>
+    {% elsif page.eyebrow %}
+      <p class="career-eyebrow">{{ page.eyebrow }}</p>
+    {% endif %}
     <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-description">{{ page.description }}</p>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
   </header>
 
-  <article id="markdown-content">
+  <article
+    id="markdown-content"
+    class="site-page-content {% if is_project %}site-project-content site-prose{% elsif page.wide %}site-wide-content{% else %}site-reading-content site-prose{% endif %}"
+  >
     {{ content }}
   </article>
 </div>

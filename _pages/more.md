@@ -1,14 +1,12 @@
 ---
 layout: page
-title: more
+title: playground
 permalink: /more/
 nav: true
-nav_order: 4
+nav_order: 5
 dropdown: true
 children:
-  - title: wanderer (game)
+  - title: wanderer
     permalink: /wanderer/
     new_tab: true
-  - title: bookshelf
-    permalink: /books/
 ---
