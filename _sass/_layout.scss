@@ -911,6 +911,9 @@ html[data-theme="dark"] {
   margin-top: auto;
 
   a {
+    display: inline-flex;
+    gap: 0.35rem;
+    align-items: center;
     font-size: 0.78rem;
     font-weight: 600;
 
@@ -918,6 +921,17 @@ html[data-theme="dark"] {
       text-decoration: none;
     }
   }
+}
+
+.site-project-card__arrow {
+  display: block;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.75;
 }
 
 .writing-paths {

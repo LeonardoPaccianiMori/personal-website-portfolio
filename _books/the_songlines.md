@@ -1,7 +1,7 @@
 ---
 layout: book-review
-title: Le Vie dei Canti
-subtitle: The Songlines
+title: The Songlines
+subtitle: Le Vie dei Canti
 author: Bruce Chatwin
 cover: assets/img/book_covers/le_vie_dei_canti.jpg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
@@ -10,11 +10,9 @@ categories: literary-nonfiction
 tags: travel-writing australia indigenous-cultures anthropology philosophy
 # buy_link: https://www.amazon.com/Godfather-Deluxe-Mario-Puzo/dp/0593542592
 started: 2026-07-23
-finished: 
+finished:
 released: 1987
 stars: 4
 # goodreads_review: 6318556633
 status: Reading
 ---
-
-I am still reading this book.

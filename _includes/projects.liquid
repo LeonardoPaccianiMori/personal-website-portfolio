@@ -30,7 +30,11 @@
     <p>{{ project.description }}</p>
     <div class="site-project-card__links">
       <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
-        Read the case study <span aria-hidden="true">→</span>
+        Read the case study
+        <svg class="site-project-card__arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+          <path d="M5 12h14"></path>
+          <path d="m13 6 6 6-6 6"></path>
+        </svg>
       </a>
       {% if project.github %}
         <a href="{{ project.github }}" aria-label="View {{ project.title }} source code">
