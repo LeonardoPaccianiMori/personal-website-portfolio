@@ -17,8 +17,8 @@ stars: 4
 status: Finished
 ---
 
-I chose to read _Fahrenheit 451_ alongside _1984_. We are living through a troubled historical period, and I hoped that these dystopian classics might offer warnings or lessons that could help me interpret the present.
+I chose to read _Fahrenheit 451_ alongside _1984_ because, well we are not exactly living through a placid historical period, and I hoped that these dystopian classics might offer warnings, lessons or keys that could help me interpret the present.
 
-The passage that stayed with me most is Captain Beatty's conversation with Guy Montag in the hospital. Beatty describes a society that gradually becomes unwilling to tolerate anything potentially controversial or offensive, until books themselves effectively disappear because every book might upset someone. It made me reconsider the boundary between censorship and self-censorship. The desire never to offend anyone can ultimately suppress difficult ideas as effectively as an explicit prohibition—perhaps even more effectively, because it can present itself as morally righteous.
+The passage that stayed with me most is Captain Beatty's conversation with Guy Montag after Guy's shock in witnessing a woman choosing to burn with her books. Beatty describes a society that gradually becomes unwilling to tolerate anything potentially controversial or offensive, until books themselves effectively disappear because every book might upset someone. It made me reconsider the boundary between censorship and self-censorship, and how the desire to never offend anyone (which is now ingrained into us because of social media) can ultimately suppress difficult ideas as effectively as an explicit prohibition, perhaps even more. That insight made the novel feel remarkably relevant to our time. 
 
-That insight lifted a veil from my eyes and made the novel feel remarkably relevant to our time. I did not find any substantial weakness in it, although Bradbury's writing style is not entirely to my taste; that is what kept it from being a five-star read. Nevertheless, I would gladly return to it and recommend it to anyone trying to understand the present more clearly.
+Bradbury's writing style is not entirely my cu of tea, but nevertheless I would gladly return to this book and I recommend it to anyone trying to understand the present more clearly.
