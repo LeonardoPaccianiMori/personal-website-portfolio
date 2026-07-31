@@ -1,7 +1,7 @@
 ---
 layout: book-review
 title: Fahrenheit 451
-subtitle: 
+subtitle:
 author: Ray Bradbury
 cover: assets/img/book_covers/fahrenheit_451.jpg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
@@ -17,4 +17,8 @@ stars: 4
 status: Finished
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin eros sit amet ante aliquet, sit amet vulputate lectus mattis. Aenean ullamcorper pretium nunc, sed egestas lorem elementum id. Nulla id mi id neque ultrices egestas ut in urna. Sed ac ultricies nunc. Nam convallis placerat urna id egestas. Nulla porta, est interdum vestibulum venenatis, lorem odio laoreet sapien, in pulvinar tellus eros a dolor. Vivamus sapien justo, ullamcorper a mi eget, scelerisque euismod nunc. In augue augue, ultrices a ornare non, tincidunt quis justo. Donec sit amet consectetur eros. Nullam neque leo, tincidunt id ipsum ac, volutpat lobortis mi. Phasellus consequat ultricies arcu, eu semper ligula ultrices eget. Ut in fringilla elit, ac tincidunt nisi.
+I chose to read _Fahrenheit 451_ alongside _1984_. We are living through a troubled historical period, and I hoped that these dystopian classics might offer warnings or lessons that could help me interpret the present.
+
+The passage that stayed with me most is Captain Beatty's conversation with Guy Montag in the hospital. Beatty describes a society that gradually becomes unwilling to tolerate anything potentially controversial or offensive, until books themselves effectively disappear because every book might upset someone. It made me reconsider the boundary between censorship and self-censorship. The desire never to offend anyone can ultimately suppress difficult ideas as effectively as an explicit prohibition—perhaps even more effectively, because it can present itself as morally righteous.
+
+That insight lifted a veil from my eyes and made the novel feel remarkably relevant to our time. I did not find any substantial weakness in it, although Bradbury's writing style is not entirely to my taste; that is what kept it from being a five-star read. Nevertheless, I would gladly return to it and recommend it to anyone trying to understand the present more clearly.

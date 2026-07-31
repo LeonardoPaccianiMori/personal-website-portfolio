@@ -17,4 +17,10 @@ stars: 5
 status: Finished
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin eros sit amet ante aliquet, sit amet vulputate lectus mattis. Aenean ullamcorper pretium nunc, sed egestas lorem elementum id. Nulla id mi id neque ultrices egestas ut in urna. Sed ac ultricies nunc. Nam convallis placerat urna id egestas. Nulla porta, est interdum vestibulum venenatis, lorem odio laoreet sapien, in pulvinar tellus eros a dolor. Vivamus sapien justo, ullamcorper a mi eget, scelerisque euismod nunc. In augue augue, ultrices a ornare non, tincidunt quis justo. Donec sit amet consectetur eros. Nullam neque leo, tincidunt id ipsum ac, volutpat lobortis mi. Phasellus consequat ultricies arcu, eu semper ligula ultrices eget. Ut in fringilla elit, ac tincidunt nisi.
+I first read _1984_ at school many years ago. I returned to it alongside _Fahrenheit 451_, hoping that these two dystopian novels might offer useful warnings for understanding our current historical moment.
+
+Newspeak and the reasoning behind it made the strongest impression on me. The idea that language can be deliberately narrowed to restrict what people are capable of expressing—and eventually thinking—feels extraordinarily powerful. I was also struck by the room above Mr Charrington's shop: a fragile private space in which Winston feels, perhaps for the first time, genuinely free.
+
+This rereading made me think deeply about the relationship between language, surveillance, and control. I repeatedly found myself thinking about social media and the ways in which today's platforms can shape attention, expression, and ultimately thought itself. Orwell's world is extreme, but the mechanisms he explores do not feel remote.
+
+I loved the novel without reservation: the story, its message, and Orwell's writing all worked for me. I will certainly read it again, and I would recommend it to anyone seeking a sharper perspective on the forces shaping our own time.

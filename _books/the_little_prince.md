@@ -17,4 +17,10 @@ stars: 5
 status: Finished
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin eros sit amet ante aliquet, sit amet vulputate lectus mattis. Aenean ullamcorper pretium nunc, sed egestas lorem elementum id. Nulla id mi id neque ultrices egestas ut in urna. Sed ac ultricies nunc. Nam convallis placerat urna id egestas. Nulla porta, est interdum vestibulum venenatis, lorem odio laoreet sapien, in pulvinar tellus eros a dolor. Vivamus sapien justo, ullamcorper a mi eget, scelerisque euismod nunc. In augue augue, ultrices a ornare non, tincidunt quis justo. Donec sit amet consectetur eros. Nullam neque leo, tincidunt id ipsum ac, volutpat lobortis mi. Phasellus consequat ultricies arcu, eu semper ligula ultrices eget. Ut in fringilla elit, ac tincidunt nisi.
+I first encountered _Il Piccolo Principe_ as a child, and it has remained important to me ever since. It has even inspired my only real collection: whenever I visit a new country, I buy a copy in the local language. I now own the book in several translations.
+
+As a child, I was especially captivated by the fox and the conversation about taming. Reading the story as an adult, however, I found myself thinking more about the king and, above all, the businessman. The same deceptively simple characters reveal different things depending on the age and experience of the reader.
+
+What resonates most strongly with me now is the book's understanding of what matters in life. People and our relationships with them cannot be reduced to what can be counted, owned, or immediately seen: "the essential is invisible to the eye." The simplicity of the story does not weaken that message. On the contrary, it is one of the reasons the book works so beautifully.
+
+I love its story, message, and style. I would recommend it to every human being, regardless of age, and I know I will continue returning to it.

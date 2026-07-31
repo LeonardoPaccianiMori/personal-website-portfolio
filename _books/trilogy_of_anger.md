@@ -17,4 +17,10 @@ stars: 3
 status: Finished
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin eros sit amet ante aliquet, sit amet vulputate lectus mattis. Aenean ullamcorper pretium nunc, sed egestas lorem elementum id. Nulla id mi id neque ultrices egestas ut in urna. Sed ac ultricies nunc. Nam convallis placerat urna id egestas. Nulla porta, est interdum vestibulum venenatis, lorem odio laoreet sapien, in pulvinar tellus eros a dolor. Vivamus sapien justo, ullamcorper a mi eget, scelerisque euismod nunc. In augue augue, ultrices a ornare non, tincidunt quis justo. Donec sit amet consectetur eros. Nullam neque leo, tincidunt id ipsum ac, volutpat lobortis mi. Phasellus consequat ultricies arcu, eu semper ligula ultrices eget. Ut in fringilla elit, ac tincidunt nisi.
+I originally bought _La trilogia della rabbia_ as a gift for a university friend. Like me, he had grown up in the countryside and later moved to Milan for work, so Bianciardi's books seemed particularly appropriate. My curiosity led me to buy another copy for myself. I also come from rural Tuscany, although from a different part of the region than the author, which gave me another point of connection with the trilogy.
+
+Of the three books, _Il lavoro culturale_ was easily my favourite. I particularly appreciated its vivid, sharply defined portraits: its characters are immediately recognisable and easy to imagine. I also enjoyed the second book, although less, while the third never truly spoke to me.
+
+The trilogy left me with the impression that educated and well-read Italians have not changed as much as we might assume since the 1960s. The world and its technologies have transformed, but many of our attitudes, ambitions, and mannerisms remain surprisingly familiar. I found Bianciardi's depiction of the intellectual from the Italian provinces especially accurate.
+
+I appreciated his style without ever fully loving it, and the uneven experience across the three books limited my overall enthusiasm. Although I value what the trilogy observes, I remain uncertain whether I would recommend it.
