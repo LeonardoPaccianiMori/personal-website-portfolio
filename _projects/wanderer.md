@@ -20,25 +20,25 @@ category: portfolio
 
 ## Summary
 
-Wanderer is a browser-based gravity sandbox built with JavaScript and Three.js. I made it because I wanted to learn how to vibecode a small interactive game: drop planets into a system, disturb their motion, and watch orbital and tidal behavior emerge in real time. It is closer to a physics toy than a full game, and that was part of the appeal to me.
+Wanderer is a browser-based gravity sandbox built with JavaScript and Three.js. I made it to learn how to direct and review an AI-assisted interactive project: drop planets into a system, disturb their motion, and watch orbital and tidal behaviour emerge in real time. It is closer to a physics toy than a full game, and that was part of the appeal to me.
 
 ---
 
 ## Why I Made This
 
-I like to unwind with videogames occasionally, and with the advent of coding tools like Codex I wanted to learn how to vibecode an idea into a simple game. As a kid I used to play a lot with the two-dimensional [`planets`](https://launchpad.net/ubuntu/+source/planets) game on my Ubuntu laptop, so I wanted to recreate something like that, but with a three-dimensional twist.
+I like to unwind with videogames occasionally, and I wanted to learn how far I could take a small idea using an AI coding agent in a language that was new to me. As a child I played the two-dimensional [`planets`](https://launchpad.net/ubuntu/+source/planets) game on Ubuntu, so I wanted to revisit that idea with a three-dimensional twist.
 
 ---
 
 ## What You Can Do in the Game
 
-The game allows you to do several different actions, lile:
+The game lets you:
 
-- Adding and removing planets
-- Following the system center of mass
-- Locking the camera to a specific planet
-- Switching between eight preset systems
-- Pausing, speeding up, or slowing down time
+- Add and remove planets
+- Follow the system center of mass
+- Lock the camera to a specific planet
+- Switch between eight preset systems
+- Pause, speed up, or slow down time
 
 You can <a href="/wanderer/" target="_blank" rel="noopener noreferrer">play the game in a new tab</a> or open `playground` → `wanderer` in the navigation bar at the top.
 
@@ -46,11 +46,13 @@ You can <a href="/wanderer/" target="_blank" rel="noopener noreferrer">play the 
 
 ## Technical Highlights
 
-The game includes simulating several aspects of planetary physics, like:
+The physics module includes:
 
 - Real-time N-body simulation
 - Tidal torques and rotational dynamics
 - Deformable bodies with visible oblateness
+- Collision merging with mass and linear-momentum conservation
+- A kick-drift-kick leapfrog integrator
 
 The game also includes:
 
@@ -61,7 +63,7 @@ The game also includes:
 
 ## What this Project Actually Taught Me
 
-I built `wanderer` quickly, over the course of a couple of afternoons, with Codex 5.2 writing the code and me directing it and supervising it. This project help me learn how to steer an AI coding agent to write something functional (but simple) in a programming language I was not familiar with.
+I built Wanderer over a couple of afternoons, with Codex generating much of the implementation while I defined the behaviour, tested the result, and directed revisions. The useful lesson was not that AI could produce code quickly; it was how much explicit supervision was still needed around interaction design, physical assumptions, and failure cases. I later added dependency-free tests for force symmetry, centre of mass, collision conservation, and numerical integration.
 
 ---
 
@@ -72,3 +74,15 @@ I built `wanderer` quickly, over the course of a couple of afternoons, with Code
 | Vibecoding           | Codex 5.2  |
 | Programming language | JavaScript |
 | Rendering            | Three.js   |
+
+---
+
+## Limitations
+
+Wanderer uses dimensionless units and deliberately exaggerated visual and tidal effects. Its collision, deformation, and tidal models are approximations, and numerical accuracy depends on the timestep and time scale. It is an educational physics toy, not a validated astronomical simulator.
+
+---
+
+## View the Code
+
+The source code and tests are available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-game-wanderer) under the MIT License. Commercial and non-commercial reuse are allowed with the required copyright and license notice.

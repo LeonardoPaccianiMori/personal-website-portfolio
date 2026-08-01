@@ -8,12 +8,12 @@ categories: [technical-notes]
 ---
 
 ## Overview
-This post is the technical appendix to my [Italian real-estate project](/projects/italian-real-estate/). I wanted this project to feel like *real* data work from beginning to end: messy data collection, shifting schemas, privacy constraints, and a public-facing output that had to be *actually* useful rather than merely decorative. The project page focuses on the portfolio story; this page keeps the scraping architecture, ETL choices, synthetic-data method, modeling setup, and dashboard design in one place.
+This post is the technical appendix to my [Italian real-estate project](/projects/italian-real-estate/). I wanted this project to feel like *real* data work from beginning to end: messy data collection, shifting schemas, publication constraints, and a public-facing output that had to be *actually* useful rather than merely decorative. The project page focuses on the portfolio story; this page keeps the collection architecture, ETL choices, synthetic-data method, modeling setup, and dashboard design in one place.
 
 ---
 
 ## Data Collection
-The first hard problem in this project was *operational* rather than *statistical*: collecting a nationwide dataset reliably enough that the later modeling work was worth doing.
+The original source was Immobiliare.it. The first hard problem was *operational* rather than *statistical*: collecting a nationwide research snapshot reliably enough that the later modeling work was worth doing.
 
 ### Challenge
 I had to scrape three listing types (`rent`, `auction`, and `sale`) for 107 Italian provinces. This meant **321 independent scraping tasks**.
@@ -31,7 +31,7 @@ In particular, for each province (e.g., Milan, Rome, Naples) I:
 2. scraped `auction` listings and stored the raw data in MongoDB
 3. scraped `sale` listings and stored the raw data in MongoDB
 
-All provinces were processed in parallel for speed.
+Airflow represented these as independent tasks so failures could be retried without restarting the whole collection.
 
 ### Technical Implementation
 
@@ -47,7 +47,7 @@ Other details:
 - `Selenium` was used for JavaScript-rendered content, as some pages required browser automation and dynamic loading
 - Raw HTML data was stored in a MongoDB datalake
 
-**Code disclaimer**: the parts of the code that do the *actual* scraping have been **redacted** to prevent out-of-the-box reproducibility. The code is shared for portfolio demonstration only.
+**Publication boundary:** the source listings, raw HTML, and code that performs the live collection are not published. The public repository demonstrates orchestration and downstream engineering without providing an out-of-the-box collector. Anyone implementing a new collector must obtain current authorization and follow the source site's current terms and access controls.
 
 ---
 
@@ -101,11 +101,11 @@ To make these variables understandable, I needed to translate all of them into E
 ---
 
 ## Synthetic Data Generation
-As explained in the [other post](/blog/2025/synthetic-data-ctgan/) relating to this project, I used a custom synthetic data generator to create synthetic data that preserved the project-critical relationships in the *real* data without exposing the scraped source listings.
+As explained in the [other post](/blog/2025/synthetic-data-ctgan/) relating to this project, I used a custom synthetic data generator to create new rows that preserved project-critical aggregate relationships without copying source listings.
 
 I first tried using CTGAN (the "classical" solution for this type of problem), but it failed to recreate the complex relationships between the dataset's features. I therefore built my own KNN-based algorithm. More details can be found in the [dedicated post](/blog/2025/synthetic-data-ctgan/).
 
-This also shaped how I interpreted the later modeling metrics: because the public dataset is synthetic, the evaluation below is best read as validation of the synthetic modeling pipeline, not as a claim about production performance on unseen scraped listings.
+Because the KNN construction was not subjected to a formal privacy audit, I do not distribute either the source records or the row-level synthetic output. This also shapes how I interpret the later modeling metrics: the evaluation below validates the synthetic study pipeline; it is not a claim about production performance on unseen source listings.
 
 ---
 
@@ -147,7 +147,7 @@ On a synthetic rent-listing test split, the model reached the following metrics:
 
 | Metric | Value |
 |--------|-------|
-| R2 Score | 0.75 |
+| R² | 0.75 |
 | RMSE (log scale) | 0.25 |
 | MAE (log scale) | 0.14 |
 | MAPE | 2.07% |
@@ -205,4 +205,4 @@ What I learned from this project is not just to "scrape real-estate listings". I
 ---
 
 ## Look at the Code
-All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate).
+The reusable, public parts of the code are available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate). Source and synthetic row-level data, credentials, and the live collection implementation are excluded.

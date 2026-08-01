@@ -34,15 +34,18 @@ I did not choose this project because handwritten digits are inherently exciting
 
 ## What I Built
 - A comparison of **7 classifiers** and **10 generative configurations** on MNIST.
-- A consistent evaluation setup using **accuracy**, **FID**, and **training time**.
+- A classifier protocol with a separate training, validation, and untouched test split.
+- A project-specific **Fréchet CNN-3 feature distance** for relative generator comparison, clearly separated from canonical FID.
+- Accuracy, validation curves, feature distance, and hardware-specific training-time comparisons.
 - Plotly visualizations to make model tradeoffs easy to scan.
 - Two in-browser demos built with **TensorFlow.js**, so the project ends in something interactive rather than only notebooks and plots.
 
 ---
 
 ## Results
-- The baseline CNN reached **about 98.3% test accuracy** while remaining the clearest speed/complexity tradeoff; the highest raw classifier accuracy came from a deeper FCNN variant.
-- The strongest generator was **DCGAN-5**, which produced the best FID after combining a better architecture with longer training.
+- **CNN-2 reached 98.66% test accuracy**, the strongest classifier result. CNN-1 reached 98.05% in roughly half the CPU training time, making it the clearer speed/complexity tradeoff.
+- FCNN-3 was the strongest fully convolutional variant at 94.60%. The deeper FCNN-4 fell to 78.90% in the seeded run, a useful warning that added capacity did not make this family reliably better.
+- **DCGAN-5 had the lowest project-specific feature distance at 2.29**, ahead of DCGAN-4 at 3.23, while also taking the longest recorded training time.
 - The most important debugging lesson was that **activation and normalization choices strongly affected training stability**. A small change in the output layer turned a failing GAN into a working one.
 
 ### Evidence: Classification tradeoff
@@ -50,15 +53,23 @@ I did not choose this project because handwritten digits are inherently exciting
 {% include plotly/image-generation/accuracy-training-time-comparison.json %}
 ```
 <div class="caption">
-    Comparing 7 architectures for classification. The simplest model (CNN-1) is the best speed/accuracy tradeoff.
+    One seeded CPU run across 7 architectures. CNN-2 has the highest test accuracy; CNN-1 offers the clearest speed/accuracy tradeoff. Times are hardware-specific.
 </div>
 
-### Evidence: Generation quality vs training time
+### Evidence: Relative generation quality
 ```plotly
-{% include plotly/image-generation/dcgan-fid-training-time-comparison.json %}
+{% include plotly/image-generation/dcgan-feature-distance-comparison.json %}
 ```
 <div class="caption">
-    Comparing 5 GAN configurations for image generation. Lower FID is better; DCGAN-5 is best but slowest.
+    Fréchet distance between 10,000 generated images and the official MNIST test split in CNN-3's 20-dimensional feature space. Lower is better within this project; this is not canonical FID.
+</div>
+
+### Evidence: Generator training time
+```plotly
+{% include plotly/image-generation/dcgan-training-time-comparison.json %}
+```
+<div class="caption">
+    Historical wall-clock training times. DCGAN-5's 200-epoch run took about 113 minutes, roughly twice DCGAN-4's 100-epoch run.
 </div>
 
 ### Example outputs from the best generator
@@ -72,8 +83,8 @@ I did not choose this project because handwritten digits are inherently exciting
 ---
 
 ## Technical Approach
-- **Classification**: I compared CNN and FCNN variants to see whether extra layers or different heads paid off enough to justify the added training cost.
-- **Generation**: I used CVAEs for latent-space exploration and DCGANs for image quality, evaluating them with both metrics and visual inspection.
+- **Classification**: I reserved 6,000 images from the official training set for model selection, selected the minimum-validation-loss checkpoint, and evaluated the untouched official test split once per model.
+- **Generation**: I used CVAEs for latent-space exploration and DCGANs for image quality. For a relative quantitative check, I compared 10,000 generated samples per DCGAN with the official test split in a fixed CNN-3 feature space, alongside visual inspection.
 - **Presentation**: I exported selected models to TensorFlow.js so visitors could interact with the project directly in the browser.
 
 ---
@@ -146,6 +157,8 @@ What I still like most about this project is that it does not hide behind a fina
 ## Limitations
 - MNIST is a small dataset; the results do not generalize directly to complex image domains.
 - Training ran on a personal laptop with limited compute[^1].
+- The classifier comparison is one deterministic split and seed, not a multi-seed stability study; FCNN-4 in particular should not be generalized from one run.
+- The generator metric uses a project-specific 20-dimensional CNN-3 representation. It is useful only for relative comparison inside this project and is not canonical InceptionV3 FID.
 
 ---
 

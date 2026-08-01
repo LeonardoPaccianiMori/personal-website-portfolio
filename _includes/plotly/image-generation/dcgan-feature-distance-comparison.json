@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "x": [
+        "DCGAN-1",
+        "DCGAN-2",
+        "DCGAN-3",
+        "DCGAN-4",
+        "DCGAN-5"
+      ],
+      "y": [
+        1846.6746071902103,
+        12.379858093783469,
+        8.80312744806497,
+        3.2304752879992975,
+        2.2902175996628102
+      ],
+      "type": "bar",
+      "marker": {
+        "color": [
+          "#1f77b4",
+          "#1f77b4",
+          "#1f77b4",
+          "#1f77b4",
+          "#2ca02c"
+        ]
+      }
+    }
+  ],
+  "layout": {
+    "title": {
+      "text": "DCGAN Fr\u00e9chet CNN-3 Feature Distance"
+    },
+    "yaxis": {
+      "title": {
+        "text": "Fr\u00e9chet CNN-3 Feature Distance (lower is better)"
+      }
+    },
+    "margin": {
+      "t": 50,
+      "b": 50
+    },
+    "annotations": [
+      {
+        "text": "Best",
+        "x": "DCGAN-5",
+        "y": 2.2902175996628102,
+        "yanchor": "bottom",
+        "showarrow": true,
+        "arrowhead": 2,
+        "ax": 0,
+        "ay": -30,
+        "font": {
+          "color": "#2ca02c",
+          "size": 12
+        }
+      }
+    ]
+  }
+}

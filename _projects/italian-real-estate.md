@@ -19,7 +19,7 @@ category: portfolio
 **January - April 2025**
 
 ## Summary
-I built an end-to-end pipeline that starts with the scraping of real estate listings and ends with an investor-facing dashboard because I wanted a project where data acquisition mattered as much as modeling. Instead of starting from a pre-packaged housing dataset, I built my own by collecting and structuring more than **one million** Italian property listings, so the project demonstrates data acquisition and pipeline design rather than just modeling on a well-known and already cleaned dataset. I then generated a privacy-preserving synthetic dataset, trained a rental-price model, and used the results to identify areas with high-return opportunities.
+I built an end-to-end pipeline that starts with collecting real-estate listings and ends with an investor-facing dashboard because I wanted a project where data acquisition mattered as much as modeling. Instead of starting from a pre-packaged housing dataset, I collected and structured more than **one million** Italian property listings. I then generated a fully synthetic analytical dataset designed to reproduce broad distributions and correlations—not individual listings—trained a rental-price model, and used the results to identify areas with potentially high returns.
 
 ---
 
@@ -36,13 +36,13 @@ Here is a simplified view of the pipeline:
     </div>
 </div>
 <div class="caption">
-    End-to-end data pipeline from web scraping to interactive dashboard. Icons from <a href="https://www.flaticon.com/">Flaticon</a>.
+    End-to-end data pipeline from collection to interactive dashboard. See the <a href="{{ '/licensing/' | relative_url }}">icon attributions</a>.
 </div>
 
 What I did was:
 - I scraped rentals, sales, and auction listings for all Italian provinces, for a total of roughly **one million listings**.
 - I built an ETL pipeline that cleaned, translated, and organized the data into an analytics-ready warehouse.
-- I developed a custom algorithm to generate a synthetic dataset to preserve the useful structure of the original data without exposing scraped listings.
+- I developed a custom algorithm to generate new synthetic rows that preserve useful aggregate structure without copying source listings.
 - I trained a simple Random Forest model to estimate rental income from property features.
 - I published the outputs in a Tableau dashboard designed for investors exploring ROI.
 
@@ -62,7 +62,7 @@ Analyzing the synthetic dataset (designed to preserve the key statistical relati
 - **Rural areas often deliver higher returns** than urban ones.
 - **No clear North-South divide** appears in profitability; interesting opportunities exist across the country.
 
-**Note:** The rental income prediction model is quite simple, and although it performes quite well to capture the main trends in the data (its R2 is 0.75), it is not sophisticated enough for precise pricing (which was not the main aim of this project). This system is meant to identify profitable *areas*, and not claim exact *property-level* forecasts.
+**Note:** The rental-income model is deliberately simple. It captures broad trends (R² = 0.75 on the synthetic study data), but it is not suitable for precise pricing. The system explores area-level patterns; it does not claim exact property-level forecasts or investment recommendations.
 
 ---
 
@@ -94,9 +94,11 @@ An aspect of this project I really liked is that no single component gets to pre
 ---
 
 ## Limitations
-- The accuracy of the rental income prediction model is good for trends (R2 = 0.75), but not for precise pricing.
+- The rental-income model captures broad trends in the synthetic study data (R² = 0.75), but is not suitable for precise pricing.
 - The data is a snapshot from early 2025, so the listings are now outdated.
 - Results are *all* based on synthetic data rather than the original scraped listings.
+- The synthetic generator was designed to break row-level correspondence with the source data, but it was not evaluated as a formal privacy guarantee.
+- Listing availability and collection permissions can change; anyone reproducing the pipeline must obtain current authorization and follow the source site's terms.
 
 ---
 
@@ -112,6 +114,6 @@ Full scraping, ETL, synthetic data, and modeling details are in [Technical Appen
 ---
 
 ## View the Code
-All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate).
+The public, reusable parts of the code are available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate).
 
-**Note**: This project used publicly accessible listing data for research and portfolio purposes. To avoid republishing source listings, I do not share the raw scraped data, and all public analysis and dashboards shown here are based on synthetic data. Scraping code is redacted to prevent misuse.
+**Data boundary:** the original listings came from Immobiliare.it. Neither source listings nor the synthetic row-level dataset are distributed in the repository. The public dashboard and this page retain aggregate study results, while code that would enable direct reuse of the original collection process is excluded.

@@ -8,9 +8,9 @@ categories: [technical-notes]
 featured: true
 ---
 
-For the [Italian real estate project](/projects/italian-real-estate/), I needed a public-facing dataset that preserved the useful structures and correlations of the original scraped listings without exposing the listings themselves.
+For the [Italian real estate project](/projects/italian-real-estate/), I needed a public-facing dashboard that preserved useful aggregate structures and correlations without displaying source listings.
 
-This constraint was central to the project, because I wanted to create a dashboard that showed *real* insights from the scraped data, without *actually* using the scraped data.
+This constraint was central to the project because I wanted the dashboard to reflect patterns from the study without displaying or distributing the collected records.
 
 The obvious choice was [CTGAN](https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/ctgansynthesizer). On paper it looked *exactly* like what I was looking for:
 - purpose-built for tabular data
@@ -74,7 +74,7 @@ Therefore, for each synthetic record I have:
 4. chose categorical features for this new synthetic listing by weighted voting
 5. sampled boolean features probabilistically from the same neighborhood
 
-This method preserved the target relationships much more directly, by construction, instead of hoping a generative model would infer them robustly from scratch. Because price was part of the neighbor search, I treated this generator as a privacy and publication tool, not as independent evidence that the later rent model generalized to unseen scraped listings. At the same time, it created new listings with *synthetic* but realistic values.
+This method preserved the target relationships much more directly, by construction, instead of hoping a generative model would infer them robustly from scratch. It produced new rows rather than copies of source listings. However, because it was built from local neighborhoods in the source data and was not subjected to a formal privacy audit, I now treat it as an analytical transformation—not as a certified anonymization mechanism. The row-level synthetic output is therefore not distributed; only aggregate study results remain public.
 
 Since I wanted to recreate a total number of listings similar to the original dataset (i.e., ~1 million), I used CUDA/TensorFlow to take advantage of GPU acceleration to make the data generation *much* faster.
 

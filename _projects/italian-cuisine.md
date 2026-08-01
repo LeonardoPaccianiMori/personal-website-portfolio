@@ -34,7 +34,7 @@ I cared about this project before I cared about the model. Italian cuisine was a
 ## Historical Context
 In 1891, shortly after Italian unification, Pellegrino Artusi published *"La Scienza in cucina e l'arte di mangiar bene"*, a collection of 790 recipes that helped shape a shared national culinary identity[^1]. Artusi knew Tuscany and Emilia-Romagna especially well, so his book offers an influential but regionally biased baseline rather than a neutral picture of all Italian cuisine.
 
-The modern dataset fills that gap with regional recipes from all 20 Italian regions, which makes the comparison historically uneven but analytically useful. That imbalance was part of what interested me: I was not comparing two neat snapshots, but a canonical and biased historical source against a broader contemporary map of regional cooking.
+The modern corpus, collected from the Accademia Italiana della Cucina website, covers recipes associated with all 20 Italian regions. That makes the comparison historically uneven but analytically useful: I was not comparing two neat snapshots, but a canonical and biased historical source against a broader contemporary map of regional cooking.
 
 ---
 
@@ -91,8 +91,9 @@ That divide tracks climate and agricultural history: olive oil dominates Central
 
 ### Graph Classification
 Macro-regions are much easier to classify than individual regions:
-- **Macro-region model**: about **60% F1-score**
-- **Region model**: about **20% test F1-score**, with heavy overfitting
+- **Macro-region model**: **59.49% accuracy**, **52.98% macro-F1**, and **58.79% weighted-F1**
+- **Region model**: **20.26% accuracy**, **18.50% macro-F1**, and **21.45% weighted-F1**, with heavy overfitting
+- **Hierarchical model**: **22.31% accuracy**, **17.82% macro-F1**, and **21.59% weighted-F1**
 
 Per-class performance in the macro-region setup:
 - **North**: 81% F1
@@ -105,7 +106,7 @@ Per-class performance in the macro-region setup:
 ## Technical Approach
 - **Extraction**: both datasets started as unstructured text, so I used an LLM-assisted extraction pipeline and then normalized ingredients and tools to reduce duplication.
 - **Storage**: I used Neo4j because recipe data is easier to inspect and query as a graph than as a flat table or document store.
-- **Modeling**: I trained a heterogeneous Graph Attention Network so ingredients, steps, tools, and sequence could all contribute to the final representation.
+- **Modeling**: I trained a heterogeneous Graph Attention Network over recipe, ingredient, and step nodes. The richer Neo4j representation also retains tools, intermediate products, and step order for analysis and inspection, but those elements are not all used as GAT node types.
 
 ---
 
@@ -130,6 +131,8 @@ The part that stayed with me most is that the representation choice ended up doi
 ## Limitations
 - Artusi's dataset is geographically biased toward Central and Northern Italy.
 - Regional classification suffers from limited data per class and real culinary overlap between neighboring regions.
+- Both corpora are curated sources rather than direct measurements of what Italians cooked, and LLM-assisted extraction and normalization can introduce errors.
+- The Accademia recipe text and derived recipe-level datasets are not redistributed; the public repository contains code, aggregate analytical outputs, and the separately licensed Artusi materials.
 
 ---
 
@@ -146,6 +149,8 @@ Full extraction prompts, analysis, and model details are in [Technical Appendix:
 
 ## View the Code
 All code for this project is available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine).
+
+**Data and licensing boundary:** the contemporary recipes were collected slowly within the website's observed session limit, but public accessibility is not the same as permission to republish them. The source recipes and their processed graph datasets are therefore excluded. Aggregate study outputs are shared under CC BY 4.0; the retained Artusi edition and example graph follow the source's stated “CC By-NC-SA” terms. See the [licensing map]({{ '/licensing/' | relative_url }}).
 
 ---
 

@@ -19,17 +19,19 @@ This post is the technical appendix to my [image generation project](/projects/i
 ## At a Glance
 - **Dataset**: MNIST (28x28 grayscale digits, 10 classes)
 - **Scope**: 7 classifiers (CNN/FCNN), 5 CVAEs, 5 DCGANs
-- **Highest classifier accuracy**: FCNN-4 at ~98.6% test accuracy in ~130s
-- **Most practical classifier**: CNN-1 at ~98.3% test accuracy in ~106s
-- **Best generator in this comparison**: DCGAN-5, using FID as a relative metric, with FID 117.3 in ~113 minutes
+- **Highest classifier accuracy**: CNN-2 at 98.66% test accuracy in about 22.9 CPU minutes
+- **Most practical classifier**: CNN-1 at 98.05% test accuracy in about 11.1 CPU minutes
+- **Best generator in this comparison**: DCGAN-5, with project-specific Fréchet CNN-3 feature distance 2.29 in ~113 minutes
 - **Stack**: TensorFlow/Keras (training and inference), TensorFlow.js (browser demo), Plotly (analysis)
 
 ---
 
 ## Experiment Setup
-- **Dataset split**: Standard MNIST train/test split; test set used for reported accuracy and loss curves
+- **Classifier split**: seed 42; 54,000 training and 6,000 stratified validation images from the official training split; the official 10,000-image test split remained untouched until one final evaluation per model
+- **Model selection**: checkpoint with minimum validation loss; the curves below therefore show training and validation metrics, not repeated test measurements
 - **Preprocessing**: No data augmentation for classifiers; MNIST scaled to [-1, 1] for DCGAN-1 (tanh output) and [0, 1] for DCGAN-2+ (sigmoid output)
-- **Hyperparameters**: CNN/FCNN trained 100 epochs with fixed learning rate 0.001; CVAEs trained 50 epochs; DCGANs trained with Adam (lr=0.0002, beta_1=0.5), batch size 128, 100 epochs (DCGAN-5: 200 epochs)
+- **Hyperparameters**: classifiers trained for 100 epochs with batch size 128 (CNN learning rate 0.0001; FCNN learning rate 0.001); CVAEs trained for 50 epochs; DCGANs trained with their recorded Adam configurations for 100 epochs (DCGAN-5: 200 epochs)
+- **Timing**: wall-clock measurements from a TensorFlow 2.20 CPU run; useful for this comparison, not portable benchmarks
 
 ---
 
@@ -40,9 +42,9 @@ I used the CNN family as the clean baseline for the project: standard convolutio
 
 #### CNN-1 (Baseline)
 - **Architecture**: 3 convolutional layers + 1 fully connected layer
-- **Performance**: 98% accuracy
-- **Training Time**: 106s
-- **Comments**: Starts slightly overfitting after epoch ~30
+- **Performance**: 98.05% test accuracy; 0.0620 test loss
+- **Selected checkpoint**: epoch 56
+- **Training Time**: ~11.1 CPU minutes
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -57,9 +59,9 @@ Training curves for CNN-1 (accuracy and loss over epochs).
 
 #### CNN-2 (More Convolutional Layers)
 - **Architecture**: 5 convolutional layers + 1 fully connected layer
-- **Performance**: 98.6% accuracy (best)
-- **Training Time**: 152s
-- **Comments**: Less overfitting than CNN-1, and starts later (epoch ~60)
+- **Performance**: 98.66% test accuracy; 0.0468 test loss (best classifier)
+- **Selected checkpoint**: epoch 100
+- **Training Time**: ~22.9 CPU minutes
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -74,9 +76,9 @@ Training curves for CNN-2 (accuracy and loss over epochs).
 
 #### CNN-3 (More Fully Connected Layers)
 - **Architecture**: 3 convolutional layers + 3 fully connected layers
-- **Performance**: 98% accuracy
-- **Training Time**: 110s
-- **Comments**: Starts overfitting already at epoch ~10
+- **Performance**: 98.30% test accuracy; 0.0558 test loss
+- **Selected checkpoint**: epoch 45
+- **Training Time**: ~12.1 CPU minutes
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -90,7 +92,7 @@ Training curves for CNN-3 (accuracy and loss over epochs).
 ```
 
 #### CNN comparison
-**Conclusion**: CNN-2 edges out the rest on raw accuracy, but CNN-1 remains the clearest speed-to-performance tradeoff in the family.
+**Conclusion**: CNN-2 has the strongest held-out result. CNN-1 gives up 0.61 percentage points of accuracy while taking roughly half the recorded CPU training time, so it remains the cleaner default when simplicity and iteration speed matter.
 
 Accuracy comparison across the CNN variants.
 ```plotly
@@ -109,9 +111,9 @@ Unlike the CNN family, these models replace the dense head with global pooling. 
 
 #### FCNN-1 (Baseline)
 - **Architecture**: 3 convolutional layers + global pooling
-- **Performance**: 80% accuracy
-- **Training Time**: 103s
-- **Comments**: Slower convergence compared to CNNs
+- **Performance**: 79.17% test accuracy; 0.6646 test loss
+- **Selected checkpoint**: epoch 100
+- **Training Time**: ~13.1 CPU minutes
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -126,9 +128,9 @@ Training curves for FCNN-1 (accuracy and loss over epochs).
 
 #### FCNN-2 (More Layers)
 - **Architecture**: 5 convolutional layers + global pooling
-- **Performance**: 87% accuracy
-- **Training Time**: 134s
-- **Comments**: Better than FCNN-1, but still below CNN performance
+- **Performance**: 90.62% test accuracy; 0.2982 test loss
+- **Selected checkpoint**: epoch 100
+- **Training Time**: ~16.2 CPU minutes
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -143,9 +145,9 @@ Training curves for FCNN-2 (accuracy and loss over epochs).
 
 #### FCNN-3 (Larger Kernels)
 - **Architecture**: 3 convolutional layers (5x5 kernels) + global pooling
-- **Performance**: 92% accuracy
-- **Training Time**: 108s
-- **Comments**: Kernel size matters more than depth for FCNNs
+- **Performance**: 94.60% test accuracy; 0.1874 test loss (best FCNN)
+- **Selected checkpoint**: epoch 95
+- **Training Time**: ~18.3 CPU minutes
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -160,9 +162,10 @@ Training curves for FCNN-3 (accuracy and loss over epochs).
 
 #### FCNN-4 (More Layers + Larger Kernels)
 - **Architecture**: 5 convolutional layers (5x5 kernels) + global pooling
-- **Performance**: 98.6% accuracy (best FCNN)
-- **Training Time**: 130s
-- **Comments**: Overfitting starts at epoch ~20; combining more layers and larger kernels reaches CNN-level performance but with longer training
+- **Performance**: 78.90% test accuracy; 0.5256 test loss
+- **Selected checkpoint**: epoch 52
+- **Training Time**: ~24.1 CPU minutes
+- **Comments**: The deepest FCNN was unstable in this seeded run and did not reproduce the old optimistic result. I retain the failure because it shows that depth and larger kernels did not make the architecture reliably better.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -176,7 +179,7 @@ Training curves for FCNN-4 (accuracy and loss over epochs).
 ```
 
 #### FCNN comparison
-**Conclusion**: FCNNs only became competitive once they gained enough capacity. In this experiment, FCNN-4 matched the top CNN results, but the simpler CNN baseline was still easier to justify as a default choice.
+**Conclusion**: FCNN-3 improved materially over the first two variants, but none matched the CNN family. FCNN-4 then regressed sharply. A multi-seed study would be needed to separate architecture quality from initialization sensitivity; this single run is evidence against claiming a reliable benefit.
 
 Accuracy comparison across the FCNN variants.
 ```plotly
@@ -393,7 +396,7 @@ Generator and discriminator loss curves for DCGAN-4.
 
 #### DCGAN-5 (Extended Training)
 - **Change**: 200 epochs (from 100), same architecture as DCGAN-4
-- **Result**: Best FID score (117.3 vs DCGAN-4's 153.5); sharper edges, more consistent digits
+- **Result**: Lowest project-specific feature distance (2.29 vs DCGAN-4's 3.23); sharper edges and more consistent digits by visual inspection
 - **Training Time**: ~113 minutes
 
 Generator and discriminator loss curves for DCGAN-5.
@@ -409,13 +412,15 @@ Generator and discriminator loss curves for DCGAN-5.
 </div>
 
 #### DCGAN comparison
-Here is the comparison of the [FID scores](https://en.wikipedia.org/wiki/Fr%C3%A9chet_inception_distance) and training times for these five models (lower FID is better):
+For a reproducible relative comparison, I generated 10,000 images per model with seed 42, embedded them and all 10,000 official MNIST test images using the 20-dimensional penultimate layer of the selected CNN-3 classifier, and calculated a Fréchet distance between those feature distributions. Lower is better within this project.
+
+This is **not canonical FID**: it does not use InceptionV3, and the values must not be compared with published FID results. It is a narrow project-specific diagnostic that agrees with the visual progression from the failed DCGAN-1 to the stronger DCGAN-4 and DCGAN-5 outputs.
 
 **Conclusion**: DCGAN-5 produces the strongest samples in the set, but the gains came from iterative architecture work plus extra training time, not from one final tweak.
 
-FID comparison across DCGAN variants (lower is better).
+Fréchet CNN-3 feature-distance comparison across DCGAN variants (lower is better within this project).
 ```plotly
-{% include plotly/image-generation/dcgan-fid-comparison.json %}
+{% include plotly/image-generation/dcgan-feature-distance-comparison.json %}
 ```
 
 Training time comparison across DCGAN variants.

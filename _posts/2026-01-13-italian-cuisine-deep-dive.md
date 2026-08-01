@@ -17,6 +17,14 @@ This post is the technical appendix to my [Italian cuisine project](/projects/it
 ## Data Extraction Pipeline
 Both datasets started as unstructured text. I used Gemini 2.5 Pro to convert each recipe into a structured JSON schema, then normalized ingredients and tools before loading the results into Neo4j.
 
+The historical source is Pellegrino Artusi's cookbook. The contemporary corpus
+was collected from the Accademia Italiana della Cucina website within the
+observed session limit. Public access did not establish redistribution rights,
+so the contemporary source text and recipe-level derivatives are not included
+in the public repository. The extraction prompts remain reproducible, while
+public data is limited to aggregate analysis outputs and the separately
+licensed Artusi materials.
+
 ### Prompts used for extraction
 
 <details markdown="1">
@@ -275,7 +283,7 @@ The North leans toward rice and polenta, the South toward pasta; transitional re
 ---
 
 ## ML Classification Deep Dive
-The macro-region classifier reached about 60% macro-F1 on my held-out evaluation split, while the full region-level model overfit heavily. That gap is useful: it suggests the broad geographic structure is real, but the finer regional boundary problem is data-hungry and noisy.
+The macro-region classifier reached 59.49% accuracy, 52.98% macro-F1, and 58.79% weighted-F1 on the held-out split. The region-level model reached 20.26% accuracy and 18.50% macro-F1, while a hierarchical variant reached 22.31% accuracy and 17.82% macro-F1. The gap is useful: it suggests broad geographic structure is easier to learn, while fine regional boundaries are data-hungry and noisy. The GAT uses recipe, ingredient, and step nodes; the richer Neo4j graph also retains tools, intermediate products, and sequence for inspection.
 
 ### PCA Clustering
 Key observations:
@@ -300,3 +308,5 @@ PCA projection of recipe embeddings colored by macro-region.
 
 ## Look at the Code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine).
+
+The repository intentionally excludes the contemporary recipe text, processed recipe graphs, feature matrices, and train/validation/test splits. Aggregate analytical outputs are CC BY 4.0; retained Artusi material follows the digital source's stated “CC By-NC-SA” terms.

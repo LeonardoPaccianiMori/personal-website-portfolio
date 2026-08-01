@@ -69,10 +69,12 @@ def load_data():
     """
     Load all data files (CSVs, JSON, shapefile) needed for visualizations.
 
+    The inputs are aggregate analysis exports. Source recipe text and
+    recipe-level derivatives are intentionally not required or distributed.
+
     Returns:
-        tuple: (recipe_metadata, recipe_ingredients, ingredient_stats,
-                regional_stats, regional_ingredients, category_stats,
-                cooking_techniques, summary, italy_gdf)
+        tuple: (ingredient_stats, regional_ingredients, category_stats,
+                italy_gdf)
 
     Raises:
         FileNotFoundError: If required data files are missing
@@ -80,22 +82,14 @@ def load_data():
     print("Loading data files...")
 
     # Load CSV files
-    recipe_metadata = pd.read_csv(DATA_DIR / 'recipe_metadata.csv')
-    recipe_ingredients = pd.read_csv(DATA_DIR / 'recipe_ingredients.csv')
     ingredient_stats = pd.read_csv(DATA_DIR / 'ingredient_usage_stats.csv')
-    regional_stats = pd.read_csv(DATA_DIR / 'regional_stats.csv')
     regional_ingredients = pd.read_csv(DATA_DIR / 'regional_ingredients.csv')
     category_stats = pd.read_csv(DATA_DIR / 'category_stats.csv')
-    cooking_techniques = pd.read_csv(DATA_DIR / 'cooking_techniques.csv')
-
-    # Load summary JSON
-    with open(DATA_DIR / 'summary.json', 'r') as f:
-        summary = json.load(f)
 
     # Load and process shapefile
     italy_gdf = gpd.read_file(SHAPEFILE_PATH)
 
-    # Ensure WGS84 projection (required for Plotly mapbox)
+    # Ensure WGS84 projection (required for Plotly's tile maps)
     if italy_gdf.crs != 'EPSG:4326':
         italy_gdf = italy_gdf.to_crs('EPSG:4326')
 
@@ -106,14 +100,11 @@ def load_data():
         preserve_topology=True
     )
 
-    print(f"✓ Loaded {len(recipe_metadata)} recipes")
     print(f"✓ Loaded {len(ingredient_stats)} ingredients")
     print(f"✓ Loaded {len(italy_gdf)} regions")
-    print(f"✓ Shapefile simplified (area: {italy_gdf.geometry.area.sum():.2f} sq degrees)")
+    print("✓ Simplified regional boundaries for browser delivery")
 
-    return (recipe_metadata, recipe_ingredients, ingredient_stats,
-            regional_stats, regional_ingredients, category_stats,
-            cooking_techniques, summary, italy_gdf)
+    return ingredient_stats, regional_ingredients, category_stats, italy_gdf
 
 
 def merge_with_geodata(gdf, data_df, region_col_name):
@@ -232,7 +223,7 @@ def create_oil_butter_diverging_choropleth(italy_gdf, regional_ingredients):
     geo_fat['oil_pct'] = geo_fat['oil_pct'].fillna(50)  # Default to balanced if no data
 
     # Create diverging choropleth
-    fig = go.Figure(go.Choroplethmapbox(
+    fig = go.Figure(go.Choroplethmap(
         geojson=json.loads(geo_fat.to_json()),
         locations=geo_fat[REGION_COL],
         z=geo_fat['oil_pct'],
@@ -255,9 +246,11 @@ def create_oil_butter_diverging_choropleth(italy_gdf, regional_ingredients):
     # Update layout for dark theme and proper map centering
     fig.update_layout(
         title='The Olive Oil vs Butter Divide: Geographic Distribution',
-        mapbox_style="carto-darkmatter",
-        mapbox_zoom=4.75,
-        mapbox_center={"lat": 42.1, "lon": 12.5},  # Center on Italy
+        map=dict(
+            style="carto-darkmatter",
+            zoom=4.75,
+            center={"lat": 42.1, "lon": 12.5},
+        ),
         height=600,
         paper_bgcolor='rgba(0,0,0,0)',
         margin={"r": 0, "t": 40, "l": 0, "b": 0}
@@ -293,7 +286,7 @@ def create_tomato_choropleth(italy_gdf, regional_ingredients):
     ).fillna(0)
 
     # Create choropleth
-    fig = go.Figure(go.Choroplethmapbox(
+    fig = go.Figure(go.Choroplethmap(
         geojson=json.loads(geo_tomato.to_json()),
         locations=geo_tomato[REGION_COL],
         z=geo_tomato['tomato_count'],
@@ -308,7 +301,7 @@ def create_tomato_choropleth(italy_gdf, regional_ingredients):
 
     fig.update_layout(
         title='Tomato Usage Across Italian Regions',
-        mapbox=dict(
+        map=dict(
             style='carto-positron',
             center=dict(lat=42.5, lon=12.5),
             zoom=4.5
@@ -351,7 +344,7 @@ def create_cheese_choropleth(italy_gdf, regional_ingredients):
     ).fillna(0)
 
     # Create choropleth
-    fig = go.Figure(go.Choroplethmapbox(
+    fig = go.Figure(go.Choroplethmap(
         geojson=json.loads(geo_cheese.to_json()),
         locations=geo_cheese[REGION_COL],
         z=geo_cheese['cheese_count'],
@@ -366,7 +359,7 @@ def create_cheese_choropleth(italy_gdf, regional_ingredients):
 
     fig.update_layout(
         title='Cheese Usage Across Italian Regions',
-        mapbox=dict(
+        map=dict(
             style='carto-positron',
             center=dict(lat=42.5, lon=12.5),
             zoom=4.5
@@ -409,7 +402,7 @@ def create_seafood_choropleth(italy_gdf, regional_ingredients):
     ).fillna(0)
 
     # Create choropleth
-    fig = go.Figure(go.Choroplethmapbox(
+    fig = go.Figure(go.Choroplethmap(
         geojson=json.loads(geo_seafood.to_json()),
         locations=geo_seafood[REGION_COL],
         z=geo_seafood['seafood_count'],
@@ -424,7 +417,7 @@ def create_seafood_choropleth(italy_gdf, regional_ingredients):
 
     fig.update_layout(
         title='Seafood Usage Across Italian Regions',
-        mapbox=dict(
+        map=dict(
             style='carto-positron',
             center=dict(lat=42.5, lon=12.5),
             zoom=4.5
@@ -551,7 +544,7 @@ def create_pasta_rice_polenta_ternary_map(italy_gdf, regional_ingredients):
         )
 
         # Add trace with unique color
-        fig.add_trace(go.Choroplethmapbox(
+        fig.add_trace(go.Choroplethmap(
             geojson=single_feature_geojson,
             locations=[region_name],
             z=[1],  # Constant value (not used, color comes from colorscale)
@@ -570,9 +563,11 @@ def create_pasta_rice_polenta_ternary_map(italy_gdf, regional_ingredients):
     # Update layout
     fig.update_layout(
         title='Pasta/Rice/Polenta Distribution (RGB Ternary Map)<br><sub>Red=Pasta, Green=Rice, Blue=Polenta</sub>',
-        mapbox_style="carto-darkmatter",
-        mapbox_zoom=4.75,
-        mapbox_center={"lat": 42.1, "lon": 12.5},
+        map=dict(
+            style="carto-darkmatter",
+            zoom=4.75,
+            center={"lat": 42.1, "lon": 12.5},
+        ),
         height=600,
         paper_bgcolor='rgba(0,0,0,0)',
         margin={"r": 0, "t": 60, "l": 0, "b": 0}
@@ -901,9 +896,7 @@ def main():
     print("="*70)
 
     # Load all data files
-    (recipe_metadata, recipe_ingredients, ingredient_stats,
-     regional_stats, regional_ingredients, category_stats,
-     cooking_techniques, summary, italy_gdf) = load_data()
+    ingredient_stats, regional_ingredients, category_stats, italy_gdf = load_data()
 
     # Generate all visualizations
     figures = {
