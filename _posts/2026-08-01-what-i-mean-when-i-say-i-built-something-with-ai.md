@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What I Mean When I Say I Built Something with AI"
-date: 2026-07-29 00:03:00 +0200
+date: 2026-08-01 16:30:00
 description: "AI can write much of the code without assuming responsibility for the problem, the verification, or the result."
 tags: ai coding software-development
 categories: [thoughts]
@@ -14,9 +14,15 @@ This draft can be anchored more strongly in Wanderer because that project
 already describes its AI-assisted development publicly.
 {% endcomment %}
 
-I use AI coding agents as part of how I build software. On some projects they help with a narrow function or an unfamiliar API. On others they produce a substantial share of the code.
+We are in an era now where AI coding agents are inevitable, and they undoubtedly make the life of a coder much easier, provided one knows how to use these tools.
 
-That makes the sentence "I built this" less straightforward than it used to be. It does not make the sentence meaningless.
+I use AI coding agents as part of how I routinely build software. On most projects they just do the grunt work of putting into code an idea I already have clearly defined in my mind, or retrieveing data with an unfamiliar API (in a fraction of the time it would take me to actually learn the API and use it), or diagnosing a bug that's been eluding me for a while. On others projects these agents produce a substantial share of the code and also assist in the design of the project itself.
+
+In this era, therefore, claiming ownership of a project is less straightforward than it used to be.
+
+The strong polarizing effect that the use of AI causes does not elude software engineers and people who code, with the critiques often arguing that you cannot really claim ownership of your code if you don't know it inside and out, almost like if you could recite every single line of code by heart.
+
+I tend to agree with [this very interesting blog article](https://www.seangoedecke.com/in-defense-of-not-understanding-your-codebase/) by Sean Goedecke, in the sense that knowing the _theory_ of your codebase (and therefore being able, technically, to rewrite the entire codebase from scratch if necessary) is just _one_ way to approach coding, which in some cases is just straight up unreasonable (like in huge projects managed by teams with high turnover rate, as mentioned in the article).
 
 The easiest positions are also the least useful. One is that using an AI agent is merely a faster form of typing, so nothing about authorship has changed. The other is that if an agent wrote the code, the person directing it did not build anything.
 

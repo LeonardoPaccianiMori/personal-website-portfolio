@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Modeling Recipes as Graphs Instead of Ingredient Lists"
-date: 2025-12-05 10:00:00
+date: 2025-12-05 11:20:00
 description: The modeling decision that changed my Italian cuisine project from a feature-engineering exercise into a structural one
 tags: graph-neural-networks neo4j deep-learning
 categories: [technical-notes]

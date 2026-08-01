@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Technical Appendix: Real Estate Data Pipeline and ROI Modeling"
-date: 2025-07-18 10:00:00
+date: 2025-07-18 12:20:00
 description: Technical appendix to my Italian real-estate project, covering scraping, ETL, synthetic data, modeling, and dashboard design.
 tags: data-engineering scraping machine-learning
 categories: [technical-notes]

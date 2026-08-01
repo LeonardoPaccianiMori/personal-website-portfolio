@@ -1,7 +1,7 @@
 ---
 layout: post
 title: When CTGAN Failed to Preserve the Correlations That Mattered
-date: 2025-05-15 09:00:00
+date: 2025-05-15 09:45:00
 description: "A practical synthetic-data decision from an Italian real-estate project: preserving geographic and price correlations mattered more than matching marginal distributions."
 tags: machine-learning synthetic-data algorithms
 categories: [technical-notes]
