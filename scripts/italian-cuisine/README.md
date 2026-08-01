@@ -26,7 +26,10 @@ pages include them directly.
 - `ingredient_usage_stats.csv`
 - `regional_ingredients.csv`
 - `category_stats.csv`
-- Italy regional boundary shapefiles under `shapefiles/`
+- Istat's generalized 2025 regional boundary shapefiles under `shapefiles/`;
+  they are CC BY 4.0 and are reprojected when needed and simplified in the
+  generated maps. See the adjacent
+  [data notice](../../assets/data/italian-cuisine/shapefiles/README.md).
 
 The broader `analysis/` directory also contains other aggregate tables used by
 the site. See the repository [licensing map](../../LICENSE.md) before reuse.

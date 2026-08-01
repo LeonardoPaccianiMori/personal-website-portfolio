@@ -59,6 +59,10 @@ COLORS = {
 
 # Shapefile region column name
 REGION_COL = "DEN_REG"
+ISTAT_BOUNDARY_SOURCE = (
+    "https://www.istat.it/notizia/"
+    "confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/"
+)
 
 
 # ==============================================================================
@@ -144,6 +148,50 @@ def merge_with_geodata(gdf, data_df, region_col_name):
     )
 
     return merged
+
+
+def istat_boundary_annotation():
+    """Return a serializable Plotly annotation for Istat-derived geometry."""
+    return {
+        "x": 0,
+        "y": 0,
+        "xref": "paper",
+        "yref": "paper",
+        "xanchor": "left",
+        "yanchor": "bottom",
+        "showarrow": False,
+        "text": (
+            f'Boundaries: <a href="{ISTAT_BOUNDARY_SOURCE}">Istat 2025</a>, '
+            'CC BY 4.0; simplified for web'
+        ),
+        "font": {"size": 10, "color": "#111111"},
+        "bgcolor": "rgba(255,255,255,0.82)",
+        "borderpad": 3,
+    }
+
+
+def add_istat_boundary_attribution(fig):
+    """Credit the adapted Istat boundary geometry inside each map."""
+    fig.add_annotation(**istat_boundary_annotation())
+    return fig
+
+
+def credit_all_geometry_artifacts():
+    """Add the Istat credit to every retained JSON artifact with GeoJSON."""
+    marker = "Istat 2025"
+    for json_file in sorted(OUTPUT_DIR.glob("*.json")):
+        payload = json.loads(json_file.read_text())
+        if not any("geojson" in trace for trace in payload.get("data", [])):
+            continue
+
+        annotations = payload.setdefault("layout", {}).setdefault(
+            "annotations", []
+        )
+        if not any(marker in item.get("text", "") for item in annotations):
+            annotations.append(istat_boundary_annotation())
+            json_file.write_text(
+                json.dumps(payload, separators=(",", ":")) + "\n"
+            )
 
 
 def export_figure(fig, filename):
@@ -256,7 +304,7 @@ def create_oil_butter_diverging_choropleth(italy_gdf, regional_ingredients):
         margin={"r": 0, "t": 40, "l": 0, "b": 0}
     )
 
-    return fig
+    return add_istat_boundary_attribution(fig)
 
 
 def create_tomato_choropleth(italy_gdf, regional_ingredients):
@@ -311,7 +359,7 @@ def create_tomato_choropleth(italy_gdf, regional_ingredients):
         plot_bgcolor='rgba(0,0,0,0)'
     )
 
-    return fig
+    return add_istat_boundary_attribution(fig)
 
 
 def create_cheese_choropleth(italy_gdf, regional_ingredients):
@@ -369,7 +417,7 @@ def create_cheese_choropleth(italy_gdf, regional_ingredients):
         plot_bgcolor='rgba(0,0,0,0)'
     )
 
-    return fig
+    return add_istat_boundary_attribution(fig)
 
 
 def create_seafood_choropleth(italy_gdf, regional_ingredients):
@@ -427,7 +475,7 @@ def create_seafood_choropleth(italy_gdf, regional_ingredients):
         plot_bgcolor='rgba(0,0,0,0)'
     )
 
-    return fig
+    return add_istat_boundary_attribution(fig)
 
 
 def create_pasta_rice_polenta_ternary_map(italy_gdf, regional_ingredients):
@@ -573,7 +621,7 @@ def create_pasta_rice_polenta_ternary_map(italy_gdf, regional_ingredients):
         margin={"r": 0, "t": 60, "l": 0, "b": 0}
     )
 
-    return fig
+    return add_istat_boundary_attribution(fig)
 
 
 def create_pca_clustering_scatter(regional_ingredients):
@@ -936,6 +984,10 @@ def main():
 
     for filename, fig in figures.items():
         export_figure(fig, filename)
+
+    # Some retained legacy maps are not regenerated above. Credit every JSON
+    # artifact that embeds the same Istat-derived boundary geometry.
+    credit_all_geometry_artifacts()
 
     # Print summary
     print("\n" + "="*70)

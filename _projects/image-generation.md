@@ -33,7 +33,8 @@ I did not choose this project because handwritten digits are inherently exciting
 ---
 
 ## What I Built
-- A comparison of **7 classifiers** and **10 generative configurations** on MNIST.
+- A comparison of **7 classifiers** and **10 generative configurations** on
+  MNIST, plus a separate conditional GAN implementation.
 - A classifier protocol with a separate training, validation, and untouched test split.
 - A project-specific **Fréchet CNN-3 feature distance** for relative generator comparison, clearly separated from canonical FID.
 - Accuracy, validation curves, feature distance, and hardware-specific training-time comparisons.

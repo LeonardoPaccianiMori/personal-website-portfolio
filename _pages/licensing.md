@@ -12,9 +12,11 @@ applies.
 
 Selected Italian-cuisine aggregate analytical artifacts are CC BY 4.0. The
 Artusi example graph follows its digital source's stated “CC By-NC-SA” terms,
-with no version specified. The embedded Wanderer source is MIT-licensed in its
-own repository. Image-generation model bundles and galleries are retained as
-portfolio runtime evidence and are not offered for reuse.
+with no version specified. Cuisine map boundaries are adapted from Istat's
+2025 administrative-boundary data under CC BY 4.0, with attribution in each
+map and the third-party notice. The embedded Wanderer source is MIT-licensed in
+its own repository. Image-generation model bundles and galleries are retained
+as portfolio runtime evidence and are not offered for reuse.
 
 The complete repository scope map is in
 [LICENSE.md](https://github.com/LeonardoPaccianiMori/personal-website-portfolio/blob/main/LICENSE.md),

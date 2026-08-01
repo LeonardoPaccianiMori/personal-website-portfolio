@@ -50,10 +50,10 @@ What I did was:
 
 ## Results
 
-{% include dashboards/italian-real-estate-dashboard.html %}
-
-<br>
-(The dashboard works best on desktops or tablets. You can also open it in full screen by clicking <a href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">here</a>)
+The original project concluded with an interactive Tableau dashboard. That
+public workbook is no longer available, so I have removed the broken embed and
+retained the aggregate findings below. Neither source nor synthetic row-level
+data is offered for download.
 
 ### Key Findings
 Analyzing the synthetic dataset (designed to preserve the key statistical relationships of the original data) I identified the following insights:
@@ -62,7 +62,12 @@ Analyzing the synthetic dataset (designed to preserve the key statistical relati
 - **Rural areas often deliver higher returns** than urban ones.
 - **No clear North-South divide** appears in profitability; interesting opportunities exist across the country.
 
-**Note:** The rental-income model is deliberately simple. It captures broad trends (R² = 0.75 on the synthetic study data), but it is not suitable for precise pricing. The system explores area-level patterns; it does not claim exact property-level forecasts or investment recommendations.
+**Note:** The rental-income model is deliberately simple. The original study
+reported R² = 0.75 on `log1p(rent)` for a held-out synthetic test split, but
+the current public release does not include a versioned result artifact that
+independently reproduces that exact value. The system explores area-level
+patterns; it does not claim exact property-level forecasts or investment
+recommendations.
 
 ---
 
@@ -94,7 +99,10 @@ An aspect of this project I really liked is that no single component gets to pre
 ---
 
 ## Limitations
-- The rental-income model captures broad trends in the synthetic study data (R² = 0.75), but is not suitable for precise pricing.
+- The original study reported R² = 0.75 on `log1p(rent)` for a held-out
+  synthetic test split; the exact value is not independently reproduced by a
+  versioned artifact in the current public release and is not evidence of
+  price-scale accuracy.
 - The data is a snapshot from early 2025, so the listings are now outdated.
 - Results are *all* based on synthetic data rather than the original scraped listings.
 - The synthetic generator was designed to break row-level correspondence with the source data, but it was not evaluated as a formal privacy guarantee.
@@ -116,4 +124,7 @@ Full scraping, ETL, synthetic data, and modeling details are in [Technical Appen
 ## View the Code
 The public, reusable parts of the code are available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate).
 
-**Data boundary:** the original listings came from Immobiliare.it. Neither source listings nor the synthetic row-level dataset are distributed in the repository. The public dashboard and this page retain aggregate study results, while code that would enable direct reuse of the original collection process is excluded.
+**Data boundary:** the original listings came from Immobiliare.it. Neither
+source listings nor the synthetic row-level dataset are distributed in the
+repository. This page retains aggregate study results, while code that would
+enable direct reuse of the original collection process is excluded.

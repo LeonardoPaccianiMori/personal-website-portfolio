@@ -143,16 +143,23 @@ RandomForestRegressor(
 ```
 
 ### Performance Metrics
-On a synthetic rent-listing test split, the model reached the following metrics:
+The original study reported the following held-out metrics on a synthetic
+rent-listing split. The current public release retains the evaluation method
+but not a versioned result artifact that independently reproduces these exact
+values:
 
 | Metric | Value |
 |--------|-------|
-| R² | 0.75 |
+| R² on `log1p(rent)` | 0.75 |
 | RMSE (log scale) | 0.25 |
 | MAE (log scale) | 0.14 |
-| MAPE | 2.07% |
 
 <br>
+The original implementation also reported a 2.07% MAPE calculated directly on
+`log1p(rent)`. I have removed that value from the performance table because
+it is not a price-scale percentage error. The current evaluator reverses the
+log transform before calculating MAPE.
+
 The top 5 most important features are:
 1. **Surface area**
 2. **Latitude**
@@ -166,7 +173,10 @@ The importance of these features is straightforward:
 - Milan is notoriously the hottest real estate market in Italy, so it makes sense that any given property in Milan will be priced higher
 
 ### Model Application
-The model was applied to **970,000 sale/auction synthetic listings** to predict their rental income and build dashboard-ready outputs.
+The original study reported applying the model to approximately **970,000
+sale/auction synthetic rows** to build dashboard-ready rental-income
+predictions. That count is historical and is not independently reproduced by a
+row-level artifact in the current public release.
 
 ---
 

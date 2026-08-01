@@ -37,6 +37,17 @@ credited to the Comune di Forlimpopoli and Cristiano Vanzolini. The source
 material carries the notice “CC By-NC-SA” without a stated version. No broader
 license is asserted here.
 
+## Istat administrative boundaries
+
+The files under `assets/data/italian-cuisine/shapefiles/` are the generalized
+2025 regional layer from Istituto nazionale di statistica (Istat),
+[*Confini delle unità amministrative a fini statistici*](https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/).
+Istat makes its data available under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) with source
+attribution. The chart generator reprojects the layer to EPSG:4326 when needed
+and simplifies its geometry for browser delivery; generated choropleths retain
+an in-chart Istat credit. These adaptations are not endorsed by Istat.
+
 ## MNIST and browser libraries
 
 The image-generation project uses the MNIST database of handwritten digits,

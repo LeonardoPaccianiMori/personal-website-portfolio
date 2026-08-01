@@ -28,7 +28,10 @@ modify, or redistribute those materials.
   `assets/data/italian-cuisine/analysis/` and
   `_includes/plotly/italian-cuisine/` are licensed under
   [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), with attribution
-  to Leonardo Pacciani-Mori.
+  to Leonardo Pacciani-Mori. Map geometry in the cuisine shapefiles and
+  generated choropleths is adapted from Istat's 2025 administrative
+  boundaries, also under CC BY 4.0; attribution is required to both relevant
+  contributors. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 - `assets/data/italian-cuisine/recipe-76-example-graph.json` is derived from a
   digital edition of Pellegrino Artusi's cookbook distributed with the notice
   “CC By-NC-SA” (version unspecified). It is offered only under those stated
