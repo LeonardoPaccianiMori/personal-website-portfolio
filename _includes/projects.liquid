@@ -12,12 +12,12 @@
   <div class="site-project-card__body">
     <p class="site-project-card__type">
       {% case project.category %}
-        {% when 'work' %}
-          Professional work
+        {% when 'professional' %}
+          Professional project
         {% when 'portfolio' %}
           Personal project
-        {% when 'foundations' %}
-          Foundations
+        {% when 'experimental' %}
+          Experimental project
         {% else %}
           Project
       {% endcase %}

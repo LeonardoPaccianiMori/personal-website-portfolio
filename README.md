@@ -388,7 +388,7 @@ imagemagick:
 **Categories:**
 ```yaml
 # _pages/projects.md
-display_categories: [portfolio]  # Changed from [work, fun]
+display_categories: [portfolio]  # Show only personal projects
 ```
 
 **Rationale:** Work projects belong in About/Blog; Projects page = personal portfolio only

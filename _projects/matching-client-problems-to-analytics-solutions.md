@@ -2,14 +2,14 @@
 layout: page
 title: Matching Client Briefs to Analytics Capabilities
 description: A working internal chatbot that turns client briefs into explainable analytics recommendations grounded in a capabilities catalogue
-img: assets/img/projects/work/analytics-solution-matching.png
+img: assets/img/projects/professional/analytics-solution-matching.png
 importance: 3
-category: work
+category: professional
 ---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/work/analytics-solution-matching.png" title="Generic business planning table" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/professional/analytics-solution-matching.png" title="Generic business planning table" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

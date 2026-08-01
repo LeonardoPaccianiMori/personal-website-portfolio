@@ -2,14 +2,14 @@
 layout: page
 title: Building an Agentic Creative Research Assistant
 description: A working agentic prototype that turns scattered web and video sources into structured research reports for creative strategy
-img: assets/img/projects/work/creative-research-synthesis.png
+img: assets/img/projects/professional/creative-research-synthesis.png
 importance: 4
-category: work
+category: professional
 ---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/work/creative-research-synthesis.png" title="Building an Agentic Creative Research Assistant" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/professional/creative-research-synthesis.png" title="Building an Agentic Creative Research Assistant" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

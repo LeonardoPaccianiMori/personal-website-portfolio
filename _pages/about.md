@@ -90,7 +90,7 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
           </a>
           <div class="career-work-card__body">
             <p class="career-work-card__type">
-              {% if project.category == "work" %}Professional work{% else %}Personal project{% endif %}
+              {% if project.category == "professional" %}Professional project{% else %}Personal project{% endif %}
             </p>
             <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
             <p>{{ project.description }}</p>

@@ -2,14 +2,14 @@
 layout: page
 title: Interpreting Consumer Segments at Scale
 description: An internal LLM workflow for making large segment-profile outputs easier to explore, summarize, and use in strategy work
-img: assets/img/projects/work/interpreting-consumer-segments.png
+img: assets/img/projects/professional/interpreting-consumer-segments.png
 importance: 1
-category: work
+category: professional
 ---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/work/interpreting-consumer-segments.png" title="Interpreting consumer segments at scale" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/professional/interpreting-consumer-segments.png" title="Interpreting consumer segments at scale" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

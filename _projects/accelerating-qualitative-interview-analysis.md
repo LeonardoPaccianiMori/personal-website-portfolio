@@ -2,14 +2,14 @@
 layout: page
 title: Accelerating Qualitative Interview Analysis
 description: An internal AI agent that turns extensive Italian interview materials into thematic syntheses, traceable answers, and translated client deliverables
-img: assets/img/projects/work/qualitative-interview-analysis.png
+img: assets/img/projects/professional/qualitative-interview-analysis.png
 importance: 1
-category: work
+category: professional
 ---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/work/qualitative-interview-analysis.png" title="Accelerating Qualitative Interview Analysis" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/professional/qualitative-interview-analysis.png" title="Accelerating Qualitative Interview Analysis" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

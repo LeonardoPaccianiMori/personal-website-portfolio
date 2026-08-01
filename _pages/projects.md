@@ -2,19 +2,19 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Selected professional, personal, and foundational work showing how I approach applied data-science problems.
+description: Selected professional, personal, and experimental projects showing how I approach applied data-science problems.
 eyebrow: Evidence in practice
 wide: true
 nav: true
 nav_order: 2
-display_categories: [work, portfolio, foundations]
+display_categories: [professional, portfolio, experimental]
 horizontal: false
 ---
 
 <nav class="project-category-nav" aria-label="Project categories">
-  <a href="#work">
+  <a href="#professional">
     <span>01</span>
-    <strong>Professional work</strong>
+    <strong>Professional projects</strong>
     <small>Anonymized systems and workflows developed in industry.</small>
   </a>
   <a href="#portfolio">
@@ -22,9 +22,9 @@ horizontal: false
     <strong>Personal projects</strong>
     <small>End-to-end investigations built independently.</small>
   </a>
-  <a href="#foundations">
+  <a href="#experimental">
     <span>03</span>
-    <strong>Foundations</strong>
+    <strong>Experimental projects</strong>
     <small>Smaller projects for understanding modelling ideas deeply.</small>
   </a>
 </nav>
@@ -39,32 +39,32 @@ horizontal: false
           <div>
             <p class="career-eyebrow">
               {% case category %}
-                {% when 'work' %}
+                {% when 'professional' %}
                   Work
                 {% when 'portfolio' %}
                   Independent
-                {% when 'foundations' %}
+                {% when 'experimental' %}
                   Learning by building
               {% endcase %}
             </p>
             <h2 id="{{ category }}-title">
               {% case category %}
-                {% when 'work' %}
-                  Professional work
+                {% when 'professional' %}
+                  Professional projects
                 {% when 'portfolio' %}
                   Personal projects
-                {% when 'foundations' %}
-                  Foundations
+                {% when 'experimental' %}
+                  Experimental projects
               {% endcase %}
             </h2>
           </div>
           <p>
             {% case category %}
-              {% when 'work' %}
+              {% when 'professional' %}
                 Anonymized professional projects, described at a high level with identifying and proprietary details omitted.
               {% when 'portfolio' %}
                 Personal projects developed in my own time, from data acquisition and modelling through the final interface.
-              {% when 'foundations' %}
+              {% when 'experimental' %}
                 Smaller studies focused on understanding core modelling ideas by implementing and testing them directly.
             {% endcase %}
           </p>

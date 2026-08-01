@@ -4,7 +4,7 @@ title: Teaching Computers to Create Images
 description: Exploring how neural networks learn to generate handwritten digits
 img: assets/img/projects/image-generation/image-generation-thumbnail.png
 importance: 1
-category: foundations
+category: experimental
 chart:
   plotly: true
 images:
