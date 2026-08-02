@@ -13,7 +13,7 @@ This post is the technical appendix to my [Italian real-estate project](/project
 ---
 
 ## Data Collection
-The original source was Immobiliare.it. The first hard problem was *operational* rather than *statistical*: collecting a nationwide research snapshot reliably enough that the later modeling work was worth doing.
+The original source was an Italian property-listing portal. The first hard problem was *operational* rather than *statistical*: collecting a nationwide research snapshot reliably enough that the later modeling work was worth doing.
 
 ### Challenge
 I had to scrape three listing types (`rent`, `auction`, and `sale`) for 107 Italian provinces. This meant **321 independent scraping tasks**.

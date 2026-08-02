@@ -128,7 +128,8 @@ Full scraping, ETL, synthetic data, and modeling details are in [Technical Appen
 ## View the Code
 The public, reusable parts of the code are available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate).
 
-**Data boundary:** the original listings came from Immobiliare.it. Neither
-source listings nor the synthetic row-level dataset are distributed in the
-repository. This page retains aggregate study results, while code that would
-enable direct reuse of the original collection process is excluded.
+**Data boundary:** the original listings came from an Italian property-listing
+portal. Neither source listings nor the synthetic row-level dataset are
+distributed in the repository. This page retains aggregate study results,
+while code that would enable direct reuse of the original collection process
+is excluded.

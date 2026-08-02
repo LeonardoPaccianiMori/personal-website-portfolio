@@ -34,7 +34,7 @@ I cared about this project before I cared about the model. Italian cuisine was a
 ## Historical Context
 In 1891, shortly after Italian unification, Pellegrino Artusi published *"La Scienza in cucina e l'arte di mangiar bene"*, a collection of 790 recipes that helped shape a shared national culinary identity[^1]. Artusi knew Tuscany and Emilia-Romagna especially well, so his book offers an influential but regionally biased baseline rather than a neutral picture of all Italian cuisine.
 
-The modern corpus, collected from the Accademia Italiana della Cucina website, covers recipes associated with all 20 Italian regions. That makes the comparison historically uneven but analytically useful: I was not comparing two neat snapshots, but a canonical and biased historical source against a broader contemporary map of regional cooking.
+The modern corpus, collected from a public contemporary regional recipe source, covers recipes associated with all 20 Italian regions. That makes the comparison historically uneven but analytically useful: I was not comparing two neat snapshots, but a canonical and biased historical source against a broader contemporary map of regional cooking.
 
 ---
 
@@ -132,7 +132,7 @@ The part that stayed with me most is that the representation choice ended up doi
 - Artusi's dataset is geographically biased toward Central and Northern Italy.
 - Regional classification suffers from limited data per class and real culinary overlap between neighboring regions.
 - Both corpora are curated sources rather than direct measurements of what Italians cooked, and LLM-assisted extraction and normalization can introduce errors.
-- The Accademia recipe text and derived recipe-level datasets are not redistributed; the public repository contains code, aggregate analytical outputs, and the separately licensed Artusi materials.
+- The contemporary source recipe text and derived recipe-level datasets are not redistributed; the public repository contains code, aggregate analytical outputs, and the separately licensed Artusi materials.
 
 ---
 

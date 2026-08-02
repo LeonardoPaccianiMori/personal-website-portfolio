@@ -18,12 +18,14 @@ This post is the technical appendix to my [Italian cuisine project](/projects/it
 Both datasets started as unstructured text. I used Gemini 2.5 Pro to convert each recipe into a structured JSON schema, then normalized ingredients and tools before loading the results into Neo4j.
 
 The historical source is Pellegrino Artusi's cookbook. The contemporary corpus
-was collected from the Accademia Italiana della Cucina website within the
-observed session limit. Public access did not establish redistribution rights,
-so the contemporary source text and recipe-level derivatives are not included
-in the public repository. The extraction prompts remain reproducible, while
-public data is limited to aggregate analysis outputs and the separately
-licensed Artusi materials.
+was collected from publicly viewable recipes published by the Accademia
+Italiana della Cucina, within the observed session limit. The source is named
+solely for provenance; no affiliation, endorsement, or authorization is
+implied. Public access did not establish redistribution rights, so the
+contemporary source text and recipe-level derivatives are not included in the
+public repository. The extraction prompts remain reproducible, while public
+data is limited to aggregate analysis outputs and the separately licensed
+Artusi materials.
 
 ### Prompts used for extraction
 
@@ -96,7 +98,7 @@ Return ONLY the JSON object, nothing else.
 <summary><strong>AIC extraction prompt</strong></summary>
 {%raw%}
 ```text
-You are parsing a recipe from the Italian Academy of Cuisine (Accademia Italiana della Cucina) database.
+You are parsing a recipe from a contemporary regional Italian recipe corpus.
 
 Recipe: {recipe['name']}
 Region: {recipe['region']}
