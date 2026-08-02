@@ -9,8 +9,7 @@ featured: false
 ---
 
 {% comment %}
-FIRST-DRAFT NOTE: Reconsider the publication date when this essay is ready.
-This draft can be anchored more strongly in Wanderer because that project
+FIRST-DRAFT NOTE: This draft can be anchored more strongly in Wanderer because that project
 already describes its AI-assisted development publicly.
 {% endcomment %}
 
@@ -24,9 +23,12 @@ The strong polarizing effect that the use of AI causes does not elude software e
 
 I tend to agree with [this very interesting blog article](https://www.seangoedecke.com/in-defense-of-not-understanding-your-codebase/) by Sean Goedecke, in the sense that knowing the _theory_ of your codebase (and therefore being able, technically, to rewrite the entire codebase from scratch if necessary) is just _one_ way to approach coding, which in some cases is just straight up unreasonable (like in huge projects managed by teams with high turnover rate, as mentioned in the article).
 
-The easiest positions are also the least useful. One is that using an AI agent is merely a faster form of typing, so nothing about authorship has changed. The other is that if an agent wrote the code, the person directing it did not build anything.
+I've seen people generally fall into one of these two extremes, in the coding-with-AI discourse:
 
-Neither description matches my experience. AI changes where the work happens. It also makes it more important to say what kind of work I actually did.
+- using an AI agent is merely a faster form of typing, so nothing about authorship has changed
+- if an agent wrote the code, the person directing it did not build _anything_
+
+I think both are reductive, and neither matches my experience: AI changes _where_ the work happens, and this makes it even more important to acknowledge what kind of work we humans actually do.
 
 ## Typing Was Never the Whole Job
 
