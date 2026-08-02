@@ -29,6 +29,17 @@ for provenance:
 - [Italian real estate](https://pxhere.com/en/photo/529383)
 - [Italian cuisine](https://pxhere.com/en/photo/1000518)
 
+## Tableau Public
+
+The Italian real-estate project page displays a preview image hosted by
+[Tableau Public](https://public.tableau.com/) and offers an optional interactive
+dashboard. Choosing to load the interactive view sends a request to Tableau
+Public, a Salesforce service, and is subject to that service's privacy and
+cookie practices. The public toolbar currently offers visual exports as an
+image, vector image, PDF, or PowerPoint file. This website repository does not
+distribute the source listings or synthetic row-level dataset used in the
+historical study.
+
 ## Artusi digital edition
 
 The interactive example graph for recipe 76 is derived from Pellegrino Artusi,

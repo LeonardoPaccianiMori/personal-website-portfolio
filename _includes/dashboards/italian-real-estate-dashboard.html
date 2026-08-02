@@ -1,0 +1,71 @@
+<div class="tableau-dashboard" id="italian-real-estate-tableau">
+  <a
+    class="tableau-dashboard__preview"
+    href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:showVizHome=no"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://public.tableau.com/static/images/It/Italianrealestate/Dashboard_1/1_rss.png"
+      alt="Preview of the Italian real-estate investment dashboard, including a regional map and charts"
+      loading="lazy"
+    />
+  </a>
+
+  <p class="tableau-dashboard__action">
+    <button class="btn btn-outline-primary" type="button" aria-controls="italian-real-estate-tableau-frame">Load interactive dashboard</button>
+  </p>
+</div>
+
+<script>
+  (() => {
+    const dashboard = document.getElementById("italian-real-estate-tableau");
+    const button = dashboard?.querySelector("button");
+    const preview = dashboard?.querySelector(".tableau-dashboard__preview");
+
+    if (!dashboard || !button || !preview) return;
+
+    button.addEventListener("click", () => {
+      const frame = document.createElement("iframe");
+      frame.id = "italian-real-estate-tableau-frame";
+      frame.className = "tableau-dashboard__frame";
+      frame.src = "https://public.tableau.com/views/Italianrealestate/Dashboard_1?:showVizHome=no&:embed=yes&:toolbar=yes";
+      frame.title = "Interactive Italian real-estate investment dashboard";
+      frame.loading = "lazy";
+      frame.allowFullscreen = true;
+
+      preview.replaceWith(frame);
+      button.parentElement.remove();
+    });
+  })();
+</script>
+
+<style>
+  .tableau-dashboard__preview,
+  .tableau-dashboard__frame {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+
+  .tableau-dashboard__preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .tableau-dashboard__frame {
+    height: 1127px;
+  }
+
+  .tableau-dashboard__action {
+    margin: 1rem 0 0;
+    text-align: center;
+  }
+
+  @media (max-width: 500px) {
+    .tableau-dashboard__frame {
+      height: 2127px;
+    }
+  }
+</style>

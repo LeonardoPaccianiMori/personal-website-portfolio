@@ -50,10 +50,14 @@ What I did was:
 
 ## Results
 
-The original project concluded with an interactive Tableau dashboard. That
-public workbook is no longer available, so I have removed the broken embed and
-retained the aggregate findings below. Neither source nor synthetic row-level
-data is offered for download.
+The project concluded with the interactive Tableau dashboard below, which
+presents geographic and property-characteristic patterns from the synthetic
+study data.
+
+{% include dashboards/italian-real-estate-dashboard.html %}
+
+The interactive view works best on a desktop or tablet. You can also
+<a href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:showVizHome=no" target="_blank" rel="noopener noreferrer">open the dashboard directly on Tableau Public</a>.
 
 ### Key Findings
 Analyzing the synthetic dataset (designed to preserve the key statistical relationships of the original data) I identified the following insights:
