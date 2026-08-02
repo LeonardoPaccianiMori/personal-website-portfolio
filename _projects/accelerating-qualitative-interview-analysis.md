@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Accelerating Qualitative Interview Analysis
+title: Accelerating qualitative interview analysis
 description: An internal AI agent that turns extensive Italian interview materials into thematic syntheses, traceable answers, and translated client deliverables
 img: assets/img/projects/professional/qualitative-interview-analysis.png
 importance: 1

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Technical Appendix: Recipe Graphs and Regional Cuisine Modeling"
+title: "Technical appendix: recipe graphs and regional cuisine modeling"
 date: 2026-01-16 10:10:00
 description: The technical appendix to my Italian cuisine project, including extraction prompts, graph modeling choices, and the main analytical outputs.
 tags: data-science graphs GNN NLP

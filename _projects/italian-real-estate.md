@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Finding Profitable Real Estate in Italy
+title: Finding profitable real estate in Italy
 description: AI-powered pipeline to help investors identify areas with high-return properties
 img: assets/img/projects/italian-real-estate/italian-real-estate.jpg
 importance: 1

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: A Look Into Italian Cuisine
+title: A look into Italian cuisine
 description: Understanding the historical evolution and geographical diversity of Italian cuisine
 img: assets/img/projects/italian-cuisine/italian-cuisine.jpg
 importance: 2

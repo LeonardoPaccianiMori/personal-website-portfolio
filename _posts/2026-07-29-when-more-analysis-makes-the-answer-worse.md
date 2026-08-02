@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "When More Analysis Makes the Answer Worse"
+title: "When more analysis makes the answer worse"
 date: 2026-07-29 00:01:00 +0200
 description: "Rigor is not the same as exhaustiveness: analysis should reduce the uncertainty that matters to a decision."
 tags: data-science decision-making uncertainty

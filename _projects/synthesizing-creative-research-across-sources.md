@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Building an Agentic Creative Research Assistant
+title: Building an agentic creative research assistant
 description: A working agentic prototype that turns scattered web and video sources into structured research reports for creative strategy
 img: assets/img/projects/professional/creative-research-synthesis.png
 importance: 4

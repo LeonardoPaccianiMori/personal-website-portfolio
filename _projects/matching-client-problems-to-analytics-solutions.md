@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Matching Client Briefs to Analytics Capabilities
+title: Matching client briefs to analytics capabilities
 description: A working internal chatbot that turns client briefs into explainable analytics recommendations grounded in a capabilities catalogue
 img: assets/img/projects/professional/analytics-solution-matching.png
 importance: 3

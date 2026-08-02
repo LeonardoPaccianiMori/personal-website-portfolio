@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What Academic Research Taught Me About Applied Data Science—and What I Had to Unlearn"
+title: "What academic research taught me about applied data science—and what I had to unlearn"
 date: 2026-07-29 00:02:00 +0200
 description: "Some research habits transferred directly into applied data science; others had to be reshaped around decisions, users, and constraints."
 tags: data-science research career

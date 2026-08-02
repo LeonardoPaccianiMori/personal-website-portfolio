@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Cleaning Open-Ended Survey Responses at Scale
+title: Cleaning open-ended survey responses at scale
 description: An internal workflow that standardizes respondent-written survey answers so analysts can move from raw files to usable metrics in minutes
 img: assets/img/projects/professional/survey-response-cleaning.png
 importance: 2

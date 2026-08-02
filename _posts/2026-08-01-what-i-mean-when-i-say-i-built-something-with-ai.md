@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What I Mean When I Say I Built Something with AI"
+title: "What I mean when I say I built something with AI"
 date: 2026-08-01 16:30:00
 description: "AI can write much of the code without assuming responsibility for the problem, the verification, or the result."
 tags: ai coding software-development

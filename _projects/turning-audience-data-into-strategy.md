@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Interpreting Consumer Segments at Scale
+title: Interpreting consumer segments at scale
 description: An internal LLM workflow for making large segment-profile outputs easier to explore, summarize, and use in strategy work
 img: assets/img/projects/professional/interpreting-consumer-segments.png
 importance: 1

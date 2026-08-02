@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Moving the Real Estate Pipeline from MongoDB to PostgreSQL"
+title: "Moving the real estate pipeline from MongoDB to PostgreSQL"
 date: 2025-06-20 10:30:00
 description: How the storage layer changed as the project moved from messy scraping to analytics-ready modeling.
 tags: data-engineering databases architecture

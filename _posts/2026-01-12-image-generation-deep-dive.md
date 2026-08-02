@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Technical Appendix: MNIST Classifiers, VAEs, and GANs"
+title: "Technical appendix: MNIST classifiers, VAEs, and GANs"
 date: 2025-02-21 15:30:00
 description: The technical appendix to my MNIST image-generation project, covering the experiment setup, architecture choices, and per-model results.
 tags: deep-learning GAN VAE CNN

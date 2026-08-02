@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Visualizing Regional Structure in Italian Cuisine"
+title: "Visualizing regional structure in Italian cuisine"
 date: 2025-12-19 16:15:00
 description: Three visualization choices that made the geographic story in my Italian cuisine dataset much easier to see
 tags: data-visualization plotly maps
