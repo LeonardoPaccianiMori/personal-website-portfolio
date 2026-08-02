@@ -28,12 +28,12 @@ Before analysts could compute metrics or compare results across respondent segme
 
 ---
 
-## My Role
+## My role
 I helped scope the workflow, translate the team's manual process into product requirements, and supervise the development of the LLM-assisted cleaning logic. I also reviewed the outputs with a focus on reliability, usability, and whether the tool preserved enough transparency for analysts to trust the cleaned results.
 
 ---
 
-## What the Tool Does
+## What the tool does
 - Uploads raw survey response files and uses the selected product category as context.
 - Standardizes free-text brand answers into clean, consistent labels.
 - Turns raw responses into analysis-ready outputs for downstream aggregation and segmentation.
@@ -42,7 +42,7 @@ I helped scope the workflow, translate the team's manual process into product re
 
 ---
 
-## Reliability and Constraints
+## Reliability and constraints
 The main risk was incorrect standardization: mapping a misspelled or ambiguous response to the wrong brand would distort downstream brand analysis.
 
 The workflow was therefore designed around conservative cleaning, reviewable outputs, and repeatable processing rather than one-off text generation. The goal was not to replace analyst judgment entirely, but to remove the repetitive manual work that made the process slow.

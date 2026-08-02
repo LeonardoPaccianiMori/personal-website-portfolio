@@ -26,19 +26,19 @@ I built two complementary recipe datasets, one from Pellegrino Artusi's 1891 coo
 
 ---
 
-## Why I Cared About This Question
+## Why I cared about this question
 I cared about this project before I cared about the model. Italian cuisine was already a subject I found culturally interesting, but the project only became compelling once the representation question took over. I did not want a dressed-up ingredient-frequency exercise. I wanted a way to keep process, sequence, and regional identity in the data instead of flattening them away.
 
 ---
 
-## Historical Context
+## Historical context
 In 1891, shortly after Italian unification, Pellegrino Artusi published *"La Scienza in cucina e l'arte di mangiar bene"*, a collection of 790 recipes that helped shape a shared national culinary identity[^1]. Artusi knew Tuscany and Emilia-Romagna especially well, so his book offers an influential but regionally biased baseline rather than a neutral picture of all Italian cuisine.
 
 The modern corpus, collected from a public contemporary regional recipe source, covers recipes associated with all 20 Italian regions. That makes the comparison historically uneven but analytically useful: I was not comparing two neat snapshots, but a canonical and biased historical source against a broader contemporary map of regional cooking.
 
 ---
 
-## What I Built
+## What I built
 - **Historical baseline**: 790 recipes from Artusi's 1891 cookbook, concentrated in Central and Northern Italy.
 - **Modern dataset**: 2,599 traditional recipes covering all 20 Italian regions.
 - **Recipe graphs**: each recipe stores ingredients, tools, steps, intermediate products, and order instead of collapsing everything into a flat list.
@@ -67,7 +67,7 @@ Each recipe is represented as a **graph** so the full structure is preserved:
 
 ## Results
 
-### Historical Change
+### Historical change
 Ingredient usage shifts notably between the late 19th century and today:
 ```plotly
 {% include plotly/italian-cuisine/top-ingredients-scatter.json %}
@@ -78,7 +78,7 @@ Ingredient usage shifts notably between the late 19th century and today:
 
 The biggest historical takeaway is not one ingredient by itself. It is the broader movement from a Central/Northern, butter-heavy baseline toward a more nationally representative cuisine in which olive oil, garlic, onion, and Southern staples are much more visible.
 
-### Geographic Patterning
+### Geographic patterning
 The clearest regional split is the **oil-butter line**:
 <div class="caption">
     Diverging choropleth map showing fat preference by region: green = olive oil dominant, red = butter dominant. Hover for details, zoom or pan to explore.
@@ -89,7 +89,7 @@ The clearest regional split is the **oil-butter line**:
 
 That divide tracks climate and agricultural history: olive oil dominates Central and Southern Italy, while butter is more common in the North.
 
-### Graph Classification
+### Graph classification
 Macro-regions are much easier to classify than individual regions:
 - **Macro-region model**: **59.49% accuracy**, **52.98% macro-F1**, and **58.79% weighted-F1**
 - **Region model**: **20.26% accuracy**, **18.50% macro-F1**, and **21.45% weighted-F1**, with heavy overfitting
@@ -103,7 +103,7 @@ Per-class performance in the macro-region setup:
 
 ---
 
-## Technical Approach
+## Technical approach
 - **Extraction**: both datasets started as unstructured text, so I used an LLM-assisted extraction pipeline and then normalized ingredients and tools to reduce duplication.
 - **Storage**: I used Neo4j because recipe data is easier to inspect and query as a graph than as a flat table or document store.
 - **Modeling**: I trained a heterogeneous Graph Attention Network over recipe, ingredient, and step nodes. The richer Neo4j representation also retains tools, intermediate products, and step order for analysis and inspection, but those elements are not all used as GAT node types.
@@ -114,7 +114,7 @@ The part that stayed with me most is that the representation choice ended up doi
 
 ---
 
-## Tools Used
+## Tools used
 
 | **Area** | **Tools** |
 |----------|-----------|
@@ -136,18 +136,18 @@ The part that stayed with me most is that the representation choice ended up doi
 
 ---
 
-## Deep Dive
+## Deep dive
 Full extraction prompts, analysis, and model details are in [Technical Appendix: Recipe Graphs and Regional Cuisine Modeling](/blog/2026/italian-cuisine-deep-dive/).
 
 ---
 
-## Related Blog Posts
+## Related blog posts
 - [Modeling Recipes as Graphs Instead of Ingredient Lists](/blog/2025/why-graphs-for-recipes/): The modeling decision that changed my Italian cuisine project from a feature-engineering exercise into a structural one.
 - [Visualizing Regional Structure in Italian Cuisine](/blog/2025/visualizing-italian-cuisine/): Three visualization choices that made the geographic story in my Italian cuisine dataset much easier to see.
 
 ---
 
-## View the Code
+## View the code
 All code for this project is available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine).
 
 **Data and licensing boundary:** the contemporary recipes were collected slowly within the website's observed session limit, but public accessibility is not the same as permission to republish them. The source recipes and their processed graph datasets are therefore excluded. Aggregate study outputs are shared under CC BY 4.0; the retained Artusi edition and example graph follow the source's stated “CC By-NC-SA” terms. See the [licensing map]({{ '/licensing/' | relative_url }}).

@@ -21,9 +21,9 @@ Not every research habit transferred equally well. Some had to be adapted, and a
 
 The contrast is easy to exaggerate. Academia is not a world of perfect rigor, and industry is not a world of impatient shortcuts. Both contain careful and careless work. What changed for me was the purpose surrounding the analysis. Research tries to produce knowledge that can survive scrutiny. Applied data science must do that while also helping someone decide, build, or act.
 
-## What I Kept
+## What I kept
 
-### Evidence Before Elegance
+### Evidence before elegance
 
 Research made me wary of explanations that are more attractive than the evidence supporting them.
 
@@ -31,13 +31,13 @@ In data science, it is easy to become attached to a method because it is sophist
 
 I kept the habit of asking what observation would make me change my mind. If no possible result could do that, I am probably defending a preference rather than testing an idea.
 
-### Uncertainty Is Part of the Result
+### Uncertainty is part of the result
 
 Uncertainty is not an embarrassing remainder to hide after producing an estimate. It is part of what the analysis says.
 
 That does not mean surrounding every conclusion with so many caveats that it becomes unusable. It means distinguishing what is known, what is inferred, which assumptions matter, and where the result is fragile. A decision-maker may still choose to act under substantial uncertainty. The analysis should help make that choice consciously.
 
-### Messy Data Is Not an Interruption
+### Messy data is not an interruption
 
 Real data rarely arrives as a neutral representation of the world. It reflects collection processes, definitions, incentives, missingness, measurement choices, and previous technical decisions.
 
@@ -49,9 +49,9 @@ changed the interpretation, not merely the cleanliness, of an analysis. A
 personal portfolio project may provide the safest example.
 {% endcomment %}
 
-## What I Had to Unlearn
+## What I had to unlearn
 
-### Completeness Is Not Always the Goal
+### Completeness is not always the goal
 
 Research rewards following uncertainty into new questions. Applied work often requires deciding which uncertainty matters now.
 
@@ -59,7 +59,7 @@ My instinct is to explore: test another possibility, understand another edge cas
 
 This is not an excuse to ignore inconvenient evidence. It is an argument for matching the depth of analysis to the stakes and reversibility of the choice.
 
-### A Detailed Explanation Is Not Necessarily a Clear One
+### A detailed explanation is not necessarily a clear one
 
 Academic communication often demonstrates credibility by exposing method, context, and qualification. In applied settings, those details still matter, but they do not all belong in the foreground.
 
@@ -80,7 +80,7 @@ specific before-and-after example if you have one: an explanation or slide
 that became stronger after removing technically correct material.
 {% endcomment %}
 
-### The Question Is Part of the Work
+### The question is part of the work
 
 In research, the question may be the central intellectual contribution. In organizations, the initial question is often provisional: a request shaped by incomplete information, existing processes, or an assumed solution.
 
@@ -88,7 +88,7 @@ Applied data science therefore begins before the dataset and the model. It inclu
 
 Answering the stated question perfectly is not useful if it is the wrong question.
 
-## Adaptation, Not Rejection
+## Adaptation, not rejection
 
 "Unlearn" may be too strong a word. I did not need to abandon skepticism, depth, or curiosity. I needed to make them responsive to a different environment.
 

@@ -32,12 +32,12 @@ Researchers traditionally have to read the full corpus, retain connections acros
 
 ---
 
-## My Role
+## My role
 I built the first working prototype end to end, then worked closely with Consumer Insight colleagues to refine its features, workflow, and behaviour until it met their needs. The result is an internal tool that is ready for day-to-day use, while continuing to be refined through real projects.
 
 ---
 
-## What the Tool Does
+## What the tool does
 - Accepts a project-context brief, interview transcripts, the interview guide, and participant worksheets.
 - Starts each session by mapping the corpus: it identifies the role of each document and the interviewee associated with each transcript without reading every file in full.
 - Generates a first-draft thematic synthesis structured around the interview guide, so researchers can begin from a coherent working document instead of a blank page.
@@ -46,14 +46,14 @@ I built the first working prototype end to end, then worked closely with Consume
 
 ---
 
-## Evidence-Grounded Question Answering
+## Evidence-grounded question answering
 Every answer to a corpus question includes explicit citations to the supporting source passages. Researchers can open a citation to inspect the cited paragraph, its surrounding context, and the corresponding document and interviewee.
 
 This makes the tool useful for exploration without asking users to treat its synthesis as a black box: they can quickly verify where a claim came from, compare evidence across participants, and retain responsibility for the final client-facing interpretation.
 
 ---
 
-## Direct Corpus Interaction
+## Direct corpus interaction
 For question answering, I used **Direct Corpus Interaction (DCI)**, a recent agentic-search approach. Rather than relying on a pre-built retrieval index, the agent plans a search over the raw project corpus, inspects relevant material directly, and progressively narrows from candidate documents to the precise evidence needed for an answer.
 
 This is especially well suited to interview research, where useful evidence can depend on exact wording, local context, and connections formed across different participants and materials. [Read the DCI research paper](https://arxiv.org/abs/2605.05242).

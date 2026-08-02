@@ -30,7 +30,7 @@ I've seen people generally fall into one of these two extremes, in the coding-wi
 
 I think both are reductive, and neither matches my experience: AI changes _where_ the work happens, and this makes it even more important to acknowledge what kind of work we humans actually do.
 
-## Typing Was Never the Whole Job
+## Typing was never the whole job
 
 Writing code matters, but software development has never been reducible to producing syntax.
 
@@ -54,7 +54,7 @@ If your standard is narrower or stronger, rewrite this paragraph in your own
 terms.
 {% endcomment %}
 
-## The Work Moves Toward Specification
+## The work moves toward specification
 
 Coding agents are unusually responsive to the quality of the problem definition.
 
@@ -66,7 +66,7 @@ The better the agent becomes at producing code, the more the bottleneck shifts t
 
 That is real work. It is not the same work as implementing every component manually.
 
-## Verification Becomes the Center
+## Verification becomes the center
 
 Generated code can be plausible, internally consistent, and wrong.
 
@@ -89,7 +89,7 @@ a low-stakes example; a generalized application example could show how your
 standard changes when users depend on the result.
 {% endcomment %}
 
-## Understanding Is Not Binary
+## Understanding is not binary
 
 There is a common test for AI-assisted work: "Could you have written it yourself?"
 
@@ -105,7 +105,7 @@ A more useful set of questions is:
 
 AI can help me work in languages or areas where my knowledge is incomplete. That is one of its strengths. The honest claim is not that the tool instantly gives me the experience of a specialist. It is that I can use it to produce something functional while being explicit about the limits of my understanding and the level of verification I performed.
 
-## What Should Be Disclosed
+## What should be disclosed
 
 I do not think every autocomplete suggestion requires a declaration. I do think AI use should be disclosed when it materially shaped how a project was produced or when that context changes how the work should be evaluated.
 
@@ -127,7 +127,7 @@ exact disclosure language you want to use consistently across this website.
 That would turn the essay into a standard readers can apply to your projects.
 {% endcomment %}
 
-## Responsibility Does Not Transfer
+## Responsibility does not transfer
 
 AI makes implementation faster and gives individuals access to capabilities they may not yet possess deeply. That can be productive, educational, and genuinely creative. It can also create the illusion that producing code and understanding a system are the same achievement.
 

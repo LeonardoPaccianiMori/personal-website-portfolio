@@ -16,7 +16,7 @@ This post is the technical appendix to my [image generation project](/projects/i
 
 ---
 
-## At a Glance
+## At a glance
 - **Dataset**: MNIST (28x28 grayscale digits, 10 classes)
 - **Scope**: 7 classifiers (CNN/FCNN), 5 CVAEs, 5 DCGANs
 - **Highest classifier accuracy**: CNN-2 at 98.66% test accuracy in about 22.9 CPU minutes
@@ -26,7 +26,7 @@ This post is the technical appendix to my [image generation project](/projects/i
 
 ---
 
-## Experiment Setup
+## Experiment setup
 - **Classifier split**: seed 42; 54,000 training and 6,000 stratified validation images from the official training split; the official 10,000-image test split remained untouched until one final evaluation per model
 - **Model selection**: checkpoint with minimum validation loss; the curves below therefore show training and validation metrics, not repeated test measurements
 - **Preprocessing**: No data augmentation for classifiers; MNIST scaled to [-1, 1] for DCGAN-1 (tanh output) and [0, 1] for DCGAN-2+ (sigmoid output)
@@ -35,12 +35,12 @@ This post is the technical appendix to my [image generation project](/projects/i
 
 ---
 
-## Classification Models
+## Classification models
 
-### Convolutional Neural Networks (CNNs)
+### Convolutional neural networks (CNNs)
 I used the CNN family as the clean baseline for the project: standard convolutions, easy-to-read behavior, and a good reference point for the later FCNN and generative experiments.
 
-#### CNN-1 (Baseline)
+#### CNN-1 (baseline)
 - **Architecture**: 3 convolutional layers + 1 fully connected layer
 - **Performance**: 98.05% test accuracy; 0.0620 test loss
 - **Selected checkpoint**: epoch 56
@@ -57,7 +57,7 @@ Training curves for CNN-1 (accuracy and loss over epochs).
 {% include plotly/image-generation/cnn-1-training.json %}
 ```
 
-#### CNN-2 (More Convolutional Layers)
+#### CNN-2 (more convolutional layers)
 - **Architecture**: 5 convolutional layers + 1 fully connected layer
 - **Performance**: 98.66% test accuracy; 0.0468 test loss (best classifier)
 - **Selected checkpoint**: epoch 100
@@ -74,7 +74,7 @@ Training curves for CNN-2 (accuracy and loss over epochs).
 {% include plotly/image-generation/cnn-2-training.json %}
 ```
 
-#### CNN-3 (More Fully Connected Layers)
+#### CNN-3 (more fully connected layers)
 - **Architecture**: 3 convolutional layers + 3 fully connected layers
 - **Performance**: 98.30% test accuracy; 0.0558 test loss
 - **Selected checkpoint**: epoch 45
@@ -106,10 +106,10 @@ Training time comparison across the CNN variants.
 
 ---
 
-### Fully Convolutional Neural Networks (FCNNs)
+### Fully convolutional neural networks (FCNNs)
 Unlike the CNN family, these models replace the dense head with global pooling. I included them because they are architecturally cleaner, but I wanted to see how much accuracy that simplicity would cost or recover.
 
-#### FCNN-1 (Baseline)
+#### FCNN-1 (baseline)
 - **Architecture**: 3 convolutional layers + global pooling
 - **Performance**: 79.17% test accuracy; 0.6646 test loss
 - **Selected checkpoint**: epoch 100
@@ -126,7 +126,7 @@ Training curves for FCNN-1 (accuracy and loss over epochs).
 {% include plotly/image-generation/fcnn-1-training.json %}
 ```
 
-#### FCNN-2 (More Layers)
+#### FCNN-2 (more layers)
 - **Architecture**: 5 convolutional layers + global pooling
 - **Performance**: 90.62% test accuracy; 0.2982 test loss
 - **Selected checkpoint**: epoch 100
@@ -143,7 +143,7 @@ Training curves for FCNN-2 (accuracy and loss over epochs).
 {% include plotly/image-generation/fcnn-2-training.json %}
 ```
 
-#### FCNN-3 (Larger Kernels)
+#### FCNN-3 (larger kernels)
 - **Architecture**: 3 convolutional layers (5x5 kernels) + global pooling
 - **Performance**: 94.60% test accuracy; 0.1874 test loss (best FCNN)
 - **Selected checkpoint**: epoch 95
@@ -160,7 +160,7 @@ Training curves for FCNN-3 (accuracy and loss over epochs).
 {% include plotly/image-generation/fcnn-3-training.json %}
 ```
 
-#### FCNN-4 (More Layers + Larger Kernels)
+#### FCNN-4 (more layers + larger kernels)
 - **Architecture**: 5 convolutional layers (5x5 kernels) + global pooling
 - **Performance**: 78.90% test accuracy; 0.5256 test loss
 - **Selected checkpoint**: epoch 52
@@ -193,12 +193,12 @@ Training time comparison across the FCNN variants.
 
 ---
 
-## Generative Models
+## Generative models
 
-### Convolutional Variational Autoencoders (CVAEs)
+### Convolutional variational autoencoders (CVAEs)
 I tested five CVAE variants with a 2D latent space. The point here was not image quality alone; it was to see how architecture changes affected the interpretability of the latent space.
 
-#### CVAE-1 (Baseline)
+#### CVAE-1 (baseline)
 - **Architecture**: 3 convolutional layers (encoder + decoder), 100-neuron hidden layer, 2D latent space
 - **Median silhouette score**: -0.01
 - **Comments**: Marginal separation in latent space (only 0, 1, and 7 are clearly separated)
@@ -228,7 +228,7 @@ The grid below shows what the decoder generates at cell centers across a 16x16 d
     16x16 grid of images generated by the CVAE-1 decoder across the latent space. Top-left is near (z1 ~ -1.5, z2 ~ 14.4), bottom-right is near (z1 ~ 12.5, z2 ~ -2.4). Click any image to zoom.
 </div>
 
-#### CVAE-2 (Larger Hidden Layer)
+#### CVAE-2 (larger hidden layer)
 - **Architecture**: Same as CVAE-1, but with 200-neuron hidden layer (2x baseline)
 - **Median silhouette score**: -0.06
 - **Comments**: Even worse latent space separation than CVAE-1
@@ -250,7 +250,7 @@ Training curves for CVAE-2.
     16x16 grid of images generated by the CVAE-2 decoder across the latent space (z1: -8 to 10, z2: -10 to 12). Click any image to zoom.
 </div>
 
-#### CVAE-3 (More Convolutional Layers)
+#### CVAE-3 (more convolutional layers)
 - **Architecture**: Same as CVAE-1, but with 5 convolutional layers (encoder + decoder) instead of 3
 - **Median silhouette score**: -0.07
 - **Comments**: Still marginal separation in latent space (only 1 and 0 are neatly separated)
@@ -278,7 +278,7 @@ Training curves for CVAE-3.
     16x16 grid of images generated by the CVAE-3 decoder across the latent space (z1: -3 to 3, z2: -3 to 3). Click any image to zoom.
 </div>
 
-#### CVAE-4 and CVAE-5 (More Fully Connected Layers)
+#### CVAE-4 and CVAE-5 (more fully connected layers)
 - **Architecture**: Same as CVAE-1, but with 3 or 4 connected layers
 - **Median silhouette score**: 0.01 and -0.06
 - **Comments**: Better latent space separation, but still incomplete (4, 7, 8 and 9 overlap)
@@ -321,10 +321,10 @@ Training time comparison across CVAE variants.
 
 ---
 
-### Deep Convolutional Generative Adversarial Networks (DCGANs)
+### Deep convolutional generative adversarial networks (DCGANs)
 I tested five DCGAN configurations in sequence, with each one responding to the failure mode or tradeoff in the previous version.
 
-#### DCGAN-1 (Baseline with Tanh)
+#### DCGAN-1 (baseline with tanh)
 - **Architecture**: 3 conv layers (generator + discriminator), tanh activation
 - **Result**: Poor; only a few digits recognizable and images are noisy
 - **Issue**: Discriminator plateaus, generator loss keeps increasing
@@ -341,7 +341,7 @@ Generator and discriminator loss curves for DCGAN-1.
     100 digits generated by DCGAN-1. Click any image to zoom.
 </div>
 
-#### DCGAN-2 (Sigmoid Activation)
+#### DCGAN-2 (sigmoid activation)
 - **Change**: Sigmoid activation instead of tanh
 - **Result**: Dramatic improvement; losses oscillate healthily
 - **Quality**: Most digits recognizable but still imperfect
@@ -360,7 +360,7 @@ Generator and discriminator loss curves for DCGAN-2.
     100 digits generated by DCGAN-2. Click any image to zoom.
 </div>
 
-#### DCGAN-3 (Larger Kernels)
+#### DCGAN-3 (larger kernels)
 - **Change**: 5x5 kernels (from 3x3), keeping sigmoid
 - **Result**: Significant quality improvement, all 10 digits recognizable
 - **Training Time**: Minimal increase
@@ -377,7 +377,7 @@ Generator and discriminator loss curves for DCGAN-3.
     100 digits generated by DCGAN-3. Click any image to zoom.
 </div>
 
-#### DCGAN-4 (More Layers)
+#### DCGAN-4 (more layers)
 - **Change**: 4 conv layers (generator + discriminator)
 - **Result**: Best visual quality among the 100-epoch runs; all digits clear, fewer artifacts
 - **Training Time**: Significantly longer than the earlier variants, but worth it
@@ -394,7 +394,7 @@ Generator and discriminator loss curves for DCGAN-4.
     100 digits generated by DCGAN-4. Click any image to zoom.
 </div>
 
-#### DCGAN-5 (Extended Training)
+#### DCGAN-5 (extended training)
 - **Change**: 200 epochs (from 100), same architecture as DCGAN-4
 - **Result**: Lowest project-specific feature distance (2.29 vs DCGAN-4's 3.23); sharper edges and more consistent digits by visual inspection
 - **Training Time**: ~113 minutes
@@ -437,5 +437,5 @@ Training time comparison across DCGAN variants.
 
 ---
 
-## Look at the Code
+## Look at the code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-image-generation).

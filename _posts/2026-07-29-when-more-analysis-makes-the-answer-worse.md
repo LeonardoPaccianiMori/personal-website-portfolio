@@ -20,7 +20,7 @@ There is almost always another useful analysis available. I can test another ass
 
 This sounds like an argument for lowering standards. I mean the opposite. Stopping well requires more judgment than continuing automatically.
 
-## Rigor and Exhaustiveness Are Different
+## Rigor and exhaustiveness are different
 
 My academic background trained me to be suspicious of easy conclusions. That instinct remains valuable. I want to understand where the data came from, which assumptions are doing the work, what uncertainty remains, and whether a result survives reasonable attempts to challenge it.
 
@@ -36,7 +36,7 @@ portfolio project if a work example would be confidential. Focus on what you
 chose not to analyse and why the decision did not need it.
 {% endcomment %}
 
-## Decisions Have Their Own Resolution
+## Decisions have their own resolution
 
 Not every decision requires the same level of analytical resolution.
 
@@ -56,7 +56,7 @@ Yet every additional layer has a cost:
 
 Those costs may be justified. They should not be treated as free.
 
-## Focus on Material Uncertainty
+## Focus on material uncertainty
 
 The question I find most helpful is not, "What else could I analyse?" It is, "What could I learn that would change the action?"
 
@@ -74,7 +74,7 @@ would naturally use. If it feels too formal, replace it with plainer language
 and keep the underlying distinction.
 {% endcomment %}
 
-## A Practical Stopping Rule
+## A practical stopping rule
 
 Before extending an analysis, I try to ask four questions:
 
@@ -88,7 +88,7 @@ Before extending an analysis, I try to ask four questions:
 
 These questions do not produce a mechanical answer. They make the tradeoff explicit. They also expose a common failure mode: continuing because no one has taken responsibility for deciding that the evidence is sufficient.
 
-## Knowing What to Leave Out
+## Knowing what to leave out
 
 Good applied analysis is not shallow analysis. It still requires checking assumptions, finding failure modes, and communicating uncertainty honestly. The difference is that rigor is directed toward the decision rather than toward completeness for its own sake.
 

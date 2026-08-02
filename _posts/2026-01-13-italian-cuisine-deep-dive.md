@@ -14,7 +14,7 @@ This post is the technical appendix to my [Italian cuisine project](/projects/it
 
 ---
 
-## Data Extraction Pipeline
+## Data extraction pipeline
 Both datasets started as unstructured text. I used Gemini 2.5 Pro to convert each recipe into a structured JSON schema, then normalized ingredients and tools before loading the results into Neo4j.
 
 The historical source is Pellegrino Artusi's cookbook. The contemporary corpus
@@ -161,23 +161,23 @@ These results should be read as patterns in curated recipe datasets, not as dire
 
 ---
 
-## Analysis: Temporal Evolution
+## Analysis: temporal evolution
 I used the two datasets to ask a simple question: once Artusi is treated as a historical baseline rather than as a complete picture of Italy, what actually changes?
 
-### Recipe Complexity
+### Recipe complexity
 Distribution of steps, ingredients, and tools per recipe highlights how overall complexity shifted across eras.
 ```plotly
 {% include plotly/italian-cuisine/recipe-complexity.json %}
 ```
 
-### Category Evolution
+### Category evolution
 Category mix comparison between Artusi and modern recipes shows which types gained or lost prominence.
 One striking difference is the absence of "Pizzas and savory pies" from Artusi's dataset. At the end of the 19th century, the word "pizza" referred to baked pies more broadly, not the modern Neapolitan pizza we all know today.
 ```plotly
 {% include plotly/italian-cuisine/category-evolution.json %}
 ```
 
-### Ingredient Evolution
+### Ingredient evolution
 Key trends:
 - Olive oil rises while butter declines (butter appears more frequently than both salt and olive oil in Artusi)
 - Salt appears more often in contemporary recipes
@@ -196,10 +196,10 @@ This view highlights ingredients that are new in the modern dataset or absent co
 
 ---
 
-## Analysis: Geographical Diversity
+## Analysis: geographical diversity
 I then focused on the modern dataset to see which regional patterns were stable enough to show up in both the visual analysis and the model outputs.
 
-### Regional Characteristics
+### Regional characteristics
 Use the dropdown to switch between five metrics:
 - **Recipe abundance**: number of recipes in the dataset per region
 - **Recipe complexity**: average number of steps per recipe per region
@@ -212,7 +212,7 @@ Choropleth view of each metric by region.
 {% include plotly/italian-cuisine/regional-characteristics-choropleth.json %}
 ```
 
-### Signature Regional Ingredients (TF-IDF)
+### Signature regional ingredients (TF-IDF)
 Click a region to update the bar chart with its signature ingredients.
 ```plotly
 {% include plotly/italian-cuisine/regional-signature-ingredients-map.json %}
@@ -223,13 +223,13 @@ Top 10 TF-IDF ingredients for the selected region.
 {% include plotly/italian-cuisine/regional-signature-ingredients-bar.json %}
 ```
 
-### Ingredient Usage (Top 10)
+### Ingredient usage (top 10)
 Select an ingredient to see where it is most commonly used.
 ```plotly
 {% include plotly/italian-cuisine/ingredient-usage-choropleth.json %}
 ```
 
-### Regional Similarity
+### Regional similarity
 Cosine similarity across ingredient profiles highlights which regions are closest:
 - Regions within the same macro-region cluster closely
 - Valle d'Aosta stands out as a strong outlier
@@ -247,7 +247,7 @@ Heatmap shows full pairwise similarities, ordered by macro-region.
 The dendrogram view reinforces the same grouping:
 {% include figure.liquid loading="lazy" path="assets/img/projects/italian-cuisine/italian-cuisine-hierarchical-clustering.png" title="Hierarchical Clustering of Italian Regional Cuisines" class="img-fluid rounded z-depth-1" %}
 
-### The Olive Oil vs Butter Line
+### The olive oil vs butter line
 Olive oil vs butter shows a sharp north-south divide:
 <div class="caption">
     Fat preference by region: green = olive oil dominant, red = butter dominant. Hover and zoom to inspect.
@@ -256,7 +256,7 @@ Olive oil vs butter shows a sharp north-south divide:
 {% include plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
 
-### Tomato Gradient
+### Tomato gradient
 Tomato usage increases as you move south, mirroring the olive oil divide:
 <div class="caption">
     Tomato usage is strongest in the South, shaped by climate and Mediterranean influences.
@@ -265,7 +265,7 @@ Tomato usage increases as you move south, mirroring the olive oil divide:
 {% include plotly/italian-cuisine/tomato-usage.json %}
 ```
 
-### Cheese and Seafood Patterns
+### Cheese and seafood patterns
 Cheese usage peaks in dairy-heavy regions (e.g., Emilia-Romagna, Lombardy), reflecting production traditions and recipe usage.
 ```plotly
 {% include plotly/italian-cuisine/cheese-usage.json %}
@@ -276,7 +276,7 @@ Seafood usage follows coastline access; landlocked and alpine regions remain low
 {% include plotly/italian-cuisine/seafood-usage.json %}
 ```
 
-### The Starch Triangle
+### The starch triangle
 The North leans toward rice and polenta, the South toward pasta; transitional regions show mixed profiles.
 ```plotly
 {% include plotly/italian-cuisine/pasta-rice-polenta-triangle.json %}
@@ -284,10 +284,10 @@ The North leans toward rice and polenta, the South toward pasta; transitional re
 
 ---
 
-## ML Classification Deep Dive
+## ML classification deep dive
 The macro-region classifier reached 59.49% accuracy, 52.98% macro-F1, and 58.79% weighted-F1 on the held-out split. The region-level model reached 20.26% accuracy and 18.50% macro-F1, while a hierarchical variant reached 22.31% accuracy and 17.82% macro-F1. The gap is useful: it suggests broad geographic structure is easier to learn, while fine regional boundaries are data-hungry and noisy. The GAT uses recipe, ingredient, and step nodes; the richer Neo4j graph also retains tools, intermediate products, and sequence for inspection.
 
-### PCA Clustering
+### PCA clustering
 Key observations:
 - North forms a tight cluster (homogeneous traditions)
 - Islands are well separated (geographic isolation)
@@ -308,7 +308,7 @@ PCA projection of recipe embeddings colored by macro-region.
 
 ---
 
-## Look at the Code
+## Look at the code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine).
 
 The repository intentionally excludes the contemporary recipe text, processed recipe graphs, feature matrices, and train/validation/test splits. Aggregate analytical outputs are CC BY 4.0; retained Artusi material follows the digital source's stated “CC By-NC-SA” terms.

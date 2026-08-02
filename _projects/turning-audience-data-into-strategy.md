@@ -28,7 +28,7 @@ Strategists traditionally reviewed these files manually to identify patterns and
 
 ---
 
-## What I Built
+## What I built
 - A dashboard for exploring generated segment-profile outputs.
 - Section-level LLM summaries across different consumer-profile dimensions.
 - Curated dashboard charts that make key patterns easier to inspect directly.
@@ -37,7 +37,7 @@ Strategists traditionally reviewed these files manually to identify patterns and
 
 ---
 
-## Reliability and Constraints
+## Reliability and constraints
 The main technical challenge was preventing the model from inventing unsupported claims. Early versions became unreliable when large tables were flattened into plain text.
 
 The system became much more stable after preserving the data as structured JSON-like inputs and giving the model detailed instructions for navigating the tables. This made the tabular relationships easier to follow and reduced unsupported answers.

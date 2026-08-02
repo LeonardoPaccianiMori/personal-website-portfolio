@@ -27,12 +27,12 @@ I used MNIST as a controlled environment because I wanted a problem small enough
 
 ---
 
-## What I Wanted to Learn
+## What I wanted to learn
 I did not choose this project because handwritten digits are inherently exciting. I chose it because MNIST is simple enough to expose bad assumptions quickly. What I cared about was seeing which ideas genuinely improved the result, which ones only sounded sophisticated, and where "best practice" stopped being useful once the training dynamics became unstable.
 
 ---
 
-## What I Built
+## What I built
 - A comparison of **7 classifiers** and **10 generative configurations** on
   MNIST, plus a separate conditional GAN implementation.
 - A classifier protocol with a separate training, validation, and untouched test split.
@@ -49,7 +49,7 @@ I did not choose this project because handwritten digits are inherently exciting
 - **DCGAN-5 had the lowest project-specific feature distance at 2.29**, ahead of DCGAN-4 at 3.23, while also taking the longest recorded training time.
 - The most important debugging lesson was that **activation and normalization choices strongly affected training stability**. A small change in the output layer turned a failing GAN into a working one.
 
-### Evidence: Classification tradeoff
+### Evidence: classification tradeoff
 ```plotly
 {% include plotly/image-generation/accuracy-training-time-comparison.json %}
 ```
@@ -57,7 +57,7 @@ I did not choose this project because handwritten digits are inherently exciting
     One seeded CPU run across 7 architectures. CNN-2 has the highest test accuracy; CNN-1 offers the clearest speed/accuracy tradeoff. Times are hardware-specific.
 </div>
 
-### Evidence: Relative generation quality
+### Evidence: relative generation quality
 ```plotly
 {% include plotly/image-generation/dcgan-feature-distance-comparison.json %}
 ```
@@ -65,7 +65,7 @@ I did not choose this project because handwritten digits are inherently exciting
     Fréchet distance between 10,000 generated images and the official MNIST test split in CNN-3's 20-dimensional feature space. Lower is better within this project; this is not canonical FID.
 </div>
 
-### Evidence: Generator training time
+### Evidence: generator training time
 ```plotly
 {% include plotly/image-generation/dcgan-training-time-comparison.json %}
 ```
@@ -83,14 +83,14 @@ I did not choose this project because handwritten digits are inherently exciting
 
 ---
 
-## Technical Approach
+## Technical approach
 - **Classification**: I reserved 6,000 images from the official training set for model selection, selected the minimum-validation-loss checkpoint, and evaluated the untouched official test split once per model.
 - **Generation**: I used CVAEs for latent-space exploration and DCGANs for image quality. For a relative quantitative check, I compared 10,000 generated samples per DCGAN with the official test split in a fixed CNN-3 feature space, alongside visual inspection.
 - **Presentation**: I exported selected models to TensorFlow.js so visitors could interact with the project directly in the browser.
 
 ---
 
-## Interactive Demos
+## Interactive demos
 
 ### CVAE-1
 Click or drag anywhere in the latent space of CVAE-1 to generate a digit. A red X marker will show the currently selected position. Scatter point colors indicate the digit class of each encoded point.
@@ -163,12 +163,12 @@ What I still like most about this project is that it does not hide behind a fina
 
 ---
 
-## Deep Dive
+## Deep dive
 Full experiment details, architecture diagrams, and per-model results are in [Technical Appendix: MNIST Classifiers, VAEs, and GANs](/blog/2025/image-generation-deep-dive/).
 
 ---
 
-## View the Code
+## View the code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-image-generation).
 
 ---

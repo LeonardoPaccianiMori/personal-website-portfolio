@@ -28,7 +28,7 @@ The work is valuable, but fragmented: teams have to collect sources, inspect the
 
 ---
 
-## What I Built
+## What I built
 - A working agentic prototype for the early discovery phase of creative strategy.
 - A form-based workflow where users provide relevant web pages or video links as starting points.
 - Parallel research agents that expand from those links, search for additional context, and inspect relevant sources.
@@ -38,14 +38,14 @@ The work is valuable, but fragmented: teams have to collect sources, inspect the
 
 ---
 
-## Current Scope
+## Current scope
 The current prototype can complete the research loop for public web pages and video sources: starting from user-provided links, it gathers additional context, inspects the material, and produces a synthesized report.
 
 Possible extensions include support for additional audio and creative-reference sources, so the workflow can cover more of the research material creative teams already use.
 
 ---
 
-## Reliability and Constraints
+## Reliability and constraints
 The prototype is designed as research support, not as final creative direction. Public-source research can be incomplete, outdated, or noisy, so the system needs to make sources visible and keep uncertainty explicit.
 
 The main technical challenge is coordinating multiple agents without losing traceability: each synthesized observation needs to remain connected to the material that supported it.

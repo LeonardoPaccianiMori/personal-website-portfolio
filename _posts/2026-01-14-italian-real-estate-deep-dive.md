@@ -12,13 +12,13 @@ This post is the technical appendix to my [Italian real-estate project](/project
 
 ---
 
-## Data Collection
+## Data collection
 The original source was an Italian property-listing portal. The first hard problem was *operational* rather than *statistical*: collecting a nationwide research snapshot reliably enough that the later modeling work was worth doing.
 
 ### Challenge
 I had to scrape three listing types (`rent`, `auction`, and `sale`) for 107 Italian provinces. This meant **321 independent scraping tasks**.
 
-### Solution: Apache Airflow Orchestration
+### Solution: Apache Airflow orchestration
 I used Apache Airflow to orchestrate each of these 321 tasks. Here is a representation of the workflow I used:
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -33,7 +33,7 @@ In particular, for each province (e.g., Milan, Rome, Naples) I:
 
 Airflow represented these as independent tasks so failures could be retried without restarting the whole collection.
 
-### Technical Implementation
+### Technical implementation
 
 Technically, each listing scrape worked as follows:
 1. For a given province and listing type, I selected a price range
@@ -51,7 +51,7 @@ Other details:
 
 ---
 
-## ETL Pipeline
+## ETL pipeline
 Once the raw data collection was working, the next problem was turning HTML fragments into something I could actually analyze.
 
 ### Challenge
@@ -79,10 +79,10 @@ The output of this step is a MongoDB warehouse with clean, structured documents.
 
 ---
 
-## PostgreSQL Migration
+## PostgreSQL migration
 At this point I needed to organize my data in a relational database to be able to do standard analyses and train my rental income prediction model. Therefore, I decided to migrate all the structured data into a PostgreSQL database. At this step, I kept *only* the structured data and discarded the unstructured fields (e.g., the text of each listing's description).
 
-### Database Schema
+### Database schema
 To enforce data consistency and reduce redundancy, I decided to create a database using a *snowflake* schema with full data normalization:
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -93,14 +93,14 @@ To enforce data consistency and reduce redundancy, I decided to create a databas
     Snowflake schema with fact table and dimension tables. <a href="https://dbdiagram.io/">Created with dbdiagram.io</a>
 </div>
 
-### Translation Pipeline
+### Translation pipeline
 At this stage, one challenge remained: many categorical features had values written in Italian. These included the listing's property type (e.g., house, apartment, townhouse) and listing features (e.g., whether a listing has a balcony, which type of heating it has, or whether it is already furnished).
 
 To make these variables understandable, I needed to translate all of them into English. I used a local [LibreTranslate](https://libretranslate.com/) instance, with a custom SQLite cache to avoid re-translating identical text and a custom dictionary for real estate-specific jargon.
 
 ---
 
-## Synthetic Data Generation
+## Synthetic data generation
 As explained in the [other post](/blog/2025/synthetic-data-ctgan/) relating to this project, I used a custom synthetic data generator to create new rows that preserved project-critical aggregate relationships without copying source listings.
 
 I first tried using CTGAN (the "classical" solution for this type of problem), but it failed to recreate the complex relationships between the dataset's features. I therefore built my own KNN-based algorithm. More details can be found in the [dedicated post](/blog/2025/synthetic-data-ctgan/).
@@ -109,18 +109,18 @@ Because the KNN construction was not subjected to a formal privacy audit, I do n
 
 ---
 
-## Machine Learning Model
+## Machine learning model
 For this step, I was not interested in using a "fashionable" model, but rather something that gives stable, interpretable predictions with reasonable effort. My final choice was a simple Random Forest predictor:
 - it can capture complex non-linear relationships
 - it is robust to outliers
 - its results can be interpreted using feature importance
 - it is easy and fast to train
 
-### Random Forest Rent Predictor
+### Random forest rent predictor
 The model's aim was to predict the monthly rental price for properties listed for sale or auction. In other words, I used the `rent` listings to train the model, and then applied it to `sale` and `auction` listings to predict what rent could be obtained from a given listing after buying it.
 
 
-### Feature Engineering
+### Feature engineering
 Before training the model, I did some feature engineering:
 - **Property types**: this feature had 30+ categories, many of which were similar (e.g., "apartment" and "condo") -> they were grouped into 7 broader values
 - **Heating**: decomposed into `type`, `delivery`, `power source` (originally it was a unique string with all possible combinations of these features)
@@ -130,7 +130,7 @@ Before training the model, I did some feature engineering:
 - **Outliers**: removed 1st and 99th percentiles
 - **Target**: log-transform rent for better predictions
 
-### Model Architecture
+### Model architecture
 The architecture of the model used for training was the following:
 ```python
 RandomForestRegressor(
@@ -142,7 +142,7 @@ RandomForestRegressor(
 )
 ```
 
-### Performance Metrics
+### Performance metrics
 The original study reported the following held-out metrics on a synthetic
 rent-listing split. The current public release retains the evaluation method
 but not a versioned result artifact that independently reproduces these exact
@@ -172,7 +172,7 @@ The importance of these features is straightforward:
 - the more luxurious and pricier properties will also generally have higher maintenance costs and therefore higher condominium expenses
 - Milan is notoriously the hottest real estate market in Italy, so it makes sense that any given property in Milan will be priced higher
 
-### Model Application
+### Model application
 The original study reported applying the model to approximately **970,000
 sale/auction synthetic rows** to build dashboard-ready rental-income
 predictions. That count is historical and is not independently reproduced by a
@@ -180,13 +180,13 @@ row-level artifact in the current public release.
 
 ---
 
-## Dashboard Design
+## Dashboard design
 I treated the dashboard as part of the model output itself, and not as a presentation layer. The project was only useful if a non-technical user could move from *prediction* to *decision*.
 
-### Target Audience
+### Target audience
 The dashboard is designed for real estate investors who want to explore profitable areas (*not* single listings).
 
-### Dashboard Features
+### Dashboard features
 
 The dashboard allows users to:
 - use two different investment metrics:
@@ -209,10 +209,10 @@ The dashboard allows users to:
 
 ---
 
-## Closing Reflection
+## Closing reflection
 What I learned from this project is not just to "scrape real-estate listings". It is a more practical lesson: if you want a model-driven product to be credible, the upstream engineering and the publication constraints *have to* be part of the design *from the start*. The parts that held up best here were the pipeline decisions, the synthetic-data requirement, and the fact that the dashboard was treated as part of the project rather than as an afterthought.
 
 ---
 
-## Look at the Code
+## Look at the code
 The reusable, public parts of the code are available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate). Source and synthetic row-level data, credentials, and the live collection implementation are excluded.

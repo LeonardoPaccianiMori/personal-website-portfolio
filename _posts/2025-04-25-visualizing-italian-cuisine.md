@@ -18,7 +18,7 @@ At the beginning I had what looked like a comfortable analytics setup: regional 
 
 Three custom views ended up carrying most of the analytical weight.
 
-## 1. The Olive Oil vs Butter Map
+## 1. The olive oil vs butter map
 
 The most memorable geographic pattern in the dataset was the North-South split in cooking fats. The mistake would have been to show two separate maps, one for olive oil and one for butter.
 
@@ -39,7 +39,7 @@ The better choice was a diverging choropleth where the scale itself expresses th
 
 This was the point where the pattern stopped being a set of statistics and became a story. You could see the boundary immediately, and once it was visible, it became easier to ask better questions about climate, agriculture, and regional culinary history.
 
-## 2. The Pasta-Rice-Polenta Triangle
+## 2. The pasta-rice-polenta triangle
 
 The second useful shift came from treating three-way starch preference as a color problem instead of a table problem.
 
@@ -60,7 +60,7 @@ The main benefit was not novelty for its own sake. It was compression. One view 
 
 That is where the Alpine polenta cluster and the Po Valley rice cluster became much easier to explain. The map did not replace quantitative analysis, but it made the right questions obvious.
 
-## 3. Similarity Needed Structure, Not Just a List
+## 3. Similarity needed structure, not just a list
 
 The third case was regional similarity. A plain heatmap is fine if you already know what you are looking for, but it is not a great first view when the aim is to understand how regional cuisines group together.
 
@@ -75,7 +75,7 @@ The useful move was to keep the heatmap, but reorder it by clustered similarity 
 
 This mattered because it supported something the classification model was already hinting at: macro-regions are not arbitrary convenience labels. They show up as real structure in the data.
 
-## What I Took From This
+## What I took from this
 
 I do not think every project needs custom visuals. Most do not.
 

@@ -14,7 +14,7 @@ I resisted that shift longer than I should have, mostly because once a pipeline 
 
 Those are not the same storage problem.
 
-## MongoDB Was Right First
+## MongoDB was right first
 
 The raw scraping stage was exactly the kind of data I would not want to force into a rigid relational schema too early:
 
@@ -32,7 +32,7 @@ In practice, I ended up with two MongoDB layers:
 
 That bought me speed while the project was still exploratory.
 
-## PostgreSQL Became Right Later
+## PostgreSQL became right later
 
 Once the extraction work settled down, the costs of staying in MongoDB became more obvious.
 
@@ -60,7 +60,7 @@ The interesting part here is not "SQL is better than NoSQL." It is more specific
 - MongoDB was better while the data model was still unstable
 - PostgreSQL was better once the data model was stable enough to deserve constraints and structure
 
-## The Transition Point
+## The transition point
 
 The transition happened when I noticed I was doing the same kinds of cleanup repeatedly:
 
@@ -79,7 +79,7 @@ Once I migrated the cleaned layer into PostgreSQL, a lot of later work got easie
 - model training inputs
 - dashboard-ready extracts
 
-## What I Took From It
+## What I took from it
 
 I came away from this project less interested in database ideology than before. The more practical lesson was simpler: storage decisions should match the maturity of the data, not your loyalty to one tool.
 

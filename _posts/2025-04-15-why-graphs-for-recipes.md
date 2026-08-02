@@ -12,7 +12,7 @@ When I started the [Italian cuisine project](/projects/italian-cuisine/), the ob
 
 That would have been the respectable baseline. It also would have reduced the whole project to ingredient frequencies, which was exactly what I did not want.
 
-## The Problem With Ingredient Lists
+## The problem with ingredient lists
 
 Two dishes can share almost the same ingredients and still be structurally different.
 
@@ -27,7 +27,7 @@ An ingredient list keeps only the nouns. A recipe keeps the relationships.
 
 That mattered for my goal because I was not trying to predict calories or detect the presence of tomato. I was trying to classify regional cuisine. Regional identity often shows up in repeated ingredient-technique pairings and process patterns, not just in isolated ingredients.
 
-## The Moment the Representation Changed
+## The moment the representation changed
 
 Once I wrote that down clearly, the flat feature setup stopped feeling like a simplification and started feeling like a mismatch.
 
@@ -47,7 +47,7 @@ That let me keep the pieces I would otherwise lose:
 
 I stored the graphs in Neo4j because it made both querying and inspection much easier during development. More importantly, it gave me a clean path into a heterogeneous graph neural network later on.
 
-## Why This Was Worth the Extra Complexity
+## Why this was worth the extra complexity
 
 Graphs are more work than flat features. They force you to define a schema, think about relations carefully, and deal with more complicated modeling code.
 
@@ -75,7 +75,7 @@ This was the part I underestimated at the start. Even if I had never trained a G
 
 It gave me a better way to inspect recipes, query recurring structures, and think about what the extraction pipeline was actually producing. In practice, that improved the data work as much as the modeling work.
 
-## What I Would Not Generalize From This
+## What I would not generalize from this
 
 I would not take "use graphs" as a generic recipe-ML rule.
 

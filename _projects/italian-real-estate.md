@@ -23,12 +23,12 @@ I built an end-to-end pipeline that starts with collecting real-estate listings 
 
 ---
 
-## Why I Built the Dataset Myself
+## Why I built the dataset myself
 Real-estate modeling is a familiar data-science problem, but I was not interested in doing a polished version of a project built on a CSV that thousands of other people had already used (like the [Ames](https://www.kaggle.com/datasets/marcopale/housing/), [Boston](https://www.kaggle.com/datasets/schirmerchad/bostonhoustingmlnd/) or [California](https://www.kaggle.com/datasets/camnugent/california-housing-prices/) datasets). I wanted something closer to *real* analytical work: messy source data, evolving schemas, operational constraints, and a decision-support output at the end. Using Italian listings also made the problem feel more concrete to me rather than using a dataset from a market I was not familiar with.
 
 ---
 
-## What I Built
+## What I built
 Here is a simplified view of the pipeline:
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -59,7 +59,7 @@ study data.
 The interactive view works best on a desktop or tablet. You can also
 <a href="https://public.tableau.com/views/Italianrealestate/Dashboard_1?:showVizHome=no" target="_blank" rel="noopener noreferrer">open the dashboard directly on Tableau Public</a>.
 
-### Key Findings
+### Key findings
 Analyzing the synthetic dataset (designed to preserve the key statistical relationships of the original data) I identified the following insights:
 - **Auction properties outperform regular sales**, even after accounting for significant renovation costs.
 - **Energy efficiency impacts rent less than expected**; lower-rated properties often rent for similar amounts.
@@ -75,7 +75,7 @@ recommendations.
 
 ---
 
-## Technical Approach
+## Technical approach
 Here is a brief overview of the technical approach used in this project:
 - **Data collection**: Apache Airflow orchestrated scraping jobs across provinces and listing types; MongoDB stored both raw and processed non-relational data.
 - **Data modeling**: I then chose a fixed relational schema and migrated the processed data into PostgreSQL.
@@ -86,7 +86,7 @@ An aspect of this project I really liked is that no single component gets to pre
 
 ---
 
-## Tools Used
+## Tools used
 
 | **Area** | **Tools** |
 |----------|-----------|
@@ -114,18 +114,18 @@ An aspect of this project I really liked is that no single component gets to pre
 
 ---
 
-## Deep Dive
+## Deep dive
 Full scraping, ETL, synthetic data, and modeling details are in [Technical Appendix: Real Estate Data Pipeline and ROI Modeling](/blog/2025/italian-real-estate-deep-dive/).
 
 ---
 
-## Related Blog Posts
+## Related blog posts
 - [When CTGAN Failed to Preserve the Correlations That Mattered](/blog/2025/synthetic-data-ctgan/): The decision to abandon an off-the-shelf synthetic tabular data generator when it failed on the correlations that actually mattered.
 - [Moving the Real Estate Pipeline from MongoDB to PostgreSQL](/blog/2025/mongodb-postgresql-ml/): How the storage layer changed as the project moved from messy scraping to analytics-ready modeling.
 
 ---
 
-## View the Code
+## View the code
 The public, reusable parts of the code are available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate).
 
 **Data boundary:** the original listings came from an Italian property-listing

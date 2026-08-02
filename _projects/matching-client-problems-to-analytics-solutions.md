@@ -28,12 +28,12 @@ The challenge was to make the catalogue easier to use: starting from a client pr
 
 ---
 
-## My Role
+## My role
 I helped scope the prototype, define the interaction flow, and supervise the development of the recommendation logic. I also reviewed the outputs with a focus on whether the suggestions were understandable, useful for client-facing work, and appropriately grounded in the internal catalogue.
 
 ---
 
-## What the Prototype Does
+## What the prototype does
 - Accepts structured input about the client, the business problem, and optionally the available data sources.
 - Asks clarifying questions when the brief is incomplete.
 - Searches an internal catalogue of analytics capabilities and identifies relevant options.
@@ -42,7 +42,7 @@ I helped scope the prototype, define the interaction flow, and supervise the dev
 
 ---
 
-## Reliability and Constraints
+## Reliability and constraints
 The prototype depends heavily on the quality and completeness of the underlying capabilities catalogue; recommendation quality improves as the catalogue becomes more structured and current.
 
 For that reason, the tool is currently treated as decision support rather than an authoritative recommendation engine. Further development would require continued catalogue refinement and validation with intended users.
