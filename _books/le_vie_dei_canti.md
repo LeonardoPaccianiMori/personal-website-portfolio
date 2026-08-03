@@ -1,7 +1,7 @@
 ---
 layout: book-review
-title: The Songlines
-subtitle: Le Vie dei Canti
+title: Le Vie dei Canti
+subtitle: The Songlines
 author: Bruce Chatwin
 cover: assets/img/book_covers/le_vie_dei_canti.jpg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)

@@ -1,7 +1,7 @@
 ---
 layout: book-review
-title: If on a winter's night a traveler
-subtitle: Se una notte d'inverno un viaggiatore
+title: Se una notte d'inverno un viaggiatore
+subtitle: If on a winter's night a traveler
 author: Italo Calvino
 cover: assets/img/book_covers/se_una_notte_d_inverno_un_viaggiatore.jpg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
