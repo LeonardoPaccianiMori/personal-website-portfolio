@@ -17,16 +17,16 @@ We are in an era now where AI coding agents are inevitable, and they undoubtedly
 
 I use AI coding agents as part of how I routinely build software. On most projects they just do the grunt work of putting into code an idea I already have clearly defined in my mind, or retrieveing data with an unfamiliar API (in a fraction of the time it would take me to actually learn the API and use it), or diagnosing a bug that's been eluding me for a while. On others projects these agents produce a substantial share of the code and also assist in the design of the project itself.
 
-In this era, therefore, claiming ownership of a project is less straightforward than it used to be.
+In this era, therefore, claiming ownership of a project that involves writing code is less straightforward than it used to be.
 
 The strong polarizing effect that the use of AI causes does not elude software engineers and people who code, with the critiques often arguing that you cannot really claim ownership of your code if you don't know it inside and out, almost like if you could recite every single line of code by heart.
 
 I tend to agree with [this very interesting blog article](https://www.seangoedecke.com/in-defense-of-not-understanding-your-codebase/) by Sean Goedecke, in the sense that knowing the _theory_ of your codebase (and therefore being able, technically, to rewrite the entire codebase from scratch if necessary) is just _one_ way to approach coding, which in some cases is just straight up unreasonable (like in huge projects managed by teams with high turnover rate, as mentioned in the article).
 
-I've seen people generally fall into one of these two extremes, in the coding-with-AI discourse:
+I've seen people generally fall into one of these two extremes, when discussing coding with LLMs:
 
-- using an AI agent is merely a faster form of typing, so nothing about authorship has changed
-- if an agent wrote the code, the person directing it did not build _anything_
+- using an LLM is merely a faster form of typing, so nothing about authorship has changed
+- if an LLM wrote the code, the person directing it did not build _anything_
 
 I think both are reductive, and neither matches my experience: AI changes _where_ the work happens, and this makes it even more important to acknowledge what kind of work we humans actually do.
 
