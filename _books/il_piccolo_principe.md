@@ -17,10 +17,12 @@ stars: 5
 status: Finished
 ---
 
-Like many people, I first encountered _Il Piccolo Principe_ as a child and it has remained important to me ever since. It has even inspired my only real collection: whenever I visit a new country, I buy a copy in the local language. I now own several translations of the book (even in some italian dialects!).
+Whenever I visit a new country, I buy a copy of _Il Piccolo Principe_ in the local language. My curiosity about languages started the collection; over time, it became both a ritual and an unusual kind of souvenir. Each edition brings back where I found it and what that journey meant. Its emotional value is far greater than its material one.
 
-As a child, I was especially captivated by the fox and the conversation about taming, and how that applied to my relationships with family and friends. Reading the story as an adult, however, I found myself more captured by the king and, above all, the businessman: characters that just seemed "funny" or "quirky" as a child now read as simple but very deep and uncomfortably revealing portraits of what it means to live as an adult if you don't hold on to your inner chile.
+As a child, I was most captivated by the fox. “Taming” helped me understand how people become important to one another, although I understood that bond in the slightly self-centred way children often do: primarily through what loving and being loved gave me.
 
-What resonates most strongly with me now is the book's understanding of what _really_ matters in life. People (and our relationships with them) cannot be reduced to what can be counted, owned, or immediately seen: "the essential is invisible to the eye." The simplicity of the story does not weaken this message, but on the contrary it is one of the reasons the book works so beautifully (at least for me).
+Rereading the book as an adult, I found myself drawn instead to the king and the businessman. What once seemed merely funny now feels unsettling. The businessman reduces value to counting and ownership; the king reduces relationships to control. Both resemble the pressures we absorb as adults—the insistence that possessions, productivity, status, and authority are what matter because they can be measured or displayed.
 
-I love its story, message, and style. I would recommend it to every human being, regardless of age, and I know I will continue returning to it.
+That contrast also clarified what my collection means to me. I do not value the books simply because they are mine. They give physical form to memories, places, and relationships. The fox’s lesson has changed in a similar way: love is not possession or control. It means accepting vulnerability and loss, and sometimes respecting someone’s freedom to leave even when we desperately want them to stay.
+
+I would recommend _Il Piccolo Principe_ to anyone, at any age—and then recommend reading it again later. The story remains the same, but it reveals something different as we change.
