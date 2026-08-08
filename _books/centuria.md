@@ -3,7 +3,7 @@ layout: book-review
 title: Centuria. Cento piccoli romanzi fiume
 subtitle: Centuria. One hundred outoboric novels
 author: Giorgio Manganelli
-cover: assets/img/book_covers/centuria.jpeg
+cover: assets/img/book_covers/centuria.jPg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
 # isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: 
