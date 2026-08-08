@@ -17,10 +17,12 @@ stars: 5
 status: Finished
 ---
 
-I first read _1984_ at school many years ago. I returned to it alongside _Fahrenheit 451_, hoping that these two novels might offer help in interpreting and understanding our current historical period, which is not a stretch to define dystopian.
+I first read _1984_ at school, too young to appreciate its mechanisms. Rereading it as an adult, alongside _Fahrenheit 451_, made Orwell's world feel less remote—not because we live in Oceania, but because I could now recognise how ordinary freedoms can narrow.
 
-Newspeak and the reasoning behind it made a strong impression on me. The idea that language can be deliberately narrowed to restrict what people are capable of expressing (and eventually thinking) feels extraordinarily powerful. I was also struck by the way Winston describes the room above Mr Charrington's shop and how he feels when he's there: a precious, fragile private space in which he feels genuinely free.
+The room above Mr Charrington's shop made that loss tangible. Under constant observation, it gives Winston his first taste of being alone with his thoughts. I could imagine why that privacy would feel extraordinary and inseparable from freedom.
 
-This rereading made me think deeply about the relationship between language, surveillance, and control. I repeatedly found myself thinking about social media and the ways in which today's platforms can shape attention, expression, and ultimately thought itself, and how the fact that basically everyone today carries a camera with them at all times makes our world not that different from having _telescreens_ watching and following us everywhere we go. Orwell's world is still (luckily!) extreme, but unfortunately the mechanisms he explores do not feel remote.
+Newspeak also affected me differently. Its contemporary echo is not simply a reduced vocabulary but the pressure to signal conformity. Social platforms often flatten complex issues into opposing camps, reward group-specific jargon, and leave little room for nuance. I often begin replying to an oversimplified post or comment, then stop—not because I fear professional consequences, but because being forced into one camp makes discussion exhausting and unproductive. Far milder than Orwell's version, this self-censorship no longer feels entirely alien.
 
-I loved the novel without reservation: the story, its message, and Orwell's writing all worked for me. I will certainly read it again, and I would recommend it to anyone seeking a sharper perspective on some of the forces shaping our own time.
+The telescreens create a similar discomfort. Surveillance today is dispersed across security cameras, digital platforms, corporations, and the devices we carry. Much of it is accepted in exchange for security, convenience, and participation. The danger is surrendering freedom gradually through reasonable compromises whose destination is difficult to see.
+
+Orwell's dystopia remains extreme, but its mechanisms now feel recognisable and unsettling. I loved the novel's story, message, and writing without reservation, and I would recommend it to anyone interested in how a dystopian world can become imaginable—and incrementally ordinary.
