@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Cleaning open-ended survey responses at scale
-description: An internal workflow that standardizes respondent-written survey answers so analysts can move from raw files to usable metrics in minutes
+description: A deployed, human-in-the-loop workflow for turning open-ended brand survey answers into reviewable, analysis-ready data
 img: assets/img/projects/professional/survey-response-cleaning.png
 importance: 2
 category: professional
@@ -17,37 +17,43 @@ category: professional
 </div>
 
 ## Summary
-I supervised the development of an internal LLM-assisted workflow that standardizes messy open-ended survey responses into analysis-ready labels. The tool takes survey Excel files, uses the relevant product category as context, and cleans respondent-written answers in minutes instead of multiple days.
+
+I supervised the development of an internal LLM-assisted workflow that turns messy brand-awareness survey responses into reviewable, analysis-ready data. A colleague was the primary developer; I defined the overall workflow, reviewed successive versions of the application, and helped troubleshoot issues. The deployed tool is now used autonomously by the Consumer Insights team for recurring work.
 
 ---
 
 ## Problem
+
 Brand tracking surveys often include open-ended questions such as which brand first comes to mind within a product category. These answers are valuable, but they arrive as messy free text: misspellings, abbreviations, partial names, and inconsistent variants of the same brand.
 
-Before analysts could compute metrics or compare results across respondent segments, they had to manually build correction dictionaries and clean the raw answers. This was repetitive, error-prone work that could take multiple days, and sometimes longer, for a single survey wave.
+Before analysts could compute metrics or compare results across respondent segments, they had to manually build correction dictionaries and clean the raw answers. This repetitive work could take multiple days for a single survey wave.
 
 ---
 
 ## My role
-I helped scope the workflow, translate the team's manual process into product requirements, and supervise the development of the LLM-assisted cleaning logic. I also reviewed the outputs with a focus on reliability, usability, and whether the tool preserved enough transparency for analysts to trust the cleaned results.
+
+My role was supervisory rather than hands-on implementation. I defined how the end-to-end workflow should operate, reviewed different versions as the application developed, and helped the primary developer troubleshoot difficult issues.
 
 ---
 
 ## What the tool does
+
 - Uploads raw survey response files and uses the selected product category as context.
 - Standardizes free-text brand answers into clean, consistent labels.
-- Turns raw responses into analysis-ready outputs for downstream aggregation and segmentation.
-- Produces reviewable mapping outputs so analysts can inspect how messy responses were standardized.
-- Preserves the historical correction process while removing most of the manual cleaning effort.
+- Separates the first brand mentioned from additional mentions in the same response.
+- Produces cleaned outputs and demographic summaries for downstream analysis.
+- Sends ambiguous or unmapped responses to a manual-review step.
 
 ---
 
 ## Reliability and constraints
+
 The main risk was incorrect standardization: mapping a misspelled or ambiguous response to the wrong brand would distort downstream brand analysis.
 
-The workflow was therefore designed around conservative cleaning, reviewable outputs, and repeatable processing rather than one-off text generation. The goal was not to replace analyst judgment entirely, but to remove the repetitive manual work that made the process slow.
+The workflow was therefore designed around conservative cleaning, reviewable outputs, and repeatable processing rather than one-off text generation. When the application cannot resolve a response, the user decides how to map it or can retain it explicitly as `unknown`. The goal is not to replace analyst judgment, but to concentrate it on the cases that genuinely require interpretation.
 
 ---
 
 ## Impact
-The tool turned a multi-day survey-response cleaning process into a minutes-scale workflow and supports recurring survey-analysis workflows.
+
+After using the deployed application on real survey waves, users reported that it reduced a process that had taken multiple days to a matter of minutes. This is a user-reported result rather than an independently measured benchmark. More importantly for adoption, Consumer Insights users now operate the application autonomously as part of recurring survey work.
