@@ -3,7 +3,7 @@ layout: book-shelf
 title: bookshelf
 permalink: /books/
 nav: true
-nav_order: 4
+nav_order: 5
 collection: books
 description: This page follows curiosity rather than a single theme. These are the books that captured my attention, challenged me, or simply stayed with me.
 eyebrow: Personal library
