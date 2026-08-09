@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Building an agentic creative research assistant
-description: A working agentic prototype that turns scattered web and video sources into structured research reports for creative strategy
+description: An exploratory multi-agent prototype that turns web, video, and user-supplied creative material into an evidence-grounded research report
 img: assets/img/projects/professional/creative-research-synthesis.png
 importance: 4
 category: professional
@@ -17,40 +17,56 @@ category: professional
 </div>
 
 ## Summary
-I worked on an early-stage agentic prototype for creative research. The tool helps creative teams move from scattered web and video sources to a structured research report that can support campaign strategy.
+
+I designed and built an exploratory multi-agent prototype for creative research. It tested whether specialized agents could investigate web pages, video sources, and creative material supplied by a user, then combine their findings into one evidence-grounded report.
+
+The prototype completed that research-and-reporting loop. It was never a priority product initiative, however, and was later paused when more pressing work took precedence.
 
 ---
 
 ## Problem
+
 Before developing campaign ideas, creative teams often spend a large amount of time researching the brand, product category, previous communication, cultural context, and relevant examples. That research can span public web pages, video sources, audio material, and creative-reference material.
 
 The work is valuable, but fragmented: teams have to collect sources, inspect them manually, compare observations, and turn everything into a coherent brief before strategic creative work can begin.
 
 ---
 
-## What I built
-- A working agentic prototype for the early discovery phase of creative strategy.
-- A form-based workflow where users provide relevant web pages or video links as starting points.
-- Parallel research agents that expand from those links, search for additional context, and inspect relevant sources.
-- Web and video processing that turns source material into observations.
-- A synthesis layer that combines the agents' findings into a structured research report.
-- A report format designed to separate findings, supporting evidence, source notes, and open questions.
+## My role
+
+I designed and implemented the prototype, including the division of work between agents, the evidence flow, and the final synthesis process. The part I found most valuable was learning how to coordinate specialized agents and turn their findings into a coherent synthesis.
 
 ---
 
-## Current scope
-The current prototype can complete the research loop for public web pages and video sources: starting from user-provided links, it gathers additional context, inspects the material, and produces a synthesized report.
+## How the multi-agent workflow worked
 
-Possible extensions include support for additional audio and creative-reference sources, so the workflow can cover more of the research material creative teams already use.
+The workflow separated research by source type:
+
+- A web-research agent searched for relevant information about the brand, visited promising pages, and extracted useful evidence.
+- A video-research agent searched for and analysed relevant YouTube material.
+- Another agent inspected creative material uploaded by the user.
+- Downstream synthesis agents combined those specialized findings into a structured final report.
+
+Dividing the work was relatively straightforward. The harder problem was turning the agents' separate findings into one coherent output without losing the evidence behind them.
 
 ---
 
 ## Reliability and constraints
-The prototype is designed as research support, not as final creative direction. Public-source research can be incomplete, outdated, or noisy, so the system needs to make sources visible and keep uncertainty explicit.
 
-The main technical challenge is coordinating multiple agents without losing traceability: each synthesized observation needs to remain connected to the material that supported it.
+I designed the evidence flow so that source material was not rewritten as it moved between agents and its citations remained attached throughout the workflow. The synthesis stages organized the findings into a readable report while preserving the source evidence and its correct citations.
+
+The prototype was research support, not final creative direction. Public sources can be incomplete, outdated, or noisy, and a coherent report is not necessarily a complete or correct account. Human review would therefore remain necessary before using its output in strategy work.
 
 ---
 
-## Status
-This remains a working prototype. The next step is further validation of report usefulness in realistic creative-research workflows.
+## What the prototype demonstrated
+
+The prototype could complete an end-to-end loop across public web pages, video sources, and user-supplied creative material, then produce a cited research report. It also gave me practical experience designing specialized agents and coordinating their outputs rather than asking one model to perform the entire task.
+
+---
+
+## Status and takeaway
+
+The project is currently paused. It began as an exploratory experiment and was sidelined when higher-priority work required attention. Its adoption and business impact were never validated, so I do not present it as a production product.
+
+I still consider the experiment worthwhile. Not every successful prototype needs to reach production: an exploratory project can demonstrate an approach, expose the difficult parts of a system, and develop skills that remain useful elsewhere.
