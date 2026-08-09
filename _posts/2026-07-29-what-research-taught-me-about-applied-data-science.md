@@ -1,111 +1,61 @@
 ---
 layout: post
-title: "What academic research taught me about applied data science—and what I had to unlearn"
+title: "What academic research taught me about rigor—and what industry changed"
 date: 2026-07-29 00:02:00 +0200
-description: "Some research habits transferred directly into applied data science; others had to be reshaped around decisions, users, and constraints."
+description: "Research taught me to make work defensible; industry taught me to calibrate that rigor to purpose, deadlines, and impact."
 tags: data-science research career
 categories: [thoughts]
 featured: false
 ---
 
-{% comment %}
-FIRST-DRAFT NOTE: Reconsider the publication date when this essay is ready.
-The current version uses only the confirmed outline of your academic background.
-Add details about your actual research questions or working environment only
-when you are comfortable publishing them.
-{% endcomment %}
+Academic research trained me to make a result as difficult to attack as possible. Before publishing a claim, I learned to anticipate criticism, investigate edge cases, and keep working until I could defend what I was saying through peer review.
 
-Before moving into industry, I worked in academic biophysics research. I expected the technical knowledge to transfer into data science, and some of it did. The more important transfer, however, was a collection of habits: how to treat evidence, how to live with uncertainty, and how to distrust a result that only works under clean assumptions.
+The starkest difference I encountered after moving into industry was that good work did not have to be perfect and unassailable. It had to be good enough to create impact and get something done.
 
-Not every research habit transferred equally well. Some had to be adapted, and a few had to be actively unlearned.
+I do not mean that industry taught me to lower my standards. It taught me that a standard only makes sense in relation to a purpose. Research taught me how to make work defensible; applied data science taught me to calibrate that rigor to the question, the deadline, and the kind of result being produced.
 
-The contrast is easy to exaggerate. Academia is not a world of perfect rigor, and industry is not a world of impatient shortcuts. Both contain careful and careless work. What changed for me was the purpose surrounding the analysis. Research tries to produce knowledge that can survive scrutiny. Applied data science must do that while also helping someone decide, build, or act.
+## Anticipating criticism still matters
 
-## What I kept
+One of the academic habits I use most often is trying to see my own work through the eyes of a sceptical reader.
 
-### Evidence before elegance
+This is especially useful when I prepare presentations for internal teams or clients. I look for claims that could be misunderstood, conclusions that need qualification, assumptions someone might challenge, and places where additional evidence may be needed. Depending on what I find, I revise the explanation, add supporting analysis, prepare backup material, or make sure I can answer the likely question.
 
-Research made me wary of explanations that are more attractive than the evidence supporting them.
+The goal is no longer to survive peer review. It is to make the reasoning clear and credible to people who need to assess or use the work. The setting has changed, but the ability to anticipate criticism has transferred almost directly.
 
-In data science, it is easy to become attached to a method because it is sophisticated, current, or enjoyable to implement. The data may not support the story we want the model to tell. A simple diagnostic can be more decisive than an elaborate architecture.
+What has changed is how far I follow every possible objection. In my academic work, I often treated even an unlikely edge case as a potential problem during review, so investigating it in advance was worth the effort. In applied work, investigating every edge case can consume time without making an application work better or an analysis more useful.
 
-I kept the habit of asking what observation would make me change my mind. If no possible result could do that, I am probably defending a preference rather than testing an idea.
+## Data is the result of an experiment
 
-### Uncertainty is part of the result
+Experimental thinking also affects how I approach data. A dataset is not simply a table that appeared fully formed: it is the product of a collection method, and that method determines what the observations can support.
 
-Uncertainty is not an embarrassing remainder to hide after producing an estimate. It is part of what the analysis says.
+Location data offers a simple example. A person's position may be inferred through GPS, cellular networks, or Wi-Fi, and those methods have different error characteristics. If a question requires fine spatial resolution, the observed accuracy of the source must support it. If the analysis only needs a coarser pattern, a less precise source may be entirely adequate.
 
-That does not mean surrounding every conclusion with so many caveats that it becomes unusable. It means distinguishing what is known, what is inferred, which assumptions matter, and where the result is fragile. A decision-maker may still choose to act under substantial uncertainty. The analysis should help make that choice consciously.
+The interesting decision is therefore not which source is most accurate in the abstract. It is how much accuracy the analysis actually requires. Ignoring the collection method risks claiming more precision than the data contains. Insisting on the most precise method regardless of the question confuses technical superiority with fitness for purpose.
 
-### Messy data is not an interruption
+That connection between measurement and interpretation feels natural after experimental research. Before deciding what to do with data, I want to understand how it came to exist.
 
-Real data rarely arrives as a neutral representation of the world. It reflects collection processes, definitions, incentives, missingness, measurement choices, and previous technical decisions.
+## Learning enough to enter a new field
 
-My research background made it natural to treat those conditions as part of the problem rather than as preliminary cleaning to get through before the "real" analysis begins. A model can only be as meaningful as the process that produced its inputs.
+My academic work also taught me how to operate outside my original training. I studied physics, then moved into biophysics and had to learn a great deal about cellular physiology, particularly bacterial physiology.
 
-{% comment %}
-REVISION SUGGESTION: Add a concrete public-safe example of a data issue that
-changed the interpretation, not merely the cleanliness, of an analysis. A
-personal portfolio project may provide the safest example.
-{% endcomment %}
+I did not become a biologist, nor did I need to. I learned by studying books and discussing problems with colleagues and my supervisor until I had enough knowledge to navigate the research field confidently and do the work in front of me.
 
-## What I had to unlearn
+That experience still shapes how I approach unfamiliar domains. Data science repeatedly places me in areas where I am not the subject-matter expert. My task is not to pretend that I already possess the expertise. It is to identify what I need to understand, acquire that knowledge, and become sufficiently fluent to connect the domain problem with the analytical or technical work.
 
-### Completeness is not always the goal
+## Good enough is not a percentage
 
-Research rewards following uncertainty into new questions. Applied work often requires deciding which uncertainty matters now.
+The phrase “good enough” can sound like an excuse for careless work. I use it differently. It describes work that satisfies its actual purpose without also trying to eliminate every theoretically possible objection.
 
-My instinct is to explore: test another possibility, understand another edge case, or make the explanation more complete. That instinct can improve the work, but it can also delay the point at which the work becomes useful. I had to learn that a bounded answer delivered in time can be more rigorous in practice than a richer answer delivered after the decision.
+There is no universal threshold. I judge an application partly by whether it behaves appropriately for what it is meant to do. I judge an analysis by whether it is structured well enough to support its conclusions and intended use. Deadlines matter too, because work that arrives after it can have an impact may be less valuable despite being more complete.
 
-This is not an excuse to ignore inconvenient evidence. It is an argument for matching the depth of analysis to the stakes and reversibility of the choice.
+Applied work can also be iterative. An application can be revised after observing how it behaves; an analysis can be refined after feedback reveals which uncertainty matters. In my research, a paper had to present a self-contained claim ready for concentrated scrutiny. Many industry outputs instead become useful by entering the world, being tested against reality, and improving.
 
-### A detailed explanation is not necessarily a clear one
+This does not make rigor optional. It changes where rigor belongs. Sometimes another investigation is essential because it could expose a real weakness. Sometimes it would only make the answer later without making it better for its purpose. The difficult part is knowing which situation I am in.
 
-Academic communication often demonstrates credibility by exposing method, context, and qualification. In applied settings, those details still matter, but they do not all belong in the foreground.
+## Rigor without perfectionism
 
-An audience usually needs a path through the analysis:
+I shed my academic reflex to pursue completeness surprisingly quickly, and doing so was liberating. I could focus on the quality and impact of the work rather than treating every unanswered question as a threat to it.
 
-- What question are we answering?
-- What did we find?
-- How confident should we be?
-- What should happen next?
+What I kept was more valuable than perfectionism: the instinct to test a claim before presenting it, to ask how the data was produced, and to learn my way into an unfamiliar domain. Industry added the discipline of deciding how much investigation the problem actually deserves and when the result is ready to be used.
 
-Providing every technical detail before establishing that path can make a careful analysis feel less trustworthy, not more. The audience has to work too hard to discover which part matters.
-
-I had to stop treating compression as a loss of seriousness. A short explanation can be the result of more thought, not less.
-
-{% comment %}
-REVISION SUGGESTION: Replace the general communication discussion with a
-specific before-and-after example if you have one: an explanation or slide
-that became stronger after removing technically correct material.
-{% endcomment %}
-
-### The question is part of the work
-
-In research, the question may be the central intellectual contribution. In organizations, the initial question is often provisional: a request shaped by incomplete information, existing processes, or an assumed solution.
-
-Applied data science therefore begins before the dataset and the model. It includes clarifying what decision is being made, what success would look like, what constraints are real, and whether the requested analysis addresses the underlying problem.
-
-Answering the stated question perfectly is not useful if it is the wrong question.
-
-## Adaptation, not rejection
-
-"Unlearn" may be too strong a word. I did not need to abandon skepticism, depth, or curiosity. I needed to make them responsive to a different environment.
-
-The habits I kept help me resist false certainty and technically convenient stories. The habits I changed help me deliver something that can survive contact with deadlines, users, and decisions.
-
-The combination matters. Applied data science without research discipline can become overconfident. Research discipline without practical judgment can become detached from the reason the work exists.
-
-I do not see the transition as moving from rigor to pragmatism. I see it as learning that rigor includes choosing the right question, the right depth, and the right form for the situation.
-
-{% comment %}
-FINAL REVISION QUESTIONS:
-
-- Which of these lessons did you truly have to "unlearn," and which did you
-  merely adapt?
-- Add one detail that makes the academic background unmistakably yours without
-  exposing anything you do not want public.
-- Check whether the essay underplays technical knowledge in favor of habits.
-- Consider linking to "When More Analysis Makes the Answer Worse" after both
-  drafts are final.
-  {% endcomment %}
+That combination describes the data scientist I want to be: rigorous without being paralysed by completeness, comfortable learning beyond my original expertise, and focused on producing work that can do something useful.
