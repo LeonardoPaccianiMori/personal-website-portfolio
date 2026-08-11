@@ -1040,12 +1040,6 @@ html[data-theme="dark"] {
   grid-template-columns: minmax(150px, 0.24fr) minmax(0, 1fr) auto;
   gap: 2rem;
   align-items: center;
-  transition: padding 180ms ease;
-
-  &:hover {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-  }
 }
 
 .site-writing-card__meta {
