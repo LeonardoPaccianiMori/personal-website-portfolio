@@ -46,6 +46,7 @@ document.addEventListener("readystatechange", () => {
         }
       }
 
+      configureResponsiveMap(chartElement, jsonData);
       Plotly.react(chartElement, jsonData.data, jsonData.layout).then(() => {
         collapseMapAttribution(chartElement);
       });
@@ -53,6 +54,24 @@ document.addEventListener("readystatechange", () => {
     });
   }
 });
+
+function configureResponsiveMap(chartElement, jsonData) {
+  const responsiveMap = jsonData && jsonData.layout && jsonData.layout.meta && jsonData.layout.meta.responsive_map;
+  if (!responsiveMap || !jsonData.layout.map) {
+    return;
+  }
+
+  const mediaQuery = window.matchMedia(`(max-width: ${responsiveMap.max_width}px)`);
+  const updateZoom = () => {
+    const zoom = mediaQuery.matches ? responsiveMap.mobile_zoom : responsiveMap.desktop_zoom;
+    if (chartElement.layout && chartElement.layout.map && chartElement.layout.map.zoom !== zoom) {
+      Plotly.relayout(chartElement, { "map.zoom": zoom });
+    }
+  };
+
+  jsonData.layout.map.zoom = mediaQuery.matches ? responsiveMap.mobile_zoom : responsiveMap.desktop_zoom;
+  mediaQuery.addEventListener("change", updateZoom);
+}
 
 function collapseMapAttribution(chartElement) {
   chartElement.querySelectorAll(".maplibregl-ctrl-attrib.maplibregl-compact-show").forEach((control) => {
