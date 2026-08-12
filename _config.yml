@@ -400,6 +400,12 @@ third_party_libraries:
     url:
       js: "https://cdn.jsdelivr.net/npm/masonry-layout@{{version}}/dist/masonry.pkgd.min.js"
     version: "4.2.2"
+  maplibre-gl:
+    integrity:
+      css: "sha256-V2sIX92Uh6ZaGSFTKMHghsB85b9toJtmazgG09AI2uk="
+    url:
+      css: "https://cdn.jsdelivr.net/npm/maplibre-gl@{{version}}/dist/maplibre-gl.css"
+    version: "4.7.1"
   mdb:
     integrity:
       css: "sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw="
