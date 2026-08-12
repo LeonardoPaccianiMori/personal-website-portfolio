@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "hovertemplate": "<b>%{customdata}</b><br>Artusi: %{x:.2f}%<br>AIC: %{y:.2f}%<extra></extra>",
+      "hovertemplate": "<b>%{customdata}</b><br>Artusi: %{x:.2f}%<br>Contemporary corpus: %{y:.2f}%<extra></extra>",
       "marker": {
         "color": "orange",
         "line": {
@@ -1033,7 +1033,7 @@
     },
     "yaxis": {
       "title": {
-        "text": "Frequency in AIC (% of recipes)"
+        "text": "Frequency in contemporary corpus (% of recipes)"
       },
       "gridcolor": "#333",
       "zerolinecolor": "#333",
@@ -1045,7 +1045,7 @@
       "scaleratio": 1
     },
     "title": {
-      "text": "Top 30 Ingredients: Artusi vs AIC Usage Frequency"
+      "text": "Top 30 Ingredients: Artusi vs Contemporary Corpus"
     },
     "height": 900,
     "paper_bgcolor": "rgba(0,0,0,0)",
@@ -1059,7 +1059,7 @@
           "size": 20
         },
         "showarrow": false,
-        "text": "<b>More common in AIC (modern) ↑</b>",
+        "text": "<b>More common in contemporary corpus ↑</b>",
         "textangle": -45,
         "x": 60,
         "xref": "x",

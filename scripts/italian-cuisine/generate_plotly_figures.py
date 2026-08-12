@@ -52,7 +52,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 pio.templates.default = "plotly_dark"  # Match al-folio dark theme
 COLORS = {
     'artusi': '#FF6B6B',      # Historical data (warm red)
-    'aic': '#4ECDC4',         # Modern data (teal)
+    'contemporary': '#4ECDC4',  # Contemporary data (teal)
     'positive': '#51CF66',    # Positive trends (green)
     'negative': '#FF8787',    # Negative trends (red)
 }
@@ -741,13 +741,13 @@ def create_ingredient_evolution_bar(ingredient_stats):
         marker_color=COLORS['artusi']
     ))
 
-    # Modern (AIC) bars
+    # Contemporary-corpus bars
     fig.add_trace(go.Bar(
         y=top_ingredients['ingredient'],
-        x=top_ingredients['aic_freq'],
+        x=top_ingredients['contemporary_freq'],
         orientation='h',
-        name='Modern (AIC)',
-        marker_color=COLORS['aic']
+        name='Contemporary corpus',
+        marker_color=COLORS['contemporary']
     ))
 
     # Update layout
@@ -782,20 +782,20 @@ def create_category_evolution_stacked(category_stats):
 
     # Split data by source
     artusi_cats = category_stats[category_stats['source'] == 'Artusi']
-    aic_cats = category_stats[category_stats['source'] == 'AIC']
+    contemporary_cats = category_stats[category_stats['source'] == 'contemporary']
 
     # Merge to get both sources for each category
     cat_comparison = pd.merge(
         artusi_cats[['category', 'count']].rename(columns={'count': 'Artusi'}),
-        aic_cats[['category', 'count']].rename(columns={'count': 'AIC'}),
+        contemporary_cats[['category', 'count']].rename(columns={'count': 'contemporary'}),
         on='category',
         how='outer'
     ).fillna(0)
 
-    # Calculate percentages (out of 790 Artusi recipes, 2599 AIC recipes)
+    # Calculate percentages (out of 790 Artusi recipes and 2,599 contemporary recipes)
     cat_comparison['Artusi_pct'] = (cat_comparison['Artusi'] / 790) * 100
-    cat_comparison['AIC_pct'] = (cat_comparison['AIC'] / 2599) * 100
-    cat_comparison['total_pct'] = cat_comparison['Artusi_pct'] + cat_comparison['AIC_pct']
+    cat_comparison['contemporary_pct'] = (cat_comparison['contemporary'] / 2599) * 100
+    cat_comparison['total_pct'] = cat_comparison['Artusi_pct'] + cat_comparison['contemporary_pct']
 
     # Sort by total percentage (ascending for bottom-to-top display)
     cat_comparison = cat_comparison.sort_values('total_pct', ascending=True)
@@ -814,14 +814,14 @@ def create_category_evolution_stacked(category_stats):
         textposition='inside'
     ))
 
-    # Modern layer
+    # Contemporary layer
     fig.add_trace(go.Bar(
         y=cat_comparison['category'],
-        x=cat_comparison['AIC_pct'],
+        x=cat_comparison['contemporary_pct'],
         orientation='h',
-        name='Modern (AIC)',
-        marker_color=COLORS['aic'],
-        text=cat_comparison['AIC_pct'].round(1),
+        name='Contemporary corpus',
+        marker_color=COLORS['contemporary'],
+        text=cat_comparison['contemporary_pct'].round(1),
         textposition='inside'
     ))
 

@@ -168,6 +168,6 @@ Full extraction prompts, analysis, and model details are in [Technical Appendix:
 
 All code for this project is available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine).
 
-**Data and licensing boundary:** the contemporary recipes came from a publicly accessible source, but public accessibility is not the same as permission to republish them. The source recipes and their processed graph datasets are therefore excluded. Aggregate study outputs are shared under CC BY 4.0; the retained Artusi edition and example graph follow the source's stated “CC By-NC-SA” terms. See the [licensing map]({{ '/licensing/' | relative_url }}).
+**Data and licensing boundary:** the contemporary recipes came from a publicly accessible source, but public accessibility is not the same as permission to republish them. The source recipes and their processed graph datasets are therefore excluded. My original aggregate analysis and visualizations are published under CC BY 4.0; that license does not apply to underlying third-party recipe materials. The retained Artusi edition and example graph follow the source's stated “CC By-NC-SA” terms. See the [licensing map]({{ '/licensing/' | relative_url }}).
 
 ---

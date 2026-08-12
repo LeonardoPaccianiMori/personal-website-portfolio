@@ -18,13 +18,11 @@ This post is the technical appendix to my [Italian cuisine project](/projects/it
 Both datasets started as unstructured text. I used Gemini 2.5 Pro to convert each recipe into a structured JSON schema, then normalized ingredients and tools before loading the results into Neo4j.
 
 The historical source is Pellegrino Artusi's cookbook. The contemporary corpus
-was collected from publicly viewable recipes published by the Accademia
-Italiana della Cucina. The source is named solely for provenance; no
-affiliation, endorsement, or authorization is implied. Public access did not
-establish redistribution rights, so the contemporary source text and
-recipe-level derivatives are not included in the public repository. The
-extraction prompts remain reproducible, while public data is limited to
-aggregate analysis outputs and the separately licensed Artusi materials.
+was derived from publicly viewable regional recipe pages. Because public
+accessibility did not establish redistribution permission, the source text and
+recipe-level derivatives are excluded from the public repository. The prompt
+templates document the extraction method, while published results are limited
+to corpus-level summaries and the separately licensed Artusi materials.
 
 ### Prompts used for extraction
 
@@ -94,7 +92,7 @@ Return ONLY the JSON object, nothing else.
 </details>
 
 <details markdown="1">
-<summary><strong>AIC extraction prompt</strong></summary>
+<summary><strong>Contemporary-corpus extraction prompt</strong></summary>
 {%raw%}
 ```text
 You are parsing a recipe from a contemporary regional Italian recipe corpus.
@@ -156,7 +154,7 @@ Return ONLY the JSON object, nothing else.
 </details>
 
 ### Limitations
-These results should be read as patterns in curated recipe datasets, not as direct measurements of what Italians ate. Artusi is useful as a historical corpus, but it is not a complete picture of nineteenth-century Italian cuisine. The AIC data is also curated, and the extraction pipeline depends on LLM-produced structured JSON, so ingredient frequencies and step-level structure may include normalization errors. I treated the results as directional evidence and looked for patterns that appeared consistently across visualizations, similarity analysis, and model behavior.
+These results should be read as patterns in curated recipe datasets, not as direct measurements of what Italians ate. Artusi is useful as a historical corpus, but it is not a complete picture of nineteenth-century Italian cuisine. The contemporary corpus is also curated, and the extraction pipeline depends on LLM-produced structured JSON, so ingredient frequencies and step-level structure may include normalization errors. I treated the results as directional evidence and looked for patterns that appeared consistently across visualizations, similarity analysis, and model behavior.
 
 ---
 
@@ -309,4 +307,4 @@ PCA projection of recipe embeddings colored by macro-region.
 ## Look at the code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine).
 
-The repository intentionally excludes the contemporary recipe text, processed recipe graphs, feature matrices, and train/validation/test splits. Aggregate analytical outputs are CC BY 4.0; retained Artusi material follows the digital source's stated “CC By-NC-SA” terms.
+The repository intentionally excludes the contemporary recipe text, processed recipe graphs, feature matrices, and train/validation/test splits. My original aggregate analysis and visualizations are published under CC BY 4.0; that license does not apply to underlying third-party recipe materials. Retained Artusi material follows the digital source's stated “CC By-NC-SA” terms.

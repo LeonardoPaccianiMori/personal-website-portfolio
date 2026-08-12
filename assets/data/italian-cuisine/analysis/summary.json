@@ -1,6 +1,6 @@
 {
-  "AIC": {
-    "source": "AIC",
+  "contemporary": {
+    "source": "contemporary",
     "recipe_count": 2599,
     "unique_ingredients": 2077,
     "total_steps": 16422

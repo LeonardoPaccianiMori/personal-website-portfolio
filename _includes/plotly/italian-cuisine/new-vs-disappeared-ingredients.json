@@ -939,7 +939,7 @@
           "size": 16
         },
         "showarrow": false,
-        "text": "New Ingredients (Not in Artusi)",
+        "text": "Only in contemporary corpus",
         "x": 0.5,
         "xanchor": "center",
         "xref": "paper",
@@ -952,7 +952,7 @@
           "size": 16
         },
         "showarrow": false,
-        "text": "Disappeared Ingredients (Not in AIC)",
+        "text": "Only in Artusi corpus",
         "x": 0.5,
         "xanchor": "center",
         "xref": "paper",
