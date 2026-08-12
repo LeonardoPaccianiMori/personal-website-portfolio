@@ -46,11 +46,19 @@ document.addEventListener("readystatechange", () => {
         }
       }
 
-      Plotly.react(chartElement, jsonData.data, jsonData.layout);
+      Plotly.react(chartElement, jsonData.data, jsonData.layout).then(() => {
+        collapseMapAttribution(chartElement);
+      });
       attachPlotlyInteractions(chartElement, jsonData);
     });
   }
 });
+
+function collapseMapAttribution(chartElement) {
+  chartElement.querySelectorAll(".maplibregl-ctrl-attrib.maplibregl-compact-show").forEach((control) => {
+    control.classList.remove("maplibregl-compact-show");
+  });
+}
 
 function attachPlotlyInteractions(chartElement, jsonData) {
   const meta = jsonData && jsonData.layout && jsonData.layout.meta;
@@ -115,9 +123,7 @@ function attachSignatureIngredients(chartElement, meta) {
 
     const selector = `[data-plotly-group=\"${groupId}\"]`;
     const plots = Array.from(document.querySelectorAll(selector));
-    const barPlot = plots.find(
-      (plot) => plot.dataset.plotlyInteractions === "regional-signature-ingredients-bar"
-    );
+    const barPlot = plots.find((plot) => plot.dataset.plotlyInteractions === "regional-signature-ingredients-bar");
 
     if (!barPlot) {
       return;
