@@ -1,0 +1,55 @@
+{
+  "config": {
+    "displaylogo": false,
+    "responsive": true
+  },
+  "data": [
+    {
+      "name": "Stage 1",
+      "type": "bar",
+      "x": ["Historical/general", "Historical poetry", "Sonnets"],
+      "y": [0.0762, 0.1702, 0.2385]
+    },
+    {
+      "name": "Stage 2",
+      "type": "bar",
+      "x": ["Historical/general", "Historical poetry", "Sonnets"],
+      "y": [null, 0.078, 0.0908]
+    },
+    {
+      "name": "Stage 3",
+      "type": "bar",
+      "x": ["Historical/general", "Historical poetry", "Sonnets"],
+      "y": [null, null, 0.0179]
+    }
+  ],
+  "layout": {
+    "autosize": true,
+    "barmode": "group",
+    "legend": {
+      "orientation": "h",
+      "y": -0.25
+    },
+    "margin": {
+      "b": 70,
+      "l": 58,
+      "r": 28,
+      "t": 64
+    },
+    "meta": {
+      "qualification": "Within-stage reductions between the first validation and selected endpoint.",
+      "source_path": "reports/minerva_7b_v7_post_training_study.md",
+      "source_sha256": "2caf5447e9ed1d97c71cbe9d2998cef85e9b62866f874f185c46149acb399a11"
+    },
+    "paper_bgcolor": "rgba(0,0,0,0)",
+    "plot_bgcolor": "rgba(0,0,0,0)",
+    "title": {
+      "text": "Stagewise target-loss reduction",
+      "x": 0.02,
+      "xanchor": "left"
+    },
+    "yaxis": {
+      "title": "Loss reduction"
+    }
+  }
+}

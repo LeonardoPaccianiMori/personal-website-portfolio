@@ -1,0 +1,49 @@
+{
+  "config": {
+    "displaylogo": false,
+    "responsive": true
+  },
+  "data": [
+    {
+      "error_y": {
+        "array": [4.380000000000001, 1.9700000000000002, 1.7300000000000002, 2.0100000000000002],
+        "arrayminus": [4.37, 2.01, 1.73, 2.13],
+        "symmetric": false,
+        "type": "data"
+      },
+      "name": "DPO change",
+      "type": "bar",
+      "x": ["Validation surface screen", "Sealed surface screen", "Sealed meta-text free", "Sealed punctuation"],
+      "y": [5.0, 2.53, 1.45, 2.85]
+    }
+  ],
+  "layout": {
+    "autosize": true,
+    "legend": {
+      "orientation": "h",
+      "y": -0.25
+    },
+    "margin": {
+      "b": 70,
+      "l": 58,
+      "r": 28,
+      "t": 64
+    },
+    "meta": {
+      "qualification": "Matched validation and one-time sealed test are different populations.",
+      "source_path": "reports/minerva_7b_v7_ai_judged_dpo.md",
+      "source_sha256": "e3d150827028c13f0837ed158187cfaac9646d0218b7764043ea614b1c77dda0"
+    },
+    "paper_bgcolor": "rgba(0,0,0,0)",
+    "plot_bgcolor": "rgba(0,0,0,0)",
+    "title": {
+      "text": "Validation versus sealed-test gains",
+      "x": 0.02,
+      "xanchor": "left"
+    },
+    "yaxis": {
+      "title": "Percentage-point change",
+      "zeroline": true
+    }
+  }
+}

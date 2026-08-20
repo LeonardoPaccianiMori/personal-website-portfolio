@@ -25,7 +25,7 @@ horizontal: false
   <a href="#experimental">
     <span>03</span>
     <strong>Experimental projects</strong>
-    <small>Smaller projects for understanding modelling ideas deeply.</small>
+    <small>Learning projects, from compact implementations to larger controlled research studies.</small>
   </a>
 </nav>
 
@@ -65,7 +65,7 @@ horizontal: false
               {% when 'portfolio' %}
                 Personal projects developed in my own time, from data acquisition and modelling through the final interface.
               {% when 'experimental' %}
-                Smaller studies focused on understanding core modelling ideas by implementing and testing them directly.
+                Projects built to understand modelling systems through implementation, controlled experiments, and candid evaluation.
             {% endcase %}
           </p>
         </header>

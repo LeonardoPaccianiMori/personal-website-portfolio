@@ -3,17 +3,16 @@ layout: book-review
 title: Centuria. Cento piccoli romanzi fiume
 subtitle: Centuria. One hundred outoboric novels
 author: Giorgio Manganelli
-cover: assets/img/book_covers/centuria.jPg
+cover: assets/img/book_covers/centuria.jpg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
 # isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
-categories: 
-tags: 
+categories:
+tags:
 # buy_link: https://www.amazon.com/Godfather-Deluxe-Mario-Puzo/dp/0593542592
 started: 2026-08-07
-finished: 
+finished: 2026-08-15
 released: 1979
-stars: 
+stars:
 # goodreads_review: 6318556633
-status: Reading
+status: Finished
 ---
-

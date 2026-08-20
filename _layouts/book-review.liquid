@@ -27,15 +27,15 @@ layout: default
         {% if page.author %}
           {{ page.author }}
         {% endif %}
-        {% if page.author and page.released %}
-          <span aria-hidden="true">·</span>
-        {% endif %}
-        {% if page.released %}
-          {{ page.released }}
-        {% endif %}
       </p>
 
       <div class="site-book-review__facts">
+        {% if page.released %}
+          <span><strong>First published</strong> {{ page.released }}</span>
+        {% endif %}
+        {% if page.edition_read %}
+          <span><strong>Edition read</strong> {{ page.edition_read }}</span>
+        {% endif %}
         {% if page.started %}
           <span><strong>Started</strong> {{ page.started | date: '%B %-d, %Y' }}</span>
         {% endif %}

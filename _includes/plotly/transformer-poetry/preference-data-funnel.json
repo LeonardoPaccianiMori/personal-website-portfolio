@@ -1,0 +1,39 @@
+{
+  "config": {
+    "displaylogo": false,
+    "responsive": true
+  },
+  "data": [
+    {
+      "name": "Records",
+      "type": "funnel",
+      "x": [4096, 534, 482, 52],
+      "y": ["Candidates", "Preference pairs", "Train pairs", "Validation pairs"]
+    }
+  ],
+  "layout": {
+    "autosize": true,
+    "legend": {
+      "orientation": "h",
+      "y": -0.25
+    },
+    "margin": {
+      "b": 70,
+      "l": 58,
+      "r": 28,
+      "t": 64
+    },
+    "meta": {
+      "qualification": "AI-majority preferences; calibration pairs excluded.",
+      "source_path": "reports/minerva_7b_v7_ai_judged_dpo.md",
+      "source_sha256": "e3d150827028c13f0837ed158187cfaac9646d0218b7764043ea614b1c77dda0"
+    },
+    "paper_bgcolor": "rgba(0,0,0,0)",
+    "plot_bgcolor": "rgba(0,0,0,0)",
+    "title": {
+      "text": "Preference-data funnel",
+      "x": 0.02,
+      "xanchor": "left"
+    }
+  }
+}

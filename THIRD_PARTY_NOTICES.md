@@ -28,6 +28,24 @@ for provenance:
 
 - [Italian real estate](https://pxhere.com/en/photo/529383)
 - [Italian cuisine](https://pxhere.com/en/photo/1000518)
+- [Transformer poetry manuscript photograph](https://pxhere.com/en/photo/795701)
+
+The transformer-poetry source is a 2560×1707 JPEG downloaded on 15 August 2026. PxHere labels the photograph CC0 and states that modification, commercial
+use, and distribution are permitted without required attribution. PxHere's
+structured metadata identifies the contributor only as `CC0-Photographers`;
+no individual photographer is named. The website version is a centered crop,
+resized to 1536×960, converted to WebP, and stripped of metadata. It is used as
+a thematic manuscript image and is not presented as one of the project's
+textual sources.
+
+## Bookshelf cover images pending source review
+
+The cover images for _Perché leggere i classici_ and _Sulla fiaba_ were
+provided by Leonardo after he found them on the publisher's website. They show
+Mondadori Oscar Moderni editions. The exact source URLs and an express reuse
+licence were not retained and remain to be reviewed. The images are included
+provisionally as identifying cover thumbnails under Leonardo's publication
+decision; this repository asserts no reuse licence for them.
 
 ## Tableau Public
 
@@ -43,7 +61,7 @@ historical study.
 ## Artusi digital edition
 
 The interactive example graph for recipe 76 is derived from Pellegrino Artusi,
-*La scienza in cucina e l'arte di mangiar bene*, using a digital edition
+_La scienza in cucina e l'arte di mangiar bene_, using a digital edition
 credited to the Comune di Forlimpopoli and Cristiano Vanzolini. The source
 material carries the notice “CC By-NC-SA” without a stated version. No broader
 license is asserted here.
@@ -52,7 +70,7 @@ license is asserted here.
 
 The files under `assets/data/italian-cuisine/shapefiles/` are the generalized
 2025 regional layer from Istituto nazionale di statistica (Istat),
-[*Confini delle unità amministrative a fini statistici*](https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/).
+[_Confini delle unità amministrative a fini statistici_](https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/).
 Istat makes its data available under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) with source
 attribution. The chart generator reprojects the layer to EPSG:4326 when needed

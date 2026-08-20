@@ -1,0 +1,43 @@
+{
+  "config": {
+    "displaylogo": false,
+    "responsive": true
+  },
+  "data": [
+    {
+      "name": "Relative L2",
+      "type": "bar",
+      "x": ["Parent→S1 mid", "S1 mid→selected", "S1→S2 mid", "S2 mid→selected", "S2→S3 mid", "S3 mid→selected"],
+      "y": [0.02994, 0.00819, 0.00728, 0.00191, 0.000533, 9.71e-5]
+    }
+  ],
+  "layout": {
+    "autosize": true,
+    "legend": {
+      "orientation": "h",
+      "y": -0.25
+    },
+    "margin": {
+      "b": 70,
+      "l": 58,
+      "r": 28,
+      "t": 64
+    },
+    "meta": {
+      "qualification": "Sequential global parameter deltas; log scale.",
+      "source_path": "reports/minerva_7b_v7_post_training_study.md",
+      "source_sha256": "2caf5447e9ed1d97c71cbe9d2998cef85e9b62866f874f185c46149acb399a11"
+    },
+    "paper_bgcolor": "rgba(0,0,0,0)",
+    "plot_bgcolor": "rgba(0,0,0,0)",
+    "title": {
+      "text": "Sequential relative parameter movement",
+      "x": 0.02,
+      "xanchor": "left"
+    },
+    "yaxis": {
+      "title": "Relative L2",
+      "type": "log"
+    }
+  }
+}

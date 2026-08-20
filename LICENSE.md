@@ -22,6 +22,20 @@ modify, or redistribute those materials.
 
 ## Embedded project material
 
+- Leonardo-owned prose and aggregate evidence for the transformer-poetry
+  project are available under
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) only at these
+  paths:
+
+  - `_projects/transformer-poetry.md`;
+  - `_posts/2026-08-15-how-one-7b-italian-language-model-changed-across-staged-adaptation.md`;
+  - `_posts/2026-08-15-a-narrow-win-that-did-not-make-a-good-poet.md`;
+  - `_includes/plotly/transformer-poetry/*.json`.
+
+  Embedded third-party material retains its own terms. The transformer-poetry
+  thumbnail is not part of Leonardo's CC BY grant; PxHere marks the source
+  photograph as CC0. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
 - The embedded Wanderer game is available under the MIT License in its
   [source repository](https://github.com/LeonardoPaccianiMori/portfolio-game-wanderer).
 - Aggregate Italian-cuisine analytical tables and charts under

@@ -1,0 +1,63 @@
+{
+  "config": {
+    "displaylogo": false,
+    "responsive": true
+  },
+  "data": [
+    {
+      "name": "Target tokens",
+      "type": "bar",
+      "x": ["Historical/general", "Non-sonnet poetry", "Sonnets"],
+      "y": [67665920, 24903680, 4423680]
+    },
+    {
+      "mode": "lines+markers",
+      "name": "Windows",
+      "type": "scatter",
+      "x": ["Historical/general", "Non-sonnet poetry", "Sonnets"],
+      "y": [33040, 12160, 2160],
+      "yaxis": "y2"
+    },
+    {
+      "mode": "markers",
+      "name": "Selected updates",
+      "type": "scatter",
+      "x": ["Historical/general", "Non-sonnet poetry", "Sonnets"],
+      "y": [2065, 760, 120],
+      "yaxis": "y2"
+    }
+  ],
+  "layout": {
+    "autosize": true,
+    "legend": {
+      "orientation": "h",
+      "y": -0.25
+    },
+    "margin": {
+      "b": 70,
+      "l": 58,
+      "r": 28,
+      "t": 64
+    },
+    "meta": {
+      "qualification": "PAISÀ replay is 5% of target-token exposure, not unique documents, corpus size, or examples.",
+      "source_path": "reports/minerva_7b_v7_stage_windows_v1.json",
+      "source_sha256": "c89da835700f7db818be90caac8cfb03e0f12f1aa80f97b7d2d9d6a57c4650b7"
+    },
+    "paper_bgcolor": "rgba(0,0,0,0)",
+    "plot_bgcolor": "rgba(0,0,0,0)",
+    "title": {
+      "text": "Three-stage curriculum exposure",
+      "x": 0.02,
+      "xanchor": "left"
+    },
+    "yaxis": {
+      "title": "Target tokens"
+    },
+    "yaxis2": {
+      "overlaying": "y",
+      "side": "right",
+      "title": "Windows / updates"
+    }
+  }
+}

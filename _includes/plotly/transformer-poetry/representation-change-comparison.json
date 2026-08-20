@@ -1,0 +1,71 @@
+{
+  "config": {
+    "displaylogo": false,
+    "responsive": true
+  },
+  "data": [
+    {
+      "name": "Hidden drift",
+      "type": "bar",
+      "x": ["Parent→final", "Late Stage 3"],
+      "xaxis": "x",
+      "y": [0.2394, 0.00371],
+      "yaxis": "y"
+    },
+    {
+      "name": "Minimum linear CKA",
+      "type": "bar",
+      "x": ["Parent→final", "Late Stage 3"],
+      "xaxis": "x2",
+      "y": [0.9219, 0.999997],
+      "yaxis": "y2"
+    },
+    {
+      "name": "Top-20 overlap",
+      "type": "bar",
+      "x": ["Parent→final", "Late Stage 3"],
+      "xaxis": "x3",
+      "y": [0.4994, 0.9668],
+      "yaxis": "y3"
+    }
+  ],
+  "layout": {
+    "autosize": true,
+    "grid": {
+      "columns": 3,
+      "pattern": "independent",
+      "rows": 1
+    },
+    "legend": {
+      "orientation": "h",
+      "y": -0.25
+    },
+    "margin": {
+      "b": 70,
+      "l": 58,
+      "r": 28,
+      "t": 64
+    },
+    "meta": {
+      "qualification": "Descriptive frozen-probe comparisons; these metrics do not establish causality.",
+      "source_path": "reports/minerva_7b_v7_post_training_study.md",
+      "source_sha256": "2caf5447e9ed1d97c71cbe9d2998cef85e9b62866f874f185c46149acb399a11"
+    },
+    "paper_bgcolor": "rgba(0,0,0,0)",
+    "plot_bgcolor": "rgba(0,0,0,0)",
+    "title": {
+      "text": "Representation-change comparison",
+      "x": 0.02,
+      "xanchor": "left"
+    },
+    "yaxis": {
+      "title": "Hidden drift"
+    },
+    "yaxis2": {
+      "title": "Minimum linear CKA"
+    },
+    "yaxis3": {
+      "title": "Top-20 overlap"
+    }
+  }
+}
