@@ -5,6 +5,7 @@ description: Comparing historical and contemporary recipe corpora across Italy
 img: assets/img/projects/italian-cuisine/italian-cuisine.jpg
 importance: 2
 category: portfolio
+github: https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine
 chart:
   plotly: true
 vis_network: true

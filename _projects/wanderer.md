@@ -5,6 +5,7 @@ description: Three.js gravity sandbox with tidal interactions
 img: assets/img/projects/wanderer/wanderer-thumbnail.png
 importance: 3
 category: portfolio
+github: https://github.com/LeonardoPaccianiMori/portfolio-game-wanderer
 ---
 
 <div class="row">

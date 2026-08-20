@@ -5,6 +5,7 @@ description: End-to-end data pipeline from Italian property listings to rental-i
 img: assets/img/projects/italian-real-estate/italian-real-estate.jpg
 importance: 1
 category: portfolio
+github: https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate
 ---
 
 <div class="row">
