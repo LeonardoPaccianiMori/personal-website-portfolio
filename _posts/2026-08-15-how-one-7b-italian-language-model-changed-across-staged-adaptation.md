@@ -149,9 +149,9 @@ Finally, the analysis is conditioned on one parent, one curriculum, one set of r
 
 ## Reproducibility and AI contribution
 
-At publication, the public repository includes the pinned state registry, analyzers for weights, embeddings, representations, and losses, frozen configurations, aggregate reports, tests, and a deterministic website-evidence exporter. Public Python 3.12 verification checks those software and evidence contracts. It does not reproduce the historical H100 run, and withheld checkpoints are required to repeat the model-state analysis itself.
+At publication, the public source repository includes the pinned state registry, analyzers for weights, embeddings, representations, and losses, frozen configurations, aggregate reports, tests, and a deterministic website-evidence exporter. Public Python 3.12 verification checks those software and evidence contracts. A separate [Hugging Face release](https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets) provides the three selected stage models and DPO adapter. It does not reproduce the historical H100 run, supply every intermediate snapshot, or include the raw probe tensors needed to repeat the complete model-state analysis.
 
-The checkpoint and data boundary is intentional. Full BF16 weights, intermediate states, raw generations, poems and openings used in evaluation, private mappings, and annotations are not embedded in this note or its charts. Model weights remain local pending a separate artifact-specific owner review and release decision.
+The checkpoint and data boundary is intentional. The selected full BF16 stage weights are available through that model release, but intermediate states, raw probe tensors, raw generations, poems and openings used in evaluation, private mappings, and annotations are not embedded in this note or its charts and remain unpublished.
 
 I conceived and directed the project, chose its learning and research goals, made executive decisions, approved the plan, reviewed outputs, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol helped design the research plan and substantially assisted implementation, tests, execution, and analysis. I do not describe the study as independently designed or independently implemented by me.
 

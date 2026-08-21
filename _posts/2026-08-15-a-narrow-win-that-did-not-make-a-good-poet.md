@@ -168,9 +168,9 @@ The result is less exciting than announcing a good poet. It is more useful as ev
 
 ## Reproducibility and AI contribution
 
-At publication, the public source includes the DPO implementation, frozen configurations, preference-builder and validation contracts, preservation evaluator, final-test analyzer, aggregate reports, tests, and deterministic Plotly exports. It excludes the underlying candidates, poems and openings, raw generations, preference pairs, votes, annotations, private mappings, and model tensors. The Stage-3 checkpoint and adapter remain local pending separate artifact-specific owner review and release decisions.
+At publication, the public source includes the DPO implementation, frozen configurations, preference-builder and validation contracts, preservation evaluator, final-test analyzer, aggregate reports, tests, and deterministic Plotly exports. The selected Stage-3 model and DPO adapter are separately public in the [Hugging Face release](https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets). The underlying candidates, poems and openings, raw generations, preference pairs, votes, annotations, private mappings, intermediate checkpoints, and unselected tensor artifacts remain excluded.
 
-Public CPU verification checks software behavior and aggregate-evidence hashes. It does not regenerate the historical H100 run or provide generation with the withheld weights.
+Public CPU verification checks software behavior and aggregate-evidence hashes. It does not regenerate the historical H100 run or automatically download and run the separately hosted weights.
 
 I conceived and directed the project, defined its goals, made executive decisions, approved the research plan, reviewed outputs, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol helped design the plan and substantially assisted implementation, tests, execution, and analysis. The work is therefore not independently designed or independently implemented by me.
 
