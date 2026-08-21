@@ -6,8 +6,8 @@ author: Antonio Tabucchi
 cover: assets/img/book_covers/sostiene_pereira.jpeg
 # olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
 # isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
-categories:
-tags:
+categories: literary-fiction
+tags: novel historical-fiction political-fiction authoritarianism
 # buy_link: https://www.amazon.com/Godfather-Deluxe-Mario-Puzo/dp/0593542592
 started: 2026-08-05
 finished: 2026-08-06
