@@ -11,12 +11,12 @@ started: 2026-03-26
 finished: 2026-04-18
 stars: 5
 first_published: 1949
-edition_publisher:
+edition_publisher: Wordsworth Editions
 edition_series: Wordsworth Classics
 edition_number:
-edition_year:
+edition_year: 2021
 edition_language: English
-isbn:
+isbn: "9781840228021"
 ---
 
 I first read _1984_ at school, too young to appreciate its mechanisms fully. Rereading it as an adult, alongside [_Fahrenheit 451_](/books/fahrenheit_451/), made Orwell's world feel eerily close, because I could now recognise how ordinary freedoms can narrow. It is not a coincidence that the book (like ) has seen an increase in sales in the past decade[^1].

@@ -14,9 +14,9 @@ first_published: 1957-1962
 edition_publisher: Feltrinelli
 edition_series: Universale Economica Feltrinelli
 edition_number:
-edition_year:
+edition_year: 2022
 edition_language: Italian
-isbn:
+isbn: "9788807897115"
 ---
 
 Coming from rural Tuscany like Bianciardi, I immediately recognised the social world of _Il lavoro culturale_, the first book of the trilogy. It was easily my favourite of the three novels and also the most visual. Its sharply defined portraits capture a particular kind of provincial intellectual: ambitious within a very small environment, self-important, and determined to become a big fish in a small pond. No individual scene stayed with me as much as the general atmosphere and the precision of those mannerisms.

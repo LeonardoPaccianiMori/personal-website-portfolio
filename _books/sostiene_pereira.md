@@ -14,9 +14,9 @@ first_published: 1994
 edition_publisher: Feltrinelli
 edition_series: Universale Economica Feltrinelli
 edition_number:
-edition_year:
+edition_year: 2019
 edition_language: Italian
-isbn:
+isbn: "9788807892158"
 ---
 
 I first read _Pereira Maintains_ in high school and loved it. Years later, I remembered that affection and the general plot more clearly than the details. Rereading confirmed why I had loved it, and once again I read it very quickly. It is short, but above all exceptionally clear and truly effortless to read.

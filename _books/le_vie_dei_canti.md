@@ -13,10 +13,10 @@ stars: 4
 first_published: 1987
 edition_publisher: Adelphi
 edition_series: Gli Adelphi
-edition_number:
-edition_year:
+edition_number: 78
+edition_year: 1995
 edition_language: Italian
-isbn:
+isbn: "9788845911415"
 ---
 
 This book was a wedding gift from a friend, inspired by our planned honeymoon in Australia and New Zealand. The pandemic prevented that journey from happening, though we had an unforgettable honeymoon in Hawaii instead. Years later, _The Songlines_ allowed me to take a different kind of journey to Australia through reading, and made me want to visit it even more.
