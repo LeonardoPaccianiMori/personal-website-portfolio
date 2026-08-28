@@ -12,9 +12,9 @@ finished:
 stars:
 first_published: 1956
 edition_publisher: Mondadori
-edition_series: Oscar Moderni Baobab
+edition_series: Oscar baobab. Moderni
 edition_number:
-edition_year:
+edition_year: 2026
 edition_language: Italian
-isbn:
+isbn: "9788804819240"
 ---
