@@ -17,12 +17,10 @@ stars: 4
 status: Finished
 ---
 
-This book was a wedding gift from a friend, inspired by our planned honeymoon in Australia and New Zealand. The pandemic prevented that journey, though we had an unforgettable honeymoon in Hawaii instead. Years later, _Le Vie dei Canti_ allowed me to take a different kind of journey to Australia through reading, and made me want to visit it even more.
+This book was a wedding gift from a friend, inspired by our planned honeymoon in Australia and New Zealand. The pandemic prevented that journey from happening, though we had an unforgettable honeymoon in Hawaii instead. Years later, _The Songlines_ allowed me to take a different kind of journey to Australia through reading, and made me want to visit it even more.
 
-The Songlines and the relationship they express between Aboriginal Australians and the land stayed with me most. As I understood Chatwin's account, the land is not a possession but a responsibility: people are custodians of particular places and their stories. I cannot claim to fully understand this worldview, but I encountered it with curiosity and admiration. It offered a way of thinking about land based on care rather than ownership.
+The Songlines and the relationship they express between Aboriginal Australians and the land stayed with me most. As I understood Chatwin's account, the land is not a possession but a responsibility: people are custodians of particular places and their stories. I learned about this alternative worldview it with curiosity and admiration, especially appreciating how _stories_ are inextricably linked to the land they originate in (which is arguably true for all cultures across all times). It offered a way of thinking about land based on _care_ rather than _ownership_.
 
-The book broadens into a reflection on nomadism and human nature. I was especially intrigued by Chatwin's suggestion that migration acts as a leveller, while settled life encourages hierarchy and redirects human restlessness into aggression. I do not take that as established history, but as a provocative hypothesis worth considering.
-
-I remained aware that Chatwin was a British outsider writing about a culture shaped by colonisation. Still, I did not feel him judging or ranking what he encountered. His mixture of travel narrative, fragmented encounters and anthropological speculation felt curious rather than prescriptive. Vivid portraits and visual descriptions made the people and places he described easy to imagine.
+I remained aware that Chatwin was a British outsider, writing about an aboriginal culture through the eyes of the colonizer's culture. Still, I did not feel him judging or ranking what he encountered. His mixture of travel narrative, fragmented encounters and anthropological speculation felt curious rather than prescriptive. Vivid portraits and visual descriptions made the people and places he described easy to imagine.
 
 I recommend it to readers interested in travel, anthropology and what it means to be human.

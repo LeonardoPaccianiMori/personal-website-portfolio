@@ -9,7 +9,7 @@ cover: assets/img/book_covers/perche_leggere_i_classici.jpg
 categories: literary-nonfiction
 tags: essay literary-criticism classics
 # buy_link: https://www.amazon.com/Godfather-Deluxe-Mario-Puzo/dp/0593542592
-started: 2026-08-20
+started: 2026-08-29
 finished:
 released: 1995
 edition_read: "Mondadori, Oscar Moderni"

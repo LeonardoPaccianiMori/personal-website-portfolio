@@ -17,8 +17,8 @@ stars: 5
 status: Finished
 ---
 
-_Centuria_ is unlike anything else I have read. Each of its one hundred one-page novels has its own distinct feel, yet most share a hilariously surreal quality. What made their humour work for me was the completely serious way Manganelli narrates absurd premises and situations. The stranger the circumstances become, the more calmly the prose seems to accept them.
+_Centuria_ is unlike anything else I have read: it's a collection of one hundred _romans-fleuves_, each one just _one_ page long. This constraint produces an impressive range of effects: many pieces genuinely feel like entire novels compressed into a single page with a world and an arc of their own, while others leave the door open to further developments and offer only a glimpse of a much larger and stranger story.
 
-The one-page constraint produces an impressive range of effects. Many pieces genuinely feel like entire novels compressed into a page, with a world and an arc of their own. Others leave the door open to further developments, offering only a glimpse of a much larger and stranger story. That balance kept the repeated format from becoming repetitive.
+Each of these "one-page epic novels" have their own distinct feel, yet most share a hilariously surreal quality: Manganelli narrates absurd premises and situations with absolute seriousness. The stranger the circumstances become, the more calmly the prose seems to accept them.
 
-I think a first reading works best continuously, allowing the variety of the collection to emerge. Afterwards, it becomes a book to return to, either to revisit the pieces that stood out or to read a few at a time. I recommend it especially to readers interested in experimental and surreal fiction.
+This book is particularly suited to readers interested in experimental literature and surreal fiction. After reading it a first time continuously, I think it works well as a book to return to, either to revisit the pieces that stood out or to read a few at a time.

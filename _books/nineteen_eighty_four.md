@@ -17,12 +17,14 @@ stars: 5
 status: Finished
 ---
 
-I first read _1984_ at school, too young to appreciate its mechanisms. Rereading it as an adult, alongside _Fahrenheit 451_, made Orwell's world feel less remote—not because we live in Oceania, but because I could now recognise how ordinary freedoms can narrow.
+I first read _1984_ at school, too young to appreciate its mechanisms fully. Rereading it as an adult, alongside [_Fahrenheit 451_](/books/fahrenheit_451/), made Orwell's world feel eerily close, because I could now recognise how ordinary freedoms can narrow. It is not a coincidence that the book (like ) has seen an increase in sales in the past decade[^1].
 
-The room above Mr Charrington's shop made that loss tangible. Under constant observation, it gives Winston his first taste of being alone with his thoughts. I could imagine why that privacy would feel extraordinary and inseparable from freedom.
+The room above Mr Charrington's shop made that loss tangible. Under constant observation, it gives Winston his first taste of being alone with his thoughts. It's easy to imagine why that privacy would feel extraordinary and inseparable from freedom.
 
-Newspeak also affected me differently. Its contemporary echo is not simply a reduced vocabulary but the pressure to signal conformity. Social platforms often flatten complex issues into opposing camps, reward group-specific jargon, and leave little room for nuance. I often begin replying to an oversimplified post or comment, then stop—not because I fear professional consequences, but because being forced into one camp makes discussion exhausting and unproductive. Far milder than Orwell's version, this self-censorship no longer feels entirely alien.
+Newspeak also affected me differently. Its contemporary counterpart is not simply a reduced vocabulary but the pressure to signal conformity: social platforms often flatten complex issues into two opposing camps, rewarding group-specific jargon and leaving little room (if any) for nuance.
 
-The telescreens create a similar discomfort. Surveillance today is dispersed across security cameras, digital platforms, corporations, and the devices we carry. Much of it is accepted in exchange for security, convenience, and participation. The danger is surrendering freedom gradually through reasonable compromises whose destination is difficult to see.
+The telescreens create a similar discomfort. Surveillance today is dispersed across security cameras, digital platforms, corporations, and the devices we carry with us everyday, basically at all times. Much of it is accepted in exchange for above all, convenience. The danger is surrendering freedom gradually through reasonable compromises whose destination is difficult to see.
 
-Orwell's dystopia remains extreme, but its mechanisms now feel recognisable and unsettling. I loved the novel's story, message, and writing without reservation, and I would recommend it to anyone interested in how a dystopian world can become imaginable—and incrementally ordinary.
+Orwell's dystopia remains extreme, but its mechanisms now feel recognisable and unsettling. I loved the novel's story, message, and writing without reservation, and I would recommend it to anyone who wants to understand the world we are currently living in. The fact that this book is still so contemporary even after almost 80 years makes (unfortunately) a timeless classic.
+
+[^1]: See for example [here](https://www.publishersweekly.com/pw/by-topic/industry-news/publisher-news/article/96997-dystopian-novels-see-post-inauguration-sales-boost.html).
