@@ -5,7 +5,7 @@ title_translation: Nineteen Eighty-Four
 author: George Orwell
 cover: assets/img/book_covers/nineteen_eighty_four.jpg
 categories: literary-fiction
-tags: novel dystopian political-fiction totalitarianism
+tags: [novel, dystopian, political-fiction, totalitarianism, surveillance]
 status: Finished
 started: 2026-03-26
 finished: 2026-04-18

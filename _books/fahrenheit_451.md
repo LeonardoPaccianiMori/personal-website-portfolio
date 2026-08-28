@@ -5,7 +5,7 @@ title_translation:
 author: Ray Bradbury
 cover: assets/img/book_covers/fahrenheit_451.jpg
 categories: literary-fiction
-tags: novel dystopian political-fiction totalitarianism
+tags: [novel, dystopian, political-fiction, totalitarianism, censorship]
 status: Finished
 started: 2026-04-29
 finished: 2026-05-09
@@ -19,7 +19,7 @@ edition_language: English
 isbn:
 ---
 
-_Fahrenheit 451_ is a great classic, which over the past decade has seen a significant surge in sales alongside 1984 (not difficult to understand why[^1], unfortunately).
+_Fahrenheit 451_ is a great classic, which over the past decade has seen a significant surge in sales alongside [_1984_](/books/nineteen_eighty_four/) (not difficult to understand why[^1], unfortunately).
 
 What struck me most about the book is the explanation of how society in that story abandoned books and fell into totalitarianism, given by Beatty (the firemen's captain). I initially accepted his account as the novel's warning: people gradually lose their tolerance for controversial or offensive ideas until censorship can be presented as protection from discomfort. Yet this is also the rationalisation of someone who enthusiastically _serves_ the system. This ambiguity makes the justification even more interesting, because repression becomes easier to accept when it sounds reasonable and benevolent.
 

@@ -5,7 +5,7 @@ title_translation: Centuria. One Hundred Ouroboric Novels
 author: Giorgio Manganelli
 cover: assets/img/book_covers/centuria.jpg
 categories: literary-fiction
-tags: experimental surrealism microfiction
+tags: [experimental, surrealism, microfiction]
 status: Finished
 started: 2026-08-07
 finished: 2026-08-15

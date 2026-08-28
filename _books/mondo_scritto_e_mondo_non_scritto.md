@@ -5,7 +5,7 @@ title_translation: The Written World and the Unwritten World
 author: Italo Calvino
 cover: assets/img/book_covers/mondo_scritto_e_mondo_non_scritto.jpg
 categories: literary-nonfiction
-tags: essay
+tags: [essay-collection, literary-criticism, reading, writing]
 status: Queued
 started:
 finished:

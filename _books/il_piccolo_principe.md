@@ -5,7 +5,7 @@ title_translation: The Little Prince
 author: Antoine de Saint-Exupéry
 cover: assets/img/book_covers/il_piccolo_principe.jpeg
 categories: literary-fiction
-tags: fable allegory philosophical-fiction
+tags: [fable, allegory, philosophical-fiction]
 status: Finished
 started: 2026-07-22
 finished: 2026-07-22

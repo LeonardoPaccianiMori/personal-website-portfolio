@@ -5,7 +5,7 @@ title_translation: Italian Folktales
 author: Italo Calvino
 cover: assets/img/book_covers/fiabe_italiane.jpg
 categories: literary-fiction
-tags: folktales folklore anthology
+tags: [folktales, folklore, anthology]
 status: Reading
 started: 2026-08-18
 finished:

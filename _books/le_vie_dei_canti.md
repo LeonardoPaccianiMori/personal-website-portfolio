@@ -5,7 +5,7 @@ title_translation: The Songlines
 author: Bruce Chatwin
 cover: assets/img/book_covers/le_vie_dei_canti.jpg
 categories: literary-nonfiction
-tags: travel-writing australia indigenous-cultures anthropology
+tags: [travel-writing, australia, indigenous-cultures, anthropology]
 status: Finished
 started: 2026-07-23
 finished: 2026-08-02

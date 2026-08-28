@@ -5,7 +5,7 @@ title_translation: Why Read the Classics?
 author: Italo Calvino
 cover: assets/img/book_covers/perche_leggere_i_classici.jpg
 categories: literary-nonfiction
-tags: essay literary-criticism classics
+tags: [essay-collection, literary-criticism, classics, reading]
 status: Reading
 started: 2026-08-29
 finished:

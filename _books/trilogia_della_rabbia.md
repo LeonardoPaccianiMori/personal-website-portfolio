@@ -5,7 +5,7 @@ title_translation: The Trilogy of Anger
 author: Luciano Bianciardi
 cover: assets/img/book_covers/trilogia_della_rabbia.jpg
 categories: literary-fiction
-tags: novel satire social-criticism
+tags: [trilogy, satire, social-criticism, postwar-italy]
 status: Finished
 started: 2026-05-16
 finished: 2026-07-18
