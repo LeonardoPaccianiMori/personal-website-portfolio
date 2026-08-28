@@ -1,20 +1,22 @@
 ---
 layout: book-review
 title: Fahrenheit 451
-subtitle:
+title_translation:
 author: Ray Bradbury
 cover: assets/img/book_covers/fahrenheit_451.jpg
-# olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
-# isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: literary-fiction
 tags: novel dystopian political-fiction totalitarianism
-# buy_link: https://www.amazon.com/Godfather-Deluxe-Mario-Puzo/dp/0593542592
+status: Finished
 started: 2026-04-29
 finished: 2026-05-09
-released: 1953
 stars: 4
-# goodreads_review: 6318556633
-status: Finished
+first_published: 1953
+edition_publisher:
+edition_series:
+edition_number:
+edition_year:
+edition_language: English
+isbn:
 ---
 
 _Fahrenheit 451_ is a great classic, which over the past decade has seen a significant surge in sales alongside 1984 (not difficult to understand why[^1], unfortunately).

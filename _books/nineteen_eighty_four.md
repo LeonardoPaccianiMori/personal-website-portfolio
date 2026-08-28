@@ -1,20 +1,22 @@
 ---
 layout: book-review
 title: 1984
-subtitle: Nineteen Eighty-Four
+title_translation: Nineteen Eighty-Four
 author: George Orwell
 cover: assets/img/book_covers/nineteen_eighty_four.jpg
-# olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
-# isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: literary-fiction
 tags: novel dystopian political-fiction totalitarianism
-# buy_link: https://www.amazon.com/Godfather-Deluxe-Mario-Puzo/dp/0593542592
+status: Finished
 started: 2026-03-26
 finished: 2026-04-18
-released: 1949
 stars: 5
-# goodreads_review: 6318556633
-status: Finished
+first_published: 1949
+edition_publisher:
+edition_series: Wordsworth Classics
+edition_number:
+edition_year:
+edition_language: English
+isbn:
 ---
 
 I first read _1984_ at school, too young to appreciate its mechanisms fully. Rereading it as an adult, alongside [_Fahrenheit 451_](/books/fahrenheit_451/), made Orwell's world feel eerily close, because I could now recognise how ordinary freedoms can narrow. It is not a coincidence that the book (like ) has seen an increase in sales in the past decade[^1].

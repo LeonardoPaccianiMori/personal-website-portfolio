@@ -1,20 +1,22 @@
 ---
 layout: book-review
 title: Sostiene Pereira
-subtitle: Pereira maintains
+title_translation: Pereira Maintains
 author: Antonio Tabucchi
 cover: assets/img/book_covers/sostiene_pereira.jpeg
-# olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
-# isbn: 9788804772149 # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
 categories: literary-fiction
 tags: novel historical-fiction political-fiction authoritarianism
-# buy_link: https://www.amazon.com/Godfather-Deluxe-Mario-Puzo/dp/0593542592
+status: Finished
 started: 2026-08-05
 finished: 2026-08-06
-released: 1994
 stars:
-# goodreads_review: 6318556633
-status: Finished
+first_published: 1994
+edition_publisher: Feltrinelli
+edition_series: Universale Economica Feltrinelli
+edition_number:
+edition_year:
+edition_language: Italian
+isbn:
 ---
 
 I first read _Pereira maintains_ in high school and loved it. Years later, I remembered that affection and the general plot more clearly than the details. Rereading confirmed why I had loved it, and once again I read it very quickly. It is short, but above all exceptionally clear and truly effortless to read.

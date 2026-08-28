@@ -4,6 +4,13 @@ layout: default
 {% assign tags = page.tags | join: '' %}
 {% assign clean_content = content | strip %}
 {% assign status = page.status | downcase | strip %}
+{% capture edition_read %}
+  {% if page.edition_publisher %}{{ page.edition_publisher }}{% endif %}
+  {% if page.edition_series %}{% if page.edition_publisher %}, {% endif %}{{ page.edition_series }}{% endif %}
+  {% if page.edition_number %} {{ page.edition_number }}{% endif %}
+  {% if page.edition_year %}{% if page.edition_publisher or page.edition_series %}, {% endif %}{{ page.edition_year }}{% endif %}
+{% endcapture %}
+{% assign edition_read = edition_read | strip %}
 
 {% if page._styles %}
   <style type="text/css">
@@ -20,8 +27,8 @@ layout: default
     <div class="site-book-review__copy">
       <p class="career-eyebrow">Bookshelf · {{ status | default: 'note' }}</p>
       <h1 class="post-title">{{ page.title }}</h1>
-      {% if page.subtitle %}
-        <p class="site-book-review__subtitle">{{ page.subtitle }}</p>
+      {% if page.title_translation %}
+        <p class="site-book-review__subtitle">{{ page.title_translation }}</p>
       {% endif %}
       <p class="site-book-review__byline">
         {% if page.author %}
@@ -30,17 +37,17 @@ layout: default
       </p>
 
       <div class="site-book-review__facts">
-        {% if page.released %}
-          <span><strong>First published</strong> {{ page.released }}</span>
+        {% if page.first_published %}
+          <span><strong>First published</strong> {{ page.first_published }}</span>
         {% endif %}
-        {% if page.edition_read %}
-          <span><strong>Edition read</strong> {{ page.edition_read }}</span>
+        {% if edition_read != '' %}
+          <span><strong>Edition read</strong> {{ edition_read }}</span>
         {% endif %}
         {% if page.started %}
-          <span><strong>Started</strong> {{ page.started | date: '%B %-d, %Y' }}</span>
+          <span><strong>Started reading</strong> {{ page.started | date: '%B %-d, %Y' }}</span>
         {% endif %}
         {% if page.finished %}
-          <span><strong>Finished</strong> {{ page.finished | date: '%B %-d, %Y' }}</span>
+          <span><strong>Finished reading</strong> {{ page.finished | date: '%B %-d, %Y' }}</span>
         {% endif %}
         {% if page.stars %}
           <span class="site-book-stars" aria-label="{{ page.stars }} out of 5 stars">
