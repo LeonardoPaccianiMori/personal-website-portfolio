@@ -1139,7 +1139,7 @@ html[data-theme="dark"] {
   margin-left: auto;
 
   .post-title {
-    font-size: clamp(3.5rem, 6vw, 5.6rem);
+    font-size: clamp(3.5rem, 5.5vw, 5rem);
     text-transform: none;
   }
 }
@@ -1578,6 +1578,10 @@ footer.sticky-bottom {
     }
   }
 
+  .site-article-header .post-title {
+    font-size: clamp(2.75rem, 7.3vw, 3.5rem);
+  }
+
   .site-page--project .site-page-header .post-title {
     font-size: clamp(2.8rem, 13vw, 4.2rem);
   }
@@ -1655,6 +1659,10 @@ footer.sticky-bottom {
     .post-title {
       font-size: clamp(3rem, 16vw, 4rem);
     }
+  }
+
+  .site-article-header .post-title {
+    font-size: clamp(2.75rem, 7.3vw, 3.5rem);
   }
 
   .site-project-group {
