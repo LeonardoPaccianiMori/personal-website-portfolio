@@ -24,9 +24,9 @@ I supervised the development of an internal LLM-assisted workflow that turns mes
 
 ## Problem
 
-Brand tracking surveys often include open-ended questions such as which brand first comes to mind within a product category. These answers are valuable, but they arrive as messy free text: misspellings, abbreviations, partial names, and inconsistent variants of the same brand.
+Brand tracking surveys often include open-ended questions such as which brand first comes to mind within a product category. These answers are very valuable, but they arrive as messy free text: misspellings, abbreviations, partial names, and inconsistent variants of the same brand's name.
 
-Before analysts could compute metrics or compare results across respondent segments, they had to manually build correction dictionaries and clean the raw answers. This repetitive work could take multiple days for a single survey wave.
+Before analysts can even begin using the data to compute metrics or compare results across respondent segments, they have to manually build correction dictionaries and clean the raw answers. This repetitive work can take multiple days for a single survey wave.
 
 ---
 
@@ -40,9 +40,8 @@ My role was supervisory rather than hands-on implementation. I defined how the e
 
 - Uploads raw survey response files and uses the selected product category as context.
 - Standardizes free-text brand answers into clean, consistent labels.
-- Separates the first brand mentioned from additional mentions in the same response.
-- Produces cleaned outputs and demographic summaries for downstream analysis.
-- Sends ambiguous or unmapped responses to a manual-review step.
+- Produces cleaned outputs for downstream analysis.
+- Sends ambiguous or unrecognized responses to a manual-review step.
 
 ---
 
@@ -56,4 +55,4 @@ The workflow was therefore designed around conservative cleaning, reviewable out
 
 ## Impact
 
-After using the deployed application on real survey waves, users reported that it reduced a process that had taken multiple days to a matter of minutes. This is a user-reported result rather than an independently measured benchmark. More importantly for adoption, Consumer Insights users now operate the application autonomously as part of recurring survey work.
+After using the deployed application on real survey waves, users reported that it reduced a process that had taken multiple days to a matter of minutes. More importantly for adoption, Consumer Insights users now operate the application autonomously as part of recurring survey work.

@@ -24,20 +24,20 @@ images:
 **November - December 2024**
 
 ## Summary
-I used MNIST as a controlled environment because I wanted a problem small enough to make architectural choices visible instead of burying them under dataset complexity. I was less interested in chasing the single best number than in figuring out what extra model complexity actually buys you, how fragile generative training becomes once you have to debug it yourself, and how to make those tradeoffs legible to another practitioner.
+I used MNIST as a controlled environment because I wanted a problem small enough to make architectural choices visible instead of burying them under dataset complexity. Furthermore, I worked on this project on my personal laptop so I was constrained by the compute power of its GPU (a single GeForce RTX 3060). Also, I wanted to understand whether making the model more complicated actually gives meaningful benefits instead of getting the absolute best performance score.
 
 ---
 
 ## What I wanted to learn
-I did not choose this project because handwritten digits are inherently exciting. I chose it because MNIST is simple enough to expose bad assumptions quickly. What I cared about was seeing which ideas genuinely improved the result, which ones only sounded sophisticated, and where "best practice" stopped being useful once the training dynamics became unstable.
+I did not choose this dataset because it is inherently original (far from it!). I chose it because MNIST is simple enough to expose bad assumptions quickly. What I cared about was seeing which ideas genuinely improved the result, which ones only sounded cool, and where "best practice" stopped being useful once the training dynamics became unstable.
 
 ---
 
 ## What I built
 - A comparison of **7 classifiers** and **10 generative configurations** on
-  MNIST, plus a separate conditional GAN implementation.
+  MNIST, plus a separate conditional GAN implementation. See this project's [technical deep dive](/blog/2025/image-generation-deep-dive/) for more details on the architectures of these models
 - A classifier protocol with a separate training, validation, and untouched test split.
-- A project-specific **Fréchet CNN-3 feature distance** for relative generator comparison, clearly separated from canonical FID.
+- A project-specific **Fréchet CNN-3 feature distance** for relative generator comparison, clearly separated from canonical Fréchet inception distance (FID).
 - Accuracy, validation curves, feature distance, and hardware-specific training-time comparisons.
 - Plotly visualizations to make model tradeoffs easy to scan.
 - Two in-browser demos built with **TensorFlow.js**, so the project ends in something interactive rather than only notebooks and plots.
@@ -45,9 +45,9 @@ I did not choose this project because handwritten digits are inherently exciting
 ---
 
 ## Results
-- **CNN-2 reached 98.66% test accuracy**, the strongest classifier result. CNN-1 reached 98.05% in roughly half the CPU training time, making it the clearer speed/complexity tradeoff.
-- FCNN-3 was the strongest fully convolutional variant at 94.60%. The deeper FCNN-4 fell to 78.90% in the seeded run, a useful warning that added capacity did not make this family reliably better.
-- **DCGAN-5 had the lowest project-specific feature distance at 2.29**, ahead of DCGAN-4 at 3.23, while also taking the longest recorded training time.
+- Amon the "classic" convolutional classification models, **CNN-2 reached 98.66% test accuracy**, the strongest classifier result. CNN-1 (which has two less convolutional layers compared to CNN-2) reached 98.05% in roughly half the CPU training time, making it a lighter model but essentially equivalent in terms of performance.
+- Among the fully convolutional classification models, FCNN-3 was the strongest variant at 94.60% accuracy. The deeper FCNN-4 (two additional convolutional layers) fell to 78.90% accuracy, showing that adding depth can make this model family less stable.
+- **DCGAN-5 showed the best performance**, with the lowest project-specific feature distance at 2.29 (ahead of DCGAN-4 at 3.23), while also taking the longest recorded training time.
 - The most important debugging lesson was that **activation and normalization choices strongly affected training stability**. A small change in the output layer turned a failing GAN into a working one.
 
 ### Evidence: classification tradeoff
