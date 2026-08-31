@@ -15,6 +15,87 @@ chart:
 
 This is the technical appendix to my [image generation project](/projects/image-generation/). The project compared seven classifiers, five convolutional variational autoencoders (CVAEs), and five deep convolutional GANs (DCGANs) on MNIST.
 
+<details markdown="1">
+<summary><strong>Model architecture guide</strong></summary>
+
+The 17 models were sequential configurations, not isolated ablations. This guide defines each name before the results use it.
+
+### Classifiers
+
+**CNN-1** is the baseline classifier: three convolutional layers followed by one fully connected output layer.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CNN1.svg" title="CNN-1 architecture" alt="CNN-1 architecture with three convolutional layers and one fully connected output layer" class="img-fluid rounded z-depth-1" %}
+
+**CNN-2** expands the baseline to five convolutional layers while keeping one fully connected output layer.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CNN2.svg" title="CNN-2 architecture" alt="CNN-2 architecture with five convolutional layers and one fully connected output layer" class="img-fluid rounded z-depth-1" %}
+
+**CNN-3** returns to three convolutional layers and expands the classifier head to three fully connected layers.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CNN3.svg" title="CNN-3 architecture" alt="CNN-3 architecture with three convolutional layers and three fully connected layers" class="img-fluid rounded z-depth-1" %}
+
+**FCNN-1** replaces the dense classifier head with global average pooling after three convolutional layers.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/FCNN1.svg" title="FCNN-1 architecture" alt="FCNN-1 architecture with three convolutional layers and global average pooling" class="img-fluid rounded z-depth-1" %}
+
+**FCNN-2** uses five convolutional layers followed by global average pooling.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/FCNN2.svg" title="FCNN-2 architecture" alt="FCNN-2 architecture with five convolutional layers and global average pooling" class="img-fluid rounded z-depth-1" %}
+
+**FCNN-3** uses three convolutional layers with 5 × 5 kernels, then global average pooling.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/FCNN3.svg" title="FCNN-3 architecture" alt="FCNN-3 architecture with three five-by-five convolutional layers and global average pooling" class="img-fluid rounded z-depth-1" %}
+
+**FCNN-4** combines five convolutional layers, 5 × 5 kernels, and global average pooling.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/FCNN4.svg" title="FCNN-4 architecture" alt="FCNN-4 architecture with five five-by-five convolutional layers and global average pooling" class="img-fluid rounded z-depth-1" %}
+
+### Convolutional variational autoencoders
+
+All five CVAEs use a two-dimensional latent space. **CVAE-1** is the baseline, with three hidden convolutional stages in the encoder and decoder, a 100-unit connected layer around the latent representation, and a final decoder output layer.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CVAE1.svg" title="CVAE-1 architecture" alt="CVAE-1 architecture with a three-stage convolutional path, a 100-unit connected layer, and a two-dimensional latent space" class="img-fluid rounded z-depth-1" %}
+
+**CVAE-2** keeps the CVAE-1 convolutional path and increases the connected layer from 100 to 200 units.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CVAE2.svg" title="CVAE-2 architecture" alt="CVAE-2 architecture with the baseline convolutional path, a 200-unit connected layer, and a two-dimensional latent space" class="img-fluid rounded z-depth-1" %}
+
+**CVAE-3** expands the encoder and decoder to five hidden convolutional stages, followed by the decoder output layer, while keeping the two-dimensional latent space.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CVAE3.svg" title="CVAE-3 architecture" alt="CVAE-3 architecture with deeper convolutional encoder and decoder paths and a two-dimensional latent space" class="img-fluid rounded z-depth-1" %}
+
+**CVAE-4** keeps the baseline convolutional path and uses three hidden connected layers in the encoder, mirrored by three hidden connected layers in the decoder.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CVAE4.svg" title="CVAE-4 architecture" alt="CVAE-4 architecture with three mirrored hidden connected layers on each side of a two-dimensional latent space" class="img-fluid rounded z-depth-1" %}
+
+**CVAE-5** extends both connected paths to four hidden layers.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CVAE5.svg" title="CVAE-5 architecture" alt="CVAE-5 architecture with four mirrored hidden connected layers on each side of a two-dimensional latent space" class="img-fluid rounded z-depth-1" %}
+
+### Deep convolutional GANs
+
+Each DCGAN pairs a generator with a discriminator. **DCGAN-1** is the three-stage baseline, with tanh generator output and MNIST scaled to [-1, 1].
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/DCGAN1.svg" title="DCGAN-1 architecture" alt="DCGAN-1 generator and discriminator architecture with three convolutional stages and tanh output" class="img-fluid rounded z-depth-1" %}
+
+**DCGAN-2** keeps the same three-stage architecture but uses sigmoid output and MNIST scaled to [0, 1].
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/DCGAN2.svg" title="DCGAN-2 architecture" alt="DCGAN-2 generator and discriminator architecture with three convolutional stages and sigmoid output" class="img-fluid rounded z-depth-1" %}
+
+**DCGAN-3** keeps sigmoid output and changes the convolution kernels to 5 × 5.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/DCGAN3.svg" title="DCGAN-3 architecture" alt="DCGAN-3 generator and discriminator architecture with five-by-five kernels and sigmoid output" class="img-fluid rounded z-depth-1" %}
+
+**DCGAN-4** expands both the generator and discriminator to four convolutional stages.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/DCGAN4.svg" title="DCGAN-4 architecture" alt="DCGAN-4 generator and discriminator architecture with four convolutional stages" class="img-fluid rounded z-depth-1" %}
+
+**DCGAN-5** uses the DCGAN-4 architecture and extends training from 100 to 200 epochs.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/DCGAN5.svg" title="DCGAN-5 architecture" alt="DCGAN-5 architecture matching DCGAN-4, with training extended to 200 epochs" class="img-fluid rounded z-depth-1" %}
+
+</details>
+
 The useful question was not which architecture looked most sophisticated. It was which changes produced a measurable improvement, which merely increased cost, and which made training worse. Four comparisons carry most of that story:
 
 1. CNN-1 offered a strong accuracy–training-cost tradeoff, while CNN-2 reached the highest classifier accuracy.
@@ -69,13 +150,7 @@ The fully convolutional family replaced the dense head with global pooling. FCNN
 This was one deterministic split and seed. It does not establish that FCNN-4 is generally unstable or that FCNN-3 is always better. A multi-seed study would be needed to separate architecture quality from initialization sensitivity.
 
 <details markdown="1">
-<summary><strong>Classifier architecture and training record</strong></summary>
-
-The appendix retains the complete architecture diagrams and training curves without placing every variant in the main reading path.
-
-{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CNN1.svg" title="CNN-1 architecture" alt="CNN-1 architecture from MNIST input through three convolutional layers to a softmax classifier" class="img-fluid rounded z-depth-1" %}
-
-{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/FCNN4.svg" title="FCNN-4 architecture" alt="FCNN-4 architecture with five five-by-five convolutional layers and global average pooling" class="img-fluid rounded z-depth-1" %}
+<summary><strong>Classifier training record</strong></summary>
 
 ```plotly
 {% include plotly/image-generation/cnn-1-training.json %}
@@ -126,9 +201,7 @@ I tested five CVAE variants with a two-dimensional latent space. That made the l
 The result is not that two-dimensional latent spaces are generally unsuitable. In this experiment, interpretability came with a capacity constraint, and additional depth did not reliably resolve it.
 
 <details markdown="1">
-<summary><strong>Selected CVAE architecture, curves, and latent projections</strong></summary>
-
-{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CVAE1.svg" title="CVAE-1 architecture" alt="CVAE-1 encoder and decoder architecture with a two-dimensional latent space" class="img-fluid rounded z-depth-1" %}
+<summary><strong>CVAE curves and latent projections</strong></summary>
 
 ```plotly
 {% include plotly/image-generation/cvae-1-training.json %}
@@ -181,11 +254,7 @@ DCGAN-5 produced the strongest samples in this set. Because the configurations c
 ```
 
 <details markdown="1">
-<summary><strong>DCGAN training curves and selected architectures</strong></summary>
-
-{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/DCGAN1.svg" title="DCGAN-1 architecture" alt="Baseline DCGAN-1 generator and discriminator architecture" class="img-fluid rounded z-depth-1" %}
-
-{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/DCGAN4.svg" title="DCGAN-4 and DCGAN-5 architecture" alt="Deeper generator and discriminator architecture used by DCGAN-4 and DCGAN-5" class="img-fluid rounded z-depth-1" %}
+<summary><strong>DCGAN training curves</strong></summary>
 
 ```plotly
 {% include plotly/image-generation/dcgan-1-training.json %}
