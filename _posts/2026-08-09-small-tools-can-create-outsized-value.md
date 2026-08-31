@@ -36,7 +36,7 @@ Its narrow scope also made the limits clearer. A larger search area could find m
 
 ## Removing days from survey cleaning
 
-[Cleaning Open-Ended Survey Responses at Scale]({% link _projects/cleaning-open-ended-brand-responses-at-scale.md %}) addressed a different but structurally similar bottleneck.
+[Cleaning Open-Ended Survey Responses at Scale]({% link _projects/cleaning-open-ended-survey-responses-at-scale.md %}) addressed a different but structurally similar bottleneck.
 
 Brand-awareness surveys contain free-text answers with misspellings, abbreviations, partial names, and multiple variants of the same brand. Before analysts could use those responses, they had to build correction dictionaries and standardize the text manually. That mechanical preparation could take several days for a survey wave.
 
