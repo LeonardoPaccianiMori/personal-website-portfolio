@@ -88,7 +88,7 @@
     <text x="122" y="67" class="name">PostgreSQL relational warehouse</text>
     <text x="122" y="92" class="detail">A fixed schema supports feature engineering and modelling</text>
   </g>
-  <path d="M480 1282v52H240v26" class="flow" />
+  <path d="M480 1282v38H240v40" class="flow" />
 
   <g transform="translate(50 1360)">
     <rect width="380" height="220" rx="18" class="card" />
