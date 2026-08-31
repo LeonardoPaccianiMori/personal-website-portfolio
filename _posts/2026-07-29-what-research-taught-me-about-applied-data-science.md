@@ -8,58 +8,54 @@ categories: [thoughts]
 featured: false
 ---
 
-My career as an academic has taught me how to work on a result to make it as difficult to attack as possible. That's one of the most important skills of an academic, given how one's success in academia is largely dictated by the ability to show other people (e.g., through publications in scientific journals) that their work is rigorous and correct: before being able to publish a result, one needs to learn how to anticipate criticism, investigate edge cases, and keep working until every single line can be defended through peer review.
+Academic research taught me how to work on a result until it became difficult to attack. Before I could ask other people to accept a claim, I had to anticipate criticism, investigate edge cases, and make sure that I could defend what each experiment did and did not show.
 
-This means that academia poses large incentives to publish a result only when it is as close as possible to perfect and unassailable (things have changed in the past decade, but I believe this is still true), even if this means taking another six months to do additional experiments to verify the soundness of your claims.
+That discipline was essential. It also created a strong pull towards completeness. In my experience, another experiment often felt worthwhile if it could close a possible gap before peer review, even if it could add months to a project.
 
-When moving to industry (as anyone who made the jump from academia knows), the incentives change dramatically: good work does _not_ have to be absolutely perfect. It needs t be good enough to create impact.
+When I moved to industry, the incentives changed. Good work did not have to be as close to unassailable as I could make it. It had to be reliable enough for its purpose, delivered in time to matter, and capable of creating an impact.
 
-This of course doesn't mean that I had to "lower my standards" when I left academia. I simply learned that a standard only makes sense in relation to a purpose: does it make sense to spend one additional week to improve a model's metric by a few percentage points? That of course depends on what the purpose of the model is: if we are trying to detect financial fraud, then it'll be definitely worth to spend more time to improve the model, since even a few more percentage points in performance can mean significant amount of money saved. If, on the other hand, we are building a model for lower-stake applications (e.g., a recommendation engine, a classification of customer feedback etc.), then the additional week might bring very little value.
+I did not need to lower my standards. I needed to stop treating the maximum possible standard as the correct one for every problem. The amount of investigation that a result deserves depends on how it will be used, what can go wrong, and what those errors would cost. A model that supports a high-stakes decision demands a different level of scrutiny from a tool that helps someone sort or explore information.
 
-Therefore, after moving to industry I learned how to calibrate the rigour learned in academia to the problems to be solved, the deadline, and the results being produced.
+The difficult lesson was not that rigor matters less in industry. It was that rigor has to be calibrated.
 
 ## Anticipating criticism still matters
 
-One of the academic habits I use most often is trying to see my own work through the eyes of a sceptical reader.
+One academic habit transferred almost unchanged: I still try to see my own work through the eyes of a sceptical reader.
 
 This is especially useful when I prepare presentations for internal teams or clients. I look for claims that could be misunderstood, conclusions that need qualification, assumptions someone might challenge, and places where additional evidence may be needed. Depending on what I find, I revise the explanation, add supporting analysis, prepare backup material, or make sure I can answer the likely question.
 
-The goal is no longer to survive peer review. It is to make the reasoning clear and credible to people who need to assess or use the work. The setting has changed, but the ability to anticipate criticism has transferred almost directly.
+The goal is no longer to survive peer review. It is to make the reasoning clear and credible to people who need to assess or use the work.
 
-What has changed is how far I follow every possible objection. In my academic work, I often treated even an unlikely edge case as a potential problem during review, so investigating it in advance was worth the effort. In applied work, investigating every edge case can consume time without making an application work better or an analysis more useful.
+What changed is how far I follow every possible objection. During my academic work, even an unlikely edge case could become important during review, so investigating it in advance was often sensible. In applied work, the same investigation may consume time without making an application more dependable or an analysis more useful. I now have to ask whether an objection exposes a material weakness or only an incomplete corner of the work.
 
 ## Data is the result of an experiment
 
-Experimental thinking also affects how I approach data. A dataset is not simply a table that appeared fully formed: it is the product of a collection method, and that method determines what the observations can support.
+Experimental research also changed how I look at a dataset. A table did not simply appear. It was produced by a collection method, and that method determines what the observations can support.
 
-Location data offers a simple example. A person's position may be inferred through GPS, cellular networks, or Wi-Fi, and those methods have different error characteristics. If a question requires fine spatial resolution, the observed accuracy of the source must support it. If the analysis only needs a coarser pattern, a less precise source may be entirely adequate.
+Location data offers a simple example. A person's position may be inferred through GPS, cellular networks, or Wi-Fi, and those methods have different error characteristics. If a question requires fine spatial resolution, the observed accuracy of the source must support it. If the analysis only needs a coarser pattern, a less precise source may be adequate.
 
-The interesting decision is therefore not which source is most accurate in the abstract. It is how much accuracy the analysis actually requires. Ignoring the collection method risks claiming more precision than the data contains. Insisting on the most precise method regardless of the question confuses technical superiority with fitness for purpose.
+The useful question is not which source is most accurate in the abstract. It is how much accuracy the analysis requires. Ignoring the collection method risks claiming more precision than the data contains. Insisting on the most precise method regardless of the question confuses technical superiority with fitness for purpose.
 
-That connection between measurement and interpretation feels natural after experimental research. Before deciding what to do with data, I want to understand how it came to exist.
+That connection between measurement and interpretation now feels instinctive. Before deciding what to do with data, I want to understand how it came to exist.
 
 ## Learning enough to enter a new field
 
-My academic work also taught me how to operate outside my original training. I studied physics, then moved into biophysics and had to learn a great deal about cellular physiology, particularly bacterial physiology.
+My academic work also taught me how to move beyond my original training. I studied physics, then entered biophysics and had to learn a great deal about cellular physiology, particularly bacterial physiology.
 
-I did not become a biologist, nor did I need to. I learned by studying books and discussing problems with colleagues and my supervisor until I had enough knowledge to navigate the research field confidently and do the work in front of me.
+I did not become a biologist, nor did I need to. I studied books, discussed problems with colleagues and my supervisor, and gradually learned enough to navigate the field and do the research in front of me.
 
-That experience still shapes how I approach unfamiliar domains. Data science repeatedly places me in areas where I am not the subject-matter expert. My task is not to pretend that I already possess the expertise. It is to identify what I need to understand, acquire that knowledge, and become sufficiently fluent to connect the domain problem with the analytical or technical work.
+Data science repeatedly puts me in a similar position. I am often working in a domain where somebody else has deeper subject knowledge. My task is not to pretend that I already possess that expertise. It is to identify what I need to understand, learn it, and become sufficiently fluent to connect the domain problem with the analytical or technical work.
 
-## Good enough is not a percentage
+This is another form of calibration. I do not need to master an entire discipline before I can contribute, but I do need enough understanding to recognize when my assumptions are weak and when I should rely on a domain expert.
 
-The phrase “good enough” can sound like an excuse for careless work. I use it differently. It describes work that satisfies its actual purpose without also trying to eliminate every theoretically possible objection.
+## Deciding when the work is ready
 
-There is no universal threshold. I judge an application partly by whether it behaves appropriately for what it is meant to do. I judge an analysis by whether it is structured well enough to support its conclusions and intended use. Deadlines matter too, because work that arrives after it can have an impact may be less valuable despite being more complete.
+The phrase “good enough” can sound like an excuse for careless work. I use it to describe work that satisfies its actual purpose without also trying to eliminate every theoretically possible objection.
 
-Applied work can also be iterative. An application can be revised after observing how it behaves; an analysis can be refined after feedback reveals which uncertainty matters. In my research, a paper had to present a self-contained claim ready for concentrated scrutiny. Many industry outputs instead become useful by entering the world, being tested against reality, and improving.
+There is no universal threshold. I judge an application partly by whether it behaves appropriately for what it is meant to do. I judge an analysis by whether its evidence and structure support the intended conclusion. I also consider the deadline, because a more complete answer can still be less valuable if it arrives after the decision.
 
-This does not make rigor optional. It changes where rigor belongs. Sometimes another investigation is essential because it could expose a real weakness. Sometimes it would only make the answer later without making it better for its purpose. The difficult part is knowing which situation I am in.
+Applied work gives me another option that research papers rarely did: I can put something into use, observe how it behaves, and improve it. Feedback can show which weakness matters and which concern was only hypothetical. That does not justify releasing work that I know is unreliable. It means that contact with reality can be part of the investigation rather than something that happens only after it is complete.
 
-## Rigor without perfectionism
+I shed my academic reflex to pursue completeness surprisingly quickly, and doing so was liberating. I kept the parts of research that still serve me: testing a claim before presenting it, asking how the data was produced, anticipating criticism, and learning my way into unfamiliar domains.
 
-I shed my academic reflex to pursue completeness surprisingly quickly, and doing so was liberating. I could focus on the quality and impact of the work rather than treating every unanswered question as a threat to it.
-
-What I kept was more valuable than perfectionism: the instinct to test a claim before presenting it, to ask how the data was produced, and to learn my way into an unfamiliar domain. Industry added the discipline of deciding how much investigation the problem actually deserves and when the result is ready to be used.
-
-That combination describes the data scientist I want to be: rigorous without being paralysed by completeness, comfortable learning beyond my original expertise, and focused on producing work that can do something useful.
+Industry added a question that I did not ask often enough before: what would another week of work change? Sometimes the answer is that it could expose a serious weakness, and I keep investigating. Sometimes it would only make a useful result arrive later. Learning to tell those situations apart has become part of the work itself.

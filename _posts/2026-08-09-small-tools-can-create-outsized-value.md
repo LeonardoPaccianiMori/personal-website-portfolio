@@ -2,70 +2,50 @@
 layout: post
 title: "Small tools can create outsized value"
 date: 2026-08-09 10:00:00 +0200
-description: "A narrowly scoped tool can create substantial value when it removes a repetitive bottleneck without trying to replace the judgment around it."
+description: "A demonstrated bottleneck can provide a better product brief than an ambitious but hypothetical opportunity."
 tags: data-science automation product-thinking
 categories: [thoughts]
 featured: false
 ---
 
-Some of the most useful tools I have worked on have had modest ambitions. They did not try to transform an entire profession or anticipate every need their users might ever have. Each did one specific thing that had previously consumed far too much time.
+Some geographic analyses depend on store coordinates that are inaccurate or inconsistent. Correcting them is not conceptually difficult, but repeated lookups and manual decisions can consume hours before the analysis itself begins.
 
-That narrowness was not a limitation to overcome. It was one of the reasons the tools could create value.
+That kind of problem is easy to underestimate. It is not an ambitious product idea, and solving it does not transform the entire workflow. It is simply a recurring step that takes far more time than it should.
 
-A technically impressive system can still be useless if nobody can say precisely what it is for. By contrast, an existing workflow with a repetitive bottleneck often provides a user, a problem, and a way to recognize improvement. The tool may be small in scope, but the time it returns can be substantial.
+I have learned to take these bottlenecks seriously. When a workflow, its users, and its most expensive repetitive step already exist, much of the product brief is already visible. I know who has the problem, what the tool should improve, and how I might recognize whether it helped.
 
-## Small does not mean technically trivial
+I identified the recurring coordinate problem and designed and implemented a reusable workflow for it. The tool matched noisy coordinates to more appropriate geographic features, gave each match an interpretable category, and flagged ambiguous cases for review. Work that had taken hours could then be completed in minutes, and the same process could be reused when the problem appeared again.
 
-I use “small” to describe the boundary of the problem, not the difficulty of the implementation.
+The narrow scope did not make the implementation trivial. A larger search area could find more possible matches, but it also increased the risk of selecting the wrong one. The workflow therefore used conservative defaults and preserved a manual-review path.
 
-A tool that performs one task may still need careful engineering. It must handle imperfect inputs, make its behaviour understandable, expose uncertain cases, and produce outputs that fit the next step in the workflow. A narrow scope does not remove these requirements. It makes them easier to state.
+Its value came from removing one expensive preparatory step without pretending to automate the judgment around the complete analysis.
 
-The distinction matters because technical ambition and practical value are not the same measure. More features, a broader interface, or a more sophisticated architecture may make a project look substantial. They do not establish that it solves a problem someone actually has.
+[Cleaning Open-Ended Survey Responses at Scale]({% link _projects/cleaning-open-ended-survey-responses-at-scale.md %}) addressed a different kind of repetitive work.
 
-Two work projects made this especially clear to me.
+Brand-awareness surveys contain misspellings, abbreviations, partial names, and several versions of the same brand. Analysts had to build correction dictionaries and standardize those responses before they could use them. For one survey wave, that preparation could take several days.
 
-## Removing hours from data preparation
+My role was different here. I helped define the scope, translated the manual process into product requirements, and supervised the development of an LLM-assisted cleaning workflow. A colleague was the primary developer.
 
-Some geographic analyses depend on store coordinates that may be inaccurate or inconsistent. Preparing those locations for analysis involved slow lookups and manual correction—a conceptually understandable task that could nevertheless take hours.
+Users reported that the resulting application reduced the multi-day process to minutes, and the team began using it for recurring work. Unknown or ambiguous mappings still required review. The application accelerated the mechanical part of the process while keeping uncertain decisions visible to the analyst.
 
-I identified the recurring problem and designed and implemented a reusable workflow to address it. The tool matched noisy coordinates to more appropriate geographic features, made its match categories interpretable, and flagged ambiguous cases for review. What had taken hours could then be completed in minutes, and the workflow could be reused when the same problem appeared again.
+The two tools used different methods, and I had different responsibilities in their development. What they shared was a demonstrated bottleneck. Neither began with a search for something impressive to build. Each began with work that people were already doing and a specific reason that work was taking too long.
 
-The value did not come from automating an entire geographic analysis. It came from removing one expensive preparatory step that stood in the way of that analysis.
+An existing bottleneck answers questions that speculative product ideas often leave open:
 
-Its narrow scope also made the limits clearer. A larger search area could find more possible matches while increasing the risk of choosing the wrong one. The workflow therefore used conservative defaults and preserved a path for manual review. Automation accelerated the repeated work without pretending that every location could be resolved mechanically.
+- Who will use the tool?
+- Which step should become faster or more dependable?
+- What behaviour counts as correct?
+- Where must a person remain involved?
+- What will improve if the tool works?
 
-## Removing days from survey cleaning
+These answers do not guarantee adoption or quality. They do, however, give the project a concrete basis for defining success. A proposed feature can be judged by whether it removes the constraint rather than by whether it makes the system appear more complete.
 
-[Cleaning Open-Ended Survey Responses at Scale]({% link _projects/cleaning-open-ended-survey-responses-at-scale.md %}) addressed a different but structurally similar bottleneck.
+This is why I now see a demonstrated bottleneck as more than an inconvenience. It can be a better starting point than a broad opportunity whose users, workflow, and practical value are still hypothetical.
 
-Brand-awareness surveys contain free-text answers with misspellings, abbreviations, partial names, and multiple variants of the same brand. Before analysts could use those responses, they had to build correction dictionaries and standardize the text manually. That mechanical preparation could take several days for a survey wave.
+Broader applications can create substantial value, and exploratory prototypes can be useful even before their final users are known. A prototype may exist to answer whether an approach can work or whether an interaction is worth developing.
 
-I helped define the scope, translate the existing manual process into product requirements, and supervise the development of an LLM-assisted cleaning workflow. I was not its primary developer. Users reported that the resulting application reduced the multi-day process to minutes; it then entered active use by the team whose workflow it supported.
+The problem begins when exploration moves towards delivery without ever making its purpose concrete. Adding capabilities then increases what the system can do without clarifying why anybody needs it.
 
-Here too, the goal was not to eliminate judgment. Unknown or ambiguous mappings still needed review. The tool automated the repetitive part of the process and made its outputs inspectable, freeing the analysts from much of the mechanical cleaning so they could spend their time on higher-value work.
+When I consider where automation might help, I now start with the work rather than the technology. Where does time disappear? Which part is repetitive? Which decisions require real judgment, and which steps merely stand in their way?
 
-## Existing bottlenecks make value visible
-
-These examples share more than a small scope. In both cases, the users and the workflow already existed. The bottleneck was demonstrated rather than hypothetical.
-
-That makes several important questions easier to answer. Who will use the tool? Which step should become faster? What behaviour counts as correct? Where must a person remain involved? What would improve if the tool worked?
-
-When those answers are unclear, it is possible to build something sophisticated, polished, and ultimately useless. There is no stable definition of success because the project has not established which problem it is trying to solve.
-
-A well-defined bottleneck provides a much stronger starting point. It does not guarantee adoption or quality, but it connects implementation choices to an observable need. Features can be evaluated by whether they help remove the constraint rather than by whether they make the tool appear more complete.
-
-## This is not an argument against ambition
-
-Not every valuable project begins as a narrow automation, and this is not the only way I approach building tools. Broader applications can create substantial value, while exploratory prototypes can help discover whether an idea is technically or practically viable.
-
-An exploratory prototype can have an open-ended implementation while still possessing a clear scope: its purpose may be to answer “Can this approach work?” or “Would this interaction be useful?” Exploration becomes a problem only when a project moves toward delivery without ever deciding what the actual tool is supposed to do.
-
-At that point, ambition needs boundaries. The intended users, workflow, behaviour, and purpose must become concrete enough to guide the work. Otherwise, adding capabilities only increases the number of things the project can do without clarifying why anyone needs it.
-
-## Start by looking for the bottleneck
-
-When considering where automation might help, one productive place to look is an existing workflow that people already understand. Which step is repetitive? Which part consumes disproportionate time? Which activity is necessary but does not require the full judgment of the person performing it?
-
-Sometimes the answer calls for an ambitious system. Sometimes it calls for one carefully bounded tool that does one job well, preserves human review where it matters, and gives people their time back.
-
-The size of the solution is not the size of its value.
+Sometimes those questions lead to an ambitious system. Sometimes they lead to one carefully bounded tool that returns hours or days to the people already doing the work. That is often enough to make the tool worth building.
