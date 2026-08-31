@@ -6,20 +6,6 @@ This website is based on [al-folio](https://github.com/alshedivat/al-folio),
 copyright Maruan Al-Shedivat and contributors, under the MIT License. The
 preserved license is in [LICENSES/al-folio-MIT.txt](LICENSES/al-folio-MIT.txt).
 
-## Real-estate pipeline icons
-
-The flattened real-estate pipeline illustration contains icons downloaded from
-[Flaticon](https://www.flaticon.com/) under Flaticon's attribution-based free
-license. The individual source icons are not redistributed separately.
-
-- [Artificial Intelligence #900961](https://www.flaticon.com/free-icon/artificial-intelligence_900961) — Magnific
-- [Dashboard #2329087](https://www.flaticon.com/free-icon/dashboard_2329087) — Eucalyp
-- [Data Lake #6357012](https://www.flaticon.com/free-icon/data-lake_6357012) — Magnific
-- [Data Warehouse #9850863](https://www.flaticon.com/free-icon/data-warehouse_9850863) — Magnific
-- [Linear Regression #2103601](https://www.flaticon.com/free-icon/linear-regression_2103601) — Becris
-- [Synthetic #18857214](https://www.flaticon.com/free-icon/synthetic_18857214) — zero_wing
-- [Web Browser #8073033](https://www.flaticon.com/free-icon/web-browser_8073033) — Magnific
-
 ## PxHere photographs
 
 The project header photographs linked below were obtained from PxHere, where

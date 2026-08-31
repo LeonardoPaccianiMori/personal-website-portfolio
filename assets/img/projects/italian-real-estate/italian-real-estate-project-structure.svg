@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1640" role="img" aria-labelledby="pipeline-title pipeline-desc">
+  <title id="pipeline-title">Italian real-estate project pipeline</title>
+  <desc id="pipeline-desc">A vertical pipeline from property listings through Airflow collection, MongoDB storage, ETL, PostgreSQL, synthetic-data generation, rental-income modelling, and a Tableau dashboard.</desc>
+  <defs>
+    <marker id="pipeline-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 7 3 0 6Z" fill="#2698ba" />
+    </marker>
+    <style>
+      .heading { fill: #f8f9fa; font: 700 34px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .subheading { fill: #a8aaad; font: 400 18px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .phase { fill: #2698ba; font: 700 13px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 1.8px; }
+      .name { fill: #f8f9fa; font: 700 22px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .detail { fill: #a8aaad; font: 400 16px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .card { fill: #212529; stroke: #3a3f44; stroke-width: 2; }
+      .icon { fill: none; stroke: #2698ba; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; }
+      .flow { fill: none; stroke: #2698ba; stroke-width: 3; marker-end: url(#pipeline-arrow); }
+    </style>
+  </defs>
+  <rect width="960" height="1640" rx="28" fill="#1c1c1d" />
+  <text x="72" y="72" class="heading">From listings to decision support</text>
+  <text x="72" y="108" class="subheading">Collection, storage, transformation, synthesis, and presentation</text>
+
+  <g transform="translate(72 150)">
+    <rect width="816" height="112" rx="18" class="card" />
+    <rect x="28" y="26" width="64" height="54" rx="7" class="icon" />
+    <path d="M28 42h64M38 34h2M48 34h2M58 34h2M40 68l12-12 10 8 16-18" class="icon" />
+    <text x="122" y="35" class="phase">SOURCE</text>
+    <text x="122" y="67" class="name">Italian property listings</text>
+    <text x="122" y="92" class="detail">Public listing pages across provinces and property types</text>
+  </g>
+  <path d="M480 262v42" class="flow" />
+
+  <g transform="translate(72 320)">
+    <rect width="816" height="112" rx="18" class="card" />
+    <circle cx="60" cy="53" r="9" class="icon" />
+    <circle cx="35" cy="77" r="8" class="icon" />
+    <circle cx="85" cy="77" r="8" class="icon" />
+    <path d="M54 60 41 71M66 60l13 11M35 69V42h50v27" class="icon" />
+    <text x="122" y="35" class="phase">COLLECTION</text>
+    <text x="122" y="67" class="name">Scraping workflows</text>
+    <text x="122" y="92" class="detail">Apache Airflow schedules collection jobs</text>
+  </g>
+  <path d="M480 432v42" class="flow" />
+
+  <g transform="translate(72 490)">
+    <rect width="816" height="112" rx="18" class="card" />
+    <ellipse cx="60" cy="38" rx="29" ry="12" class="icon" />
+    <path d="M31 38v38c0 7 13 12 29 12s29-5 29-12V38M31 57c0 7 13 12 29 12s29-5 29-12" class="icon" />
+    <text x="122" y="35" class="phase">RAW STORAGE</text>
+    <text x="122" y="67" class="name">MongoDB data lake</text>
+    <text x="122" y="92" class="detail">Flexible documents retain the evolving source structure</text>
+  </g>
+  <path d="M480 602v42" class="flow" />
+
+  <g transform="translate(72 660)">
+    <rect width="816" height="112" rx="18" class="card" />
+    <path d="M30 44h43M61 31l13 13-13 13M90 72H47M59 59 46 72l13 13" class="icon" />
+    <text x="122" y="35" class="phase">TRANSFORMATION</text>
+    <text x="122" y="67" class="name">ETL workflows</text>
+    <text x="122" y="92" class="detail">Apache Airflow coordinates cleaning and normalization</text>
+  </g>
+  <path d="M480 772v42" class="flow" />
+
+  <g transform="translate(72 830)">
+    <rect width="816" height="112" rx="18" class="card" />
+    <ellipse cx="60" cy="38" rx="29" ry="12" class="icon" />
+    <path d="M31 38v38c0 7 13 12 29 12s29-5 29-12V38M31 57c0 7 13 12 29 12s29-5 29-12" class="icon" />
+    <text x="122" y="35" class="phase">CURATED STORAGE</text>
+    <text x="122" y="67" class="name">MongoDB non-relational warehouse</text>
+    <text x="122" y="92" class="detail">Cleaned documents support the transition to a fixed schema</text>
+  </g>
+  <path d="M480 942v42" class="flow" />
+
+  <g transform="translate(72 1000)">
+    <rect width="816" height="112" rx="18" class="card" />
+    <path d="M30 44h43M61 31l13 13-13 13M90 72H47M59 59 46 72l13 13" class="icon" />
+    <text x="122" y="35" class="phase">TRANSFORMATION</text>
+    <text x="122" y="67" class="name">Relational ETL</text>
+    <text x="122" y="92" class="detail">Records are mapped into stable analytical tables</text>
+  </g>
+  <path d="M480 1112v42" class="flow" />
+
+  <g transform="translate(72 1170)">
+    <rect width="816" height="112" rx="18" class="card" />
+    <ellipse cx="60" cy="38" rx="29" ry="12" class="icon" />
+    <path d="M31 38v38c0 7 13 12 29 12s29-5 29-12V38M31 57c0 7 13 12 29 12s29-5 29-12M47 31v57M73 31v57" class="icon" />
+    <text x="122" y="35" class="phase">ANALYTICAL STORAGE</text>
+    <text x="122" y="67" class="name">PostgreSQL relational warehouse</text>
+    <text x="122" y="92" class="detail">A fixed schema supports feature engineering and modelling</text>
+  </g>
+  <path d="M480 1282v28H267v22" class="flow" />
+
+  <g transform="translate(72 1340)">
+    <rect width="390" height="220" rx="18" class="card" />
+    <circle cx="56" cy="55" r="7" class="icon" />
+    <circle cx="35" cy="83" r="7" class="icon" />
+    <circle cx="77" cy="83" r="7" class="icon" />
+    <path d="M52 62 39 77M60 62l13 15M35 90v20M77 90v20" class="icon" />
+    <text x="112" y="35" class="phase">SYNTHESIS</text>
+    <text x="112" y="67" class="name">Synthetic study data</text>
+    <text x="112" y="94" class="detail">Custom KNN generator</text>
+    <text x="112" y="118" class="detail">implemented with scikit-learn</text>
+    <path d="M32 158h326" stroke="#3a3f44" stroke-width="2" />
+    <text x="32" y="190" class="detail">No source or synthetic rows are distributed</text>
+  </g>
+
+  <g transform="translate(498 1340)">
+    <rect width="390" height="220" rx="18" class="card" />
+    <path d="M32 102V54h18v48M60 102V72h18v30M88 102V40h18v62M26 102h86" class="icon" />
+    <text x="132" y="35" class="phase">DECISION SUPPORT</text>
+    <text x="132" y="67" class="name">Model and dashboard</text>
+    <text x="132" y="94" class="detail">Random Forest rental estimates</text>
+    <text x="132" y="118" class="detail">Tableau and geospatial views</text>
+    <path d="M32 158h326" stroke="#3a3f44" stroke-width="2" />
+    <text x="32" y="190" class="detail">Exploratory results, not investment advice</text>
+  </g>
+  <path d="M462 1450h26" class="flow" />
+</svg>

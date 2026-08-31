@@ -48,7 +48,7 @@ That is the point where PostgreSQL stopped being a "nice to have" and became the
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-project-structure.png" title="Data pipeline architecture" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-project-structure.svg" title="Data pipeline architecture" alt="Pipeline from property listings through MongoDB and PostgreSQL to synthetic data, modelling, and dashboard presentation" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

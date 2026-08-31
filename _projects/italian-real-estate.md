@@ -46,11 +46,11 @@ The analytical results on this page come from synthetic data designed to preserv
 
 <div class="row">
   <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-project-structure.png" title="Project pipeline" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-project-structure.svg" title="Project pipeline" alt="Pipeline from property listings through collection, storage, transformation, synthetic-data generation, modelling, and dashboard presentation" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 <div class="caption">
-  End-to-end data pipeline from collection to interactive dashboard. See the <a href="{{ '/licensing/' | relative_url }}">icon attributions</a>.
+  End-to-end data pipeline from collection to interactive dashboard.
 </div>
 
 Apache Airflow orchestrated collection jobs across Italian provinces and listing types. MongoDB supported the evolving source structure; I later moved the cleaned data into a fixed PostgreSQL schema. A custom KNN-based generator created synthetic rows, and a Random Forest estimated rental income from property features. Tableau and geospatial analysis turned the output into an interface for exploring returns.

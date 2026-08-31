@@ -27,6 +27,5 @@ CC BY 4.0.
 
 The complete repository scope map is in
 [LICENSE.md](https://github.com/LeonardoPaccianiMori/personal-website-portfolio/blob/main/LICENSE.md),
-and third-party credits—including the transformer-poetry thumbnail and all
-seven Flaticon icons used in the real-estate pipeline illustration—are in
+and third-party credits—including the transformer-poetry thumbnail—are in
 [THIRD_PARTY_NOTICES.md](https://github.com/LeonardoPaccianiMori/personal-website-portfolio/blob/main/THIRD_PARTY_NOTICES.md).
