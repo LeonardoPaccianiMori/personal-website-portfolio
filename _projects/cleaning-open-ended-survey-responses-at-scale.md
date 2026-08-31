@@ -22,22 +22,22 @@ project_overview:
   Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
 </div>
 
-## Summary and my role
+## Automation that knows when to stop
 
-I supervised the development of an internal LLM-assisted workflow for cleaning open-ended brand-survey responses. A colleague was the primary developer. I defined the end-to-end workflow, reviewed successive versions, and helped troubleshoot difficult issues.
+Open-ended brand-awareness answers are rarely tidy. The same brand can appear with misspellings, abbreviations, partial names, or several inconsistent variants. Before analysts can calculate metrics, somebody has to decide which answers belong together.
 
-The deployed application is now used autonomously for recurring Consumer Insight work. After using it on real survey waves, users reported that it reduced a process that had taken multiple days to minutes. This is a user-reported result, not an independently measured benchmark.
+The risk is easy to overlook: a confident but incorrect mapping can change the analysis that follows. The workflow was therefore designed to be conservative. It standardizes repeatable cases while making uncertainty visible.
 
-## The cleaning problem
+## My contribution
 
-Open-ended brand-awareness answers contain misspellings, abbreviations, partial names, and inconsistent variants. Analysts must standardize these responses before they can calculate metrics or compare respondent segments.
+I supervised the development of the internal application; a colleague was the primary developer. I defined the end-to-end workflow, reviewed successive versions, and helped troubleshoot difficult issues.
 
-An incorrect mapping can distort the downstream analysis. For that reason, the important design choice was not aggressive automation. It was conservative, reviewable cleaning.
+A central review question was where useful automation should end and analyst judgment should begin. That boundary shaped the workflow as much as the model itself.
 
-## Conservative automation
+## Making uncertainty part of the output
 
-The workflow uses the product category as context, proposes consistent brand labels, and produces analysis-ready output. It does not force every response into a known brand.
+The application uses the product category as context and proposes consistent brand labels. When an answer is ambiguous or unrecognized, it enters a manual-review step instead of being forced into the closest known brand.
 
-Ambiguous or unrecognized answers enter a manual-review step. The user can resolve the mapping or retain the answer explicitly as `unknown`. This concentrates human judgment on uncertain cases while making repeatable cases much faster to process.
+The user can resolve the mapping or keep the response explicitly as `unknown`. This small option is important: it lets the cleaned dataset admit uncertainty rather than hide it.
 
-The result is a human-in-the-loop workflow: autonomous recurring use for the common cases, clear review boundaries for the difficult ones, and no claim that analyst judgment has been removed.
+The deployed application is now used for recurring Consumer Insight work. After using it on real survey waves, users reported that a process which had taken several days could be completed in minutes. The estimate is user-reported, but the practical lesson is clear: automation can save substantial time without pretending that every case is equally certain.

@@ -38,19 +38,21 @@ project_actions:
   Handwritten digits created by DCGAN-5
 </div>
 
-## Summary
+## When more complexity helped—and when it did not
 
-I compared seven classifiers and ten generative configurations on MNIST, then exported the best generator for an in-browser demonstration. The project examined whether added complexity produced useful gains under the limits of one personal laptop.
+This project compared seven image classifiers and ten generative configurations on MNIST. The study asked when a more complex architecture produced a useful improvement, when it made training less stable, and what those differences looked like when the output could be inspected directly.
 
-CNN-2 reached 98.66% test accuracy. DCGAN-5 produced the best result under the project's generator feature-distance comparison. That metric is useful only inside this study and is not canonical Fréchet inception distance (FID).
+The experiments ran within the limits of one personal laptop. CNN-2 produced the strongest classifier result, and DCGAN-5 led the project-specific generator comparison. I exported DCGAN-5 so that it could run as an interactive demonstration in the browser.
 
-## What I compared
+## Seven classifiers, with different trade-offs
 
-The classifier protocol used separate training, validation, and untouched test splits. Among the convolutional models, CNN-2 reached 98.66% test accuracy, while the smaller CNN-1 reached 98.05% with roughly half the CPU training time. Among the fully convolutional models, FCNN-3 reached 94.60%; the deeper FCNN-4 fell to 78.90%.
+I used separate training, validation, and untouched test splits. CNN-2 achieved the strongest result, with 98.66% test accuracy. The smaller CNN-1 reached 98.05% while taking roughly half as much CPU training time.
 
-For generation, I compared conditional variational autoencoders and deep convolutional GANs. Activation and normalization choices strongly affected stability. DCGAN-5 had the lowest project-specific feature distance, 2.29, ahead of DCGAN-4 at 3.23.
+Additional depth did not always help. Among the fully convolutional models, FCNN-3 reached 94.60%, while the deeper FCNN-4 fell to 78.90%. The failure was part of the result: architectural complexity did not remove the need for careful comparison.
 
-## Principal generator comparison
+For generation, I compared conditional variational autoencoders with deep convolutional GANs. Changes to activation and normalization had a strong effect on training stability. DCGAN-5 produced the best result under the feature-distance measure defined for this project.
+
+## Choosing the generator
 
 ```plotly
 {% include plotly/image-generation/dcgan-feature-distance-comparison.json %}
@@ -59,6 +61,8 @@ For generation, I compared conditional variational autoencoders and deep convolu
 <div class="caption">
   Fréchet distance between 10,000 generated images and the official MNIST test split in CNN-3's 20-dimensional feature space. Lower is better within this project; this is not canonical FID.
 </div>
+
+DCGAN-5 reached a project-specific feature distance of 2.29, ahead of DCGAN-4 at 3.23. This measure supports comparison inside the experiment, but it is not canonical Fréchet inception distance.
 
 ## Try DCGAN-5
 
@@ -92,13 +96,13 @@ For generation, I compared conditional variational autoencoders and deep convolu
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0"></script>
 <script src="{{ '/assets/js/digit-generator.js' | relative_url }}"></script>
 
-The model runs entirely in the browser. It uses pre-discovered seed vectors that often produce the selected class, which approximates conditional generation without changing the underlying DCGAN-5 architecture.
+The model runs entirely in the browser. DCGAN-5 was not trained to accept a digit label directly, so the demonstration uses saved starting points in its latent space that often lead to the selected class. This provides an approximate form of class selection without changing the trained architecture.
 
-## Why MNIST
+## Why a small dataset was useful
 
-MNIST was a controlled environment where architectural choices were visible and experiments could run on one GeForce RTX 3060 laptop GPU. The goal was not a state-of-the-art digit score. It was to see when complexity helped, when it destabilized training, and how model comparisons changed when the outputs became directly inspectable.
+MNIST provided a controlled environment in which architectural choices were visible and the complete experiment could run on one GeForce RTX 3060 laptop GPU. The purpose was to compare behaviour under a practical compute limit, not to claim a state-of-the-art digit result.
 
-## Limitations
+## Boundaries of the comparison
 
 - MNIST is small, so the results do not generalize directly to complex image domains.
 - Training ran on one personal laptop and recorded times are hardware-specific.

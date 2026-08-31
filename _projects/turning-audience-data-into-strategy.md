@@ -22,30 +22,24 @@ project_overview:
   Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
 </div>
 
-## Summary
+## Making large profiles usable
 
-I built and maintain a deployed internal product for exploring large consumer-segment profiles. It turns structured segment data into concise summaries, curated charts, and grounded answers to custom questions.
+Consumer-segment profiles can contain many variables and comparison points. The information is valuable, but large tabular exports make it slow to find the patterns that could support a strategic discussion.
 
-The workflow changes a multi-day exploration process into an interactive task that takes minutes. It supports analysis; it does not replace the human review needed before client-facing use.
-
-## My role
+I built an internal product that turns those structured profiles into a guided exploration. It gives users concise section summaries, selected charts, and a way to ask questions about the complete dataset. A process that previously took multiple days can now happen interactively in minutes.
 
 I am the primary developer and technical owner. I designed the workflow, developed the application, and continue to maintain the deployed product.
 
-## From exports to guided exploration
+## From tables to guided questions
 
-Segment-profile outputs can contain many dimensions and comparison points. The early problem was not a lack of data. It was that large tabular exports were slow to explore and difficult to turn into a strategic discussion.
+The product did not begin with its current interface. Early versions worked more directly with large exports. Over time, I added several ways into the data: summaries for orientation, charts for visible patterns, and questions for following a specific line of inquiry.
 
-The product evolved from direct work with those tables into a clearer interface:
+Each part serves a different purpose. The summaries help users decide where to look. The charts make comparisons easier to inspect. Questions let them move beyond the curated views without losing access to the underlying evidence.
 
-- section-level summaries provide an entry point;
-- curated charts make important patterns easier to inspect;
-- grounded questions let users investigate the complete structured output.
+## A reliability lesson hidden in the input
 
-This progression reduced the need to search large exports manually while keeping the underlying evidence available for review.
+One early problem looked like a prompting problem but came from the data representation. When the structure of a large table was lost, the model struggled to follow relationships between questions, values, and comparison groups.
 
-## Reliability through structured input
+Preserving that structure made the answers more dependable. It helped the model work from the supplied data instead of producing unsupported codes or conclusions. This became one of the main design rules for the product: reliable model behaviour starts with reliable input structure.
 
-Early versions became unreliable when the structure of large tables was lost. Preserving the input structure made the relationships easier for the model to follow and helped it answer from the supplied evidence instead of inventing unsupported claims.
-
-That lesson became a core design constraint: input structure can matter as much as prompt wording. The product accelerates exploration, but people remain responsible for checking the evidence and deciding what belongs in client work.
+The application makes exploration faster. People still check the evidence and decide which findings are suitable for client work.

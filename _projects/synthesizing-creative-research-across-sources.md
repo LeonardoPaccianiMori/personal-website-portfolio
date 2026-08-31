@@ -22,26 +22,22 @@ project_overview:
   Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
 </div>
 
-## Summary
+## Keeping evidence attached
 
-I designed and implemented an exploratory multi-agent prototype for creative research. It completed an end-to-end loop across public web pages, video sources, and user-supplied creative material, then produced a cited report.
+Creative research often brings together material from web pages, videos, and references supplied by the user. An agent can summarize each source, but a longer chain creates a new risk: by the time several summaries become one report, the connection between a claim and its evidence can disappear.
 
-The technical loop worked. Adoption was not tested, and business impact was not validated. Higher-priority work caused the project to pause.
+That became the central problem for this exploratory prototype. I designed and implemented a workflow in which source material and citations stayed attached as findings moved from research to synthesis.
 
-## Evidence-preserving synthesis
+## A small research team of agents
 
-The central technical problem was not splitting research across agents. It was combining their findings without losing the evidence behind them.
+Different agents handled different parts of the work. Web and video researchers collected findings from public sources. Another agent inspected creative material supplied by the user. Downstream agents then organized those findings into a structured report.
 
-I designed the workflow so that source material and citations stayed attached as findings moved through the system. The final synthesis organized the collected evidence into a readable report without separating claims from their sources.
+The division of work was straightforward. Preserving provenance was harder. I kept the evidence with each finding instead of asking later agents to recreate or guess its source. The final report could therefore remain readable without becoming detached from the material behind it.
 
-The workflow used a small set of specialized roles:
+## What the prototype established
 
-- web and video research agents collected source-grounded findings;
-- an agent inspected creative material supplied by the user;
-- downstream agents combined the findings into a structured report.
+The prototype completed the full path from multi-source research to a cited report. It showed that the evidence-preserving workflow could operate end to end and gave me practical experience coordinating specialized agents.
 
-## Boundaries and status
+The report was still research support rather than final creative direction. Public sources may be incomplete, outdated, or wrong, and citations make a claim inspectable rather than automatically reliable.
 
-The output was research support, not final creative direction. Public sources can be incomplete, outdated, or noisy, and a coherent cited report can still be wrong or incomplete. Human review would remain necessary before strategic use.
-
-The prototype demonstrated a complete cited reporting loop and gave me practical experience coordinating specialized agents. It did not demonstrate product adoption or commercial value. It remains paused because other work took priority, not because the end-to-end loop failed.
+The project paused when other work took priority. Adoption was not tested, so there is no claim of production use or commercial impact. What remains is a working exploration of a more useful multi-agent question: not how many agents can participate, but whether their combined answer can still show its work.

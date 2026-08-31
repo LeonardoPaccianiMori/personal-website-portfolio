@@ -22,28 +22,26 @@ project_overview:
   Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
 </div>
 
-## Summary
+## The report was the real product
 
-I designed and built an internal AI application for qualitative interview analysis. It turns Italian transcripts, interview guides, participant worksheets, and project context into a first thematic report, traceable answers to bespoke questions, and translated client materials.
+The first version of this application was a chatbot for exploring qualitative interview material. It worked, but conversations with researchers exposed a more important need: their work ends in a long, structured report, not a chat session.
 
-The application is deployed and in user testing. Researchers remain responsible for interpretation, revision, and the final client deliverable.
+I therefore rebuilt the experience around a first thematic report organized by the interview guide. Question answering, translation, and session recovery still matter, but they now support the document that researchers must ultimately produce.
 
-## Finding the actual deliverable
+The application works across Italian transcripts, interview guides, participant worksheets, and project context. It is deployed, and I continue to refine it with Consumer Insight colleagues during user testing.
 
-The first version was a chatbot. It worked technically, but researchers explained that their real need was a long, structured report organized around the interview guide. I moved the first-draft thematic report to the centre of the product and retained question answering, translation, and session recovery around it.
+## Letting researchers inspect the evidence
 
-This change mattered more than adding another feature. It aligned the application with the document that researchers must produce.
+A useful draft is not enough if nobody can see where its claims came from. The application first maps the project material: what each document is, who each interviewee is, and how the interview guide structures the research.
 
-## Evidence-grounded interaction
+When a researcher asks a specific question, the agent searches the original documents, narrows the relevant material, and reads the candidate passages directly. This approach is known as Direct Corpus Interaction and is described in [the research paper that introduced the method](https://arxiv.org/abs/2605.05242).
 
-The application maps each project corpus, identifies document roles and interviewees, and creates a synthesis around the interview guide. For bespoke questions, it uses Direct Corpus Interaction: the agent searches the raw corpus, narrows the candidate material, and inspects the evidence directly. [The method is described in this research paper](https://arxiv.org/abs/2605.05242).
+Answers link back to supporting passages. Researchers can inspect the cited paragraph, its surrounding context, the source document, and the interviewee. The application can also translate transcripts and human-prepared presentations from Italian to English while preserving the presentation structure and formatting.
 
-Each answer includes citations to supporting passages. A researcher can inspect the cited paragraph, its surrounding context, its document, and its interviewee. The system also translates Italian transcripts and human-prepared presentations into English while preserving presentation structure and formatting.
+## What users are testing now
 
-## Deployment, testing, and impact
+I designed and built the application end to end. I now maintain and deploy it independently within shared infrastructure that another engineer originally established.
 
-I built the application end to end and now maintain and deploy it independently within shared infrastructure that another engineer originally established. I refine it with feedback from Consumer Insight colleagues.
+Users estimate that it could reduce the full workflow from about one month to about one week. That is their estimate rather than an independently measured benchmark, and researchers still own the interpretation, revision, and final client deliverable.
 
-Users estimate that it could reduce the complete qualitative-analysis workflow from about one month to about one week. This is a qualified user estimate, not an independently measured benchmark.
-
-The unresolved question is the quality and structure of the generated report. The system can produce one, but user testing must still determine what makes that first draft genuinely useful. Human review remains essential before any output becomes a client deliverable.
+The open question is no longer whether the system can produce a report. It is what structure and level of quality will make that first draft genuinely useful. That is the question guiding the current round of user testing.

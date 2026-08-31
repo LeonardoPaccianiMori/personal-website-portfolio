@@ -22,26 +22,24 @@ project_overview:
   Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
 </div>
 
-## Summary
+## A working prototype was only the first test
 
-This was a product-validation and supervision case, not a production success. I supervised and mentored the primary developer of a working prototype that matched client briefs to an internal analytics-capabilities catalogue.
+This project explored whether a chatbot could connect a client brief to the most relevant capabilities in an internal analytics catalogue. The prototype could ask clarifying questions, search the catalogue, suggest possible matches, and explain its reasoning.
 
-The prototype could clarify a brief, find relevant capabilities, and explain why they might fit. Development paused because the maintenance and adoption conditions were not strong enough to justify more engineering.
+That proved the interaction could work. It did not answer the more important product question: would people use it often enough to justify maintaining the knowledge behind it?
 
-## My role
+## My role in the project
 
-I was the supervisor, mentor, tester, and occasional bug fixer. I helped define how the tool should work, reviewed its recommendations with the primary developer, and supported difficult technical issues. I was not its primary developer.
+I supervised and mentored the primary developer. I helped define the intended behaviour, tested recommendations with the primary developer, reviewed successive versions, and occasionally fixed difficult bugs. I was not the main developer.
 
-## What the prototype tested
+This made the project as much about product validation and technical supervision as about the prototype itself.
 
-The chatbot accepted client context, a business problem, and optional data information. It could ask clarifying questions, search the internal catalogue, explain possible matches, and support follow-up discussion.
+## The cost behind the interface
 
-The technical loop worked. The harder questions concerned the product around it.
+Recommendations were only as useful as the catalogue supporting them. That catalogue was incomplete, and keeping capabilities, owners, contacts, and descriptions current would require sustained work.
 
-## Why it paused
+Stakeholder feedback raised a second concern. The intended users were already strongly established in their existing workflows, so a useful prototype would not automatically lead to adoption.
 
-The catalogue was incomplete, and keeping it current would require sustained ownership and maintenance. Stakeholder feedback also indicated that intended users were strongly established in their existing workflows. This created a material adoption risk.
+With no clear demand strong enough to offset those costs, stakeholders recommended keeping the project on hold rather than investing further in the catalogue. No later follow-up arrived, and the prototype did not reach production adoption or demonstrate business impact.
 
-Without clearer demand, that combination did not justify the catalogue work and further product investment. The prototype did not reach production adoption or demonstrate business impact.
-
-The main lesson was product discipline: a working interface does not solve weak demand, high knowledge-maintenance cost, or workflow inertia.
+The pause was a useful product signal. Building more features would not by itself resolve uncertain demand, ongoing catalogue maintenance, or the effort required to change an established workflow. The prototype remains a working exploration rather than an explicitly rejected product.

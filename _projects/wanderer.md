@@ -33,22 +33,22 @@ project_actions:
   A screenshot from the game (<i>Shepherd Rings</i> preset)
 </div>
 
-## Summary
+## A sandbox for disturbing orbits
 
-Wanderer is a playable browser gravity sandbox built with JavaScript and Three.js. You can add planets, disturb their motion, follow the centre of mass, lock the camera to a body, switch between preset systems, and change simulation speed.
+Wanderer gives you a small planetary system and permission to interfere with it. You can add bodies, disturb their motion, follow the centre of mass, attach the camera to a planet, change the simulation speed, or begin from one of several prepared systems.
 
-It is an educational physics toy, not a complete game or a scientific simulator.
+It is a browser-based physics toy built with JavaScript and Three.js. The interesting part is not winning. It is watching a stable-looking system change after one small intervention.
 
-## AI-assisted development
+## Learning to direct AI-generated code
 
-I built Wanderer over a few afternoons to learn how to direct and review an AI-assisted interactive project in a language that was new to me. I defined the behaviour, tested the result, and directed revisions. Codex generated much of the implementation.
+I developed Wanderer over a few afternoons as an experiment in directing and reviewing an interactive project in a language that was new to me. I defined the behaviour, tested what Codex produced, and directed the revisions; Codex generated much of the implementation.
 
-The useful lesson was the amount of explicit supervision needed around interaction design, physical assumptions, and failure cases. I added dependency-free tests for force symmetry, centre of mass, collision conservation, and numerical integration.
+The process required more than describing the desired visual result. Interaction details, physical assumptions, and failure cases all needed explicit review. I added dependency-free tests for force symmetry, centre of mass, collision conservation, and numerical integration so that the core behaviour could be checked outside the visual simulation.
 
-## Physics and limitations
+## Physics that can be played with
 
-The simulation includes N-body gravity, tidal torques, rotational dynamics, deformable bodies, collision merging, and a kick-drift-kick leapfrog integrator.
+Under the interface are N-body gravity, tidal torques, rotational dynamics, deformable bodies, collision merging, and a kick-drift-kick leapfrog integrator.
 
-Wanderer uses dimensionless units and deliberately exaggerated visual and tidal effects. Its collision, deformation, and tidal models are approximations. Numerical accuracy depends on the timestep and system configuration. The result is designed for exploration and play, not scientific prediction.
+The simulation uses dimensionless units and deliberately exaggerates some visual and tidal effects. Its collision, deformation, and tidal models are approximations, and numerical accuracy depends on the timestep and selected system.
 
-The [source code and tests](https://github.com/LeonardoPaccianiMori/portfolio-game-wanderer) are available under the MIT licence.
+Wanderer is meant for exploration rather than scientific prediction. You can [play it in the browser](/wanderer/) or inspect the [source code and tests](https://github.com/LeonardoPaccianiMori/portfolio-game-wanderer), which are available under the MIT licence.

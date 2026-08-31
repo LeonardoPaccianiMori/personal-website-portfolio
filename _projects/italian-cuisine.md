@@ -35,13 +35,15 @@ project_actions:
   <a href="https://pxhere.com/en/photo/1000518">Image source</a>
 </div>
 
-## Summary
+## A recipe is a process
 
-The central decision in this project was to represent each recipe as a graph instead of a flat ingredient list. This preserved ingredients, tools, steps, intermediate products, and order, and gave one structure for historical comparison, geographic analysis, and graph modelling.
+A flat ingredient list tells us what goes into a dish, but not how the dish comes together. For this project, I represented each recipe as a graph so that ingredients, tools, steps, intermediate products, and their order could remain connected.
 
-I built a 790-recipe historical corpus from Pellegrino Artusi's 1891 cookbook and a contemporary corpus of 2,599 regional recipes across all 20 Italian regions. Artusi's coverage is concentrated in Central and Northern Italy, so it is a biased historical baseline rather than a representative national sample.
+The same representation then supported three different questions: how two recipe corpora differed, how ingredients varied across regions, and whether a graph model could recognize geographic patterns.
 
-## An inspectable recipe graph
+I built a historical corpus of 790 recipes from Pellegrino Artusi's 1891 cookbook and a contemporary corpus of 2,599 regional recipes covering all 20 Italian regions. The historical source concentrates on Central and Northern Italy, so it provides an interesting comparison rather than a balanced picture of the whole country.
+
+## Looking inside a recipe graph
 
 <div
   class="neo4j-graph"
@@ -60,9 +62,11 @@ I built a 790-recipe historical corpus from Pellegrino Artusi's 1891 cookbook an
   Graph representation of recipe #76 from Artusi's book (mushroom risotto). Zoom, drag nodes, and hover or click to inspect metadata.
 </div>
 
-I used LLM-assisted extraction and normalization to turn unstructured recipe text into graphs in Neo4j. Python, pandas, PyTorch, and PyTorch Geometric supported the analysis and heterogeneous Graph Attention Network. The model used recipe, ingredient, and step nodes; the richer stored graph retains additional structure for inspection.
+I used LLM-assisted extraction and normalization to turn unstructured recipe text into graphs. Neo4j made those structures inspectable, while Python and PyTorch supported the analysis and modelling.
 
-## Historical comparison
+The interactive example shows more detail than the model eventually used. The stored graph includes tools and intermediate products, while the Graph Attention Network learned from recipe, ingredient, and step nodes.
+
+## Comparing two different corpora
 
 ```plotly
 {% include plotly/italian-cuisine/top-ingredients-scatter.json %}
@@ -72,9 +76,11 @@ I used LLM-assisted extraction and normalization to turn unstructured recipe tex
   Ingredient frequency comparison between the Artusi and contemporary corpora.
 </div>
 
-Artusi's Central and Northern, butter-heavy baseline differs from the contemporary corpus, where olive oil, garlic, and onion are more visible. This compares two differently curated sources. It does not directly measure how Italian cooking changed over time.
+The historical corpus has a Central and Northern, butter-heavy profile. Olive oil, garlic, and onion appear more often in the contemporary corpus.
 
-## Geographic comparison
+The difference is suggestive, but the two sources were assembled in different ways. This is a comparison between corpora, not a direct measurement of how Italian cooking changed over time.
+
+## A broad oil-and-butter pattern
 
 ```plotly
 {% include plotly/italian-cuisine/olive-oil-butter-divide.json %}
@@ -84,19 +90,19 @@ Artusi's Central and Northern, butter-heavy baseline differs from the contempora
   Relative olive-oil and butter frequency in the curated regional recipes. The map describes this corpus, not regional cooking practices in general.
 </div>
 
-Within the contemporary corpus, olive oil is more common in Central and Southern recipes, while butter is more common in Northern recipes.
+Within the contemporary corpus, olive oil appears more often in recipes from Central and Southern Italy, while butter appears more often in Northern recipes. The pattern describes this curated collection rather than every regional cooking practice.
 
-## Graph classification
+## Broad geography was easier to recognize
 
-Macro-regions were substantially easier to classify than individual regions:
+The model found broad geographic structure much more easily than individual regional identities:
 
 - the macro-region model reached 59.49% accuracy and 52.98% macro-F1;
 - the region model reached 20.26% accuracy and 18.50% macro-F1, with heavy overfitting;
 - the hierarchical model reached 22.31% accuracy and 17.82% macro-F1.
 
-This difference was the principal modelling result. The data contained useful broad geographic structure, but not enough clean separation for reliable individual-region classification.
+This gap was the principal modelling result. The graphs contained useful broad geographic signals, but individual regions overlapped too much for reliable classification.
 
-## Limitations and distribution boundary
+## What the project cannot establish
 
 - Artusi's corpus is geographically imbalanced.
 - Both corpora are curated sources, not direct measurements of what Italians cooked.
