@@ -78,11 +78,11 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
     <a class="career-text-link" href="{{ '/projects/' | relative_url }}">View every project <span aria-hidden="true">→</span></a>
   </div>
 
-{% assign featured_titles = "Accelerating Qualitative Interview Analysis|Finding Profitable Real Estate in Italy|A Look Into Italian Cuisine" | split: "|" %}
+{% assign featured_urls = "/projects/accelerating-qualitative-interview-analysis/|/projects/italian-real-estate/|/projects/italian-cuisine/" | split: "|" %}
 
   <div class="career-work-grid">
-    {% for featured_title in featured_titles %}
-      {% assign project = site.projects | where: "title", featured_title | first %}
+    {% for featured_url in featured_urls %}
+      {% assign project = site.projects | where: "url", featured_url | first %}
       {% if project %}
         <article class="career-work-card">
           <a class="career-work-card__image" href="{{ project.url | relative_url }}" tabindex="-1" aria-hidden="true">
@@ -90,7 +90,13 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
           </a>
           <div class="career-work-card__body">
             <p class="career-work-card__type">
-              {% if project.category == "professional" %}Professional project{% else %}Personal project{% endif %}
+              {% case project.category %}
+                {% when "professional" %}Professional project
+                {% when "portfolio" %}Personal project
+                {% when "experimental" %}Experimental project
+                {% when "games" %}Game project
+                {% else %}Project
+              {% endcase %}
             </p>
             <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
             <p>{{ project.description }}</p>

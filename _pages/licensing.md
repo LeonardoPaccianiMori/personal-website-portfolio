@@ -18,8 +18,8 @@ map and the third-party notice. The embedded Wanderer source is MIT-licensed in
 its own repository. Image-generation model bundles and galleries are retained
 as portfolio runtime evidence and are not offered for reuse.
 
-The transformer-poetry project page, its two technical notes dated 15 August
-2026, and the aggregate Plotly JSON files under
+The transformer-poetry project page, its two technical notes dated 12 and 26
+August 2026, and the aggregate Plotly JSON files under
 `_includes/plotly/transformer-poetry/` are CC BY 4.0. That grant does not cover
 material embedded under separate terms. The project thumbnail is derived from
 a PxHere photograph that PxHere marks as CC0; it is not licensed by me under

@@ -26,6 +26,8 @@ layout: default
             Personal project
           {% when 'experimental' %}
             Experimental project
+          {% when 'games' %}
+            Game project
           {% else %}
             Project
         {% endcase %}
@@ -38,6 +40,10 @@ layout: default
       <p class="post-description">{{ page.description }}</p>
     {% endif %}
   </header>
+
+  {% if is_project and page.project_overview %}
+    {% include project_overview.liquid %}
+  {% endif %}
 
   <article
     id="markdown-content"

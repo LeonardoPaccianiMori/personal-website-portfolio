@@ -18,6 +18,8 @@
           Personal project
         {% when 'experimental' %}
           Experimental project
+        {% when 'games' %}
+          Game project
         {% else %}
           Project
       {% endcase %}
@@ -37,9 +39,12 @@
         </svg>
       </a>
       {% if project.github %}
-        <a href="{{ project.github }}" aria-label="View {{ project.title }} source code">
+        <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" aria-label="View {{ project.title }} source code">
           <i class="fa-brands fa-github" aria-hidden="true"></i> Code
         </a>
+      {% endif %}
+      {% if project.play_url %}
+        <a href="{{ project.play_url | relative_url }}" aria-label="Play {{ project.title }}">Play</a>
       {% endif %}
     </div>
   </div>

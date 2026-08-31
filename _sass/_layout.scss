@@ -668,6 +668,57 @@ html[data-theme="dark"] {
   margin-left: auto;
 }
 
+.project-overview {
+  width: 100%;
+  max-width: 940px;
+  margin: -2.4rem auto clamp(3rem, 7vw, 5rem);
+}
+
+.project-overview__grid {
+  display: grid;
+  margin: 0;
+  border: 1px solid var(--global-divider-color);
+  border-radius: var(--site-small-radius);
+  background: var(--global-card-bg-color);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  > div {
+    padding: 1.35rem;
+    border-bottom: 1px solid var(--global-divider-color);
+
+    &:nth-child(odd) {
+      border-right: 1px solid var(--global-divider-color);
+    }
+
+    &:nth-last-child(-n + 2) {
+      border-bottom: 0;
+    }
+  }
+
+  dt {
+    margin-bottom: 0.45rem;
+    color: var(--global-theme-color);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 0;
+    color: var(--site-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+}
+
+.project-overview__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
 .site-wide-content {
   width: 100%;
 }
@@ -744,7 +795,7 @@ html[data-theme="dark"] {
 
 .project-category-nav {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-bottom: clamp(5rem, 10vw, 8rem);
 
@@ -905,6 +956,7 @@ html[data-theme="dark"] {
 
 .site-project-card__links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
@@ -1555,6 +1607,10 @@ footer.sticky-bottom {
 }
 
 @media (max-width: 991px) {
+  .project-category-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .site-project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1594,6 +1650,21 @@ footer.sticky-bottom {
 
   .project-category-nav > a {
     min-height: 155px;
+  }
+
+  .project-overview__grid {
+    grid-template-columns: 1fr;
+
+    > div,
+    > div:nth-child(odd),
+    > div:nth-last-child(-n + 2) {
+      border-right: 0;
+      border-bottom: 1px solid var(--global-divider-color);
+    }
+
+    > div:last-child {
+      border-bottom: 0;
+    }
   }
 
   .site-project-group__header {

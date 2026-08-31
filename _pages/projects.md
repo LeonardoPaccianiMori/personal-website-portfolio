@@ -2,12 +2,12 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Selected professional, personal, and experimental projects showing how I approach applied data-science problems.
+description: Selected professional, personal, experimental, and game projects showing how I approach applied data-science problems.
 eyebrow: Evidence in practice
 wide: true
 nav: true
 nav_order: 2
-display_categories: [professional, portfolio, experimental]
+display_categories: [professional, portfolio, experimental, games]
 horizontal: false
 ---
 
@@ -27,6 +27,11 @@ horizontal: false
     <strong>Experimental projects</strong>
     <small>Learning projects, from compact implementations to larger controlled research studies.</small>
   </a>
+  <a href="#games">
+    <span>04</span>
+    <strong>Games</strong>
+    <small>Playable projects developed through iterative design, technical experimentation, and AI-assisted implementation.</small>
+  </a>
 </nav>
 
 <div class="projects site-project-groups">
@@ -45,6 +50,8 @@ horizontal: false
                   Independent
                 {% when 'experimental' %}
                   Learning by building
+                {% when 'games' %}
+                  Playable systems
               {% endcase %}
             </p>
             <h2 id="{{ category }}-title">
@@ -55,6 +62,8 @@ horizontal: false
                   Personal projects
                 {% when 'experimental' %}
                   Experimental projects
+                {% when 'games' %}
+                  Games
               {% endcase %}
             </h2>
           </div>
@@ -66,6 +75,8 @@ horizontal: false
                 Personal projects developed in my own time, from data acquisition and modelling through the final interface.
               {% when 'experimental' %}
                 Projects built to understand modelling systems through implementation, controlled experiments, and candid evaluation.
+              {% when 'games' %}
+                Playable projects developed through iterative design, technical experimentation, and AI-assisted implementation.
             {% endcase %}
           </p>
         </header>

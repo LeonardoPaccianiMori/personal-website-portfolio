@@ -1,18 +1,22 @@
 ---
 layout: post
-title: "What academic research taught me about rigor—and what industry changed"
-date: 2026-07-29 00:02:00 +0200
+title: "What academic research taught me about rigor, and what industry changed"
+date: 2026-07-29 17:00:00 +0200
 description: "Research taught me to make work defensible; industry taught me to calibrate that rigor to purpose, deadlines, and impact."
 tags: data-science research career
 categories: [thoughts]
 featured: false
 ---
 
-Academic research trained me to make a result as difficult to attack as possible. Before publishing a claim, I learned to anticipate criticism, investigate edge cases, and keep working until I could defend what I was saying through peer review.
+My career as an academic has taught me how to work on a result to make it as difficult to attack as possible. That's one of the most important skills of an academic, given how one's success in academia is largely dictated by the ability to show other people (e.g., through publications in scientific journals) that their work is rigorous and correct: before being able to publish a result, one needs to learn how to anticipate criticism, investigate edge cases, and keep working until every single line can be defended through peer review.
 
-The starkest difference I encountered after moving into industry was that good work did not have to be perfect and unassailable. It had to be good enough to create impact and get something done.
+This means that academia poses large incentives to publish a result only when it is as close as possible to perfect and unassailable (things have changed in the past decade, but I believe this is still true), even if this means taking another six months to do additional experiments to verify the soundness of your claims.
 
-I do not mean that industry taught me to lower my standards. It taught me that a standard only makes sense in relation to a purpose. Research taught me how to make work defensible; applied data science taught me to calibrate that rigor to the question, the deadline, and the kind of result being produced.
+When moving to industry (as anyone who made the jump from academia knows), the incentives change dramatically: good work does _not_ have to be absolutely perfect. It needs t be good enough to create impact.
+
+This of course doesn't mean that I had to "lower my standards" when I left academia. I simply learned that a standard only makes sense in relation to a purpose: does it make sense to spend one additional week to improve a model's metric by a few percentage points? That of course depends on what the purpose of the model is: if we are trying to detect financial fraud, then it'll be definitely worth to spend more time to improve the model, since even a few more percentage points in performance can mean significant amount of money saved. If, on the other hand, we are building a model for lower-stake applications (e.g., a recommendation engine, a classification of customer feedback etc.), then the additional week might bring very little value.
+
+Therefore, after moving to industry I learned how to calibrate the rigour learned in academia to the problems to be solved, the deadline, and the results being produced.
 
 ## Anticipating criticism still matters
 

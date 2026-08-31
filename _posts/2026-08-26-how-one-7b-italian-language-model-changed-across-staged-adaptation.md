@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How one 7B Italian language model changed across staged adaptation to historical prose, poetry, and sonnets"
-date: 2026-08-15 09:00:00 +0200
+date: 2026-08-26 12:30:00 +0200
 description: A descriptive study of weight, loss, embedding, and representation change across three full-weight adaptation stages.
 tags: language-models transformers interpretability model-adaptation evaluation
 categories: [technical-notes]

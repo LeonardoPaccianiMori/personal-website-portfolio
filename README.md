@@ -13,6 +13,7 @@ inspected. It is still under active preparation: the placeholder identity and
 - Professional projects
 - Personal projects
 - Experimental projects
+- Games
 - Writing and technical appendices
 - Bookshelf and playground
 
@@ -34,6 +35,7 @@ documentation for platform-specific setup.
 - [Italian cuisine](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine)
 - [Image generation](https://github.com/LeonardoPaccianiMori/portfolio-image-generation)
 - [Wanderer](https://github.com/LeonardoPaccianiMori/portfolio-game-wanderer)
+- [Transformer poetry](https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry)
 
 ## Licensing
 

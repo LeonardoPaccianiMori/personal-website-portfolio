@@ -28,8 +28,8 @@ modify, or redistribute those materials.
   paths:
 
   - `_projects/transformer-poetry.md`;
-  - `_posts/2026-08-15-how-one-7b-italian-language-model-changed-across-staged-adaptation.md`;
-  - `_posts/2026-08-15-a-narrow-win-that-did-not-make-a-good-poet.md`;
+  - `_posts/2026-08-26-how-one-7b-italian-language-model-changed-across-staged-adaptation.md`;
+  - `_posts/2026-08-12-a-narrow-win-that-did-not-make-a-good-poet.md`;
   - `_includes/plotly/transformer-poetry/*.json`.
 
   Embedded third-party material retains its own terms. The transformer-poetry

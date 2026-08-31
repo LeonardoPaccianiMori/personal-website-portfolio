@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Small tools can create outsized value"
-date: 2026-08-09 00:01:00 +0200
+date: 2026-08-09 10:00:00 +0200
 description: "A narrowly scoped tool can create substantial value when it removes a repetitive bottleneck without trying to replace the judgment around it."
 tags: data-science automation product-thinking
 categories: [thoughts]

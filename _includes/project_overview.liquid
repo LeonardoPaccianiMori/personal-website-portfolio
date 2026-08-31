@@ -1,0 +1,38 @@
+<section class="project-overview" aria-label="Project overview">
+  <dl class="project-overview__grid">
+    <div>
+      <dt>Status and period</dt>
+      <dd>{{ page.project_overview.status }} · {{ page.project_overview.period }}</dd>
+    </div>
+    <div>
+      <dt>My role</dt>
+      <dd>{{ page.project_overview.role }}</dd>
+    </div>
+    <div>
+      <dt>Outcome</dt>
+      <dd>{{ page.project_overview.outcome }}</dd>
+    </div>
+    <div>
+      <dt>Evidence</dt>
+      <dd>{{ page.project_overview.evidence }}</dd>
+    </div>
+  </dl>
+  {% if page.project_actions %}
+    <nav class="project-overview__actions" aria-label="Project actions">
+      {% for action in page.project_actions %}
+        <a
+          class="career-button {% if action.style == 'primary' %}career-button--primary{% else %}career-button--secondary{% endif %}"
+          href="{{ action.url }}"
+          {% if action.external %}
+            target="_blank" rel="noopener noreferrer"
+          {% endif %}
+        >
+          {{ action.label -}}
+          {%- if action.external %}
+            <span aria-hidden="true">↗</span>
+          {%- endif %}
+        </a>
+      {% endfor %}
+    </nav>
+  {% endif %}
+</section>

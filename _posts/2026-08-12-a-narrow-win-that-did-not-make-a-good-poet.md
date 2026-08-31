@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A narrow win that did not make a good poet: evaluating AI-judged DPO with a sealed test"
-date: 2026-08-15 09:10:00 +0200
+date: 2026-08-12 09:10:00 +0200
 description: How a bounded AI-judged preference update survived a sealed test without establishing broad literary improvement.
 tags: language-models DPO evaluation preference-learning responsible-ai
 categories: [technical-notes]
@@ -174,4 +174,4 @@ Public CPU verification checks software behavior and aggregate-evidence hashes. 
 
 I conceived and directed the project, defined its goals, made executive decisions, approved the research plan, reviewed outputs, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol helped design the plan and substantially assisted implementation, tests, execution, and analysis. The work is therefore not independently designed or independently implemented by me.
 
-The complete dual-arc project is summarized in [Teaching Transformers to Write Classical Italian Sonnets]({% link _projects/transformer-poetry.md %}); the companion note examines [how the retained 7B model states changed across the three adaptation stages]({% post_url 2026-08-15-how-one-7b-italian-language-model-changed-across-staged-adaptation %}).
+The complete dual-arc project is summarized in [Teaching Transformers to Write Classical Italian Sonnets]({% link _projects/transformer-poetry.md %}); the companion note examines [how the retained 7B model states changed across the three adaptation stages]({% post_url 2026-08-26-how-one-7b-italian-language-model-changed-across-staged-adaptation %}).
