@@ -88,10 +88,10 @@
     <text x="122" y="67" class="name">PostgreSQL relational warehouse</text>
     <text x="122" y="92" class="detail">A fixed schema supports feature engineering and modelling</text>
   </g>
-  <path d="M480 1282v28H267v22" class="flow" />
+  <path d="M480 1282v52H240v26" class="flow" />
 
-  <g transform="translate(72 1340)">
-    <rect width="390" height="220" rx="18" class="card" />
+  <g transform="translate(50 1360)">
+    <rect width="380" height="220" rx="18" class="card" />
     <circle cx="56" cy="55" r="7" class="icon" />
     <circle cx="35" cy="83" r="7" class="icon" />
     <circle cx="77" cy="83" r="7" class="icon" />
@@ -104,8 +104,8 @@
     <text x="32" y="190" class="detail">No source or synthetic rows are distributed</text>
   </g>
 
-  <g transform="translate(498 1340)">
-    <rect width="390" height="220" rx="18" class="card" />
+  <g transform="translate(530 1360)">
+    <rect width="380" height="220" rx="18" class="card" />
     <path d="M32 102V54h18v48M60 102V72h18v30M88 102V40h18v62M26 102h86" class="icon" />
     <text x="132" y="35" class="phase">DECISION SUPPORT</text>
     <text x="132" y="67" class="name">Model and dashboard</text>
@@ -114,5 +114,5 @@
     <path d="M32 158h326" stroke="#3a3f44" stroke-width="2" />
     <text x="32" y="190" class="detail">Exploratory results, not investment advice</text>
   </g>
-  <path d="M462 1450h26" class="flow" />
+  <path d="M430 1470h90" class="flow" />
 </svg>
