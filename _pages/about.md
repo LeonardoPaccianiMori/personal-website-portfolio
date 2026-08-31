@@ -36,7 +36,7 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
       height="640"
       fetchpriority="high"
     >
-    <figcaption>Based in Italy, working remotely with teams in Italy and abroad.</figcaption>
+    <figcaption>Based in Italy, working remotely.</figcaption>
   </figure>
 </section>
 
