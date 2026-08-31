@@ -5,12 +5,19 @@ layout: default
 {% assign read_time = content | number_of_words | divided_by: 180 | plus: 1 %}
 {% assign writing_type = 'Writing' %}
 {% assign writing_back_url = '/writing/' %}
-{% if page.categories contains 'technical-notes' %}
+{% assign writing_back_label = 'writing' %}
+{% if page.technical_kind == 'appendix' %}
+  {% assign writing_type = 'Technical appendix' %}
+  {% assign writing_back_url = '/notes/' %}
+  {% assign writing_back_label = 'technical appendices' %}
+{% elsif page.categories contains 'technical-notes' %}
   {% assign writing_type = 'Technical note' %}
   {% assign writing_back_url = '/notes/' %}
+  {% assign writing_back_label = 'technical notes' %}
 {% elsif page.categories contains 'thoughts' %}
   {% assign writing_type = 'Thought' %}
   {% assign writing_back_url = '/thoughts/' %}
+  {% assign writing_back_label = 'thoughts' %}
 {% endif %}
 
 {% if page._styles %}
@@ -22,7 +29,7 @@ layout: default
 <div class="post site-article">
   <header class="post-header site-article-header">
     <nav class="site-back-link" aria-label="Writing navigation">
-      <a href="{{ writing_back_url | relative_url }}"><span aria-hidden="true">←</span> {{ writing_type | downcase }}s</a>
+      <a href="{{ writing_back_url | relative_url }}"><span aria-hidden="true">←</span> {{ writing_back_label }}</a>
     </nav>
     <p class="career-eyebrow">{{ writing_type }}</p>
     <h1 class="post-title">{{ page.title }}</h1>

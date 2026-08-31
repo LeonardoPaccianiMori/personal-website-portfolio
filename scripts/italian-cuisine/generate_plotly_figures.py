@@ -232,10 +232,10 @@ def create_oil_butter_diverging_choropleth(italy_gdf, regional_ingredients):
     """
     Create diverging choropleth map showing olive oil vs butter preference.
 
-    Uses RdYlGn colorscale where:
-    - Green = olive oil dominant (Mediterranean)
-    - Red = butter dominant (Alpine/Northern)
-    - Yellow = balanced usage
+    Uses an orange-neutral-blue colorscale where:
+    - Blue = olive oil dominant
+    - Orange = butter dominant
+    - Light neutral = balanced usage
 
     Args:
         italy_gdf (GeoDataFrame): Italy regional boundaries
@@ -276,7 +276,13 @@ def create_oil_butter_diverging_choropleth(italy_gdf, regional_ingredients):
         locations=geo_fat[REGION_COL],
         z=geo_fat['oil_pct'],
         featureidkey='properties.' + REGION_COL,
-        colorscale='RdYlGn',  # Red → Yellow → Green
+        colorscale=[
+            [0.0, '#E69F00'],
+            [0.25, '#F2CC78'],
+            [0.5, '#F3F4F6'],
+            [0.75, '#73B6DA'],
+            [1.0, '#0072B2'],
+        ],
         zmid=50,              # Center divergence at 50% (balanced)
         zmin=0,
         zmax=100,

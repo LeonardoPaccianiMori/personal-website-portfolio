@@ -5,19 +5,24 @@ date: 2025-02-21 15:30:00
 description: The technical appendix to my MNIST image-generation project, covering the experiment setup, architecture choices, and per-model results.
 tags: deep-learning GAN VAE CNN
 categories: [technical-notes]
+technical_kind: appendix
+last_updated: 2026-08-31
 chart:
   plotly: true
-images:
-  photoswipe: true
 ---
 
 ## Overview
 
-This post is the technical appendix to my [image generation project](/projects/image-generation/). I used MNIST because it is simple enough to expose bad assumptions quickly, which made it a good setting for comparing classifier architectures, watching generative models fail in public, and figuring out which improvements were real instead of just fashionable. The project page gives the portfolio-level summary; this page keeps the experiment setup, architecture choices, and per-model results in one place.
+This is the technical appendix to my [image generation project](/projects/image-generation/). The project compared seven classifiers, five convolutional variational autoencoders (CVAEs), and five deep convolutional GANs (DCGANs) on MNIST.
 
----
+The useful question was not which architecture looked most sophisticated. It was which changes produced a measurable improvement, which merely increased cost, and which made training worse. Four comparisons carry most of that story:
 
-## At a glance
+1. CNN-1 offered a strong accuracy–training-cost tradeoff, while CNN-2 reached the highest classifier accuracy.
+2. Additional FCNN depth did not produce a reliable improvement in the audited run.
+3. A two-dimensional CVAE space was easy to inspect but too restrictive to separate all ten digits cleanly.
+4. The DCGAN results improved across sequential configurations that changed output scaling, architecture, and training duration.
+
+## Experiment at a glance
 
 - **Dataset**: MNIST (28x28 grayscale digits, 10 classes)
 - **Scope**: 7 classifiers (CNN/FCNN), 5 CVAEs, 5 DCGANs
@@ -25,8 +30,6 @@ This post is the technical appendix to my [image generation project](/projects/i
 - **Most practical classifier**: CNN-1 at 98.05% test accuracy in about 11.1 CPU minutes
 - **Best generator in this comparison**: DCGAN-5, with project-specific Fréchet CNN-3 feature distance 2.29 in ~113 minutes
 - **Stack**: TensorFlow/Keras (training and inference), TensorFlow.js (browser demo), Plotly (analysis)
-
----
 
 ## Experiment setup
 
@@ -36,463 +39,189 @@ This post is the technical appendix to my [image generation project](/projects/i
 - **Hyperparameters**: classifiers trained for 100 epochs with batch size 128 (CNN learning rate 0.0001; FCNN learning rate 0.001); CVAEs trained for 50 epochs; DCGANs trained with their recorded Adam configurations for 100 epochs (DCGAN-5: 200 epochs)
 - **Timing**: wall-clock measurements from a TensorFlow 2.20 CPU run; useful for this comparison, not portable benchmarks
 
----
+## Classifiers: accuracy was not the only useful result
 
-## Classification models
+The CNN family provided the reference point for the project. CNN-2 reached the highest test accuracy, but CNN-1 remained the more practical architecture for quick iteration: it gave up 0.61 percentage points while taking roughly half the recorded CPU training time.
 
-### Convolutional neural networks (CNNs)
-
-I used the CNN family as the clean baseline for the project: standard convolutions, easy-to-read behavior, and a good reference point for the later FCNN and generative experiments.
-
-#### CNN-1 (baseline)
-
-- **Architecture**: 3 convolutional layers + 1 fully connected layer
-- **Performance**: 98.05% test accuracy; 0.0620 test loss
-- **Selected checkpoint**: epoch 56
-- **Training Time**: ~11.1 CPU minutes
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/CNN1.svg" title="CNN-1 architecture" alt="CNN-1 architecture from MNIST input through three convolutional layers to a softmax classifier" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-Training curves for CNN-1 (accuracy and loss over epochs).
-
-```plotly
-{% include plotly/image-generation/cnn-1-training.json %}
-```
-
-#### CNN-2 (more convolutional layers)
-
-- **Architecture**: 5 convolutional layers + 1 fully connected layer
-- **Performance**: 98.66% test accuracy; 0.0468 test loss (best classifier)
-- **Selected checkpoint**: epoch 100
-- **Training Time**: ~22.9 CPU minutes
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/CNN2.svg" title="CNN-2 architecture" alt="CNN-2 architecture from MNIST input through five convolutional layers to a softmax classifier" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-Training curves for CNN-2 (accuracy and loss over epochs).
-
-```plotly
-{% include plotly/image-generation/cnn-2-training.json %}
-```
-
-#### CNN-3 (more fully connected layers)
-
-- **Architecture**: 3 convolutional layers + 3 fully connected layers
-- **Performance**: 98.30% test accuracy; 0.0558 test loss
-- **Selected checkpoint**: epoch 45
-- **Training Time**: ~12.1 CPU minutes
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/CNN3.svg" title="CNN-3 architecture" alt="CNN-3 architecture from MNIST input through three convolutional and three fully connected layers" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-Training curves for CNN-3 (accuracy and loss over epochs).
-
-```plotly
-{% include plotly/image-generation/cnn-3-training.json %}
-```
-
-#### CNN comparison
-
-**Conclusion**: CNN-2 has the strongest held-out result. CNN-1 gives up 0.61 percentage points of accuracy while taking roughly half the recorded CPU training time, so it remains the cleaner default when simplicity and iteration speed matter.
-
-Accuracy comparison across the CNN variants.
+| Model | Main change                          | Test accuracy | Test loss | Selected epoch | CPU time |
+| ----- | ------------------------------------ | ------------: | --------: | -------------: | -------: |
+| CNN-1 | Three convolutional layers           |        98.05% |    0.0620 |             56 | 11.1 min |
+| CNN-2 | Five convolutional layers            |        98.66% |    0.0468 |            100 | 22.9 min |
+| CNN-3 | Three dense layers after convolution |        98.30% |    0.0558 |             45 | 12.1 min |
 
 ```plotly
 {% include plotly/image-generation/cnn-accuracy-comparison.json %}
 ```
 
-Training time comparison across the CNN variants.
+The fully convolutional family replaced the dense head with global pooling. FCNN-3 improved substantially over the first two variants, but none matched the CNN family. The deeper FCNN-4 then regressed sharply.
 
-```plotly
-{% include plotly/image-generation/cnn-training-time-comparison.json %}
-```
-
----
-
-### Fully convolutional neural networks (FCNNs)
-
-Unlike the CNN family, these models replace the dense head with global pooling. I included them because they are architecturally cleaner, but I wanted to see how much accuracy that simplicity would cost or recover.
-
-#### FCNN-1 (baseline)
-
-- **Architecture**: 3 convolutional layers + global pooling
-- **Performance**: 79.17% test accuracy; 0.6646 test loss
-- **Selected checkpoint**: epoch 100
-- **Training Time**: ~13.1 CPU minutes
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/FCNN1.svg" title="FCNN-1 architecture" alt="FCNN-1 architecture with three convolutional layers and global average pooling" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-Training curves for FCNN-1 (accuracy and loss over epochs).
-
-```plotly
-{% include plotly/image-generation/fcnn-1-training.json %}
-```
-
-#### FCNN-2 (more layers)
-
-- **Architecture**: 5 convolutional layers + global pooling
-- **Performance**: 90.62% test accuracy; 0.2982 test loss
-- **Selected checkpoint**: epoch 100
-- **Training Time**: ~16.2 CPU minutes
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/FCNN2.svg" title="FCNN-2 architecture" alt="FCNN-2 architecture with five convolutional layers and global average pooling" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-Training curves for FCNN-2 (accuracy and loss over epochs).
-
-```plotly
-{% include plotly/image-generation/fcnn-2-training.json %}
-```
-
-#### FCNN-3 (larger kernels)
-
-- **Architecture**: 3 convolutional layers (5x5 kernels) + global pooling
-- **Performance**: 94.60% test accuracy; 0.1874 test loss (best FCNN)
-- **Selected checkpoint**: epoch 95
-- **Training Time**: ~18.3 CPU minutes
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/FCNN3.svg" title="FCNN-3 architecture" alt="FCNN-3 architecture with three five-by-five convolutional layers and global average pooling" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-Training curves for FCNN-3 (accuracy and loss over epochs).
-
-```plotly
-{% include plotly/image-generation/fcnn-3-training.json %}
-```
-
-#### FCNN-4 (more layers + larger kernels)
-
-- **Architecture**: 5 convolutional layers (5x5 kernels) + global pooling
-- **Performance**: 78.90% test accuracy; 0.5256 test loss
-- **Selected checkpoint**: epoch 52
-- **Training Time**: ~24.1 CPU minutes
-- **Comments**: The deepest FCNN was unstable in this seeded run and did not reproduce the old optimistic result. I retain the failure because it shows that depth and larger kernels did not make the architecture reliably better.
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/FCNN4.svg" title="FCNN-4 architecture" alt="FCNN-4 architecture with five five-by-five convolutional layers and global average pooling" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-Training curves for FCNN-4 (accuracy and loss over epochs).
-
-```plotly
-{% include plotly/image-generation/fcnn-4-training.json %}
-```
-
-#### FCNN comparison
-
-**Conclusion**: FCNN-3 improved materially over the first two variants, but none matched the CNN family. FCNN-4 then regressed sharply. A multi-seed study would be needed to separate architecture quality from initialization sensitivity; this single run is evidence against claiming a reliable benefit.
-
-Accuracy comparison across the FCNN variants.
+| Model  | Main change                     | Test accuracy | Test loss | Selected epoch | CPU time |
+| ------ | ------------------------------- | ------------: | --------: | -------------: | -------: |
+| FCNN-1 | Three layers and global pooling |        79.17% |    0.6646 |            100 | 13.1 min |
+| FCNN-2 | Five layers                     |        90.62% |    0.2982 |            100 | 16.2 min |
+| FCNN-3 | Larger 5x5 kernels              |        94.60% |    0.1874 |             95 | 18.3 min |
+| FCNN-4 | Five layers and 5x5 kernels     |        78.90% |    0.5256 |             52 | 24.1 min |
 
 ```plotly
 {% include plotly/image-generation/fcnn-accuracy-comparison.json %}
 ```
 
-Training time comparison across the FCNN variants.
+This was one deterministic split and seed. It does not establish that FCNN-4 is generally unstable or that FCNN-3 is always better. A multi-seed study would be needed to separate architecture quality from initialization sensitivity.
+
+<details markdown="1">
+<summary><strong>Classifier architecture and training record</strong></summary>
+
+The appendix retains the complete architecture diagrams and training curves without placing every variant in the main reading path.
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CNN1.svg" title="CNN-1 architecture" alt="CNN-1 architecture from MNIST input through three convolutional layers to a softmax classifier" class="img-fluid rounded z-depth-1" %}
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/FCNN4.svg" title="FCNN-4 architecture" alt="FCNN-4 architecture with five five-by-five convolutional layers and global average pooling" class="img-fluid rounded z-depth-1" %}
 
 ```plotly
-{% include plotly/image-generation/fcnn-training-time-comparison.json %}
+{% include plotly/image-generation/cnn-1-training.json %}
 ```
-
----
-
-## Generative models
-
-### Convolutional variational autoencoders (CVAEs)
-
-I tested five CVAE variants with a 2D latent space. The point here was not image quality alone; it was to see how architecture changes affected the interpretability of the latent space.
-
-#### CVAE-1 (baseline)
-
-- **Architecture**: 3 convolutional layers (encoder + decoder), 100-neuron hidden layer, 2D latent space
-- **Median silhouette score**: -0.01
-- **Comments**: Marginal separation in latent space (only 0, 1, and 7 are clearly separated)
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/CVAE1.svg" title="CVAE-1 architecture" alt="CVAE-1 encoder and decoder architecture with a two-dimensional latent space" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-Training curves for CVAE-1 (loss and reconstruction metrics).
 
 ```plotly
-{% include plotly/image-generation/cvae-1-training.json %}
+{% include plotly/image-generation/cnn-2-training.json %}
 ```
-
-2D latent space projection colored by digit class.
 
 ```plotly
-{% include plotly/image-generation/cvae-1-latent-space.json %}
+{% include plotly/image-generation/cnn-3-training.json %}
 ```
-
-The grid below shows what the decoder generates at cell centers across a 16x16 division of the latent space (z1: -2 to 13, z2: -3 to 15):
-
-<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 1px; max-width: 560px; margin: 0 auto;">
-{% for row in (0..15) %}{% for col in (0..15) %}{% assign row_padded = row | prepend: '0' | slice: -2, 2 %}{% assign col_padded = col | prepend: '0' | slice: -2, 2 %}<a href="{{ 'assets/img/projects/image-generation/galleries/cvae-1-grid/grid-' | append: row_padded | append: '-' | append: col_padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 34px;"><img src="{{ 'assets/img/projects/image-generation/galleries/cvae-1-grid/grid-' | append: row_padded | append: '-' | append: col_padded | append: '.png' | relative_url }}" alt="CVAE grid cell" style="width: 100%;" loading="lazy" /></a>{% endfor %}{% endfor %}
-</div>
-<div class="caption">
-    16x16 grid of images generated by the CVAE-1 decoder across the latent space. Top-left is near (z1 ~ -1.5, z2 ~ 14.4), bottom-right is near (z1 ~ 12.5, z2 ~ -2.4). Click any image to zoom.
-</div>
-
-#### CVAE-2 (larger hidden layer)
-
-- **Architecture**: Same as CVAE-1, but with 200-neuron hidden layer (2x baseline)
-- **Median silhouette score**: -0.06
-- **Comments**: Even worse latent space separation than CVAE-1
-
-Training curves for CVAE-2.
 
 ```plotly
-{% include plotly/image-generation/cvae-2-training.json %}
+{% include plotly/image-generation/fcnn-1-training.json %}
 ```
-
-2D latent space projection for CVAE-2.
 
 ```plotly
-{% include plotly/image-generation/cvae-2-latent-space.json %}
+{% include plotly/image-generation/fcnn-2-training.json %}
 ```
-
-<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 1px; max-width: 560px; margin: 0 auto;">
-{% for row in (0..15) %}{% for col in (0..15) %}{% assign row_padded = row | prepend: '0' | slice: -2, 2 %}{% assign col_padded = col | prepend: '0' | slice: -2, 2 %}<a href="{{ 'assets/img/projects/image-generation/galleries/cvae-2-grid/grid-' | append: row_padded | append: '-' | append: col_padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 34px;"><img src="{{ 'assets/img/projects/image-generation/galleries/cvae-2-grid/grid-' | append: row_padded | append: '-' | append: col_padded | append: '.png' | relative_url }}" alt="CVAE-2 grid cell" style="width: 100%;" loading="lazy" /></a>{% endfor %}{% endfor %}
-</div>
-<div class="caption">
-    16x16 grid of images generated by the CVAE-2 decoder across the latent space (z1: -8 to 10, z2: -10 to 12). Click any image to zoom.
-</div>
-
-#### CVAE-3 (more convolutional layers)
-
-- **Architecture**: Same as CVAE-1, but with 5 convolutional layers (encoder + decoder) instead of 3
-- **Median silhouette score**: -0.07
-- **Comments**: Still marginal separation in latent space (only 1 and 0 are neatly separated)
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/CVAE3.svg" title="CVAE-3 architecture" alt="CVAE-3 deeper encoder and decoder architecture with a two-dimensional latent space" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-Training curves for CVAE-3.
 
 ```plotly
-{% include plotly/image-generation/cvae-3-training.json %}
+{% include plotly/image-generation/fcnn-3-training.json %}
 ```
-
-2D latent space projection for CVAE-3.
 
 ```plotly
-{% include plotly/image-generation/cvae-3-latent-space.json %}
+{% include plotly/image-generation/fcnn-4-training.json %}
 ```
 
-<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 1px; max-width: 560px; margin: 0 auto;">
-{% for row in (0..15) %}{% for col in (0..15) %}{% assign row_padded = row | prepend: '0' | slice: -2, 2 %}{% assign col_padded = col | prepend: '0' | slice: -2, 2 %}<a href="{{ 'assets/img/projects/image-generation/galleries/cvae-3-grid/grid-' | append: row_padded | append: '-' | append: col_padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 34px;"><img src="{{ 'assets/img/projects/image-generation/galleries/cvae-3-grid/grid-' | append: row_padded | append: '-' | append: col_padded | append: '.png' | relative_url }}" alt="CVAE-3 grid cell" style="width: 100%;" loading="lazy" /></a>{% endfor %}{% endfor %}
-</div>
-<div class="caption">
-    16x16 grid of images generated by the CVAE-3 decoder across the latent space (z1: -3 to 3, z2: -3 to 3). Click any image to zoom.
-</div>
+</details>
 
-#### CVAE-4 and CVAE-5 (more fully connected layers)
+## CVAEs: an interpretable but restrictive latent space
 
-- **Architecture**: Same as CVAE-1, but with 3 or 4 connected layers
-- **Median silhouette score**: 0.01 and -0.06
-- **Comments**: Better latent space separation, but still incomplete (4, 7, 8 and 9 overlap)
+I tested five CVAE variants with a two-dimensional latent space. That made the latent geometry directly inspectable, but none of the variants separated all ten digits cleanly.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/image-generation/CVAE4.svg" title="CVAE-4 architecture" alt="CVAE-4 encoder and decoder architecture with additional fully connected layers and a two-dimensional latent space" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-Training curves for CVAE-4.
-
-```plotly
-{% include plotly/image-generation/cvae-4-training.json %}
-```
-
-2D latent space projection for CVAE-4.
-
-```plotly
-{% include plotly/image-generation/cvae-4-latent-space.json %}
-```
-
-<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 1px; max-width: 560px; margin: 0 auto;">
-{% for row in (0..15) %}{% for col in (0..15) %}{% assign row_padded = row | prepend: '0' | slice: -2, 2 %}{% assign col_padded = col | prepend: '0' | slice: -2, 2 %}<a href="{{ 'assets/img/projects/image-generation/galleries/cvae-4-grid/grid-' | append: row_padded | append: '-' | append: col_padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 34px;"><img src="{{ 'assets/img/projects/image-generation/galleries/cvae-4-grid/grid-' | append: row_padded | append: '-' | append: col_padded | append: '.png' | relative_url }}" alt="CVAE-4 grid cell" style="width: 100%;" loading="lazy" /></a>{% endfor %}{% endfor %}
-</div>
-<div class="caption">
-    16x16 grid of images generated by the CVAE-4 decoder across the latent space (z1: -2 to 14, z2: -3 to 16). Click any image to zoom.
-</div>
-
-#### CVAE comparison
-
-**Conclusion**: A 2D latent space is visually pleasant but restrictive. None of these CVAEs cleanly separated all ten digits, and extra complexity often made the latent structure harder rather than clearer.
-
-Silhouette score comparison across CVAE variants.
+| Model  | Main change               | Median silhouette score | Main observation                                  |
+| ------ | ------------------------- | ----------------------: | ------------------------------------------------- |
+| CVAE-1 | Baseline                  |                   -0.01 | Only a few classes separated clearly              |
+| CVAE-2 | Larger hidden layer       |                   -0.06 | Separation became worse                           |
+| CVAE-3 | More convolutional layers |                   -0.07 | Limited separation remained                       |
+| CVAE-4 | More dense layers         |                    0.01 | Best score, but several classes still overlapped  |
+| CVAE-5 | Additional dense layer    |                   -0.06 | Added complexity did not preserve the CVAE-4 gain |
 
 ```plotly
 {% include plotly/image-generation/cvae-silhouette-comparison.json %}
 ```
 
-Training time comparison across CVAE variants.
+The result is not that two-dimensional latent spaces are generally unsuitable. In this experiment, interpretability came with a capacity constraint, and additional depth did not reliably resolve it.
+
+<details markdown="1">
+<summary><strong>Selected CVAE architecture, curves, and latent projections</strong></summary>
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/CVAE1.svg" title="CVAE-1 architecture" alt="CVAE-1 encoder and decoder architecture with a two-dimensional latent space" class="img-fluid rounded z-depth-1" %}
+
+```plotly
+{% include plotly/image-generation/cvae-1-training.json %}
+```
+
+```plotly
+{% include plotly/image-generation/cvae-1-latent-space.json %}
+```
+
+```plotly
+{% include plotly/image-generation/cvae-2-latent-space.json %}
+```
+
+```plotly
+{% include plotly/image-generation/cvae-3-latent-space.json %}
+```
+
+```plotly
+{% include plotly/image-generation/cvae-4-latent-space.json %}
+```
 
 ```plotly
 {% include plotly/image-generation/cvae-training-time-comparison.json %}
 ```
 
----
+The complete latent-space grids and model assets remain in the repository even though the page no longer loads every image.
 
-### Deep convolutional generative adversarial networks (DCGANs)
+</details>
 
-I tested five DCGAN configurations in sequence, with each one responding to the failure mode or tradeoff in the previous version.
+## DCGANs: the sequence of changes mattered
 
-#### DCGAN-1 (baseline with tanh)
+The five DCGAN configurations formed a decision trail. DCGAN-1 produced noisy, weakly recognizable outputs. The change in output scaling and activation in DCGAN-2 coincided with the largest visible step. Later configurations also changed kernel size, depth, and training duration as the observed feature distance continued to fall.
 
-- **Architecture**: 3 conv layers (generator + discriminator), tanh activation
-- **Result**: Poor; only a few digits recognizable and images are noisy
-- **Issue**: Discriminator plateaus, generator loss keeps increasing
-
-Generator and discriminator loss curves for DCGAN-1.
-
-```plotly
-{% include plotly/image-generation/dcgan-1-training.json %}
-```
-
-<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 2px; max-width: 500px; margin: 0 auto;">
-{% for i in (0..99) %}{% assign padded = i | prepend: '00' | slice: -3, 3 %}<a href="{{ 'assets/img/projects/image-generation/galleries/dcgan-1/img-' | append: padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 48px;"><img src="{{ 'assets/img/projects/image-generation/galleries/dcgan-1/img-' | append: padded | append: '.png' | relative_url }}" alt="DCGAN-1 sample {{ i }}" style="width: 100%;" loading="lazy" /></a>{% endfor %}
-</div>
-<div class="caption">
-    100 digits generated by DCGAN-1. Click any image to zoom.
-</div>
-
-#### DCGAN-2 (sigmoid activation)
-
-- **Change**: Sigmoid activation instead of tanh
-- **Result**: Dramatic improvement; losses oscillate healthily
-- **Quality**: Most digits recognizable but still imperfect
-
-**Key insight**: The activation and normalization pairing mattered more than any of the smaller tuning changes I tried earlier.
-
-Generator and discriminator loss curves for DCGAN-2.
-
-```plotly
-{% include plotly/image-generation/dcgan-2-training.json %}
-```
-
-<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 2px; max-width: 500px; margin: 0 auto;">
-{% for i in (0..99) %}{% assign padded = i | prepend: '00' | slice: -3, 3 %}<a href="{{ 'assets/img/projects/image-generation/galleries/dcgan-2/img-' | append: padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 48px;"><img src="{{ 'assets/img/projects/image-generation/galleries/dcgan-2/img-' | append: padded | append: '.png' | relative_url }}" alt="DCGAN-2 sample {{ i }}" style="width: 100%;" loading="lazy" /></a>{% endfor %}
-</div>
-<div class="caption">
-    100 digits generated by DCGAN-2. Click any image to zoom.
-</div>
-
-#### DCGAN-3 (larger kernels)
-
-- **Change**: 5x5 kernels (from 3x3), keeping sigmoid
-- **Result**: Significant quality improvement, all 10 digits recognizable
-- **Training Time**: Minimal increase
-
-Generator and discriminator loss curves for DCGAN-3.
-
-```plotly
-{% include plotly/image-generation/dcgan-3-training.json %}
-```
-
-<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 2px; max-width: 500px; margin: 0 auto;">
-{% for i in (0..99) %}{% assign padded = i | prepend: '00' | slice: -3, 3 %}<a href="{{ 'assets/img/projects/image-generation/galleries/dcgan-3/img-' | append: padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 48px;"><img src="{{ 'assets/img/projects/image-generation/galleries/dcgan-3/img-' | append: padded | append: '.png' | relative_url }}" alt="DCGAN-3 sample {{ i }}" style="width: 100%;" loading="lazy" /></a>{% endfor %}
-</div>
-<div class="caption">
-    100 digits generated by DCGAN-3. Click any image to zoom.
-</div>
-
-#### DCGAN-4 (more layers)
-
-- **Change**: 4 conv layers (generator + discriminator)
-- **Result**: Best visual quality among the 100-epoch runs; all digits clear, fewer artifacts
-- **Training Time**: Significantly longer than the earlier variants, but worth it
-
-Generator and discriminator loss curves for DCGAN-4.
-
-```plotly
-{% include plotly/image-generation/dcgan-4-training.json %}
-```
-
-<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 2px; max-width: 500px; margin: 0 auto;">
-{% for i in (0..99) %}{% assign padded = i | prepend: '00' | slice: -3, 3 %}<a href="{{ 'assets/img/projects/image-generation/galleries/dcgan-4/img-' | append: padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 48px;"><img src="{{ 'assets/img/projects/image-generation/galleries/dcgan-4/img-' | append: padded | append: '.png' | relative_url }}" alt="DCGAN-4 sample {{ i }}" style="width: 100%;" loading="lazy" /></a>{% endfor %}
-</div>
-<div class="caption">
-    100 digits generated by DCGAN-4. Click any image to zoom.
-</div>
-
-#### DCGAN-5 (extended training)
-
-- **Change**: 200 epochs (from 100), same architecture as DCGAN-4
-- **Result**: Lowest project-specific feature distance (2.29 vs DCGAN-4's 3.23); sharper edges and more consistent digits by visual inspection
-- **Training Time**: ~113 minutes
-
-Generator and discriminator loss curves for DCGAN-5.
-
-```plotly
-{% include plotly/image-generation/dcgan-5-training.json %}
-```
-
-<div class="pswp-gallery d-flex flex-wrap justify-content-center" style="gap: 2px; max-width: 500px; margin: 0 auto;">
-{% for i in (0..99) %}{% assign padded = i | prepend: '00' | slice: -3, 3 %}<a href="{{ 'assets/img/projects/image-generation/galleries/dcgan-5/img-' | append: padded | append: '.png' | relative_url }}" data-pswp-width="140" data-pswp-height="140" style="width: 48px;"><img src="{{ 'assets/img/projects/image-generation/galleries/dcgan-5/img-' | append: padded | append: '.png' | relative_url }}" alt="DCGAN-5 sample {{ i }}" style="width: 100%;" loading="lazy" /></a>{% endfor %}
-</div>
-<div class="caption">
-    100 digits generated by DCGAN-5 (best model). Click any image to zoom.
-</div>
-
-#### DCGAN comparison
+| Model   | Main change            | Project-specific feature distance | Main observation                          |
+| ------- | ---------------------- | --------------------------------: | ----------------------------------------- |
+| DCGAN-1 | Tanh baseline          |                           1846.67 | Noisy outputs and unstable loss behaviour |
+| DCGAN-2 | Sigmoid output scaling |                             12.38 | Large improvement in recognizable digits  |
+| DCGAN-3 | Larger kernels         |                              8.80 | Further visual improvement                |
+| DCGAN-4 | Additional depth       |                              3.23 | Strongest 100-epoch result                |
+| DCGAN-5 | 200 epochs             |                              2.29 | Lowest feature distance in the study      |
 
 For a reproducible relative comparison, I generated 10,000 images per model with seed 42, embedded them and all 10,000 official MNIST test images using the 20-dimensional penultimate layer of the selected CNN-3 classifier, and calculated a Fréchet distance between those feature distributions. Lower is better within this project.
 
 This is **not canonical FID**: it does not use InceptionV3, and the values must not be compared with published FID results. It is a narrow project-specific diagnostic that agrees with the visual progression from the failed DCGAN-1 to the stronger DCGAN-4 and DCGAN-5 outputs.
 
-**Conclusion**: DCGAN-5 produces the strongest samples in the set, but the gains came from iterative architecture work plus extra training time, not from one final tweak.
-
-Fréchet CNN-3 feature-distance comparison across DCGAN variants (lower is better within this project).
+DCGAN-5 produced the strongest samples in this set. Because the configurations changed in sequence rather than as isolated ablations, the comparison cannot separate the effects of activation, scaling, kernel size, depth, and training duration.
 
 ```plotly
 {% include plotly/image-generation/dcgan-feature-distance-comparison.json %}
 ```
 
-Training time comparison across DCGAN variants.
+<details markdown="1">
+<summary><strong>DCGAN training curves and selected architectures</strong></summary>
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/DCGAN1.svg" title="DCGAN-1 architecture" alt="Baseline DCGAN-1 generator and discriminator architecture" class="img-fluid rounded z-depth-1" %}
+
+{% include figure.liquid loading="lazy" path="assets/img/projects/image-generation/DCGAN4.svg" title="DCGAN-4 and DCGAN-5 architecture" alt="Deeper generator and discriminator architecture used by DCGAN-4 and DCGAN-5" class="img-fluid rounded z-depth-1" %}
+
+```plotly
+{% include plotly/image-generation/dcgan-1-training.json %}
+```
+
+```plotly
+{% include plotly/image-generation/dcgan-2-training.json %}
+```
+
+```plotly
+{% include plotly/image-generation/dcgan-3-training.json %}
+```
+
+```plotly
+{% include plotly/image-generation/dcgan-4-training.json %}
+```
+
+```plotly
+{% include plotly/image-generation/dcgan-5-training.json %}
+```
 
 ```plotly
 {% include plotly/image-generation/dcgan-training-time-comparison.json %}
 ```
 
----
+</details>
 
-## Summary
+## What the comparison supports
 
 - The most useful classification result was not the single highest-accuracy point; it was realizing how often the simple CNN was the model I would actually choose.
-- For generation, the turning points were mostly mundane but consequential: output scaling, architecture, and training time mattered more than cleverness.
-- Keeping the plots, galleries, and timing data side by side changed how I reasoned about the models. Without that, I would have overvalued the headline numbers and undervalued the failure modes.
+- For generation, the strongest results appeared in later configurations that changed output scaling, architecture, and training time, but the experiment did not isolate their effects.
+- Keeping sample galleries and timing data available during evaluation changed how I reasoned about the models. Without that, I would have overvalued the headline numbers and undervalued the failure modes.
+- The classifier results come from one deterministic split and seed. The generator metric uses a project-specific 20-dimensional representation and is not canonical FID.
 
----
+MNIST made these comparisons inexpensive and inspectable. It does not establish that the same architecture ranking would hold for more complex image domains or different hardware.
 
-## Look at the code
+## Code and retained evidence
 
-All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-image-generation).
+The [public repository](https://github.com/LeonardoPaccianiMori/portfolio-image-generation) contains the code and audited evidence. The website repository retains the full model diagrams, training plots, latent-space grids, and generator galleries even where this appendix no longer embeds every asset.

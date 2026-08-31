@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "How one 7B Italian language model changed across staged adaptation to historical prose, poetry, and sonnets"
+title: "Where a 7B Italian language model changed during staged adaptation"
 date: 2026-08-26 12:30:00 +0200
 description: A descriptive study of weight, loss, embedding, and representation change across three full-weight adaptation stages.
 tags: language-models transformers interpretability model-adaptation evaluation
 categories: [technical-notes]
+technical_kind: note
+last_updated: 2026-08-31
 chart:
   plotly: true
 ---
@@ -16,6 +18,16 @@ This project gave me an unusually concrete opportunity to study that question. I
 The main pattern was consistent across those measurements. Most observed movement occurred during the broad first adaptation to historical and literary Italian. The poetry stage moved less, and the final sonnet stage less again. That is compatible with a curriculum that performs its largest domain shift early and then makes increasingly narrow refinements.
 
 It is important to keep the claim descriptive. Parameter drift does not tell us which changed weights caused a behavior. Representation similarity does not prove that a capability was preserved. A small late-stage delta does not imply that the stage was behaviorally irrelevant. The retained states let me locate and compare change; they do not turn an observational study into a causal one.
+
+The measurements answer different parts of that descriptive question:
+
+- validation loss tracks predictive fit on a declared text domain;
+- relative parameter distance measures how much the weights moved;
+- token-neighbour overlap checks whether selected embedding neighbourhoods were reordered;
+- centred kernel alignment (CKA) compares broad hidden-representation geometry;
+- next-token overlap asks how much the model's most likely continuations changed.
+
+No single measure is a complete account of the model. Their value comes from reading them together.
 
 ## Parent, stages, and retained boundaries
 
@@ -88,7 +100,7 @@ The global relative displacement from the untouched parent to the selected Stage
     Sequential global parameter change measured as relative L2 distance; higher values mean more movement from the immediately preceding retained state. The logarithmic axis makes the more-than-two-orders-of-magnitude late-to-early range legible. These are deterministic checkpoint comparisons without uncertainty intervals and do not assign behavioral causality.
 </div>
 
-The decline is striking. The parent-to-Stage-1-midpoint delta was more than 300 times the final Stage-3-half delta. Stage 1 did not merely contribute the largest share; its first half dominated the observed global movement.
+The decline is striking. The parent-to-Stage-1-midpoint delta was more than 300 times the final Stage-3-half delta. The first half of Stage 1 dominated the observed global movement.
 
 I interpret this as evidence of a broad early domain adjustment followed by narrower specialization. I do not interpret it as a ranking of stage importance. Neural networks can alter an output distribution through small coordinated changes, especially once the model is close to a decision boundary. A late adapter or fine-tuning step may be tiny in global norm and still change the failures that users notice.
 
@@ -102,7 +114,7 @@ During the late half of Stage 3, those changes were much smaller. The correspond
 
 This combination is more informative than either measurement alone. Vector positions changed, but the local neighborhoods around the inspected tokens were largely preserved. That is consistent with adjustment inside a stable local organization rather than wholesale reordering.
 
-There are several reasons not to overread it. The registry contains selected token rows, not the whole vocabulary. Top-20 overlap ignores changes outside the chosen neighborhood and does not show how the downstream network uses those vectors. Jaccard overlap also discards rank and distance. Two neighborhoods can contain the same members while their geometry changes in ways that affect logits later.
+The registry contains selected token rows rather than the whole vocabulary. Top-20 overlap ignores changes outside the chosen neighbourhood and does not show how the downstream network uses those vectors. Jaccard overlap also discards rank and distance, so identical members can still have changed geometry.
 
 ## Hidden representations and output geometry
 
@@ -125,7 +137,7 @@ For the late half of Stage 3, mean drift was only 0.00371, minimum CKA was 0.999
 
 These measurements say that the parent-to-final model changed meaningfully without destroying its broad representational geometry. CKA stayed high while the top of the next-token distribution changed much more. That can happen because CKA summarizes shared structure across many dimensions, whereas top-token overlap is sensitive to smaller shifts near the output ranking boundary.
 
-The late-stage values are close to identity. Yet even there, the correct conclusion is “little change under these measurements,” not “no meaningful change.” The probes may miss an affected context, and a high average can conceal a localized behavior.
+The late-stage values are close to identity. They indicate little change under these measurements, while still allowing for an affected context outside the probes or a localized behaviour hidden by the average.
 
 ## What the evidence supports
 

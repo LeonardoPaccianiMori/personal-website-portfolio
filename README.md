@@ -14,7 +14,7 @@ inspected. It is still under active preparation: the placeholder identity and
 - Personal projects
 - Experimental projects
 - Games
-- Writing and technical appendices
+- Focused technical notes and project appendices
 - Bookshelf and playground
 
 ## Local development

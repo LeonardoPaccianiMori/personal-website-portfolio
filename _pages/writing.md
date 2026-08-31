@@ -2,7 +2,7 @@
 layout: page
 title: writing
 permalink: /writing/
-description: Technical decisions, modelling tradeoffs, and reflections on evidence, uncertainty, and useful data science.
+description: Focused technical decisions, research studies, supporting project references, and reflections on evidence, uncertainty, and useful data science.
 eyebrow: Notes from the work
 wide: true
 nav: true
@@ -23,7 +23,7 @@ children:
     <div>
       <p class="career-eyebrow">Technical notes</p>
       <h2>Decisions behind the implementation.</h2>
-      <p>Project appendices, modelling choices, technical tradeoffs, and lessons from building.</p>
+      <p>Focused decisions and research studies, with project appendices when the complete technical reference is useful.</p>
     </div>
     <span class="writing-paths__arrow" aria-hidden="true">→</span>
   </a>

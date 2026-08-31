@@ -2,217 +2,94 @@
 layout: post
 title: "Technical appendix: real estate data pipeline and ROI modeling"
 date: 2025-07-18 12:20:00
-description: Technical appendix to my Italian real-estate project, covering scraping, ETL, synthetic data, modeling, and dashboard design.
+description: Technical appendix to my Italian real-estate project, covering collection, ETL, synthetic data, modeling, and dashboard design.
 tags: data-engineering scraping machine-learning
 categories: [technical-notes]
+technical_kind: appendix
+last_updated: 2026-08-31
 ---
 
 ## Overview
-This post is the technical appendix to my [Italian real-estate project](/projects/italian-real-estate/). I wanted this project to feel like *real* data work from beginning to end: messy data collection, shifting schemas, publication constraints, and a public-facing output that had to be *actually* useful rather than merely decorative. The project page focuses on the portfolio story; this page keeps the collection architecture, ETL choices, synthetic-data method, modeling setup, and dashboard design in one place.
 
----
+This is the technical appendix to my [Italian real-estate project](/projects/italian-real-estate/). Its central lesson is simple: a model-driven product is only as credible as the data pipeline and publication boundary behind it. Collection had to survive partial failure, a changing source had to become a stable analytical schema, the public study could not distribute row-level data, and the final dashboard had to support decisions rather than only display a model score.
 
-## Data collection
-The original source was an Italian property-listing portal. The first hard problem was *operational* rather than *statistical*: collecting a nationwide research snapshot reliably enough that the later modeling work was worth doing.
+The project collected roughly one million listings across rent, sale, and auction markets. The source listings, raw HTML, row-level source data, row-level synthetic data, credentials, and live collector are not public. The published metrics describe a synthetic study and are not validated production estimates for unseen source listings.
 
-### Challenge
-I had to scrape three listing types (`rent`, `auction`, and `sale`) for 107 Italian provinces. This meant **321 independent scraping tasks**.
+## Robust collection
 
-### Solution: Apache Airflow orchestration
-I used Apache Airflow to orchestrate each of these 321 tasks. Here is a representation of the workflow I used:
+The first problem was operational. I needed a nationwide research snapshot covering three listing types for 107 Italian provinces: 321 independent province-and-market tasks.
+
+Apache Airflow separated those tasks so that one failed request group did not require the complete collection to restart. Within each task, the collector moved through price ranges, gathered listing links, requested listing pages in asynchronous batches, and retried failures. Selenium handled content that required JavaScript rendering. Raw HTML went to MongoDB so that extraction logic could change without repeating the complete collection.
+
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-extraction-DAG.png" title="Airflow DAG" class="img-fluid rounded z-depth-1" %}
-    </div>
+  <div class="col-sm mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-extraction-DAG.svg" title="Airflow collection workflow" class="img-fluid rounded z-depth-1" %}
+  </div>
 </div>
 
-In particular, for each province (e.g., Milan, Rome, Naples) I:
-1. scraped `rent` listings and stored the raw data in MongoDB
-2. scraped `auction` listings and stored the raw data in MongoDB
-3. scraped `sale` listings and stored the raw data in MongoDB
+The public repository demonstrates orchestration and downstream engineering, but it does not provide an out-of-the-box collector. Anyone who creates a new collector must obtain current authorization and follow the source site's current terms and access controls.
 
-Airflow represented these as independent tasks so failures could be retried without restarting the whole collection.
+## From an evolving source to a stable schema
 
-### Technical implementation
+The next problem was not only parsing more than 50 fields from HTML. It was deciding where flexibility was useful and where consistency was necessary.
 
-Technically, each listing scrape worked as follows:
-1. For a given province and listing type, I selected a price range
-2. I extracted the links to all listings in that price range
-3. I scraped those listings
-4. I moved on to the next price range
+BeautifulSoup extracted pricing, property characteristics, building and energy information, location fields, and listing descriptions. Three Airflow tasks processed rent, sale, and auction records in parallel. The resulting MongoDB warehouse preserved structured fields alongside text while the source and parser were still changing.
 
-Other details:
-- Each listing was scraped with an asynchronous HTTP request
-- Requests were processed in batches with error handling and retry logic for failed requests
-- `Selenium` was used for JavaScript-rendered content, as some pages required browser automation and dynamic loading
-- Raw HTML data was stored in a MongoDB datalake
-
-**Publication boundary:** the source listings, raw HTML, and code that performs the live collection are not published. The public repository demonstrates orchestration and downstream engineering without providing an out-of-the-box collector. Anyone implementing a new collector must obtain current authorization and follow the source site's current terms and access controls.
-
----
-
-## ETL pipeline
-Once the raw data collection was working, the next problem was turning HTML fragments into something I could actually analyze.
-
-### Challenge
-I wanted to extract 50+ fields from raw HTML and organize them coherently.
-
-### Solution: BeautifulSoup + Airflow
-The workflow I used for this step was simple, and again orchestrated with Airflow:
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-ETL-DAG.png" title="ETL DAG" class="img-fluid rounded z-depth-1" %}
-    </div>
+  <div class="col-sm mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-ETL-DAG.svg" title="Airflow extraction and transformation workflow" class="img-fluid rounded z-depth-1" %}
+  </div>
 </div>
 
-The ETL pipeline had three tasks that processed the three listing types in parallel.
+Repeated analysis and feature transformations later made a relational model more useful. I moved the stable structured fields to a normalized PostgreSQL warehouse and left listing descriptions behind. A local LibreTranslate service, an SQLite translation cache, and a custom real-estate dictionary converted recurring Italian categorical values to English without translating the same value again.
 
-Some of the fields I extracted in the MongoDB warehouse are:
-- **Pricing**: price, price/m<sup>2</sup>, condominium expenses, heating costs
-- **Property features**: surface, number of rooms, bathrooms, floors, presence of elevators, conditions
-- **Building info**: construction year, total floors in the building, number of residential units
-- **Energy**: efficiency class, consumption, heating type, presence of AC
-- **Location**: latitude, longitude, province, city, address
-- **Description**: text of the actual listing's description
+The important decision was not that one database was universally better. MongoDB absorbed source variation during collection; PostgreSQL became useful when the transformations and analytical relationships were stable. The focused note on [moving from MongoDB to PostgreSQL](/blog/2025/mongodb-postgresql-ml/) explains that transition in more detail.
 
-The output of this step is a MongoDB warehouse with clean, structured documents. At this point the data still contains non-relational data (e.g., the listing's textual descriptions).
+## A synthetic study, not an anonymization claim
 
----
+The public analysis could not distribute the source records. I first tested CTGAN, but it did not preserve several project-critical aggregate relationships. I then built a K-nearest-neighbour-based generator for the study. The focused [synthetic-data note](/blog/2025/synthetic-data-ctgan/) covers that comparison and its diagnostics.
 
-## PostgreSQL migration
-At this point I needed to organize my data in a relational database to be able to do standard analyses and train my rental income prediction model. Therefore, I decided to migrate all the structured data into a PostgreSQL database. At this step, I kept *only* the structured data and discarded the unstructured fields (e.g., the text of each listing's description).
+This was a publication constraint, not a formal anonymization result. The custom generator did not receive a privacy audit, so neither the source records nor the row-level synthetic output is distributed. Public charts, code, and metrics make the method inspectable without releasing those rows.
 
-### Database schema
-To enforce data consistency and reduce redundancy, I decided to create a database using a *snowflake* schema with full data normalization:
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/PostgreSQL_warehouse_ERD.png" title="ERD" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Snowflake schema with fact table and dimension tables. <a href="https://dbdiagram.io/">Created with dbdiagram.io</a>
-</div>
+## Rental-income model
 
-### Translation pipeline
-At this stage, one challenge remained: many categorical features had values written in Italian. These included the listing's property type (e.g., house, apartment, townhouse) and listing features (e.g., whether a listing has a balcony, which type of heating it has, or whether it is already furnished).
+The study trained a Random Forest regressor on synthetic rent listings and applied it to synthetic sale and auction listings. The target was monthly rent. Feature work grouped property types, separated compound heating and air-conditioning fields, encoded categorical variables, removed the first and ninety-ninth percentiles, and used `log1p(rent)` as the training target.
 
-To make these variables understandable, I needed to translate all of them into English. I used a local [LibreTranslate](https://libretranslate.com/) instance, with a custom SQLite cache to avoid re-translating identical text and a custom dictionary for real estate-specific jargon.
+The original held-out synthetic split reported these values:
 
----
+| Metric              | Reported value |
+| ------------------- | -------------: |
+| R² on `log1p(rent)` |           0.75 |
 
-## Synthetic data generation
-As explained in the [other post](/blog/2025/synthetic-data-ctgan/) relating to this project, I used a custom synthetic data generator to create new rows that preserved project-critical aggregate relationships without copying source listings.
+The original implementation also reported a 2.07% MAPE calculated directly on `log1p(rent)`. That is not a price-scale percentage error, so I do not present it as a performance result. The current evaluator reverses the log transform before it calculates MAPE.
 
-I first tried using CTGAN (the "classical" solution for this type of problem), but it failed to recreate the complex relationships between the dataset's features. I therefore built my own KNN-based algorithm. More details can be found in the [dedicated post](/blog/2025/synthetic-data-ctgan/).
+The current public release retains the evaluation method, but it does not include a versioned result artifact that independently reproduces the exact reported R² value.
 
-Because the KNN construction was not subjected to a formal privacy audit, I do not distribute either the source records or the row-level synthetic output. This also shapes how I interpret the later modeling metrics: the evaluation below validates the synthetic study pipeline; it is not a claim about production performance on unseen source listings.
+These results validate the historical synthetic study pipeline only. They do not establish performance on unseen source listings, and they are not investment advice.
 
----
+## Dashboard as decision support
 
-## Machine learning model
-For this step, I was not interested in using a "fashionable" model, but rather something that gives stable, interpretable predictions with reasonable effort. My final choice was a simple Random Forest predictor:
-- it can capture complex non-linear relationships
-- it is robust to outliers
-- its results can be interpreted using feature importance
-- it is easy and fast to train
+The Tableau dashboard was part of the analytical product, not a presentation layer added after modeling. It was designed for area-level exploration rather than recommendations about individual listings.
 
-### Random forest rent predictor
-The model's aim was to predict the monthly rental price for properties listed for sale or auction. In other words, I used the `rent` listings to train the model, and then applied it to `sale` and `auction` listings to predict what rent could be obtained from a given listing after buying it.
+Users can compare sale and auction markets, filter by location and property characteristics, and change mortgage and renovation assumptions. The dashboard provides two views of return:
 
+- annual cash-on-cash return: `(annual rent - annual mortgage payment) / down payment`;
+- rental yield: `annual rent / purchase price`.
 
-### Feature engineering
-Before training the model, I did some feature engineering:
-- **Property types**: this feature had 30+ categories, many of which were similar (e.g., "apartment" and "condo") -> they were grouped into 7 broader values
-- **Heating**: decomposed into `type`, `delivery`, `power source` (originally it was a unique string with all possible combinations of these features)
-- **Air conditioning**: separated into `type`, `hot_capability`, `cold_capability`
-- **Windows**: combined glass type and frame material
-- **One-hot encoding**: 14 categorical features -> 70+ binary columns
-- **Outliers**: removed 1st and 99th percentiles
-- **Target**: log-transform rent for better predictions
+Maps, scatter plots, grouped summaries, and headline statistics connect the estimated rental income to the purchase and financing assumptions. This turns a model output into an exploratory decision-support tool while keeping the uncertainty and synthetic-data boundary visible.
 
-### Model architecture
-The architecture of the model used for training was the following:
-```python
-RandomForestRegressor(
-    n_estimators=100,
-    max_depth=None,  # Full tree depth
-    min_samples_leaf=1,
-    random_state=2025,
-    n_jobs=-1  # Use all CPU cores
-)
-```
+## What held up
 
-### Performance metrics
-The original study reported the following held-out metrics on a synthetic
-rent-listing split. The current public release retains the evaluation method
-but not a versioned result artifact that independently reproduces these exact
-values:
+The strongest parts of the project were not tied to one model. They were the decisions that kept the full system coherent:
 
-| Metric | Value |
-|--------|-------|
-| R² on `log1p(rent)` | 0.75 |
-| RMSE (log scale) | 0.25 |
-| MAE (log scale) | 0.14 |
+- independent collection tasks made partial failure recoverable;
+- raw storage allowed extraction logic to evolve;
+- the warehouse changed when repeated transformations justified a stable schema;
+- the synthetic-data boundary shaped both publication and interpretation;
+- the dashboard was designed as part of the analysis.
 
-<br>
-The original implementation also reported a 2.07% MAPE calculated directly on
-`log1p(rent)`. I have removed that value from the performance table because
-it is not a price-scale percentage error. The current evaluator reverses the
-log transform before calculating MAPE.
+## Code and publication boundary
 
-The top 5 most important features are:
-1. **Surface area**
-2. **Latitude**
-3. **Longitude**
-4. **Condominium expenses**
-5. **Milan indicator** (premium pricing)
+The reusable public code is available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate). The [public Tableau dashboard](https://public.tableau.com/views/Italianrealestate/Dashboard_1?:showVizHome=no) contains aggregate exploratory outputs.
 
-The importance of these features is straightforward:
-- surface and location are *naturally* relevant to determine a property's rent
-- the more luxurious and pricier properties will also generally have higher maintenance costs and therefore higher condominium expenses
-- Milan is notoriously the hottest real estate market in Italy, so it makes sense that any given property in Milan will be priced higher
-
-### Model application
-The original study reported applying the model to approximately **970,000
-sale/auction synthetic rows** to build dashboard-ready rental-income
-predictions. That count is historical and is not independently reproduced by a
-row-level artifact in the current public release.
-
----
-
-## Dashboard design
-I treated the dashboard as part of the model output itself, and not as a presentation layer. The project was only useful if a non-technical user could move from *prediction* to *decision*.
-
-### Target audience
-The dashboard is designed for real estate investors who want to explore profitable areas (*not* single listings).
-
-### Dashboard features
-
-The dashboard allows users to:
-- use two different investment metrics:
-    1. **Annual cash-on-cash return:** `(Annual Rent - Annual Mortgage Payment) / Down Payment`
-    2. **Rental yield:** `Annual Rent / Purchase Price`
-- compare `auction` vs `sale` listings
-- assess the impact of property characteristics (energy class, property type, conditions)
-- calculate ROI with custom mortgage parameters and include renovation costs
-
-**User controls**:
-- Mortgage parameters (interest rate, down payment %, loan term)
-- Renovation costs (% of purchase price)
-- Filters (property type, energy class, location, listing type)
-
-**Visualizations**:
-- Map: geographic distribution of profitable properties
-- Scatter plot: price vs predicted rent
-- Bar charts: metrics by province/property type
-- Summary stats: counts, medians, top opportunities
-
----
-
-## Closing reflection
-What I learned from this project is not just to "scrape real-estate listings". It is a more practical lesson: if you want a model-driven product to be credible, the upstream engineering and the publication constraints *have to* be part of the design *from the start*. The parts that held up best here were the pipeline decisions, the synthetic-data requirement, and the fact that the dashboard was treated as part of the project rather than as an afterthought.
-
----
-
-## Look at the code
-The reusable, public parts of the code are available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate). Source and synthetic row-level data, credentials, and the live collection implementation are excluded.
+Source and synthetic row-level data, credentials, and the live collection implementation remain excluded. The public material does not reproduce the historical metrics independently, authorize collection from the source, or provide investment advice.

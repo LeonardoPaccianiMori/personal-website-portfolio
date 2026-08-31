@@ -5,6 +5,8 @@ date: 2025-06-20 10:30:00
 description: How the storage layer changed as the project moved from messy scraping to analytics-ready modeling.
 tags: data-engineering databases architecture
 categories: [technical-notes]
+technical_kind: note
+last_updated: 2026-08-31
 featured: false
 ---
 
@@ -55,7 +57,7 @@ That is the point where PostgreSQL stopped being a "nice to have" and became the
     The project evolved from raw collection in MongoDB toward an analytics-ready layer in PostgreSQL.
 </div>
 
-The interesting part here is not "SQL is better than NoSQL." It is more specific:
+The interesting part is not “SQL is better than NoSQL.” It is more specific:
 
 - MongoDB was better while the data model was still unstable
 - PostgreSQL was better once the data model was stable enough to deserve constraints and structure
@@ -69,7 +71,7 @@ The transition happened when I noticed I was doing the same kinds of cleanup rep
 - writing increasingly awkward aggregation logic
 - needing more reliable joins between entities
 
-That was the signal that I was no longer storing exploratory data. I was storing production-ish analytical data in the wrong place.
+Those repeated transformations were the signal that the cleaned layer had become stable analytical data. The flexibility that helped during collection was now creating work before every analysis.
 
 Once I migrated the cleaned layer into PostgreSQL, a lot of later work got easier:
 

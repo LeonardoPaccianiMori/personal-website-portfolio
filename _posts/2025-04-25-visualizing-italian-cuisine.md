@@ -5,6 +5,8 @@ date: 2025-12-19 16:15:00
 description: Three visualization choices that made the geographic story in my Italian cuisine dataset much easier to see
 tags: data-visualization plotly maps
 categories: [technical-notes]
+technical_kind: note
+last_updated: 2026-08-31
 featured: false
 chart:
   plotly: true
@@ -20,24 +22,25 @@ Three custom views ended up carrying most of the analytical weight.
 
 ## 1. The olive oil vs butter map
 
-The most memorable geographic pattern in the dataset was the North-South split in cooking fats. The mistake would have been to show two separate maps, one for olive oil and one for butter.
+One of the clearest geographic patterns in the contemporary corpus was the contrast between olive-oil and butter frequency. The mistake would have been to show two separate maps, one for each ingredient.
 
 That would have been technically correct and cognitively annoying.
 
 The better choice was a diverging choropleth where the scale itself expresses the tension:
 
-- red for butter-dominant regions
-- green for olive-oil-dominant regions
+- orange for butter-dominant regions
+- blue for olive-oil-dominant regions
 - the middle of the scale for transitional areas
 
 ```plotly
 {% include plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
+
 <div class="caption">
     Diverging choropleth of regional fat preference. A single map makes the transition zone easier to see than two separate usage maps.
 </div>
 
-This was the point where the pattern stopped being a set of statistics and became a story. You could see the boundary immediately, and once it was visible, it became easier to ask better questions about climate, agriculture, and regional culinary history.
+The combined scale made the broad transition easier to see while the hover values retained the underlying percentages. The map describes relative frequency in this curated corpus. It does not establish a cultural boundary or explain why the pattern exists.
 
 ## 2. The pasta-rice-polenta triangle
 
@@ -52,13 +55,14 @@ I wanted to compare pasta, rice, and polenta across regions without forcing the 
 ```plotly
 {% include plotly/italian-cuisine/pasta-rice-polenta-triangle.json %}
 ```
+
 <div class="caption">
     RGB ternary map: red for pasta, green for rice, blue for polenta. Mixed colors show transitional regional profiles.
 </div>
 
-The main benefit was not novelty for its own sake. It was compression. One view now carried geography, relative proportion, and transition zones at the same time.
+The main benefit was not novelty for its own sake. It was compression. One view now carried geography, relative proportion, and mixed regional profiles at the same time.
 
-That is where the Alpine polenta cluster and the Po Valley rice cluster became much easier to explain. The map did not replace quantitative analysis, but it made the right questions obvious.
+The Alpine polenta concentration and the Po Valley rice concentration became easier to inspect. The map did not replace the underlying percentages, and its colour mixtures are not equally easy for every reader to distinguish. Hover values and the accompanying prose therefore remain necessary parts of the explanation.
 
 ## 3. Similarity needed structure, not just a list
 
@@ -69,18 +73,19 @@ The useful move was to keep the heatmap, but reorder it by clustered similarity 
 ```plotly
 {% include plotly/italian-cuisine/regional-similarity-heatmap.json %}
 ```
+
 <div class="caption">
     Regional similarity heatmap reordered by clustering. Grouping similar regions together makes the block structure legible.
 </div>
 
-This mattered because it supported something the classification model was already hinting at: macro-regions are not arbitrary convenience labels. They show up as real structure in the data.
+This supported something the classification model also suggested: the curated corpus contained more visible structure at the macro-region level than at the individual-region level. It did not establish that the corpus was a representative measurement of regional cooking.
 
 ## What I took from this
 
 I do not think every project needs custom visuals. Most do not.
 
-In fact, I actively dislike bespoke charts that exist mostly to advertise effort. But when the structure of the data *is* the story, standard plots can flatten the analysis without you noticing. In this project, the right custom view did not make the charts prettier. It made the conclusions easier to reach and easier to defend.
+In fact, I actively dislike bespoke charts that exist mostly to advertise effort. But when the structure of the data _is_ the story, standard plots can separate relationships that need to be considered together. In this project, the custom views did more than make the charts distinctive. They made corpus-level comparisons easier to inspect.
 
-That is the bar I now use for bespoke visualization work: if a custom chart does not make the underlying reasoning clearer, it is decoration.
+That is the bar I use for bespoke visualization work: the encoding must make the reasoning clearer, and the same conclusion must remain available through labels, values, or prose rather than colour alone.
 
 For the broader context, start with the [project page](/projects/italian-cuisine/). The [technical deep dive](/blog/2026/italian-cuisine-deep-dive/) has the rest of the analysis and the supporting outputs.

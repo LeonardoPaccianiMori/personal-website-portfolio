@@ -5,6 +5,8 @@ date: 2025-05-15 09:45:00
 description: "A practical synthetic-data decision from an Italian real-estate project: preserving geographic and price correlations mattered more than matching marginal distributions."
 tags: machine-learning synthetic-data algorithms
 categories: [technical-notes]
+technical_kind: note
+last_updated: 2026-08-31
 featured: true
 ---
 
@@ -34,7 +36,7 @@ In my original comparison, CTGAN preserved the surface–price relationship much
 
 ## The validation that changed the decision
 
-I compared three relationships in the real and synthetic data. The reported location–price R² was calculated using raw latitude and longitude; I also reported the relationship between surface and price and the price premium associated with Milan.
+I compared three relationships in the real and synthetic data. The reported location–price R² used raw latitude and longitude as a project-specific diagnostic. It compressed a complex spatial relationship into one number, so it was useful for comparing these outputs but not a complete measure of geographic fidelity. I also reported the relationship between surface and price and the price premium associated with Milan.
 
 The first comparison isolated what CTGAN had and had not preserved:
 
@@ -58,7 +60,7 @@ I therefore built a custom K-nearest-neighbors generator and repeated the compar
 
 <br>
 
-These figures are results recorded during the original study. The current public repository does not retain the evaluation script, generated datasets, or a versioned result artifact needed to reproduce the exact values, so I treat them as historical project results rather than repository-reproduced benchmarks.
+These figures were recorded during the original study. The public repository does not retain the evaluation script, generated datasets, or a versioned result artifact that reproduces the exact values. I therefore treat them as historical project results rather than reproducible benchmarks.
 
 ## The simpler alternative was better
 
@@ -71,7 +73,7 @@ The alternative used local interpolation rather than training another generative
 
 This made preservation of local price and geographic structure part of the construction of the dataset. TensorFlow-based distance calculations allowed me to generate approximately one million records without making the custom approach impractically slow.
 
-There is an important boundary around that choice. Because price participated in neighbor selection and the method was built from local neighborhoods in the source data, the generator was not independent evidence that the later rent model generalized to unseen source listings. It was also never subjected to a formal privacy audit. I therefore treat its output as an analytical transformation, not as certified anonymization. The row-level synthetic dataset is not distributed; only aggregate study results remain public.
+There is an important boundary around that choice. Because price participated in neighbour selection and the method was built from local neighbourhoods in the source data, the generator was not independent evidence that the later rent model generalized to unseen source listings. It was also never subjected to a formal privacy audit. I treat its output as an analytical transformation, not as certified anonymization. The row-level synthetic dataset is not distributed; only aggregate study results remain public.
 
 ## The validation question mattered more than the model
 

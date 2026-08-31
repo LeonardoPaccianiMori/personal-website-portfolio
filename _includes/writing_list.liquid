@@ -6,7 +6,9 @@
     {% for post in writing_posts limit: writing_limit %}
       {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
       {% assign writing_label = 'Writing' %}
-      {% if post.categories contains 'technical-notes' %}
+      {% if post.technical_kind == 'appendix' %}
+        {% assign writing_label = 'Technical appendix' %}
+      {% elsif post.categories contains 'technical-notes' %}
         {% assign writing_label = 'Technical note' %}
       {% elsif post.categories contains 'thoughts' %}
         {% assign writing_label = 'Thought' %}

@@ -5,26 +5,141 @@ date: 2026-01-16 10:10:00
 description: The technical appendix to my Italian cuisine project, including extraction prompts, graph modeling choices, and the main analytical outputs.
 tags: data-science graphs GNN NLP
 categories: [technical-notes]
+technical_kind: appendix
+last_updated: 2026-08-31
 chart:
   plotly: true
 ---
 
 ## Overview
-This post is the technical appendix to my [Italian cuisine project](/projects/italian-cuisine/). I cared about the question before I cared about the model: I wanted a way to treat recipe texts as both historical source material and structured data, and once I took that seriously, the representation problem became the real center of the work. The project page focuses on the portfolio story; this page keeps the extraction prompts, graph-modeling choices, and analytical outputs together in one reference.
 
----
+This is the technical appendix to my [Italian cuisine project](/projects/italian-cuisine/). The project treated recipes as both source texts and structured processes. That required three connected decisions: how to extract a consistent schema from prose, how to represent relationships and sequence, and how to evaluate geographic patterns without treating a curated corpus as a measurement of Italian cooking itself.
 
-## Data extraction pipeline
-Both datasets started as unstructured text. I used Gemini 2.5 Pro to convert each recipe into a structured JSON schema, then normalized ingredients and tools before loading the results into Neo4j.
+The appendix follows that path from extraction to graph modelling. Two focused notes separately explain [why I represented recipes as graphs](/blog/2025/why-graphs-for-recipes/) and [how I designed the principal geographic visualizations](/blog/2025/visualizing-italian-cuisine/).
 
-The historical source is Pellegrino Artusi's cookbook. The contemporary corpus
-was derived from publicly viewable regional recipe pages. Because public
-accessibility did not establish redistribution permission, the source text and
-recipe-level derivatives are excluded from the public repository. The prompt
-templates document the extraction method, while published results are limited
-to corpus-level summaries and the separately licensed Artusi materials.
+## Data and public boundary
 
-### Prompts used for extraction
+The historical corpus contains 790 recipes from Pellegrino Artusi's 1891 cookbook. The contemporary corpus contains 2,599 regional recipes covering all 20 Italian regions.
+
+Neither source is a representative sample of what Italians cooked. Artusi concentrates on Central and Northern Italy, while the contemporary corpus is a curated collection. Contemporary source text, recipe-level derivatives, model checkpoints, and data splits are not distributed. Published results are limited to aggregate analysis and separately licensed Artusi material.
+
+## From recipe text to structured data
+
+Both datasets started as unstructured text. I used an LLM to convert each recipe into a structured JSON schema, then normalized ingredients and tools before loading the results into Neo4j.
+
+The schema captured ingredients, tools, steps, intermediate products, order, timing, and other available metadata. LLM-produced JSON made the texts analyzable at scale, but valid structure did not guarantee correct extraction. Normalization could merge distinct ingredients, preserve an inconsistent name, or assign the wrong action or relationship.
+
+I therefore treat the aggregate findings as directional evidence and look for patterns that appear across several views rather than relying on one extracted field.
+
+## Graph representation
+
+Neo4j stored the richer recipe graph, including ingredients, tools, steps, intermediate products, and sequence. That structure supported inspection and querying during development.
+
+The heterogeneous Graph Attention Network used a narrower model graph containing recipe, ingredient, and step nodes. This distinction matters: the public interactive graph shows more structure than the classifier consumed. The focused [graph-representation note](/blog/2025/why-graphs-for-recipes/) explains why I chose this approach and why the project does not establish that graphs outperform a flat baseline.
+
+## Historical and contemporary comparison
+
+Once Artusi is treated as one geographically imbalanced historical corpus rather than a complete picture of Italy, the comparison shows how two differently assembled sources vary.
+
+### Represented complexity
+
+The distributions of steps, ingredients, and tools compare how recipe complexity is represented in the two corpora.
+
+```plotly
+{% include plotly/italian-cuisine/recipe-complexity.json %}
+```
+
+### Category mix
+
+The category mix comparison shows the percentage of recipes assigned to each category in the two corpora. One visible difference is that the category "Pizzas and savory pies" is absent from the Artusi dataset.
+
+```plotly
+{% include plotly/italian-cuisine/category-evolution.json %}
+```
+
+### Ingredient frequency
+
+Key differences between the corpora:
+
+- A larger percentage of contemporary recipes contain olive oil, while a larger percentage of Artusi recipes contain butter
+- A larger percentage of contemporary recipes contain salt
+- Larger percentages of contemporary recipes contain garlic, onion, and parsley
+- Chili peppers appear only once in the Artusi corpus
+
+Scatter plot comparing ingredient frequency in Artusi vs contemporary recipes.
+
+```plotly
+{% include plotly/italian-cuisine/top-ingredients-scatter.json %}
+```
+
+This view highlights ingredients found only in one of the two datasets.
+
+```plotly
+{% include plotly/italian-cuisine/new-vs-disappeared-ingredients.json %}
+```
+
+## Selected regional patterns
+
+I then focused on the contemporary corpus. The complete visualization discussion lives in [the focused visualization note](/blog/2025/visualizing-italian-cuisine/); this appendix retains the views most relevant to the later modelling result.
+
+### The olive-oil and butter comparison
+
+Olive oil appears more frequently in Central and Southern recipes in the corpus, while butter appears more frequently in Northern recipes. The blue–orange diverging map combines both percentages in one view. It describes this collection and does not establish a cultural boundary or explain its cause.
+
+<div class="caption">
+    Relative olive-oil and butter frequency in the curated regional recipes: blue = olive oil dominant, orange = butter dominant. Hover and zoom to inspect the percentages.
+</div>
+```plotly
+{% include plotly/italian-cuisine/olive-oil-butter-divide.json %}
+```
+
+Other retained analyses examined regional similarity, corpus-distinctive ingredients, tomato, cheese, seafood, and the pasta–rice–polenta balance. Their charts remain in the repository, while the focused [visualization note](/blog/2025/visualizing-italian-cuisine/) explains the main design decisions without repeating the full gallery here.
+
+## Graph classification
+
+The contemporary corpus used one reproducible, stratified 70/15/15 train, validation, and test split with seed 42. The test set contained 390 recipes. This was a fixed split rather than cross-validation.
+
+| Model             | Test accuracy | Macro-F1 | Interpretation                                        |
+| ----------------- | ------------: | -------: | ----------------------------------------------------- |
+| Macro-region      |        59.49% |   52.98% | Broad geographic structure was partly recoverable     |
+| Individual region |        20.26% |   18.50% | Fine-grained labels overlapped and training overfit   |
+| Hierarchical      |        22.31% |   17.82% | The hierarchy did not resolve fine-grained separation |
+
+The principal result was the gap between broad and fine geography. The graph model found some macro-region signal, but it did not classify individual regions reliably.
+
+### What the embedding projection showed
+
+The PCA projection is descriptive rather than a separate performance measure. It helps show where the fixed-split result may have come from:
+
+- Northern recipes form a relatively tight cluster
+- Recipes from the Islands are comparatively well separated
+- Southern and Central recipes overlap
+- Ligurian recipes cluster closer to the Central/Southern groups in this projection
+
+PCA projection of recipe embeddings colored by macro-region.
+
+```plotly
+{% include plotly/italian-cuisine/pca-regional-clustering.json %}
+```
+
+## Limitations and reproducibility
+
+- Both corpora are curated and geographically imbalanced.
+- LLM-assisted extraction and normalization can introduce errors.
+- The GAT results use one fixed split and do not establish stability across alternative splits or seeds.
+- No flat-feature baseline or relation ablation establishes that the graph representation was superior.
+- Contemporary recipe text, recipe-level derivatives, model checkpoints, and splits are excluded from the public repositories.
+
+The public source contains code and aggregate analytical outputs. The retained Artusi material follows its source terms. These boundaries allow inspection of the method and reported results but prevent complete independent reproduction of the recipe-level experiment from the public artifacts alone.
+
+## Takeaways
+
+- Graph structure earned its keep because it kept relationships and sequence visible instead of turning recipes into ingredient bags.
+- On this fixed split, the macro-region classifier performed better than the individual-region models, while the fine-grained labels showed lower separability.
+- The model result aligned with broad patterns visible in the exploratory analysis, but that agreement remains descriptive rather than independent validation.
+
+<details markdown="1">
+<summary><strong>Complete extraction prompts</strong></summary>
 
 <details markdown="1">
 <summary><strong>Artusi extraction prompt</strong></summary>
@@ -87,7 +202,7 @@ CRITICAL RULES:
 8. Be thorough - this is for a data science portfolio analyzing Italian cuisine
 
 Return ONLY the JSON object, nothing else.
-```
+````
 {%endraw%}
 </details>
 
@@ -149,162 +264,18 @@ CRITICAL RULES:
 8. servings, prep_time_minutes, cook_time_minutes MUST be either a single number or null
 
 Return ONLY the JSON object, nothing else.
-```
+````
+
 {%endraw%}
+
 </details>
 
-### Limitations
-These results should be read as patterns in curated recipe datasets, not as direct measurements of what Italians ate. Artusi is useful as a historical corpus, but it is not a complete picture of nineteenth-century Italian cuisine. The contemporary corpus is also curated, and the extraction pipeline depends on LLM-produced structured JSON, so ingredient frequencies and step-level structure may include normalization errors. I treated the results as directional evidence and looked for patterns that appeared consistently across visualizations, similarity analysis, and model behavior.
+</details>
 
 ---
 
-## Analysis: historical and contemporary corpus comparison
-I used the two datasets to ask a simple question: once Artusi is treated as a historical corpus rather than as a complete picture of Italy, what differences appear between the two curated sources?
+## Code and rights boundary
 
-### Recipe complexity
-The distributions of steps, ingredients, and tools compare how recipe complexity is represented in the two corpora.
-```plotly
-{% include plotly/italian-cuisine/recipe-complexity.json %}
-```
-
-### Category comparison
-The category mix comparison shows the percentage of recipes assigned to each category in the two corpora. One visible difference is that the category "Pizzas and savory pies" is absent from the Artusi dataset.
-```plotly
-{% include plotly/italian-cuisine/category-evolution.json %}
-```
-
-### Ingredient frequency comparison
-Key differences between the corpora:
-- A larger percentage of contemporary recipes contain olive oil, while a larger percentage of Artusi recipes contain butter
-- A larger percentage of contemporary recipes contain salt
-- Larger percentages of contemporary recipes contain garlic, onion, and parsley
-- Chili peppers appear only once in the Artusi corpus
-
-Scatter plot comparing ingredient frequency in Artusi vs contemporary recipes.
-```plotly
-{% include plotly/italian-cuisine/top-ingredients-scatter.json %}
-```
-
-This view highlights ingredients found only in one of the two datasets.
-```plotly
-{% include plotly/italian-cuisine/new-vs-disappeared-ingredients.json %}
-```
-
----
-
-## Analysis: regional patterns in the contemporary corpus
-I then focused on the modern dataset to compare regional patterns across the visual analysis and model outputs.
-
-### Regional characteristics
-Use the dropdown to switch between five metrics:
-- **Recipe abundance**: number of recipes in the dataset per region
-- **Recipe complexity**: average number of steps per recipe per region
-- **Recipe variety**: average number of ingredients per recipe per region
-- **Ingredient variety**: total unique ingredients used in each region
-- **Recipe size**: average number of servings per recipe per region
-
-Choropleth view of each metric by region.
-```plotly
-{% include plotly/italian-cuisine/regional-characteristics-choropleth.json %}
-```
-
-### Corpus-distinctive ingredients (TF-IDF)
-Click a region to update the bar chart with its corpus-distinctive ingredients.
-```plotly
-{% include plotly/italian-cuisine/regional-signature-ingredients-map.json %}
-```
-
-Top 10 TF-IDF ingredients for the selected region.
-```plotly
-{% include plotly/italian-cuisine/regional-signature-ingredients-bar.json %}
-```
-
-### Ingredient usage (top 10)
-Select an ingredient to see where it is most commonly used.
-```plotly
-{% include plotly/italian-cuisine/ingredient-usage-choropleth.json %}
-```
-
-### Regional similarity
-Cosine similarity across ingredient profiles highlights which regions are closest:
-- In this corpus, regions within the same macro-region often cluster closely
-- Valle d'Aosta stands out as a strong outlier in the ingredient profiles
-- Liguria aligns more with Central/Southern profiles than with Northern ones in this analysis
-
-```plotly
-{% include plotly/italian-cuisine/regional-similarity-choropleth.json %}
-```
-
-Heatmap shows full pairwise similarities, ordered by macro-region.
-```plotly
-{% include plotly/italian-cuisine/regional-similarity-heatmap-macro.json %}
-```
-
-The dendrogram view reinforces the same grouping:
-{% include figure.liquid loading="lazy" path="assets/img/projects/italian-cuisine/italian-cuisine-hierarchical-clustering.png" title="Hierarchical clustering of regional recipe ingredient profiles" class="img-fluid rounded z-depth-1" %}
-
-### The olive oil vs butter line
-The relative frequency of olive oil and butter shows a sharp north-south pattern in the contemporary corpus:
-<div class="caption">
-    Relative olive-oil and butter frequency in the curated regional recipes: green = olive oil dominant, red = butter dominant. Hover and zoom to inspect.
-</div>
-```plotly
-{% include plotly/italian-cuisine/olive-oil-butter-divide.json %}
-```
-
-### Tomato gradient
-Tomato appears more frequently in Southern recipes in this corpus, following a pattern similar to the olive-oil distribution:
-<div class="caption">
-    Tomato frequency is highest in the Southern portion of the curated regional corpus.
-</div>
-```plotly
-{% include plotly/italian-cuisine/tomato-usage.json %}
-```
-
-### Cheese and seafood patterns
-Cheese appears most frequently in regions including Emilia-Romagna and Lombardy in this corpus.
-```plotly
-{% include plotly/italian-cuisine/cheese-usage.json %}
-```
-
-Seafood appears more frequently in recipes associated with coastal regions, while landlocked and alpine regions are lower in this corpus.
-```plotly
-{% include plotly/italian-cuisine/seafood-usage.json %}
-```
-
-### The starch triangle
-Northern recipes in the corpus contain relatively more rice and polenta, while Southern recipes contain relatively more pasta; other regions show mixed profiles.
-```plotly
-{% include plotly/italian-cuisine/pasta-rice-polenta-triangle.json %}
-```
-
----
-
-## ML classification deep dive
-On the fixed held-out split, the macro-region classifier reached 59.49% accuracy, 52.98% macro-F1, and 58.79% weighted-F1. The region-level model reached 20.26% accuracy and 18.50% macro-F1, while a hierarchical variant reached 22.31% accuracy and 17.82% macro-F1. In this experiment, the fine-grained region labels had lower separability than the broader macro-regions. The GAT uses recipe, ingredient, and step nodes; the richer Neo4j graph also retains tools, intermediate products, and sequence for inspection.
-
-### PCA clustering
-Key observations from the recipe embeddings:
-- Northern recipes form a relatively tight cluster
-- Recipes from the Islands are comparatively well separated
-- Southern and Central recipes overlap
-- Ligurian recipes cluster closer to the Central/Southern groups in this projection
-
-PCA projection of recipe embeddings colored by macro-region.
-```plotly
-{% include plotly/italian-cuisine/pca-regional-clustering.json %}
-```
-
----
-
-## Takeaways
-- Graph structure earned its keep because it kept relationships and sequence visible instead of turning recipes into ingredient bags.
-- On this fixed split, the macro-region classifier performed better than the individual-region models, while the fine-grained labels showed lower separability.
-- The most satisfying result for me was that the patterns learned by the model aligned with signals visible in the project's other exploratory analyses instead of feeling like arbitrary clusters.
-
----
-
-## Look at the code
 All code for this project is available on GitHub [here](https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine).
 
 The repository intentionally excludes the contemporary recipe text, processed recipe graphs, feature matrices, and train/validation/test splits. My original aggregate analysis and visualizations are published under CC BY 4.0; that license does not apply to underlying third-party recipe materials. Retained Artusi material follows the digital source's stated “CC By-NC-SA” terms.

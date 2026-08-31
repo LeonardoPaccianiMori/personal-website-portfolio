@@ -5,6 +5,8 @@ date: 2026-08-12 09:10:00 +0200
 description: How a bounded AI-judged preference update survived a sealed test without establishing broad literary improvement.
 tags: language-models DPO evaluation preference-learning responsible-ai
 categories: [technical-notes]
+technical_kind: note
+last_updated: 2026-08-31
 chart:
   plotly: true
 ---
@@ -14,6 +16,8 @@ The most defensible result in my transformer-poetry project sounds modest: a sma
 That second sentence is not a disclaimer added after the result. It follows from the evaluation design. The preference labels came from AI judges that failed a small human-calibration check. The optimization target focused on meta-text and terminal completion rather than literary quality in general. The sealed automatic gains were a few percentage points. In the controlling blind review, only historical register had an interval excluding zero, and both systems produced 0/100 strict-good outputs.
 
 The experiment is useful because the narrow gain survived a stronger test than the headline alone would suggest. It is also useful because that test prevented the gain from expanding into a much larger claim.
+
+The evaluation worked as a ladder. Preference accuracy checked whether the adapter learned the AI labels. Validation selected the candidate. A sealed automatic test checked whether the selected difference replicated. A separate blind review then controlled the literary claim.
 
 ## The bounded DPO target
 
@@ -29,7 +33,7 @@ Three AI judges provided blind votes for the training preferences. I separately 
 
 That failed the calibration threshold. The 20 reviewed pairs were kept out of training, and I did not reinterpret the mismatch as human preference learning. Throughout the project, the method is therefore called **AI-judged DPO**. It is not RLHF, human-aligned DPO, or a human-calibrated literary reward model.
 
-The mismatch does not make the experiment meaningless. It changes what its outcome can mean. If the adapter learns the preference data, that is evidence that it learned a signal defined by the AI-majority process. Whether that signal corresponds to human literary judgment remains a separate question that the calibration did not resolve.
+The mismatch changes what the outcome can mean. If the adapter learns the preference data, that is evidence that it learned a signal defined by the AI-majority process. Whether that signal corresponds to human literary judgment remains a separate question that the calibration did not resolve.
 
 ## Candidate and preference construction
 
@@ -78,7 +82,7 @@ Stage 3 and DPO generated 960 matched validation outputs from 120 held-out openi
 
 The automatic surface-screen rate rose from 13.96% to 18.96%, a paired gain of 5.00 percentage points with a 95% prompt-cluster interval from 0.63 to 9.38. A frozen blind sample of 80 outputs also found genuine terminal completion in 20/40 DPO outputs and 12/40 Stage-3 outputs. Neither system produced a strict-good output in that review.
 
-This was enough to select DPO for the predeclared final comparison. It was not enough to declare success. Selection answers “which system advances under this protocol?” A final test asks whether the selected difference survives new data after the decisions are locked.
+This was enough to select DPO for the predeclared final comparison. Selection answered “which system advances under this protocol?” The final test asked whether that difference survived new data after the decisions were locked.
 
 ## One-time sealed automatic evaluation
 
@@ -103,7 +107,7 @@ The run took a measured 2,970.6 seconds on one H100. Its approximately $1.967 co
 
 The sealed surface-screen and punctuation intervals excluded zero. The meta-text-free interval did not. This is the narrow replicated result: the adapter improved part of the targeted surface/completion behavior under a new, frozen population.
 
-The size of the gain also narrowed from validation to test. That is not surprising, but it is exactly why the sealed step matters. Without it, the validation result could easily become the public headline with no measure of how it transferred.
+The gain narrowed from validation to test. That is exactly why the sealed step mattered: without it, the validation result could become the public headline with no measure of how it transferred.
 
 ## Blind literary review
 
