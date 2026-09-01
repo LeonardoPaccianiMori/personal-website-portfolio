@@ -14,9 +14,9 @@ first_published: 1943
 edition_publisher: Bompiani
 edition_series: Tascabili Bompiani
 edition_number:
-edition_year:
+edition_year: 1992
 edition_language: Italian
-isbn:
+isbn: "9788845205118"
 ---
 
 Whenever I visit a new country, I buy a copy of _The Little Prince_ in the local language. My curiosity about languages started the collection: over time, it became both a ritual and an unusual kind of souvenir. Each edition brings back where I found it and what that journey meant. Its emotional value is far greater than its material one.

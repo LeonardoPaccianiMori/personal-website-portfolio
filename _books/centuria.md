@@ -14,9 +14,9 @@ first_published: 1979
 edition_publisher: Adelphi
 edition_series: Biblioteca Adelphi
 edition_number: 308
-edition_year:
+edition_year: 1995
 edition_language: Italian
-isbn:
+isbn: "9788845911521"
 ---
 
 _Centuria_ is unlike anything else I have read: it's a collection of one hundred _romans-fleuves_, each one just _one_ page long. This constraint produces an impressive range of effects: many pieces genuinely feel like entire novels compressed into a single page with a world and an arc of their own, while others leave the door open to further developments and offer only a glimpse of a much larger and stranger story.

@@ -14,7 +14,7 @@ first_published: 1979
 edition_publisher: Mondadori
 edition_series: Oscar Moderni
 edition_number:
-edition_year:
+edition_year: 2022
 edition_language: Italian
-isbn:
+isbn: "9788804772149"
 ---

@@ -11,12 +11,12 @@ started: 2026-04-29
 finished: 2026-05-09
 stars: 4
 first_published: 1953
-edition_publisher: Ernst Klett Sprachen
-edition_series: Originalausgaben
+edition_publisher: Harper Voyager
+edition_series:
 edition_number:
-edition_year: 2014
+edition_year: 2008
 edition_language: English
-isbn: "9783125776975"
+isbn: "9780006546061"
 ---
 
 _Fahrenheit 451_ is a great classic, which over the past decade has seen a significant surge in sales alongside [_1984_](/books/nineteen_eighty_four/) (not difficult to understand why[^1], unfortunately).
