@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Exploring real estate returns in Italy
-description: End-to-end data pipeline from Italian property listings to rental-income estimates and an investor-facing decision-support dashboard
+description: End-to-end data pipeline from Italian property listings to rental-income estimates and decision-support dashboard for investment opportunities
 img: assets/img/projects/italian-real-estate/italian-real-estate.jpg
 importance: 1
 category: portfolio
@@ -65,14 +65,11 @@ I implemented every stage, including acquisition, storage, transformation, model
 
 The interactive view works best on a desktop or tablet. It presents patterns in the synthetic study data.
 
-The study suggested that auction properties could outperform regular sales after assumed renovation costs, rural areas could show higher returns than urban areas, energy rating had less effect on estimated rent than expected, and no simple North–South profitability divide appeared. These are exploratory synthetic-data results. They are not property-level forecasts or investment advice.
+The study suggested that auction properties could outperform regular sales after assumed renovation costs, rural areas could show higher returns than urban areas, energy rating had less effect on estimated rent than expected, and no simple North–South profitability divide appeared. These are of course the results of the analysis of the synthetic data, and **not** property-level forecasts or _actual_ investment advice.
 
-## How to read the result
-
-- The original study reported R² = 0.75 on `log1p(rent)` for a held-out synthetic test split. The public release documents the method but does not include a versioned result that reproduces that exact number. Because the target was transformed, the score also does not measure accuracy on the original rent scale.
+## Final notes
 - The data is a snapshot from early 2025 and is now outdated.
-- The synthetic generator was designed to break row-level correspondence, but it was not evaluated as a formal privacy guarantee.
-- Collection availability and permissions can change. Any reuse requires current authorization and compliance with the source site's terms.
+- The synthetic generator was designed to create fully synthetic data with the same statistical properties of the original data.
 - The public repository excludes the source listings, synthetic row-level data, and code that would enable direct reuse of the original collection process.
 
-The dashboard is best read as an exploration of one synthetic study, not as a current property-ranking system. The [technical appendix](/blog/2025/italian-real-estate-deep-dive/) documents the collection, ETL, synthetic-data, and modelling approach. Two related notes explain [why CTGAN was rejected](/blog/2025/synthetic-data-ctgan/) and [why the storage layer moved from MongoDB to PostgreSQL](/blog/2025/mongodb-postgresql-ml/).
+The [technical appendix](/blog/2025/italian-real-estate-deep-dive/) documents the collection, ETL, synthetic-data, and modelling approach. Two related notes explain [why CTGAN was rejected](/blog/2025/synthetic-data-ctgan/) when building the synthetic dataset and [why the storage layer moved from MongoDB to PostgreSQL](/blog/2025/mongodb-postgresql-ml/).

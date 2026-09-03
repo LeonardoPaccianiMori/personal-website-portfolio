@@ -10,7 +10,7 @@ project_overview:
   period: June 2025–present
   role: Primary developer and technical owner
   outcome: Turns a multi-day segment-exploration process into a minutes-scale interactive workflow.
-  evidence: Internal system; code and data are private.
+  evidence: Internal system; code and data are proprietary.
 ---
 
 <div class="row">
