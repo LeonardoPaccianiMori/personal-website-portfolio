@@ -2,19 +2,20 @@
 layout: about
 title: home
 permalink: /
-description: Senior Data Scientist working across applied AI, analytics, and decision-support systems.
+description: Senior Data Scientist building applications for analysts and researchers, with a background in experimental biophysics.
 ---
 
 <section class="career-hero" aria-labelledby="career-hero-title">
   <div class="career-hero__copy">
     <p class="career-eyebrow">Senior Data Scientist · Applied AI · Analytics</p>
-    <h1 id="career-hero-title">Applied AI and analysis for practical decisions.</h1>
+    <h1 id="career-hero-title">I build tools for analysts and researchers.</h1>
     <p class="career-hero__lead">
       I’m <strong>Pinco Pallino</strong>, a Senior Data Scientist at
-      <a href="https://www.merkle.com/en/locations/europe/italy.html">Merkle Italy</a>. I work across
-      data analysis, geographic questions, and applications built around language models.
-      My work ranges from preparing evidence for a decision to developing and
-      maintaining the tools people use to explore it.
+      <a href="https://www.merkle.com/en/locations/europe/italy.html">Merkle Italy</a>. I build
+      applications that help people explore interviews and survey data, and work
+      with geographic and structured data. My personal projects also include
+      predictive models. I develop and maintain applications, and explain the
+      findings to the people who will use them.
     </p>
     <div class="career-actions" aria-label="Primary links">
       <a class="career-button career-button--primary" href="#selected-work">
@@ -56,9 +57,6 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
       {% assign project = site.projects | where: "url", featured_url | first %}
       {% if project %}
         <article class="career-work-card">
-          <a class="career-work-card__image" href="{{ project.url | relative_url }}" tabindex="-1" aria-hidden="true">
-            <img src="{{ project.img | relative_url }}" alt="" loading="lazy">
-          </a>
           <div class="career-work-card__body">
             <p class="career-work-card__type">
               {% case project.category %}
@@ -73,6 +71,14 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
             <p>{{ project.description }}</p>
             <p class="career-work-card__role">{{ project.card_role }}</p>
             <a class="career-text-link" href="{{ project.url | relative_url }}">Read the case study <span aria-hidden="true">→</span></a>
+            {% case project.url %}
+              {% when '/projects/italian-real-estate/' %}
+                <p class="career-work-card__evidence"><a href="{{ '/projects/italian-real-estate/#explore-the-study' | relative_url }}">Explore the synthetic-study dashboard</a></p>
+              {% when '/projects/italian-cuisine/' %}
+                <p class="career-work-card__evidence"><a href="{{ '/projects/italian-cuisine/#looking-inside-a-recipe-graph' | relative_url }}">Explore a recipe graph</a></p>
+              {% else %}
+                <p class="career-work-card__evidence">Internal application; code and interview material are private.</p>
+            {% endcase %}
           </div>
         </article>
       {% endif %}
@@ -82,14 +88,13 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
 
 <section class="career-section career-approach" aria-labelledby="approach-title">
   <div class="career-section__heading">
-    <p class="career-eyebrow">How I work</p>
-    <h2 id="approach-title">The useful output shapes the work.</h2>
+    <p class="career-eyebrow">What interests me</p>
+    <h2 id="approach-title">Models, analysis, and the applications around them.</h2>
     <p>
-      In <a href="{{ '/projects/accelerating-qualitative-interview-analysis/' | relative_url }}">interview analysis</a>,
-      researchers needed a first report, so I rebuilt the application around that document.
-      In <a href="{{ '/projects/italian-real-estate/' | relative_url }}">real estate</a>,
-      the dashboard needed geographic relationships that plausible-looking synthetic columns did not preserve.
-      Those concrete requirements guide what I build, what I test, and what I change after review.
+      I’m interested in predictive modelling, analysis that helps people make
+      decisions, and applications built with language models. These interests
+      often meet in the same project: a model estimates something, an interface
+      lets someone inspect it, and the analysis explains how much to trust the result.
     </p>
   </div>
 </section>
@@ -97,28 +102,31 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
 <section class="career-section career-background" aria-labelledby="background-title">
   <div class="career-background__story">
     <p class="career-eyebrow">Background</p>
-    <h2 id="background-title">Research discipline, industry focus.</h2>
+    <h2 id="background-title">From experimental biophysics to data science.</h2>
     <p>
-      Before moving into industry, I spent four years conducting experimental
-      biophysics research at UC San Diego, following earlier experience at
-      Harvard. That work still shapes how I approach data science: I care about
-      experimental design, traceable reasoning, and whether an analysis can
-      survive contact with messy real-world data.
+      Before moving into industry, I spent four years in experimental biophysics
+      at UC San Diego, following earlier research experience at Harvard.
+      Working with experiments taught me to ask how a dataset was produced,
+      which alternative explanations fit the observations, and what evidence
+      would distinguish them.
     </p>
     <p>
-      Industry changed how I decide when work is ready: the evidence has to support
-      its intended use, and the answer has to arrive in time to matter.
-      I explore that change in <a href="{% post_url 2026-07-29-what-research-taught-me-about-applied-data-science %}">my note on research and rigor</a>.
+      I bring those questions to applied work: whether location data is precise
+      enough for an analysis, whether a model’s score measures what matters,
+      and how to explain uncertainty to someone making a decision.
+      Industry also taught me to match the depth of an investigation to its purpose
+      and deadline. I write about that change in
+      <a href="{% post_url 2026-07-29-what-research-taught-me-about-applied-data-science %}">my note on research and rigor</a>.
     </p>
   </div>
-  <aside class="career-background__aside" aria-label="Current focus">
-    <p class="career-eyebrow">Current focus</p>
+  <aside class="career-background__aside" aria-label="Work in practice">
+    <p class="career-eyebrow">Work in practice</p>
     <ul>
-      <li>Analytics and decision-support systems</li>
-      <li>LLM and agentic applications</li>
-      <li>Geospatial and structured-data analysis</li>
+      <li>Interview and survey analysis</li>
+      <li>Applications using language models</li>
+      <li>Geographic and structured-data analysis</li>
       <li>Prototyping, deployment, and iteration</li>
-      <li>Technical communication with stakeholders</li>
+      <li>Explaining findings to colleagues and clients</li>
     </ul>
   </aside>
 </section>

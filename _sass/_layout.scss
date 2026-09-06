@@ -1876,3 +1876,18 @@ footer.sticky-bottom {
     }
   }
 }
+
+// Text-only selected-work cards on the home page.
+.career-home {
+  .career-work-card__body > .career-work-card__evidence {
+    min-height: 0;
+    margin: 1rem 0 0;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 991px) {
+    .career-work-card:last-child {
+      display: block;
+    }
+  }
+}
