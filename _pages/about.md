@@ -2,20 +2,19 @@
 layout: about
 title: home
 permalink: /
-description: Senior Data Scientist building applications for analysts and researchers, with a background in experimental biophysics.
+description: Senior Data Scientist building AI applications, with experience in predictive modelling, data analysis, and experimental research.
 ---
 
 <section class="career-hero" aria-labelledby="career-hero-title">
   <div class="career-hero__copy">
-    <p class="career-eyebrow">Senior Data Scientist · Applied AI · Analytics</p>
-    <h1 id="career-hero-title">I build tools for analysts and researchers.</h1>
+    <p class="career-eyebrow">Senior Data Scientist</p>
+    <h1 id="career-hero-title">I build AI applications.</h1>
     <p class="career-hero__lead">
       I’m <strong>Pinco Pallino</strong>, a Senior Data Scientist at
-      <a href="https://www.merkle.com/en/locations/europe/italy.html">Merkle Italy</a>. I build
-      applications that help people explore interviews and survey data, and work
-      with geographic and structured data. My personal projects also include
-      predictive models. I develop and maintain applications, and explain the
-      findings to the people who will use them.
+      <a href="https://www.merkle.com/en/locations/europe/italy.html">Merkle Italy</a>.
+      When I build an application, I start with a problem someone needs to solve.
+      I design, develop, and maintain the application, and work with its users
+      to understand what needs to change.
     </p>
     <div class="career-actions" aria-label="Primary links">
       <a class="career-button career-button--primary" href="#selected-work">
@@ -44,13 +43,12 @@ description: Senior Data Scientist building applications for analysts and resear
 <section id="selected-work" class="career-section career-selected" aria-labelledby="selected-work-title">
   <div class="career-section__heading career-section__heading--row">
     <div>
-      <p class="career-eyebrow">Selected work</p>
-      <h2 id="selected-work-title">A few representative projects.</h2>
+      <h2 id="selected-work-title">Selected work</h2>
     </div>
     <a class="career-text-link" href="{{ '/projects/' | relative_url }}">View every project <span aria-hidden="true">→</span></a>
   </div>
 
-{% assign featured_urls = "/projects/accelerating-qualitative-interview-analysis/|/projects/italian-real-estate/|/projects/italian-cuisine/" | split: "|" %}
+{% assign featured_urls = "/projects/accelerating-qualitative-interview-analysis/|/projects/turning-audience-data-into-strategy/|/projects/italian-real-estate/" | split: "|" %}
 
   <div class="career-work-grid">
     {% for featured_url in featured_urls %}
@@ -74,10 +72,10 @@ description: Senior Data Scientist building applications for analysts and resear
             {% case project.url %}
               {% when '/projects/italian-real-estate/' %}
                 <p class="career-work-card__evidence"><a href="{{ '/projects/italian-real-estate/#explore-the-study' | relative_url }}">Explore the synthetic-study dashboard</a></p>
-              {% when '/projects/italian-cuisine/' %}
-                <p class="career-work-card__evidence"><a href="{{ '/projects/italian-cuisine/#looking-inside-a-recipe-graph' | relative_url }}">Explore a recipe graph</a></p>
-              {% else %}
+              {% when '/projects/accelerating-qualitative-interview-analysis/' %}
                 <p class="career-work-card__evidence">Internal application; code and interview material are private.</p>
+              {% when '/projects/turning-audience-data-into-strategy/' %}
+                <p class="career-work-card__evidence">Internal application; code and data are proprietary.</p>
             {% endcase %}
           </div>
         </article>
@@ -86,60 +84,65 @@ description: Senior Data Scientist building applications for analysts and resear
   </div>
 </section>
 
-<section class="career-section career-approach" aria-labelledby="approach-title">
-  <div class="career-section__heading">
-    <p class="career-eyebrow">What interests me</p>
-    <h2 id="approach-title">Models, analysis, and the applications around them.</h2>
-    <p>
-      I’m interested in predictive modelling, analysis that helps people make
-      decisions, and applications built with language models. These interests
-      often meet in the same project: a model estimates something, an interface
-      lets someone inspect it, and the analysis explains how much to trust the result.
-    </p>
-  </div>
-</section>
-
 <section class="career-section career-background" aria-labelledby="background-title">
   <div class="career-background__story">
-    <p class="career-eyebrow">Background</p>
-    <h2 id="background-title">From experimental biophysics to data science.</h2>
+    <h2 id="background-title">How I work</h2>
     <p>
-      Before moving into industry, I spent four years in experimental biophysics
-      at UC San Diego, following earlier research experience at Harvard.
-      Working with experiments taught me to ask how a dataset was produced,
-      which alternative explanations fit the observations, and what evidence
-      would distinguish them.
+      Before moving into industry, I completed a PhD in physics at the University
+      of Padua and spent four years doing experimental biophysics research at
+      UC San Diego. Experiments taught me to question how data was collected and
+      how much a result could actually tell me.
     </p>
     <p>
-      I bring those questions to applied work: whether location data is precise
-      enough for an analysis, whether a model’s score measures what matters,
-      and how to explain uncertainty to someone making a decision.
-      Industry also taught me to match the depth of an investigation to its purpose
-      and deadline. I write about that change in
-      <a href="{% post_url 2026-07-29-what-research-taught-me-about-applied-data-science %}">my note on research and rigor</a>.
+      Those questions still matter when I build an application. In one project,
+      a model kept producing unsupported answers. Changing the prompts was not
+      enough: I had to preserve the structure of the data it received. In another,
+      working with researchers showed that the report they needed mattered more
+      than adding features to the chat interface.
+    </p>
+    <p>
+      Industry also changed how I decide when the work is ready. I still look for
+      weak assumptions, but I ask what another week of investigation would change.
+      Sometimes another test matters. Sometimes the useful next step is to put
+      the application in front of people and learn from how they use it.
     </p>
   </div>
-  <aside class="career-background__aside" aria-label="Work in practice">
-    <p class="career-eyebrow">Work in practice</p>
+  <aside class="career-background__aside" aria-label="Writing about my work">
+    <p class="career-eyebrow">Writing</p>
     <ul>
-      <li>Interview and survey analysis</li>
-      <li>Applications using language models</li>
-      <li>Geographic and structured-data analysis</li>
-      <li>Prototyping, deployment, and iteration</li>
-      <li>Explaining findings to colleagues and clients</li>
+      <li><a href="{% post_url 2026-07-29-what-research-taught-me-about-applied-data-science %}">What research taught me, and what industry changed</a></li>
+      <li><a href="{% post_url 2026-08-09-small-tools-can-create-outsized-value %}">Why small tools can be worth building</a></li>
+      <li><a href="{% post_url 2026-08-01-what-i-mean-when-i-say-i-built-something-with-ai %}">What I mean when I say I built something with AI</a></li>
     </ul>
   </aside>
 </section>
 
+<section class="career-section career-approach" aria-labelledby="approach-title">
+  <div class="career-section__heading">
+    <h2 id="approach-title">Other questions I work on</h2>
+    <p>
+      AI applications are my main focus. I also work with predictive models and
+      geographic data. My personal projects give me room to follow questions of
+      my own: how rental estimates change a property-return calculation, or how
+      much a recipe can tell us about where it comes from.
+    </p>
+    <p>
+      In <a href="{{ '/projects/italian-cuisine/' | relative_url }}">my Italian cuisine project</a>,
+      I represented recipes as networks of ingredients and preparation steps,
+      then tested whether a model could recognize their regional origins.
+      It found broad geographic patterns more readily than individual regions.
+      The limits of that result became part of the project too.
+    </p>
+  </div>
+</section>
+
 <section class="career-closing" aria-labelledby="closing-title">
   <div>
-    <p class="career-eyebrow">Contact and writing</p>
-    <h2 id="closing-title">Get in touch about the work.</h2>
+    <h2 id="closing-title">Get in touch</h2>
   </div>
   <p>
-    You can <a href="mailto:leonardopaccianimori@gmail.com">email me</a> or read
-    <a href="{% post_url 2025-05-15-synthetic-data-ctgan %}">why I rejected a synthetic-data model</a>
-    and <a href="{% post_url 2026-08-09-small-tools-can-create-outsized-value %}">what small tools can change</a>.
+    If you would like to discuss a future role or project, email me.
+    I’m interested in AI application development and data science.
   </p>
-  <a class="career-button career-button--secondary" href="{{ '/writing/' | relative_url }}">Browse writing</a>
+  <a class="career-button career-button--secondary" href="mailto:leonardopaccianimori@gmail.com">Email me</a>
 </section>
