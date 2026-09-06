@@ -2,7 +2,7 @@
 layout: page
 title: thoughts
 permalink: /thoughts/
-description: Occasional reflections on data science, work, and the judgment behind technical decisions.
+description: Reflections on research and industry, useful small tools, and responsibility for AI-assisted work.
 eyebrow: Writing · Reflections
 wide: true
 nav: false

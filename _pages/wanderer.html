@@ -6,244 +6,275 @@ nav: false
 nav_order: 5
 new_tab: true
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wanderer - 3D gravity sandbox game</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Courier New', monospace;
-            background: #000;
-            color: #fff;
-            overflow: hidden;
-        }
+      body {
+        font-family: "Courier New", monospace;
+        background: #000;
+        color: #fff;
+        overflow: hidden;
+      }
 
-        #canvas-container {
-            width: 100vw;
-            height: 100vh;
-        }
+      #canvas-container {
+        width: 100vw;
+        height: 100vh;
+      }
 
-        #ui-overlay {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #444;
-            font-size: 14px;
-            pointer-events: none;
-            z-index: 100;
-            min-width: 350px;
-        }
+      #ui-overlay {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #444;
+        font-size: 14px;
+        pointer-events: none;
+        z-index: 100;
+        width: 350px;
+        max-width: calc(100vw - 40px);
+        min-width: 0;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+        pointer-events: auto;
+        box-sizing: border-box;
+      }
 
-        #ui-overlay h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #00ff88;
-        }
+      #ui-overlay h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #00ff88;
+      }
 
-        #ui-overlay .stat {
-            margin: 5px 0;
-        }
+      #ui-overlay .stat {
+        margin: 5px 0;
+      }
 
-        #ui-overlay .controls {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #444;
-        }
+      #ui-overlay .controls {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #444;
+      }
 
-        #ui-overlay .control-item {
-            margin: 3px 0;
-            font-size: 12px;
-            color: #aaa;
-        }
+      #ui-overlay .control-item {
+        margin: 3px 0;
+        font-size: 12px;
+        color: #aaa;
+      }
 
-        #ui-overlay .key {
-            display: inline-block;
-            background: #333;
-            padding: 2px 6px;
-            border-radius: 3px;
-            color: #00ff88;
-            margin-right: 5px;
-        }
+      #ui-overlay .key {
+        display: inline-block;
+        background: #333;
+        padding: 2px 6px;
+        border-radius: 3px;
+        color: #00ff88;
+        margin-right: 5px;
+      }
 
-        #mode-indicator {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 255, 136, 0.2);
-            padding: 20px 40px;
-            border-radius: 8px;
-            border: 2px solid #00ff88;
-            font-size: 18px;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 101;
-        }
+      #mode-indicator {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 255, 136, 0.2);
+        padding: 20px 40px;
+        border-radius: 8px;
+        border: 2px solid #00ff88;
+        font-size: 18px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 101;
+      }
 
-        #mode-indicator.active {
-            opacity: 1;
-        }
+      #mode-indicator.active {
+        opacity: 1;
+      }
 
-        #preset-menu {
-            position: fixed;
-            inset: 0;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 200;
-        }
+      #preset-menu {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 200;
+      }
 
-        #preset-menu.active {
-            display: flex;
-        }
+      #preset-menu.active {
+        display: flex;
+      }
 
-        #preset-menu .preset-backdrop {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(2px);
-        }
+      #preset-menu .preset-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(2px);
+      }
 
-        #preset-menu .preset-panel {
-            position: relative;
-            width: min(1000px, 90vw);
-            max-height: 85vh;
-            overflow: auto;
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid #00ff88;
-            background: rgba(10, 10, 10, 0.92);
-            box-shadow: 0 0 24px rgba(0, 255, 136, 0.2);
-            z-index: 201;
-        }
+      #preset-menu .preset-panel {
+        position: relative;
+        width: min(1000px, 90vw);
+        max-height: 85vh;
+        overflow: auto;
+        padding: 24px;
+        border-radius: 12px;
+        border: 1px solid #00ff88;
+        background: rgba(10, 10, 10, 0.92);
+        box-shadow: 0 0 24px rgba(0, 255, 136, 0.2);
+        z-index: 201;
+      }
 
-        #preset-menu .preset-title {
-            font-size: 20px;
-            color: #00ff88;
-            margin-bottom: 4px;
-        }
+      #preset-menu .preset-title {
+        font-size: 20px;
+        color: #00ff88;
+        margin-bottom: 4px;
+      }
 
-        #preset-menu .preset-subtitle {
-            font-size: 12px;
-            color: #9adfbf;
-        }
+      #preset-menu .preset-subtitle {
+        font-size: 12px;
+        color: #9adfbf;
+      }
 
+      #preset-menu .preset-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      @media (max-width: 900px) {
         #preset-menu .preset-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 16px;
-            margin-top: 18px;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+      }
 
-        @media (max-width: 900px) {
-            #preset-menu .preset-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
+      @media (max-width: 600px) {
+        #preset-menu .preset-grid {
+          grid-template-columns: 1fr;
         }
+      }
 
-        @media (max-width: 600px) {
-            #preset-menu .preset-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+      #preset-menu .preset-card {
+        border: 1px solid #333;
+        border-radius: 10px;
+        padding: 14px 16px;
+        background: rgba(0, 0, 0, 0.6);
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
 
-        #preset-menu .preset-card {
-            border: 1px solid #333;
-            border-radius: 10px;
-            padding: 14px 16px;
-            background: rgba(0, 0, 0, 0.6);
-            cursor: pointer;
-            transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-        }
+      #preset-menu .preset-card:hover {
+        transform: translateY(-2px);
+        border-color: #00ff88;
+        background: rgba(0, 255, 136, 0.12);
+      }
 
-        #preset-menu .preset-card:hover {
-            transform: translateY(-2px);
-            border-color: #00ff88;
-            background: rgba(0, 255, 136, 0.12);
-        }
+      #preset-menu .preset-card-title {
+        font-size: 15px;
+        color: #ffffff;
+        margin-bottom: 6px;
+      }
 
-        #preset-menu .preset-card-title {
-            font-size: 15px;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
+      #preset-menu .preset-card-desc {
+        font-size: 12px;
+        color: #b7b7b7;
+        line-height: 1.35;
+      }
+      #ui-overlay .portfolio-return {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: #00ff88;
+      }
 
-        #preset-menu .preset-card-desc {
-            font-size: 12px;
-            color: #b7b7b7;
-            line-height: 1.35;
-        }
+      #ui-overlay .input-note {
+        margin: 8px 0;
+        font-size: 12px;
+        color: #bbb;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="canvas-container"></div>
 
     <div id="ui-overlay">
-        <h1>WANDERER</h1>
-        <div class="stat">Bodies: <span id="body-count">0</span></div>
-        <div class="stat">Energy: <span id="energy">0.00</span></div>
-        <div class="stat">FPS: <span id="fps">60</span></div>
-        <div class="stat">Time: <span id="time-scale">1.0x</span></div>
-        <div class="stat">Mode: <span id="mode">Normal</span></div>
-        <div class="stat" id="planet-mass-stat" style="display: none;">Planet Mass: <span id="planet-mass">0</span></div>
+      <a class="portfolio-return" href="{{ '/projects/wanderer/' | relative_url }}">← Back to the case study</a>
+      <h1>WANDERER</h1>
+      <p class="input-note">Use a desktop keyboard and mouse to explore the sandbox.</p>
+      <div class="stat">Bodies: <span id="body-count">0</span></div>
+      <div class="stat">Energy: <span id="energy">0.00</span></div>
+      <div class="stat">FPS: <span id="fps">60</span></div>
+      <div class="stat">Time: <span id="time-scale">1.0x</span></div>
+      <div class="stat">Mode: <span id="mode">Normal</span></div>
+      <div class="stat" id="planet-mass-stat" style="display: none">Planet Mass: <span id="planet-mass">0</span></div>
 
-        <div class="controls-header" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #444; margin-bottom: 5px; font-size: 14px; color: #00ff88;">Press H to hide/show controls</div>
+      <div
+        class="controls-header"
+        style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #444; margin-bottom: 5px; font-size: 14px; color: #00ff88"
+      >
+        Press H to hide/show controls
+      </div>
 
-        <div id="controls-section">
-            <div class="controls">
-            <div class="control-item"><span class="key">E</span> Add Planet</div>
-            <div class="control-item"><span class="key">Q</span> Add random Planet</div>
-            <div class="control-item"><span class="key">Click</span> Delete Planet</div>
-            <div class="control-item"><span class="key">Alt+Click</span> Follow Planet</div>
-            <div class="control-item"><span class="key">WASD</span> Move Camera</div>
-            <div class="control-item"><span class="key">Alt+WASD</span> Rotate Camera</div>
-            <div class="control-item"><span class="key">Shift</span> Move Fast</div>
-            <div class="control-item"><span class="key">Mouse</span> Look Around</div>
-            <div class="control-item"><span class="key">Space</span> Pause/Resume</div>
-            <div class="control-item"><span class="key">T</span> Toggle Trails</div>
-            <div class="control-item"><span class="key">C</span> Slow Down Time</div>
-            <div class="control-item"><span class="key">V</span> Speed Up Time</div>
-            <div class="control-item"><span class="key">Alt+C/V</span> Reset Time (1x)</div>
-            <div class="control-item"><span class="key">F</span> Follow CoM</div>
-            <div class="control-item"><span class="key">R</span> Reset Game</div>
-            <div class="control-item"><span class="key">P</span> Wipe everything</div>
-            <div class="control-item"><span class="key">M</span> Preset Menu</div>
-            <div class="control-item"><span class="key">Scroll</span> Zoom</div>
+      <div id="controls-section">
+        <div class="controls">
+          <div class="control-item"><span class="key">E</span> Add Planet</div>
+          <div class="control-item"><span class="key">Q</span> Add random Planet</div>
+          <div class="control-item"><span class="key">Click</span> Delete Planet</div>
+          <div class="control-item"><span class="key">Alt+Click</span> Follow Planet</div>
+          <div class="control-item"><span class="key">WASD</span> Move Camera</div>
+          <div class="control-item"><span class="key">Alt+WASD</span> Rotate Camera</div>
+          <div class="control-item"><span class="key">Shift</span> Move Fast</div>
+          <div class="control-item"><span class="key">Mouse</span> Look Around</div>
+          <div class="control-item"><span class="key">Space</span> Pause/Resume</div>
+          <div class="control-item"><span class="key">T</span> Toggle Trails</div>
+          <div class="control-item"><span class="key">C</span> Slow Down Time</div>
+          <div class="control-item"><span class="key">V</span> Speed Up Time</div>
+          <div class="control-item"><span class="key">Alt+C/V</span> Reset Time (1x)</div>
+          <div class="control-item"><span class="key">F</span> Follow CoM</div>
+          <div class="control-item"><span class="key">R</span> Reset Game</div>
+          <div class="control-item"><span class="key">P</span> Wipe everything</div>
+          <div class="control-item"><span class="key">M</span> Preset Menu</div>
+          <div class="control-item"><span class="key">Scroll</span> Zoom</div>
         </div>
-        </div>
+      </div>
     </div>
 
     <div id="mode-indicator"></div>
     <div id="preset-menu">
-        <div class="preset-backdrop"></div>
-        <div class="preset-panel">
-            <div class="preset-title">Preset Systems</div>
-            <div class="preset-subtitle">Click a card to load a system • Press M or Esc to close</div>
-            <div id="preset-grid" class="preset-grid"></div>
-        </div>
+      <div class="preset-backdrop"></div>
+      <div class="preset-panel">
+        <div class="preset-title">Preset Systems</div>
+        <div class="preset-subtitle">Click a card to load a system • Press M or Esc to close</div>
+        <div id="preset-grid" class="preset-grid"></div>
+      </div>
     </div>
 
     <script type="importmap">
-    {
+      {
         "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
         }
-    }
+      }
     </script>
     <script type="module" src="./src/main.js"></script>
-</body>
+  </body>
 </html>

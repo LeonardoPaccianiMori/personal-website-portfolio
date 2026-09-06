@@ -8,13 +8,13 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
 <section class="career-hero" aria-labelledby="career-hero-title">
   <div class="career-hero__copy">
     <p class="career-eyebrow">Senior Data Scientist · Applied AI · Analytics</p>
-    <h1 id="career-hero-title">Complex data. Clear decisions. Useful systems.</h1>
+    <h1 id="career-hero-title">Applied AI and analysis for practical decisions.</h1>
     <p class="career-hero__lead">
       I’m <strong>Pinco Pallino</strong>, a Senior Data Scientist at
       <a href="https://www.merkle.com/en/locations/europe/italy.html">Merkle Italy</a>. I work across
-      analytics, geospatial analysis, LLM/RAG applications, solution
-      prototyping, and the communication that turns technical work into
-      decisions.
+      data analysis, geographic questions, and applications built around language models.
+      My work ranges from preparing evidence for a decision to developing and
+      maintaining the tools people use to explore it.
     </p>
     <div class="career-actions" aria-label="Primary links">
       <a class="career-button career-button--primary" href="#selected-work">
@@ -38,35 +38,6 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
     >
     <figcaption>Based in Italy, working remotely.</figcaption>
   </figure>
-</section>
-
-<section class="career-section career-approach" aria-labelledby="approach-title">
-  <div class="career-section__heading">
-    <p class="career-eyebrow">How I work</p>
-    <h2 id="approach-title">From an unclear question to something people can use.</h2>
-    <p>
-      My academic background taught me to be careful with evidence and
-      uncertainty. Industry taught me that rigorous work matters most when it
-      reaches the people making the decision.
-    </p>
-  </div>
-  <div class="career-principles">
-    <article>
-      <span class="career-principle__number">01</span>
-      <h3>Frame the problem</h3>
-      <p>Clarify the decision, the available evidence, and what a useful result would actually change.</p>
-    </article>
-    <article>
-      <span class="career-principle__number">02</span>
-      <h3>Build the evidence</h3>
-      <p>Combine data, models, retrieval, and custom methods without hiding uncertainty or inconvenient details.</p>
-    </article>
-    <article>
-      <span class="career-principle__number">03</span>
-      <h3>Deliver for use</h3>
-      <p>Turn the analysis into an application, workflow, dashboard, or explanation that can survive real use.</p>
-    </article>
-  </div>
 </section>
 
 <section id="selected-work" class="career-section career-selected" aria-labelledby="selected-work-title">
@@ -100,11 +71,26 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
             </p>
             <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
             <p>{{ project.description }}</p>
+            <p class="career-work-card__role">{{ project.card_role }}</p>
             <a class="career-text-link" href="{{ project.url | relative_url }}">Read the case study <span aria-hidden="true">→</span></a>
           </div>
         </article>
       {% endif %}
     {% endfor %}
+  </div>
+</section>
+
+<section class="career-section career-approach" aria-labelledby="approach-title">
+  <div class="career-section__heading">
+    <p class="career-eyebrow">How I work</p>
+    <h2 id="approach-title">The useful output shapes the work.</h2>
+    <p>
+      In <a href="{{ '/projects/accelerating-qualitative-interview-analysis/' | relative_url }}">interview analysis</a>,
+      researchers needed a first report, so I rebuilt the application around that document.
+      In <a href="{{ '/projects/italian-real-estate/' | relative_url }}">real estate</a>,
+      the dashboard needed geographic relationships that plausible-looking synthetic columns did not preserve.
+      Those concrete requirements guide what I build, what I test, and what I change after review.
+    </p>
   </div>
 </section>
 
@@ -120,10 +106,9 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
       survive contact with messy real-world data.
     </p>
     <p>
-      Today, I apply that mindset to data products and analytical systems:
-      sometimes the answer is a model, sometimes a custom algorithm, a better
-      dataset, a clearer interface, or a more reliable way to connect technical
-      findings to a decision.
+      Industry changed how I decide when work is ready: the evidence has to support
+      its intended use, and the answer has to arrive in time to matter.
+      I explore that change in <a href="{% post_url 2026-07-29-what-research-taught-me-about-applied-data-science %}">my note on research and rigor</a>.
     </p>
   </div>
   <aside class="career-background__aside" aria-label="Current focus">
@@ -140,12 +125,13 @@ description: Senior Data Scientist working across applied AI, analytics, and dec
 
 <section class="career-closing" aria-labelledby="closing-title">
   <div>
-    <p class="career-eyebrow">Notes from the work</p>
-    <h2 id="closing-title">I write about the decisions behind technical projects.</h2>
+    <p class="career-eyebrow">Contact and writing</p>
+    <h2 id="closing-title">Get in touch about the work.</h2>
   </div>
   <p>
-    Implementation choices, modelling tradeoffs, and occasional reflections on
-    evidence, uncertainty, and useful data science.
+    You can <a href="mailto:leonardopaccianimori@gmail.com">email me</a> or read
+    <a href="{% post_url 2025-05-15-synthetic-data-ctgan %}">why I rejected a synthetic-data model</a>
+    and <a href="{% post_url 2026-08-09-small-tools-can-create-outsized-value %}">what small tools can change</a>.
   </p>
   <a class="career-button career-button--secondary" href="{{ '/writing/' | relative_url }}">Browse writing</a>
 </section>

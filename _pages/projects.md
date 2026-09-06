@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Selected professional, personal, experimental, and game projects showing how I approach applied data-science problems.
+description: Applications, analyses, and experiments, with my contribution and the available evidence stated for each.
 eyebrow: Evidence in practice
 wide: true
 nav: true
@@ -15,22 +15,22 @@ horizontal: false
   <a href="#professional">
     <span>01</span>
     <strong>Professional projects</strong>
-    <small>Anonymized systems and workflows developed in industry.</small>
+    <small>Systems and workflows developed in industry.</small>
   </a>
   <a href="#portfolio">
     <span>02</span>
     <strong>Personal projects</strong>
-    <small>End-to-end investigations built independently.</small>
+    <small>Independent data and modelling investigations.</small>
   </a>
   <a href="#experimental">
     <span>03</span>
     <strong>Experimental projects</strong>
-    <small>Learning projects, from compact implementations to larger controlled research studies.</small>
+    <small>Model comparisons and research studies.</small>
   </a>
   <a href="#games">
     <span>04</span>
     <strong>Games</strong>
-    <small>Playable projects developed through iterative design, technical experimentation, and AI-assisted implementation.</small>
+    <small>Playable experiments, with AI contributions stated.</small>
   </a>
 </nav>
 
@@ -70,13 +70,13 @@ horizontal: false
           <p>
             {% case category %}
               {% when 'professional' %}
-                Anonymized professional projects, described at a high level with identifying and proprietary details omitted.
+                Public summaries of internal work. Code and client data remain private.
               {% when 'portfolio' %}
-                Personal projects developed in my own time, from data acquisition and modelling through the final interface.
+                Projects I implemented from data collection through analysis and presentation.
               {% when 'experimental' %}
-                Projects built to understand modelling systems through implementation, controlled experiments, and candid evaluation.
+                Experiments with inspectable results, including failed configurations and substantial AI assistance where stated.
               {% when 'games' %}
-                Playable projects developed through iterative design, technical experimentation, and AI-assisted implementation.
+                Playable experiments, with AI contributions stated.
             {% endcase %}
           </p>
         </header>

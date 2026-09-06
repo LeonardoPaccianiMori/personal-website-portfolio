@@ -8,24 +8,26 @@ wide: true
 nav: false
 ---
 
-<section class="site-index-section" aria-labelledby="focused-technical-notes-title">
-  <header class="site-index-section__header">
-    <div>
-      <p class="career-eyebrow">Decisions and studies</p>
-      <h2 id="focused-technical-notes-title">Focused technical notes</h2>
-    </div>
-  </header>
-  {% assign focused_notes = site.posts | where: 'technical_kind', 'note' %}
-  {% include writing_list.liquid posts=focused_notes empty_message="No focused technical notes yet." %}
-</section>
+{% assign project_slugs = 'italian-real-estate|italian-cuisine|image-generation|transformer-poetry' | split: '|' %}
+{% for project_slug in project_slugs %}
+{% assign project_url = project_slug | prepend: '/projects/' | append: '/' %}
+{% assign project = site.projects | where: 'url', project_url | first %}
+{% assign project_posts = site.posts | where: 'project_slug', project_slug %}
+{% assign focused_notes = project_posts | where: 'technical_kind', 'note' | sort: 'date' %}
+{% assign appendices = project_posts | where: 'technical_kind', 'appendix' %}
 
-<section class="site-index-section" aria-labelledby="project-appendices-title">
-  <header class="site-index-section__header">
-    <div>
-      <p class="career-eyebrow">Supporting references</p>
-      <h2 id="project-appendices-title">Project appendices</h2>
-    </div>
-  </header>
-  {% assign project_appendices = site.posts | where: 'technical_kind', 'appendix' %}
-  {% include writing_list.liquid posts=project_appendices empty_message="No project appendices yet." %}
-</section>
+  <section class="site-index-section" aria-labelledby="{{ project_slug }}-notes-title">
+    <header class="site-index-section__header">
+      <div>
+        <h2 id="{{ project_slug }}-notes-title">{{ project.title }}</h2>
+        <a href="{{ project.url | relative_url }}">Project overview <span aria-hidden="true">→</span></a>
+      </div>
+    </header>
+    {% if focused_notes.size > 0 %}
+      {% include writing_list.liquid posts=focused_notes %}
+    {% endif %}
+    {% if appendices.size > 0 %}
+      {% include writing_list.liquid posts=appendices %}
+    {% endif %}
+  </section>
+{% endfor %}

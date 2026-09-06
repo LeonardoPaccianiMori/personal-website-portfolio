@@ -30,6 +30,12 @@
       </a>
     </h3>
     <p>{{ project.description }}</p>
+    {% if project.card_role %}
+      <p class="site-project-card__role">{{ project.card_role }}</p>
+    {% endif %}
+    {% if project.project_overview.status %}
+      <p class="site-project-card__status">{{ project.project_overview.status }}</p>
+    {% endif %}
     <div class="site-project-card__links">
       <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
         Read the case study

@@ -9,6 +9,8 @@ nav: true
 nav_order: 3
 dropdown: true
 children:
+  - title: all writing
+    permalink: /writing/
   - title: technical notes
     permalink: /notes/
     category: technical-notes
@@ -17,13 +19,27 @@ children:
     category: thoughts
 ---
 
+<section class="site-index-section" aria-labelledby="start-writing-title">
+  <header class="site-index-section__header">
+    <div>
+      <p class="career-eyebrow">Start here</p>
+      <h2 id="start-writing-title">Three ways into the work.</h2>
+    </div>
+  </header>
+  {% assign selected_slugs = 'synthetic-data-ctgan|a-narrow-win-that-did-not-make-a-good-poet|small-tools-can-create-outsized-value' | split: '|' %}
+  {% for selected_slug in selected_slugs %}
+    {% assign selected_posts = site.posts | where: 'slug', selected_slug %}
+    {% include writing_list.liquid posts=selected_posts %}
+  {% endfor %}
+</section>
+
 <div class="writing-paths">
   <a href="{{ '/notes/' | relative_url }}">
     <span class="writing-paths__number">01</span>
     <div>
       <p class="career-eyebrow">Technical notes</p>
-      <h2>Decisions behind the implementation.</h2>
-      <p>Focused decisions and research studies, with project appendices when the complete technical reference is useful.</p>
+      <h2>Choices, experiments, and results.</h2>
+      <p>Browse by project, from a focused decision to its full technical reference.</p>
     </div>
     <span class="writing-paths__arrow" aria-hidden="true">→</span>
   </a>
@@ -31,21 +47,9 @@ children:
     <span class="writing-paths__number">02</span>
     <div>
       <p class="career-eyebrow">Thoughts</p>
-      <h2>Reflections beyond the code.</h2>
-      <p>Occasional essays on data science, work, evidence, and professional judgement.</p>
+      <h2>What the work has changed for me.</h2>
+      <p>Research and industry, small tools, and responsibility for AI-assisted work.</p>
     </div>
     <span class="writing-paths__arrow" aria-hidden="true">→</span>
   </a>
 </div>
-
-<section class="site-index-section" aria-labelledby="recent-writing-title">
-  <header class="site-index-section__header">
-    <div>
-      <p class="career-eyebrow">Latest</p>
-      <h2 id="recent-writing-title">Recent writing</h2>
-    </div>
-    <a href="{{ '/notes/' | relative_url }}">Browse technical notes <span aria-hidden="true">→</span></a>
-  </header>
-  {% assign recent_writing = site.posts | sort: 'date' | reverse %}
-  {% include writing_list.liquid posts=recent_writing limit=4 empty_message="No writing has been published yet." %}
-</section>

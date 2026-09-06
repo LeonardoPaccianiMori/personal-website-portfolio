@@ -1772,3 +1772,107 @@ footer.sticky-bottom {
     transition: none;
   }
 }
+
+// Evidence-first home, project, and technical-writing refinements.
+.career-home {
+  .career-hero {
+    min-height: 0;
+    padding: clamp(2rem, 4vw, 4rem) 0;
+  }
+
+  .career-hero__copy h1 {
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+    line-height: 1.05;
+  }
+
+  .career-work-card__body > .career-work-card__role {
+    min-height: 0;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 767px) {
+    .career-hero {
+      gap: 1.5rem;
+    }
+    .career-portrait {
+      max-width: 190px;
+    }
+  }
+}
+
+.site-project-card {
+  .site-project-card__role,
+  .site-project-card__status {
+    min-height: 0;
+    margin-bottom: 0.65rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .site-project-card__role {
+    font-weight: 600;
+  }
+}
+
+.site-page--project {
+  .project-overview {
+    margin-bottom: 2rem;
+  }
+  .project-overview__actions {
+    margin: 0 0 1rem;
+  }
+
+  .project-lead-image {
+    max-width: 480px;
+    margin-right: auto;
+    margin-left: auto;
+
+    img {
+      max-height: 220px;
+      object-fit: contain;
+    }
+  }
+}
+
+.site-article {
+  #table-of-contents {
+    padding: 1.25rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 12px;
+    font-size: 0.9rem;
+  }
+
+  .site-article-project {
+    font-size: 0.9rem;
+  }
+
+  .site-article-companions {
+    max-width: 760px;
+    margin: 2rem auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--global-divider-color);
+  }
+}
+
+.site-article .site-prose,
+.site-page--project .site-prose {
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  details {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 10px;
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+  }
+}

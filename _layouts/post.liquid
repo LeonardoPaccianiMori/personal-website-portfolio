@@ -2,7 +2,7 @@
 layout: default
 ---
 {% assign tags = page.tags | join: '' %}
-{% assign read_time = content | number_of_words | divided_by: 180 | plus: 1 %}
+{% assign read_time = page.reading_minutes %}
 {% assign writing_type = 'Writing' %}
 {% assign writing_back_url = '/writing/' %}
 {% assign writing_back_label = 'writing' %}
@@ -32,15 +32,22 @@ layout: default
       <a href="{{ writing_back_url | relative_url }}"><span aria-hidden="true">←</span> {{ writing_back_label }}</a>
     </nav>
     <p class="career-eyebrow">{{ writing_type }}</p>
+    {% if page.project_slug %}
+      {% assign parent_url = page.project_slug | prepend: '/projects/' | append: '/' %}
+      {% assign parent_project = site.projects | where: 'url', parent_url | first %}
+      <p class="site-article-project">
+        <a href="{{ parent_project.url | relative_url }}">Project: {{ parent_project.title }}</a>
+      </p>
+    {% endif %}
     <h1 class="post-title">{{ page.title }}</h1>
     {% if page.description %}
       <p class="post-description">{{ page.description }}</p>
     {% endif %}
     <div class="site-article-meta">
       <span>{{ page.date | date: '%B %d, %Y' }}</span>
-      {% if read_time > 120 %}
-        <span>Long-form reference</span>
-      {% else %}
+      {% if page.technical_kind == 'appendix' %}
+        <span>Reference</span>
+      {% elsif read_time %}
         <span>{{ read_time }} min read</span>
       {% endif %}
       {% if page.last_updated %}
@@ -62,6 +69,7 @@ layout: default
   <article class="post-content site-reading-content site-prose">
     {% if page.toc and page.toc.beginning %}
       <div id="table-of-contents">
+        <p class="career-eyebrow">On this page</p>
         {% toc %}
       </div>
       <hr>
@@ -70,6 +78,23 @@ layout: default
       {{ content }}
     </div>
   </article>
+
+  {% if page.project_slug %}
+    {% assign companions = site.posts | where: 'project_slug', page.project_slug | sort: 'date' %}
+    <nav class="site-article-companions" aria-label="Related project reading">
+      <p class="career-eyebrow">More from this project</p>
+      <ul>
+        <li><a href="{{ parent_project.url | relative_url }}">Project overview</a></li>
+        {% for companion in companions %}
+          {% unless companion.url == page.url %}
+            <li>
+              <a href="{{ companion.url | relative_url }}">{{ companion.title }}</a>
+            </li>
+          {% endunless %}
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
 
   <nav class="site-article-footer" aria-label="More writing">
     <span>Continue exploring</span>
