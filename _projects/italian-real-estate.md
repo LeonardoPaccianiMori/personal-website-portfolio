@@ -60,11 +60,11 @@ The dashboard works best on a desktop or tablet. You can compare sale and auctio
   End-to-end data pipeline from collection to interactive dashboard.
 </div>
 
-Airflow coordinated collection across provinces and listing types. MongoDB stored the earlier non-relational data; I later moved the cleaned, analysis-ready data into a fixed PostgreSQL schema.
+I used Airflow to divide collection by province and listing type, so a failed task could be retried without restarting the complete collection. MongoDB held the source documents while extraction was still changing. Once I was repeatedly preparing the same fields for analysis, I moved the cleaned data into PostgreSQL.
 
-From there, a custom KNN-based generator produced the synthetic study rows. A Random Forest estimated rental income from property features, and Tableau combined the model output with geospatial analysis in an interface for exploring returns.
+Generating the study data required another choice. In the original study, the tested CTGAN output distorted geographic price relationships, so I developed a generator based on nearby records. The [synthetic-data note](/blog/2025/synthetic-data-ctgan/) documents that historical comparison and its reproducibility limits. A Random Forest then estimated rental income from property features, and the dashboard connected those estimates to purchase and financing assumptions.
 
-The storage changed as the work changed. MongoDB held the evolving source and extracted documents; PostgreSQL supported repeated transformations once the analytical schema was stable.
+These decisions linked the stages of the project: the data had to retain the relationships the model would use, and the dashboard had to expose the assumptions that changed the estimated returns.
 
 ## What appeared in the synthetic study
 

@@ -8,7 +8,7 @@ categories: [technical-notes]
 technical_kind: appendix
 chart:
   plotly: true
-last_updated: 2026-09-06
+last_updated: 2026-09-07
 project_slug: italian-cuisine
 toc:
   beginning: true
@@ -128,15 +128,11 @@ The PCA projection below reduces the recipe embeddings to a view coloured by mac
 {% include plotly/italian-cuisine/pca-regional-clustering.json %}
 ```
 
-## Limitations and reproducibility
+## Reading the model results
 
-- Both corpora are curated and geographically imbalanced.
-- LLM-assisted extraction and normalization can introduce errors.
-- The GAT results use one fixed split and do not establish stability across alternative splits or seeds.
-- No flat-feature baseline or relation ablation establishes that the graph representation was superior.
-- Contemporary recipe text, recipe-level derivatives, model checkpoints, and splits are excluded from the public repositories.
+The fixed-split comparison shows what these models recovered from the extracted recipes. It does not establish stability across other splits or seeds. There was also no flat-feature baseline or test that removed individual relationship types, so the experiment cannot establish that the graph was the better model input.
 
-The public source contains code and aggregate analytical outputs. The retained Artusi material follows its source terms. These boundaries allow inspection of the method and reported results but prevent complete independent reproduction of the recipe-level experiment from the public artifacts alone.
+The source and extraction limits described above apply to the charts and the classifier alike. Code and aggregate outputs allow inspection of the method, but the excluded recipe-level data and model files prevent complete independent reproduction from the public repository.
 
 <!-- prettier-ignore-start -->
 

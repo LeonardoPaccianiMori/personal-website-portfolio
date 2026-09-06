@@ -1,23 +1,25 @@
 ---
 layout: post
-title: "A narrow win that did not make a good poet: evaluating AI-judged DPO with a sealed test"
+title: "A narrow win that did not make a good poet"
 date: 2026-08-12 09:10:00 +0200
-description: How a bounded AI-judged preference update survived a sealed test without establishing broad literary improvement.
+description: Testing whether a language model trained on AI preferences produced better Italian sonnets, and why an improved automatic score was not enough.
 tags: language-models DPO evaluation preference-learning responsible-ai
 categories: [technical-notes]
 technical_kind: note
 chart:
   plotly: true
-last_updated: 2026-09-06
+last_updated: 2026-09-07
 project_slug: transformer-poetry
 toc:
   beginning: true
 reading_minutes: 9
 ---
 
-In the [transformer-poetry project](/projects/transformer-poetry/), Direct Preference Optimization (DPO) improved an automatic check for visible defects. On a held-back test, its pass rate rose from 15.07% to 17.60%. Yet both systems scored 0/100 on the strict-good criterion in a separate AI-based blind review.
+The [transformer-poetry project](/projects/transformer-poetry/) reached a point where an adapted language model was generating sonnet attempts with obvious defects. Some contained drafting labels or surrounding prose. Others stopped without convincing closure. The next experiment tested whether training on preferred examples could reduce those problems.
 
-DPO trains a model to prefer one response over another. The preferences here came from AI judges, not a validated model of human literary taste. This note follows the evaluation from that training signal to the final quality test, explaining why the small improvement did not justify calling the model a good poet.
+It used Direct Preference Optimization (DPO), which trains a model to favour one response over another. AI judges supplied the preferences. On the final held-back test, the pass rate for an automatic check rose from 15.07% to 17.60%. Yet neither system produced a poem that passed the strict quality criterion in a separate AI-based blind review.
+
+I directed the project and reviewed its outputs; Codex substantially assisted the design, implementation, and analysis. This note follows the choices that made the gap between the automatic score and the poetry visible.
 
 ## The starting model and training target
 
@@ -27,19 +29,26 @@ Earlier generation studies showed two visible failures that were specific enough
 
 That boundary matters. Fourteen lines were enforced by the decoding procedure. Punctuation is only a weak proxy for syntactic completion. Removing a label can make an output cleaner without improving its grammar, rhyme, metre, argument, or volta. A successful adapter could therefore improve exactly what it was trained to prefer and still leave the hard literary problem unsolved.
 
-## Failed human/AI calibration
+## Could the AI judges stand in for my preferences?
 
 Three AI judges provided blind votes for the training preferences. I separately reviewed 20 calibration pairs. The AI majority agreed with my choices on 12 of them, or 60%.
 
-That failed the calibration threshold. The 20 reviewed pairs were kept out of training, and I did not reinterpret the mismatch as human preference learning. Throughout the project, the method is therefore called **AI-judged DPO**. It is not RLHF, human-aligned DPO, or a human-calibrated literary reward model.
+This fell below the required agreement threshold. The 20 pairs stayed out of training, and the experiment continued as **AI-judged DPO**. It did not qualify as training aligned with human literary preferences.
 
-The mismatch changes what the outcome can mean. If the adapter learns the preference data, that is evidence that it learned a signal defined by the AI-majority process. Whether that signal corresponds to human literary judgment remains a separate question that the calibration did not resolve.
+That changed the interpretation of later scores: agreement with the training labels would show how well the model learned the AI judges' choices. It would not show that those choices matched mine or those of other human readers.
 
-## Candidate and preference construction
+## Constructing the comparisons
 
 The Stage-3 model generated 4,096 training-only candidates from 512 training openings and eight seeds. Screening retained structural and provenance information needed to compare candidates: exact opening preservation, fourteen-line completion, repetition, meta-text, terminal punctuation, and surface memorization risk.
 
-The frozen builder produced 173 ordinary literary comparisons and 361 terminal-completion contrasts, for 534 total preference pairs. Every pair received three blind AI votes under an unchanged rubric. All 1,602 votes were present, every pair had a majority, and 437 of the 534 majorities were unanimous.
+A fixed procedure turned those candidates into 534 preference pairs. It included ordinary literary comparisons and pairs that specifically contrasted how outputs ended. Each pair received three blind AI votes under the same scoring rules.
+
+<details markdown="1">
+<summary>Pair construction and vote counts</summary>
+
+The builder produced 173 ordinary literary comparisons and 361 terminal-completion contrasts. All 1,602 votes were present, every pair had a majority, and 437 of the 534 majorities were unanimous.
+
+</details>
 
 <details markdown="1">
 <summary>Exact comparison values</summary>
@@ -61,11 +70,11 @@ The frozen builder produced 173 ordinary literary comparisons and 361 terminal-c
     Record counts from training-only candidates to the prompt-disjoint 482/52 pair split; lower stages are subsets of the preceding process, although candidates and pairs are different units. Preferences are AI-majority decisions, and the 20 human-reviewed calibration pairs are excluded. Counts are exact, with no sampling interval.
 </div>
 
-The training and validation pairs were prompt-disjoint. That prevents the most direct form of opening leakage between fitting and selection, but it does not make 52 validation pairs a comprehensive sample of literary behavior.
+Training and validation used different poem openings. This kept the same opening out of both fitting and model selection, although 52 validation pairs were still a small sample of literary behaviour.
 
 ## Training the preference adapter
 
-A rank-8 LoRA adapter added a small set of trainable weights to the fixed Stage-3 model. It trained for one epoch on 482 pairs, with 52 prompt-disjoint pairs held out for validation. Preference accuracy reached 65.38%; that measures agreement with AI labels, not poetry quality.
+Low-Rank Adaptation (LoRA) adds a small set of trainable weights while keeping the existing model weights fixed. This experiment used a rank-8 adapter, trained for one epoch on 482 pairs, with 52 pairs from different openings held out for validation. Preference accuracy reached 65.38%; that measures agreement with AI labels, not poetry quality.
 
 <details markdown="1">
 <summary>Implementation, run settings, and measured compute</summary>
@@ -88,19 +97,26 @@ Held-out preference loss was 0.6629 and held-out preference accuracy was 65.38%.
 
 </details>
 
-## Validation-based selection
+## Selecting the candidate before the final test
 
-Stage 3 and DPO generated 960 matched validation outputs from 120 held-out openings, four seeds, and two systems. The prompt, decoder, stopping rule, input, and RNG seed were identical; adapter activation was the intended difference.
+Stage 3 and DPO generated 960 matched validation outputs from 120 held-out openings, four seeds, and two systems. Each pair used the same input, generation settings, stopping rule, and random seed. Enabling the adapter was the intended difference.
 
 The automatic surface-screen rate rose from 13.96% to 18.96%, a paired gain of 5.00 percentage points with a 95% prompt-cluster interval from 0.63 to 9.38. A frozen blind sample of 80 outputs also found genuine terminal completion in 20/40 DPO outputs and 12/40 Stage-3 outputs. Neither system produced a strict-good output in that review.
 
 This was enough to select DPO for the predeclared final comparison. Selection answered “which system advances under this protocol?” The final test asked whether that difference survived new data after the decisions were locked.
 
-## One-time sealed automatic evaluation
+## Testing on openings kept out of development
 
-Before opening the test, the final system, comparator, prompt, decoder, stopping rule, metrics, sample, and analysis procedure were hash-frozen. The one-time run then evaluated all 1,244 sealed openings with two seeds and both systems: 4,976 outputs. Retuning or rerunning after test access was prohibited.
+The final comparison used a sealed test: poem openings that remained unavailable for model development and selection. Before opening it, the systems, generation settings, measurements, sample, and analysis procedure were fixed and their file hashes recorded. Retuning or rerunning after access was prohibited.
+
+The one-time run evaluated all 1,244 test openings with two seeds and both systems, producing 4,976 outputs.
+
+<details markdown="1">
+<summary>Final-test runtime and estimated cost</summary>
 
 The run took a measured 2,970.6 seconds on one H100. Its approximately $1.967 cost is estimated from runtime rather than taken from a final bill.
+
+</details>
 
 <details markdown="1">
 <summary>Exact comparison values</summary>
@@ -122,13 +138,13 @@ The run took a measured 2,970.6 seconds on one H100. Its approximately $1.967 co
     DPO-minus-Stage-3 changes in percentage points; positive values favor DPO for these automatic checks. Error bars show the available paired 95% intervals. Validation and sealed test are different populations, fourteen-line generation is decoder-controlled, and punctuation or meta-text removal does not establish literary quality.
 </div>
 
-The sealed surface-screen and punctuation intervals excluded zero. The meta-text-free interval did not. This is the narrow replicated result: the adapter improved part of the targeted surface/completion behavior under a new, frozen population.
+The sealed surface-screen and punctuation intervals excluded zero. The meta-text-free interval did not. The repeatable result was therefore limited to part of the targeted formatting and completion behaviour on the held-back openings.
 
 The gain narrowed from validation to test. That is exactly why the sealed step mattered: without it, the validation result could become the public headline with no measure of how it transferred.
 
-## Blind literary review
+## Did the poems pass a stronger quality test?
 
-The controlling quality assessment was a preregistered blind review of 100 matched test prompts, one frozen seed per prompt, and both systems. An AI qualitative analyst scored all 200 outputs before model identities were revealed.
+The stronger quality test followed a review plan fixed in advance. It compared both systems on 100 matched test openings, using one fixed seed per opening. An AI analyst scored all 200 outputs before learning which system produced each one. This was an AI review, not a panel of independent human literary experts.
 
 <details markdown="1">
 <summary>Exact comparison values</summary>
@@ -153,9 +169,9 @@ The controlling quality assessment was a preregistered blind review of 100 match
 
 Only historical register produced an interval excluding zero. Grammar, poetic quality, sonnet/form, and volta remained uncertain. Visible completion was 41/100 for DPO and 35/100 for Stage 3, but its interval also crossed zero. DPO produced 3/100 moderate-clean outputs versus 0/100, a descriptive signal rather than evidence of consistency.
 
-Most importantly, both systems produced 0/100 strict-good outputs. Sonnet/form was the weakest mean dimension for both. The adapter had won a bounded comparison without crossing the quality bar that motivated the project.
+Both systems produced 0/100 strict-good outputs. Sonnet/form was the weakest mean dimension for both. The adapter improved the automatic check, but the poems still failed the project's strict quality criterion.
 
-## Preservation losses
+## Checking for losses elsewhere
 
 A narrow gain is less useful if it damages unrelated capability. The project therefore recomputed losses on five frozen domains with the adapter disabled and enabled.
 
@@ -180,21 +196,21 @@ A narrow gain is less useful if it damages unrelated capability. The project the
     Adapter-enabled minus Stage-3 validation loss on five frozen domains; positive values are regressions and negative values are improvements. Changes are deterministic comparisons without uncertainty intervals. Instruction loss shows the largest regression, which is reported rather than rounded away.
 </div>
 
-The losses were mostly stable, with the largest increase on instruction validation. Calling that increase small is reasonable relative to the baseline losses, but calling it zero would not be. Preservation checks constrain the tradeoff; they do not prove that every unmeasured capability was preserved.
+The losses were mostly stable, with the largest increase on instruction validation. That increase was small relative to the baseline losses, but it was not zero. These checks measured five domains; they could not establish that every other capability was preserved.
 
 ## Reading the result
 
-The adapter learned some of the AI-majority signal. A smaller version of its validation gain survived the sealed automatic test, and losses on the five preservation domains changed little. Those are useful results within the protocol.
+The evaluation answered three different questions. The adapter learned some of the AI judges' preferences. Part of its automatic-score improvement survived new test openings. The resulting poems still failed the stronger quality criterion.
 
-They do not establish human alignment, learned fourteen-line structure, or reliable literary quality. Fourteen lines came from the decoder. The automatic surface screen combined meta-text and punctuation checks; neither could judge whether a poem developed an argument or reached a convincing close.
+The distinction was necessary because the automatic check measured drafting labels and punctuation, while fourteen-line length was enforced during generation. A better score could not establish that the model had learned sonnet form or could develop an argument to a convincing close.
 
-The separate blind review supplied that stronger test, although it too used an AI analyst rather than independent human experts. Neither system passed the strict-good criterion in the reviewed sample. Keeping that result beside the automatic gain is what makes the comparison useful.
+The separate AI-based review was also limited, but it prevented the automatic gain from becoming a claim of reliable literary quality. That is the central result of the experiment.
 
 ## Reproducibility and AI contribution
 
 At publication, the public source includes the DPO implementation, frozen configurations, preference-builder and validation contracts, preservation evaluator, final-test analyzer, aggregate reports, tests, and deterministic Plotly exports. The selected Stage-3 model and DPO adapter are separately public in the [Hugging Face release](https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets). The underlying candidates, poems and openings, raw generations, preference pairs, votes, annotations, private mappings, intermediate checkpoints, and unselected tensor artifacts remain excluded.
 
-Public CPU verification checks software behavior and aggregate-evidence hashes. It does not regenerate the historical H100 run or automatically download and run the separately hosted weights.
+The public checks run on a CPU and verify software behaviour and the recorded aggregate evidence. They do not repeat the historical H100 run or automatically download and run the separately hosted weights.
 
 I conceived and directed the project, defined its goals, made executive decisions, approved the research plan, reviewed outputs, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol helped design the plan and substantially assisted implementation, tests, execution, and analysis. The work is therefore not independently designed or independently implemented by me.
 

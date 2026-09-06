@@ -23,16 +23,18 @@ project_overview:
   Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
 </div>
 
-## Automation that knows when to stop
+## Deciding which answers belong together
 
-Open-ended brand-awareness answers are rarely tidy. The same brand can appear with misspellings, abbreviations, partial names, or several inconsistent variants. Before analysts can calculate metrics, somebody has to decide which answers belong together.
+A brand-awareness survey can contain misspellings, abbreviations, partial names, and several versions of the same brand. Analysts need consistent labels before they can calculate results, but an incorrect match can change the analysis.
 
-I supervised the development of a workflow to standardize those answers. A colleague was the primary developer; I defined the end-to-end workflow, reviewed successive versions, and helped troubleshoot difficult issues. An incorrect mapping could change the analysis, so ambiguous answers needed a review path.
+I defined the workflow and supervised development of an application to do this cleaning. A colleague was the primary developer. I reviewed successive versions and helped troubleshoot difficult issues.
 
-## Making uncertainty part of the output
+## A place for unresolved answers
 
-The application uses the product category as context and proposes consistent brand labels. When an answer is ambiguous or unrecognized, it enters a manual-review step instead of being forced into the closest known brand.
+The application uses the product category as context and proposes consistent brand labels. Ambiguous or unrecognized answers go to a manual-review step. The user can resolve the mapping or retain the response as `unknown`.
 
-The user can resolve the mapping or keep the response explicitly as `unknown`. This small option is important: it lets the cleaned dataset admit uncertainty rather than hide it.
+That choice is part of the workflow. The application can speed up routine corrections while leaving an analyst a clear way to handle the cases that need judgment.
 
-The deployed application is now used for recurring Consumer Insight work. After using it on real survey waves, users reported that a process which had taken several days could be completed in minutes. That saving is user-reported rather than independently measured. Analysts still resolve the uncertain cases.
+## Recurring use
+
+The deployed application is now used for recurring Consumer Insight work. After using it on real survey waves, users reported that preparation which had taken several days could be completed in minutes. That saving is user-reported rather than independently measured; analysts still resolve uncertain cases.

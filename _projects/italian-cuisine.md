@@ -79,7 +79,7 @@ The interactive example shows more detail than the model eventually used. The st
 
 The historical corpus has a Central and Northern, butter-heavy profile. Olive oil, garlic, and onion appear more often in the contemporary corpus.
 
-The difference is suggestive, but the two sources were assembled in different ways. This is a comparison between corpora, not a direct measurement of how Italian cooking changed over time.
+The sources were assembled differently, so the comparison describes these two collections rather than a measured change in Italian cooking over time.
 
 ## A broad oil-and-butter pattern
 
@@ -91,7 +91,7 @@ The difference is suggestive, but the two sources were assembled in different wa
   Relative olive-oil and butter frequency in the curated regional recipes. The map describes this corpus, not regional cooking practices in general.
 </div>
 
-Within the contemporary corpus, olive oil appears more often in recipes from Central and Southern Italy, while butter appears more often in Northern recipes. The pattern describes this curated collection rather than every regional cooking practice.
+The map makes the balance visible: olive oil appears more often in the Central and Southern recipes, while butter appears more often in the Northern recipes in this collection.
 
 ## Broad geography was easier to recognize
 
@@ -101,12 +101,10 @@ The macro-region model reached 59.49% test accuracy, compared with 20.26% for in
 
 The gap was the principal modelling result. Broad geography was partly recoverable, while the model did not reliably distinguish individual regions. I did not run a flat-feature baseline, so this result does not establish that graphs were better than ingredient lists.
 
-## What the project cannot establish
+## From extraction to evaluation
 
-- Artusi's corpus is geographically imbalanced.
-- Both corpora are curated sources, not direct measurements of what Italians cooked.
-- LLM-assisted extraction and normalization can introduce errors.
-- Region-level training had limited data, culinary overlap, and substantial overfitting.
-- Contemporary recipe text, derived recipe-level data, model checkpoints, and splits are excluded from the public repositories.
+I implemented the project from source extraction through the graphs, analysis, model training, and visualizations. The graph made the extracted steps available for inspection, the charts compared the collections, and the held-out recipes tested how well the classifier could distinguish the geographic labels.
+
+The results depend on curated sources and an extraction process that can introduce errors. The classification comparison used one fixed split; it does not establish stability across other splits or seeds. Contemporary recipe text, derived recipe-level data, model checkpoints, and splits are excluded from the public repositories.
 
 The public source contains code and aggregate outputs; retained Artusi material follows its source terms. Read [why I used recipe graphs](/blog/2025/why-graphs-for-recipes/) for the representation decision, [the visualization note](/blog/2025/visualizing-italian-cuisine/) for the geographic views, or the [technical appendix](/blog/2026/italian-cuisine-deep-dive/) for extraction and evaluation details.

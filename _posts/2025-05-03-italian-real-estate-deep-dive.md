@@ -6,7 +6,7 @@ description: Technical appendix to my Italian real-estate project, covering coll
 tags: data-engineering scraping machine-learning
 categories: [technical-notes]
 technical_kind: appendix
-last_updated: 2026-09-06
+last_updated: 2026-09-07
 project_slug: italian-real-estate
 toc:
   beginning: true
@@ -16,7 +16,7 @@ toc:
 
 This appendix follows the [real-estate project](/projects/italian-real-estate/) from recoverable collection tasks to a dashboard of estimated rental returns. It documents the pipeline and the limits of the historical synthetic study.
 
-The project collected roughly one million listings across rent, sale, and auction markets. The source listings, raw HTML, row-level source data, row-level synthetic data, credentials, and live collector are not public. The published metrics describe a study of synthetic data generated from the collected data, and are not validated production estimates for unseen source listings.
+The project collected roughly one million listings across rent, sale, and auction markets. Its published results use synthetic data generated from that collection; they are not validated estimates for unseen source listings. The source and generated rows are not public. The final section explains what the public repository contains.
 
 ## Robust collection
 
@@ -46,7 +46,7 @@ BeautifulSoup extracted pricing, property characteristics, building and energy i
 
 Repeated analysis and feature transformations later made a relational model more useful. I moved the stable structured fields to a normalized PostgreSQL warehouse and left listing descriptions behind. A local LibreTranslate service, an SQLite translation cache, and a custom real-estate dictionary converted recurring Italian categorical values to English without translating the same value again.
 
-MongoDB absorbed source variation during collection. PostgreSQL became useful once repeated transformations justified a stable analytical schema.
+The [database note](/blog/2025/mongodb-postgresql-ml/) explains the repeated preparation work that prompted this change.
 
 ## Synthetic data
 
@@ -60,14 +60,14 @@ The reported held-out R² was approximately 0.75 on `log1p(rent)` in the synthet
 
 ## Dashboard as decision support
 
-The Tableau dashboard was part of the analytical product, not a presentation layer added after modeling. It was designed for area-level exploration rather than recommendations about individual listings.
+The Tableau dashboard connects estimated rent to the assumptions needed to calculate returns. It supports area-level exploration rather than recommendations about individual listings.
 
 Users can compare sale and auction markets, filter by location and property characteristics, and change mortgage and renovation assumptions. The dashboard provides two views of return:
 
 - annual cash-on-cash return: `(annual rent - annual mortgage payment) / down payment`;
 - rental yield: `annual rent / purchase price`.
 
-Maps, scatter plots, grouped summaries, and headline statistics connect the estimated rental income to the purchase and financing assumptions. This turns a model output into an exploratory decision-support tool while keeping the uncertainty and synthetic-data boundary visible.
+Maps, scatter plots, grouped summaries, and headline statistics let a reader inspect how location, purchase price, and financing affect those calculations.
 
 ## Code and publication boundary
 

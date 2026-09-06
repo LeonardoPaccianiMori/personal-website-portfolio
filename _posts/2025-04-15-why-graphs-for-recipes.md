@@ -7,7 +7,7 @@ tags: graph-neural-networks neo4j deep-learning
 categories: [technical-notes]
 technical_kind: note
 featured: false
-last_updated: 2026-09-06
+last_updated: 2026-09-07
 project_slug: italian-cuisine
 reading_minutes: 3
 ---
@@ -27,11 +27,9 @@ Take a carbonara-style pasta and a frittata. Both might contain eggs, cured pork
 - under which cooking action
 - and which intermediate products appear along the way
 
-An ingredient list keeps only the nouns. A recipe keeps the relationships.
-
 That distinction mattered because I wanted to compare regional cuisines without assuming that isolated ingredient frequencies contained the whole signal. A graph gave me a way to retain process information and test a representation that was closer to the source material.
 
-## The moment the representation changed
+## Representing the steps and their relationships
 
 I therefore built the dataset around recipe graphs:
 
@@ -40,12 +38,7 @@ I therefore built the dataset around recipe graphs:
 - `Step` nodes for instructions
 - edges for `REQUIRES`, `HAS_STEP`, `USES_INGREDIENT`, and `NEXT_STEP`
 
-The richer stored graph could retain:
-
-- sequence
-- ingredient-action pairings
-- intermediate products
-- reuse of outputs across later steps
+The stored graph also retained tools and intermediate products, including outputs reused by later steps. This made the order and dependencies available for inspection.
 
 I stored the graphs in Neo4j because it made querying and inspection easier during development. The later Graph Attention Network used a narrower representation built from recipe, ingredient, and step nodes. Tools and intermediate products remained available in the stored graph for inspection, but they were not all part of the model input.
 
@@ -55,11 +48,9 @@ A graph required an explicit schema and more complicated modelling code. In retu
 
 The narrower model graph let the classifier use recipe, ingredient, and step relationships. I did not run a bag-of-ingredients baseline or an ablation of each relation type, so I cannot say that this representation improved classification. The demonstrated benefit was retaining and inspecting structure; its advantage over simpler model inputs remains an open question.
 
-## What I would not generalize from this
+## Was the extra structure worth it?
 
-I would not take “use graphs” as a generic recipe-ML rule.
-
-If the task is simple, the data is small, or the relationships are not central, flat features are probably the right first move. Graphs are worthwhile when the structure is doing real work, not when they merely sound more advanced.
+For inspection, the graph gave me access to relationships that an ingredient list would have discarded. For classification, the answer remains unresolved: the experiment did not compare the graph with a simpler input. Those are separate reasons for choosing a representation, and this project only demonstrated the first advantage.
 
 The results also remain bounded by the data. Both corpora are curated sources, and LLM-assisted extraction can introduce errors into ingredients, steps, and relationships. The graph preserves the extracted structure; it does not guarantee that every extracted structure is correct.
 

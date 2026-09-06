@@ -7,7 +7,7 @@ tags: machine-learning synthetic-data algorithms
 categories: [technical-notes]
 technical_kind: note
 featured: true
-last_updated: 2026-09-06
+last_updated: 2026-09-07
 project_slug: italian-real-estate
 reading_minutes: 4
 ---
@@ -16,16 +16,11 @@ The CTGAN output looked plausible: prices and surface areas stayed within sensib
 
 I had chosen [CTGAN](https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/ctgansynthesizer) because it was designed for tabular data and was straightforward to try. The question was whether its output preserved the relationships the later model and dashboard would use.
 
-## The problem was not distribution shape
+## Choosing what to check
 
-My actual constraint was to preserve the relationships that made the later model and dashboard meaningful. With real-estate data, those included relationships between:
+The downstream questions involved rent, purchase price, and geography. I therefore checked relationships between fields, including location and price, surface area and price, and the price premium associated with Milan.
 
-- location and price
-- surface area and price
-- neighborhood context and rent
-- property type and geography
-
-In my original comparison, CTGAN preserved the surface–price relationship much more closely than the location-dependent price structure. That was a dealbreaker: a dataset that distorted the relationships used downstream would give the model and dashboard a misleading version of the market.
+The tested CTGAN output preserved the surface–price relationship much more closely than the location-dependent price structure. That difference was enough to reject it for this study: the dashboard depended on comparing places.
 
 ## The validation that changed the decision
 
@@ -41,9 +36,7 @@ The location comparison was enough to reject the tested CTGAN output for this st
 
 <br>
 
-These results describe the CTGAN configuration I tested, not a general limitation of CTGAN or a definitive explanation of its failure.
-
-These figures were recorded during the original study. The public repository does not retain the evaluation script, generated datasets, or a versioned result artifact that reproduces the exact values. I therefore treat them as historical project results rather than reproducible benchmarks.
+These are historical results for the CTGAN configuration I tested, not a general benchmark for the method. The public repository does not retain the evaluation script, generated datasets, or a versioned result artifact reproducing these exact figures.
 
 ## Building local structure into the generator
 
@@ -56,12 +49,12 @@ The alternative used local interpolation rather than training another generative
 
 This made preservation of local price and geographic structure part of the construction of the dataset. TensorFlow-based distance calculations allowed me to generate approximately one million records without making the custom approach impractically slow.
 
-There is an important boundary around that choice. Because price participated in neighbour selection and the method was built from local neighbourhoods in the source data, the generator was not independent evidence that the later rent model generalized to unseen source listings. It was also never subjected to a formal privacy audit. I treat its output as an analytical transformation, not as certified anonymization. The row-level synthetic dataset is not distributed; only aggregate study results remain public.
+Price participated in neighbour selection, so preserving its local relationships was partly built into the method. The later rent model was evaluated on generated study data; that does not establish how it would perform on unseen source listings. The generator also received no formal privacy audit. Its output is an analytical transformation, not certified anonymization, and the row-level synthetic dataset is not distributed.
 
 ## What this comparison supports
 
-For this project, local interpolation better retained the measured relationships. That was sufficient to choose a study dataset, but it did not validate the later rent model on unseen source listings.
+The comparison changed which data I used for the study. Local interpolation better retained the measured relationships, while the original checks exposed a problem that plausible individual columns had hidden.
 
-The procedure above describes the original experiment. The later public release does not reproduce its original neighbour selection, and the historical comparison cannot be rerun from the published artifacts alone. The useful result is the diagnostic that changed the decision: matching individual columns was insufficient when the application depended on their relationships.
+The procedure above describes the original experiment. The later public release does not reproduce its original neighbour selection, so this historical comparison cannot be rerun from the published artifacts alone.
 
 For the project context, start with the [real estate project page](/projects/italian-real-estate/). The [technical deep dive](/blog/2025/italian-real-estate-deep-dive/) has the full pipeline and modeling details.

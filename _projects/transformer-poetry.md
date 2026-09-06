@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Teaching Transformers to Write Classical Italian Sonnets
-description: A transformer study in which an automatic metric improved but the final 7B comparison failed the strict poetry-quality criterion
+description: Building and adapting language models for Italian sonnets, then testing whether better model scores meant better poetry
 img: assets/img/projects/transformer-poetry/transformer-poetry-thumbnail.webp
 importance: 0
 category: experimental
@@ -13,7 +13,7 @@ project_overview:
   status: Completed
   period: May–August 2026
   role: I conceived and directed the project; Codex substantially assisted design and implementation
-  outcome: AI-judged DPO produced a narrow sealed automatic surface-screen gain, but Stage 3 and Stage 3 with DPO each scored 0/100 strict-good outputs in the AI blind review.
+  outcome: Adapted and evaluated an Italian language model; an automatic check improved, but both final systems scored 0/100 on the strict poetry-quality criterion in an AI-based blind review.
   evidence: GitHub v1.0.0, the Hugging Face model release, and two technical notes; raw data and outputs remain excluded.
 project_actions:
   - label: View source
@@ -43,23 +43,23 @@ project_actions:
   Manuscript photograph from <a href="https://pxhere.com/en/photo/795701">PxHere</a>, where it is marked CC0. Cropped and converted to WebP for this page; used as a thematic image, not as a claim about the project's textual sources.
 </div>
 
-## The metric improved. The poetry did not.
+## Can a language model learn to write a sonnet?
 
-A preference-training step improved an automatic check for visible defects in generated sonnets. It did not produce reliably good poetry: the adapted Stage-3 7B model and the same model with a DPO adapter each scored 0 out of 100 on the strict-good criterion in an AI-based blind review.
+I directed this project to explore language-model training and adaptation through classical Italian poetry. It followed two paths: building a compact transformer from scratch, and adapting an existing Italian model through historical prose, poetry, and sonnets.
 
-The project approached that problem through two branches. One implemented and trained a roughly 70-million-parameter transformer from scratch. The other adapted an existing Italian Minerva 7B model through historical prose, poetry, and sonnet stages. The final 7B model was adapted, not pretrained from scratch.
+The final test exposed a gap between the numbers and the poems. An additional training step improved an automatic check for visible defects, but neither final system produced a poem that passed the strict quality criterion in a separate AI-based blind review. That result shaped what the project could claim.
 
 ## My role and the AI contribution
 
 I conceived and directed the project, set its goals, approved the research plan, reviewed outputs, made decisions, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol substantially assisted research design, implementation, tests, execution, and analysis.
 
-This was not independently designed or implemented by me. My contribution was to direct the research, review the evidence, and decide which conclusions and public artifacts to accept.
+My contribution was research direction and review; this was not independently designed or implemented by me.
 
 ## Two branches, different questions
 
-The compact model made tokenization, attention, training, checkpointing, and decoding available for inspection. A parameter-matched, one-seed comparison favoured SwiGLU over ReLU on validation loss and repetition, but its generated samples remained weak. The full comparison is retained in the public project reports.
+The compact model had roughly 70 million parameters and was trained from scratch. It made tokenization, attention, training, checkpointing, and decoding available for inspection. A parameter-matched, one-seed comparison favoured SwiGLU over ReLU on validation loss and repetition, but its generated samples remained weak. The full comparison is retained in the public project reports.
 
-The 7B branch asked whether staged adaptation and a small preference update could improve sonnets. Direct Preference Optimization (DPO) trains a model to favour one response over another. Here, three AI judges supplied those preferences. Their majority agreed with my separate 20-pair review only 12 times, failing the planned calibration gate. I therefore call the method AI-judged DPO, not human-aligned training.
+The other branch started from the existing Minerva 7B model, with seven billion parameters. It was adapted rather than pretrained from scratch. This branch asked whether staged adaptation and a small preference update could improve sonnets. Direct Preference Optimization (DPO) trains a model to favour one response over another. Here, three AI judges supplied those preferences. Their majority agreed with my separate 20-pair review only 12 times, failing the planned calibration gate. I therefore call the method AI-judged DPO, not human-aligned training.
 
 ## An improvement with a clear limit
 
@@ -92,5 +92,3 @@ The result is useful as an evaluation study: a repeatable gain on an automatic c
 The [source repository](https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry) and [GitHub v1.0.0 release](https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry/releases/tag/v1.0.0) contain the reviewed source, public reports, aggregate evidence, and verification instructions. The [Hugging Face release](https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets) contains the selected Stage-1, Stage-2, and Stage-3 models plus the DPO adapter under its documented layered rights scope.
 
 The public artifacts exclude raw openings, poems, generations, preference pairs, votes, annotations, private mappings, intermediate checkpoints, raw analysis tensors, and training material without redistribution permission.
-
-The two technical notes cover the [sealed DPO evaluation](/blog/2026/a-narrow-win-that-did-not-make-a-good-poet/) and the [staged model-change analysis](/blog/2026/how-one-7b-italian-language-model-changed-across-staged-adaptation/).

@@ -23,22 +23,22 @@ project_overview:
   Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
 </div>
 
-## Keeping evidence attached
+## Combining research without losing its sources
 
-Creative research often brings together material from web pages, videos, and references supplied by the user. An agent can summarize each source, but a longer chain creates a new risk: by the time several summaries become one report, the connection between a claim and its evidence can disappear.
+Creative research brings together web pages, videos, and material supplied by the user. I designed and built a prototype that uses several AI agents to research those sources and produce one structured report.
 
-That became the central problem for this exploratory prototype. I designed and implemented a workflow in which source material and citations stayed attached as findings moved from research to synthesis.
+The difficult part was the handover between agents. A summary might retain a conclusion while losing the passage that supported it. After several such steps, the final report could be difficult to check.
 
-## A small research team of agents
+## Designing the handovers
 
-Different agents handled different parts of the work. Web and video researchers collected findings from public sources. Another agent inspected creative material supplied by the user. Downstream agents then organized those findings into a structured report.
+I divided the work by source. Web and video researchers collected findings from public sources, while another agent inspected material supplied by the user. Synthesis agents then organized the findings into a report.
 
-I passed the source evidence and citations with each finding. Later agents could use that material during synthesis, without having to reconstruct where an earlier summary came from.
+I passed the source evidence and citations along with each finding. The later agents could consult that material while combining the research, rather than relying only on an earlier summary or reconstructing its sources.
 
-## What the prototype established
+This kept the connection between the research and the report available for inspection. It did not make every source dependable: web material can still be incomplete, outdated, or wrong.
 
-The prototype completed the full path from multi-source research to a cited report. It showed that the evidence-preserving workflow could operate end to end and gave me practical experience coordinating specialized agents.
+## What worked, and where the project stopped
 
-The report was still research support rather than final creative direction. Public sources may be incomplete, outdated, or wrong, and citations make a claim inspectable rather than automatically reliable.
+The prototype completed the path from research across several sources to a cited report. I designed and implemented that workflow, including the division of work between agents and the movement of evidence into the final synthesis.
 
-The project paused when other work took priority. Adoption was not tested, so there is no claim of production use or commercial impact. The completed research-to-report loop remains the evidence for the project; there is no measured time-saving or commercial result.
+The project paused when other work took priority. It remained an exploratory prototype: adoption was not tested, and no production time saving or commercial impact was measured. Its completed result was the working research-and-reporting process.

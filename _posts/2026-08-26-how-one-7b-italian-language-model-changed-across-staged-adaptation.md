@@ -2,13 +2,13 @@
 layout: post
 title: "Where a 7B Italian language model changed during staged adaptation"
 date: 2026-08-26 12:30:00 +0200
-description: A descriptive study of weight, loss, embedding, and representation change across three full-weight adaptation stages.
+description: Comparing saved language-model states to see where training changed the model, and why the size of a change does not establish its effect.
 tags: language-models transformers interpretability model-adaptation evaluation
 categories: [technical-notes]
 technical_kind: note
 chart:
   plotly: true
-last_updated: 2026-09-06
+last_updated: 2026-09-07
 project_slug: transformer-poetry
 toc:
   beginning: true
@@ -17,21 +17,30 @@ reading_minutes: 10
 
 The [transformer-poetry project](/projects/transformer-poetry/) retained model states throughout three stages of adaptation. That made it possible to ask where the model changed, rather than comparing only its first and last outputs.
 
-Most measured movement happened during the first, broad adaptation to historical and literary Italian. Later poetry and sonnet stages moved less. This note compares that pattern through losses, weights, selected token vectors, and hidden representations. It describes one training sequence; it does not identify which changes caused a particular behaviour.
+Most measured movement happened during the first, broad adaptation to historical and literary Italian. Later poetry and sonnet stages moved less. To examine that pattern, the study compared prediction errors, model weights, and internal representations of text.
 
-## Parent, stages, and retained boundaries
+I directed the project and reviewed the evidence; Codex substantially assisted the research design, implementation, and analysis. The study describes one training sequence and a limited set of text probes. It does not identify which changes caused a particular behaviour.
 
-The model branch started from the existing `sapienzanlp/Minerva-7B-instruct-v1.0` parent at a pinned revision. This 7B model was not trained from scratch in the project. A separate, roughly 70-million-parameter transformer was implemented and trained from scratch as a learning arc, but it is not the parent of the system analyzed here.
+## What was saved during training
 
-The full-weight BF16 curriculum had three stages:
+The starting point was a fixed version of `sapienzanlp/Minerva-7B-instruct-v1.0`, an existing model with seven billion parameters. This study concerns its adaptation; the separate compact model trained from scratch in the project is not part of this comparison.
+
+Training updated the full model through three stages:
 
 1. historical and literary Italian, spanning the broadest target domain;
 2. historical non-sonnet poetry;
 3. a focused classical-sonnet stage.
 
-Each stage mixed in deterministic modern-preservation replay from PAISÀ. It supplied 5% of target-token exposure in each stage—not 5% of documents, unique examples, or corpus size. The selected endpoint was determined by frozen target and preservation gates rather than simply taking the last update.
+Each stage also replayed modern Italian text from PAISÀ to help retain earlier capabilities. This material supplied 5% of target-token exposure in each stage, rather than 5% of documents or unique examples. Selection rules fixed in advance considered both the target material and the material used to check for regression.
 
-The study retained a midpoint and selected endpoint for every stage. Analysis used 48 fixed probes spanning historical general text, historical poetry, sonnets, and modern instruction text, along with a frozen registry of selected token rows. These are deliberately bounded samples. They make repeated comparison possible, but they are not a complete map of what a seven-billion-parameter model represents.
+<details markdown="1">
+<summary>Training precision and replay</summary>
+
+The full-weight updates used BF16, a 16-bit floating-point format. The modern-preservation replay was deterministic.
+
+</details>
+
+The study saved a midpoint and selected endpoint for every stage. These saved model states are called checkpoints. To compare them, the analysis used 48 fixed text probes spanning historical general text, historical poetry, sonnets, and modern instructions, along with a fixed selection of token vectors. The samples made repeated comparison possible but covered only a small part of the model's behaviour.
 
 ## Following the selected checkpoints
 
@@ -53,13 +62,13 @@ Update 120 was retained in the final stage because update 135 was effectively ti
 <details markdown="1">
 <summary>Runtime and estimated cost</summary>
 
-The three-stage figure of about $10.65 belongs in a different evidence category. It is a projection from a qualification-based cost rate, not the measured final bill. The runtimes are observations from completed runs; the cost is a modeled translation of qualified throughput and pricing assumptions. Reporting both is useful only if that distinction remains visible.
+The three-stage cost of about $10.65 was projected from an earlier qualification run and pricing assumptions. It is not a measured final bill. The runtimes above were measured during the completed runs.
 
 </details>
 
-## Target-loss reductions narrowed by stage
+## How prediction improved during training
 
-The domain losses show the curriculum becoming progressively more specific. Stage 1 reduced loss on all three historical targets between its first validation and selected endpoint: 0.0762 on historical/general material, 0.1702 on historical poetry, and 0.2385 on sonnets. Stage 2 reduced poetry loss by another 0.0780 and sonnet loss by 0.0908. Stage 3 reduced sonnet loss by 0.0179 while its preservation-domain changes remained small.
+Loss measures next-token prediction error on validation text; lower values indicate better prediction on that material. The domain losses show the training becoming progressively more specific. Stage 1 reduced loss on all three historical targets between its first validation and selected endpoint: 0.0762 on historical/general material, 0.1702 on historical poetry, and 0.2385 on sonnets. Stage 2 reduced poetry loss by another 0.0780 and sonnet loss by 0.0908. Stage 3 reduced sonnet loss by 0.0179 while its preservation-domain changes remained small.
 
 <details markdown="1">
 <summary>Exact checkpoint comparison</summary>
@@ -84,9 +93,9 @@ One possible explanation is that broad historical adaptation brought the model c
 
 Loss is still only one view. It measures next-token prediction on frozen validation material, not literary success. The later sealed evaluation showed that a lower sonnet-domain loss did not produce reliably coherent, well-formed sonnets.
 
-## Relative parameter movement
+## How far the weights moved
 
-Relative L2 distance measures the size of a weight change against the reference weights. The global relative displacement from the untouched parent to the selected Stage-3 model was 0.03302. Sequential deltas reveal where that total accumulated.
+The model's weights are the numerical parameters updated during training. Relative L2 distance measures the size of a weight change against the reference weights. The global relative displacement from the untouched parent to the selected Stage-3 model was 0.03302. Sequential deltas reveal where that total accumulated.
 
 <details markdown="1">
 <summary>Exact checkpoint comparison</summary>
@@ -112,13 +121,13 @@ Relative L2 distance measures the size of a weight change against the reference 
 
 The decline is striking. The parent-to-Stage-1-midpoint delta was more than 300 times the final Stage-3-half delta. The first half of Stage 1 dominated the observed global movement.
 
-I interpret this as evidence of a broad early domain adjustment followed by narrower specialization. I do not interpret it as a ranking of stage importance. Neural networks can alter an output distribution through small coordinated changes, especially once the model is close to a decision boundary. A late adapter or fine-tuning step may be tiny in global norm and still change the failures that users notice.
+I interpret this as evidence of a broad early adjustment followed by narrower specialization. It does not rank the importance of the stages. Small coordinated weight changes can still alter an output, so a late training step can matter even when the overall distance is small.
 
-Global norms also compress location. They tell us how much the complete parameter vector moved, not which layers, heads, or features mattered. Layerwise comparisons can refine the map, but without interventions such as restoration or ablation they still cannot establish that a changed component produced a particular behavior.
+A single distance also hides where change occurred. Comparing individual layers can give more detail, but assigning an output change to a particular component would require a separate experiment that changes that component while controlling the others.
 
-## Embeddings and the language-model head
+## Did neighbouring tokens remain neighbours?
 
-Embedding rows are the vectors associated with selected tokens. I compared their movement and the overlap between their twenty nearest neighbours; Jaccard overlap is the fraction of shared members in the combined sets. The selected rows moved measurably between the parent and final model. Their mean relative L2 change was 0.05624, while mean top-20-neighbor Jaccard remained 0.9755. The language-model head moved less: relative L2 was 0.01140 and neighbor Jaccard was 0.9876.
+An embedding represents a token, a piece of text processed by the model, as a vector of numbers. I compared selected vectors' movement and the overlap between their twenty nearest neighbours. Jaccard overlap is the fraction of shared members in the combined sets. The selected rows moved measurably between the parent and final model. Their mean relative L2 change was 0.05624, while mean top-20-neighbor Jaccard remained 0.9755. The language-model head, the output layer that scores possible next tokens, moved less: relative L2 was 0.01140 and neighbor Jaccard was 0.9876.
 
 During the late half of Stage 3, those changes were much smaller. The corresponding embedding and LM-head relative movements were 0.0000883 and 0.0000203, and the inspected neighbor sets had Jaccard 1.0.
 
@@ -126,9 +135,9 @@ This combination is more informative than either measurement alone. Vector posit
 
 The registry contains selected token rows rather than the whole vocabulary. Top-20 overlap ignores changes outside the chosen neighbourhood and does not show how the downstream network uses those vectors. Jaccard overlap also discards rank and distance, so identical members can still have changed geometry.
 
-## Hidden representations and output geometry
+## Comparing internal similarity with output changes
 
-The 48 fixed text probes provide another scale of comparison. Centred kernel alignment (CKA) compares broad hidden-representation geometry; top-20 next-token overlap compares the tokens ranked most likely at the output. They measure different kinds of similarity. From parent to final, mean hidden-state drift was 0.2394. Standard-sonnet probes drifted most, at 0.3177, while modern-instruction probes drifted least, at 0.1599. Minimum linear CKA remained 0.9219, mean top-20 next-token overlap fell to 0.4994, and mean logit entropy decreased by 0.2102.
+The 48 fixed text probes allowed comparison of internal representations as well as outputs. Centred kernel alignment (CKA) measures similarity between patterns in the internal representations; top-20 next-token overlap compares the tokens ranked most likely at the output. These measures answer different questions. From parent to final, mean hidden-state drift was 0.2394. Standard-sonnet probes drifted most, at 0.3177, while modern-instruction probes drifted least, at 0.1599. Minimum linear CKA remained 0.9219, mean top-20 next-token overlap fell to 0.4994, and mean logit entropy decreased by 0.2102.
 
 For the late half of Stage 3, mean drift was only 0.00371, minimum CKA was 0.999997, and top-20 next-token overlap was 0.9668.
 
@@ -160,13 +169,13 @@ The saved states show the large early movement and the smaller later changes. Pr
 
 Keeping only the last checkpoint would have hidden the differences between stages. Keeping only training loss would have hidden the gap between prediction and literary quality.
 
-## What drift, CKA, and neighbor overlap cannot establish
+## Which questions still need an experiment?
 
-None of these measurements identifies the cause of an output improvement or failure. To make a causal claim about a layer or component, I would need an intervention: restore selected weights, ablate a pathway, patch activations, or otherwise manipulate the proposed mechanism while holding alternatives fixed.
+The comparisons locate change but do not identify the cause of an output improvement or failure. Testing such an explanation would require an intervention, such as restoring selected weights or disabling a component while holding the rest fixed.
 
-The metrics also cannot establish preserved capability on their own. A high CKA value is compatible with a behavior degrading. Neighbor overlap does not validate syntax or factual knowledge. Low global parameter movement does not guarantee safety, and high movement does not prove forgetting.
+Internal similarity also cannot establish that a capability was preserved. A model can retain similar representations while its outputs become worse. Tests of the generated text remain necessary.
 
-Finally, the analysis is conditioned on one parent, one curriculum, one set of retained checkpoints, and bounded probes. It is not evidence that every language model adapts in this order, or that early stages will always dominate. The value is closer to a well-instrumented case study than a general law.
+This was one model, one training sequence, and a limited set of probes. The saved checkpoints made its development visible, but the early-dominant pattern should not be treated as a general rule for language-model adaptation.
 
 ## Reproducibility and AI contribution
 
@@ -175,7 +184,5 @@ At publication, the public source repository includes the pinned state registry,
 The checkpoint and data boundary is intentional. The selected full BF16 stage weights are available through that model release, but intermediate states, raw probe tensors, raw generations, poems and openings used in evaluation, private mappings, and annotations are not embedded in this note or its charts and remain unpublished.
 
 I conceived and directed the project, chose its learning and research goals, made executive decisions, approved the plan, reviewed outputs, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol helped design the research plan and substantially assisted implementation, tests, execution, and analysis. I do not describe the study as independently designed or independently implemented by me.
-
-That disclosure is especially relevant to a study about interpreting complex artifacts. The important standard is not whether every line was typed manually. It is whether the evidence is traceable, the claims remain inside what that evidence can support, and the division of work is stated honestly.
 
 The broader project and its final failure boundary are summarized in [Teaching Transformers to Write Classical Italian Sonnets]({% link _projects/transformer-poetry.md %}).

@@ -50,7 +50,7 @@ I discuss that division of work in [What I mean when I say I built something wit
 
 ## Physics that can be played with
 
-Under the interface are N-body gravity, tidal torques, rotational dynamics, deformable bodies, collision merging, and a kick-drift-kick leapfrog integrator.
+Bodies attract one another, rotate, deform, and merge on collision. The simulation includes tidal torques and uses a leapfrog integrator to advance their positions and velocities through time. These choices give the toy its behaviour: an intervention can affect the motion of the whole system.
 
 The simulation uses dimensionless units and deliberately exaggerates some visual and tidal effects. Its collision, deformation, and tidal models are approximations, and numerical accuracy depends on the timestep and selected system.
 

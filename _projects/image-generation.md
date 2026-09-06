@@ -39,9 +39,11 @@ project_actions:
   Handwritten digits created by DCGAN-5
 </div>
 
-## Learning through a small image experiment
+## Comparing models I could also inspect
 
-I compared seven classifiers and ten generative configurations on MNIST, a dataset of handwritten digits. It was small enough to explore on my laptop, and the outputs were easy to inspect: I could compare a score with the actual digits a model produced.
+I built and compared models for recognizing and generating handwritten digits. The project used MNIST, a small image dataset that let me compare training time and numerical scores with outputs I could inspect directly. The generator below lets you try one of the resulting models.
+
+The experiments covered seven classifiers and ten generative configurations. I used TensorFlow/Keras for the original implementation; the browser demonstration runs a trained model through TensorFlow.js.
 
 The original project ran in November–December 2024. A later Codex-assisted evidence audit retrained the classifiers on CPU and corrected the generator comparison. The reported classifier results and CPU timings below come from that audit.
 
@@ -99,10 +101,10 @@ For generation, I compared conditional variational autoencoders with deep convol
 
 DCGAN-5 reached a project-specific feature distance of 2.29, ahead of DCGAN-4 at 3.23. This measure supports comparison inside the experiment, but it is not canonical Fréchet inception distance.
 
-## What the comparison leaves open
+## Reading the comparison
 
-The original work used one GeForce RTX 3060 laptop GPU; the later classifier audit recorded CPU timings. Those times describe their respective runs, not portable hardware benchmarks.
+The smaller CNN offered a useful tradeoff: slightly lower accuracy for roughly half the measured training time. For the generators, the scores were useful alongside the samples, which made weak or unrecognizable digits easy to spot.
 
-The classifier comparison used one deterministic split and seed. The generative configurations changed several choices in sequence, so their results do not isolate the effect of each change. MNIST also says little about how these architectures would behave on complex image domains.
+The classifier comparison used one deterministic split and seed. Generator variants changed several choices together, so the comparison does not isolate their effects. Original generator timings came from a GeForce RTX 3060 laptop GPU; classifier timings came from the later CPU audit. Neither the timings nor the architecture ranking should be treated as a benchmark for other hardware or image domains.
 
 The [technical appendix](/blog/2025/image-generation-deep-dive/) retains all 17 architecture diagrams, result tables, and training records. The [public repository](https://github.com/LeonardoPaccianiMori/portfolio-image-generation) contains code and evidence from the later audit.

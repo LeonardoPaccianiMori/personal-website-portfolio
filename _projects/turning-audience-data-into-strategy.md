@@ -23,24 +23,20 @@ project_overview:
   Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
 </div>
 
-## Making large profiles usable
+## From a large table to an application people could use
 
-Consumer-segment profiles can contain many variables and comparison points. The information is valuable, but large tabular exports make it slow to find the patterns that could support a strategic discussion.
+Consumer-segment profiles contain many variables and comparison points. Working through a large export made it slow to find useful patterns and follow up on them. I developed an internal application that lets users explore those profiles through summaries, charts, and questions about the data.
 
-I built an internal product that gives users three ways into those profiles: section summaries, selected charts, and questions about the complete dataset. Measured operating evidence showed a multi-day exploration workflow moving to minutes.
+I am the primary developer and technical owner. I designed the workflow, developed the application, and continue to maintain the deployed product. Measured operating evidence showed the exploration workflow moving from days to minutes.
 
-I am the primary developer and technical owner. I designed the workflow, developed the application, and continue to maintain the deployed product.
+## The input was part of the problem
 
-## From tables to guided questions
+One early failure looked like something I could fix by changing a prompt. The model produced unsupported codes or conclusions, but the problem also lay in what it received: the structure of the original table had been lost. It could no longer reliably follow the relationships between questions, values, and comparison groups.
 
-The product did not begin with its current interface. Early versions worked more directly with large exports. Over time, I added several ways into the data: summaries for orientation, charts for visible patterns, and questions for following a specific line of inquiry.
+I changed the data representation to preserve those relationships. That made the answers more dependable and became a design rule for later work on the application. The model needed an input it could follow before further prompt changes would be useful.
 
-The summaries help users decide where to look; charts make comparisons easier to inspect. Questions let them follow a line of inquiry beyond those prepared views.
+## Giving users several ways into the same data
 
-## A reliability lesson hidden in the input
+Early versions worked more directly with large exports. As the application developed, I added summaries to help users orient themselves, charts to inspect comparisons, and follow-up questions for lines of inquiry that the prepared views did not cover.
 
-One early problem looked like a prompting problem but came from the data representation. When the structure of a large table was lost, the model struggled to follow relationships between questions, values, and comparison groups.
-
-Preserving that structure made the answers more dependable. It helped the model work from the supplied data instead of producing unsupported codes or conclusions. This became one of the main design rules for the product: reliable model behaviour starts with reliable input structure.
-
-The application makes exploration faster. People still check the evidence and decide which findings are suitable for client work.
+These features serve different stages of exploration. A user can begin with an overview, examine a pattern, then ask a more specific question. People still check the evidence and decide which findings are suitable for client work.

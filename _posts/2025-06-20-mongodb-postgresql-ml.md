@@ -7,7 +7,7 @@ tags: data-engineering databases architecture
 categories: [technical-notes]
 technical_kind: note
 featured: false
-last_updated: 2026-09-06
+last_updated: 2026-09-07
 project_slug: italian-real-estate
 reading_minutes: 2
 ---
@@ -35,8 +35,8 @@ I moved those stable fields to a normalized PostgreSQL warehouse. MongoDB remain
     The project evolved from raw collection in MongoDB toward an analytics-ready layer in PostgreSQL.
 </div>
 
-## Where I would make the same choice
+## The point at which the change became useful
 
-I would keep the flexible start and the later relational layer. The transition point was the repeated work required to prepare already-understood data for analysis. A stable schema removed that work from the analytical workflow.
+I would keep the flexible start and the later relational layer. The useful signal was the repeated work: the source fields were already understood, yet I kept preparing them again for analysis. A stable schema gave those transformations a lasting home and made the same prepared fields available to the model and dashboard.
 
 The [technical appendix](/blog/2025/italian-real-estate-deep-dive/) follows the full collection, extraction, and modelling process. The [synthetic-data note](/blog/2025/synthetic-data-ctgan/) covers the next decision: preserving useful relationships in the study dataset.

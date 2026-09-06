@@ -29,11 +29,11 @@ The first version of this application was a chatbot for exploring qualitative in
 
 I therefore rebuilt the experience around a first thematic report organized by the interview guide. Question answering, translation, and session recovery still matter, but they now support the document that researchers must ultimately produce.
 
-The application is deployed and works across Italian transcripts, interview guides, participant worksheets, and project context. I continue to refine it with Consumer Insight colleagues during user testing.
+I designed and built the application end to end. It is deployed and works across Italian transcripts, interview guides, participant worksheets, and project context. I now maintain and deploy it independently within shared infrastructure that another engineer originally established.
 
 ## Letting researchers inspect the evidence
 
-A useful draft is not enough if nobody can see where its claims came from. The application first maps the project material: what each document is, who each interviewee is, and how the interview guide structures the research.
+Researchers need to check the claims in a draft against the original material. The application first maps the project material: what each document is, who each interviewee is, and how the interview guide structures the research.
 
 When a researcher asks a specific question, the agent searches the original documents, narrows the relevant material, and reads the candidate passages directly. This approach is known as Direct Corpus Interaction and is described in [the research paper that introduced the method](https://arxiv.org/abs/2605.05242).
 
@@ -41,8 +41,6 @@ Answers link back to supporting passages. Researchers can inspect the cited para
 
 ## What users are testing now
 
-I designed and built the application end to end. I now maintain and deploy it independently within shared infrastructure that another engineer originally established.
-
-Users estimate that it could reduce the full workflow from about one month to about one week. That is their estimate rather than an independently measured benchmark, and researchers still own the interpretation, revision, and final client deliverable.
+I continue to refine the application with Consumer Insight colleagues. Users estimate that it could reduce the full workflow from about one month to about one week. That is their estimate rather than an independently measured benchmark, and researchers still own the interpretation, revision, and final client deliverable.
 
 Current testing focuses on the report itself: which structure helps researchers work, where the draft needs revision, and what quality they need before using it for a client deliverable.

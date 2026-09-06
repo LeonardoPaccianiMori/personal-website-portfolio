@@ -8,7 +8,7 @@ categories: [technical-notes]
 technical_kind: appendix
 chart:
   plotly: true
-last_updated: 2026-09-06
+last_updated: 2026-09-07
 project_slug: image-generation
 toc:
   beginning: true
@@ -206,21 +206,20 @@ DCGAN-5 produced the strongest samples in this set. Because the configurations c
 
 </details>
 
-## What the comparison supports
+## Choosing from these results
 
-- The most useful classification result was not the single highest-accuracy point; it was realizing how often the simple CNN was the model I would actually choose.
-- For generation, the strongest results appeared in later configurations that changed output scaling, architecture, and training time, but the experiment did not isolate their effects.
-- Sample galleries and timing data expose differences that a headline accuracy or distance value cannot describe alone.
-- The classifier results come from one deterministic split and seed. The generator metric uses a project-specific 20-dimensional representation and is not canonical FID.
+For quick classifier iteration, CNN-1 gave up 0.61 percentage points of accuracy while taking roughly half CNN-2's recorded CPU training time. CNN-2 remained the choice for the highest test accuracy in this run.
 
-MNIST made these comparisons inexpensive and inspectable. It does not establish that the same architecture ranking would hold for more complex image domains or different hardware.
+For generation, DCGAN-5 had the strongest result under the project-specific measure, with samples that could also be inspected directly. The sequential changes do not identify which individual change produced the improvement.
+
+These are choices within one MNIST experiment. The split, seed, metric, and timing conditions above remain part of each comparison; the results do not establish an architecture ranking for other image domains or hardware.
 
 ## Architecture reference
 
 <details markdown="1">
 <summary><strong>Model architecture guide</strong></summary>
 
-The 17 models were sequential configurations, not isolated ablations. This guide defines each name before the results use it.
+The 17 models were sequential configurations, not experiments that isolated each architectural change. This guide records the architecture behind each model name used above.
 
 ### Classifiers
 

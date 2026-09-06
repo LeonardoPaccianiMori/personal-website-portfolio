@@ -23,22 +23,20 @@ project_overview:
   Image generated with <a href="https://developers.openai.com/api/docs/models/gpt-image-2">GPT Image 2</a>
 </div>
 
-## A working prototype was only the first test
+## Matching a brief to a catalogue
 
-This project explored whether a chatbot could connect a client brief to the most relevant capabilities in an internal analytics catalogue. The prototype could ask clarifying questions, search the catalogue, suggest possible matches, and explain its reasoning.
+This prototype explored whether a chatbot could help colleagues find relevant capabilities in an internal analytics catalogue. It could ask clarifying questions about a client brief, search the catalogue, suggest matches, and explain them.
 
-The interaction worked. The unresolved question was whether people would use it often enough to justify maintaining the catalogue.
+I supervised and mentored the primary developer. We worked together on the intended behaviour and tested its recommendations. I reviewed versions and occasionally fixed difficult bugs; I was not the main developer.
 
-## My role in the project
+## The work behind a useful recommendation
 
-I supervised and mentored the primary developer. I helped define the intended behaviour, tested recommendations with the primary developer, reviewed successive versions, and occasionally fixed difficult bugs. I was not the main developer.
+The interaction worked, but its usefulness depended on a catalogue that was incomplete. Capabilities, owners, contacts, and descriptions would all need to stay current. Maintaining that information was a substantial part of the proposed application.
 
-## The cost behind the interface
+Stakeholder feedback raised another concern: intended users already had established ways of finding this information. The prototype alone did not establish that they would change those habits or use it often enough to justify the maintenance work.
 
-Recommendations were only as useful as the catalogue supporting them. That catalogue was incomplete, and keeping capabilities, owners, contacts, and descriptions current would require sustained work.
+## Why it remains on hold
 
-Stakeholder feedback raised a second concern. The intended users were already strongly established in their existing workflows, so a useful prototype would not automatically lead to adoption.
+Stakeholders recommended pausing further investment until demand was clearer. No later follow-up arrived. The prototype was not explicitly rejected, but it did not reach production adoption or demonstrate business impact.
 
-With no clear demand strong enough to offset those costs, stakeholders recommended keeping the project on hold rather than investing further in the catalogue. No later follow-up arrived, and the prototype did not reach production adoption or demonstrate business impact.
-
-The prototype was not explicitly rejected. It remains on hold: further interface work would still leave the demand and catalogue-maintenance questions unresolved.
+The unresolved work concerns the catalogue and its users. Further interface development would still leave those questions open.
