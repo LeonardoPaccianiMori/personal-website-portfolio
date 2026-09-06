@@ -6,6 +6,8 @@ description: "A demonstrated bottleneck can provide a better product brief than 
 tags: data-science automation product-thinking
 categories: [thoughts]
 featured: false
+last_updated: 2026-09-06
+reading_minutes: 4
 ---
 
 Some geographic analyses depend on store coordinates that are inaccurate or inconsistent. Correcting them is not conceptually difficult, but repeated lookups and manual decisions can consume hours before the analysis itself begins.
@@ -40,12 +42,10 @@ An existing bottleneck answers questions that speculative product ideas often le
 
 These answers do not guarantee adoption or quality. They do, however, give the project a concrete basis for defining success. A proposed feature can be judged by whether it removes the constraint rather than by whether it makes the system appear more complete.
 
-This is why I now see a demonstrated bottleneck as more than an inconvenience. It can be a better starting point than a broad opportunity whose users, workflow, and practical value are still hypothetical.
-
 Broader applications can create substantial value, and exploratory prototypes can be useful even before their final users are known. A prototype may exist to answer whether an approach can work or whether an interaction is worth developing.
 
 The problem begins when exploration moves towards delivery without ever making its purpose concrete. Adding capabilities then increases what the system can do without clarifying why anybody needs it.
 
-When I consider where automation might help, I now start with the work rather than the technology. Where does time disappear? Which part is repetitive? Which decisions require real judgment, and which steps merely stand in their way?
+When I consider where automation might help, I start with the recurring work: where time disappears and which steps prevent people from reaching the decisions that need their judgment.
 
-Sometimes those questions lead to an ambitious system. Sometimes they lead to one carefully bounded tool that returns hours or days to the people already doing the work. That is often enough to make the tool worth building.
+Sometimes that investigation leads to an ambitious system. Sometimes it leads to one carefully bounded tool that returns hours or days to the people already doing the work. That is often enough to make the tool worth building.

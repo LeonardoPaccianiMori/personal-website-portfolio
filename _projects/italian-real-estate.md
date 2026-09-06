@@ -1,11 +1,12 @@
 ---
 layout: page
 title: Exploring real estate returns in Italy
-description: End-to-end data pipeline from Italian property listings to rental-income estimates and decision-support dashboard for investment opportunities
+description: Exploring rental returns under purchase and financing assumptions, from roughly one million listings to a synthetic-study dashboard
 img: assets/img/projects/italian-real-estate/italian-real-estate.jpg
 importance: 1
 category: portfolio
 github: https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate
+card_role: Independent implementation
 project_overview:
   status: Completed
   period: January–April 2025
@@ -27,22 +28,28 @@ project_actions:
     external: false
 ---
 
-<div class="row">
+<div class="project-lead-image row">
   <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate.jpg" title="Italian real estate" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate.jpg" title="Italian real estate" alt="" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 <div class="caption">
   <a href="https://pxhere.com/en/photo/529383">Image source</a>
 </div>
 
-## From listings to rental-return estimates
+## Comparing rental returns
 
-I built a complete path from data collection to presentation. The pipeline collected roughly one million Italian property listings, organized them for analysis, generated a synthetic study dataset, estimated rental income, and presented the results in a Tableau dashboard.
+How would estimated rental returns differ between regular sales and auctions, and how much would the answer depend on financing and renovation assumptions? I built a pipeline and dashboard to explore those questions across Italy.
 
-The findings on this page come from that synthetic dataset. It was designed to retain broad distributions and correlations without distributing the source listings themselves. Neither the original listings nor the synthetic row-level data are public.
+I implemented the project end to end, from collecting roughly one million property listings to modelling rent and presenting the results. The dashboard uses a synthetic study dataset derived from the collection. It describes patterns in that study, not forecasts for individual properties.
 
-## Building the path to the dashboard
+## Explore the study
+
+{% include dashboards/italian-real-estate-dashboard.html %}
+
+The dashboard works best on a desktop or tablet. You can compare sale and auction markets, filter areas and property characteristics, and change mortgage and renovation assumptions. Those choices affect the estimated returns, so they belong in the analysis rather than in a footnote.
+
+## The choices behind the dashboard
 
 <div class="row">
   <div class="col-sm mt-3 mt-md-0">
@@ -57,19 +64,16 @@ Airflow coordinated collection across provinces and listing types. MongoDB store
 
 From there, a custom KNN-based generator produced the synthetic study rows. A Random Forest estimated rental income from property features, and Tableau combined the model output with geospatial analysis in an interface for exploring returns.
 
-I implemented every stage, including acquisition, storage, transformation, modelling, and presentation. Together, those stages turned source listings into structured analytical data, model estimates, and an interactive view.
+The storage changed as the work changed. MongoDB held the evolving source and extracted documents; PostgreSQL supported repeated transformations once the analytical schema was stable.
 
-## What the synthetic study suggested
+## What appeared in the synthetic study
 
-{% include dashboards/italian-real-estate-dashboard.html %}
+Auction properties could outperform regular sales after the assumed renovation costs. Rural areas could show higher estimated returns than urban ones, while no simple North–South divide appeared. Energy rating had less effect on estimated rent than expected.
 
-The interactive view works best on a desktop or tablet. It presents patterns in the synthetic study data.
+These findings depend on the synthetic data and the assumptions in the dashboard. They are exploratory results, not investment advice.
 
-The study suggested that auction properties could outperform regular sales after assumed renovation costs, rural areas could show higher returns than urban areas, energy rating had less effect on estimated rent than expected, and no simple North–South profitability divide appeared. These are of course the results of the analysis of the synthetic data, and **not** property-level forecasts or _actual_ investment advice.
+## Data and evidence
 
-## Final notes
-- The data is a snapshot from early 2025 and is now outdated.
-- The synthetic generator was designed to create fully synthetic data with the same statistical properties of the original data.
-- The public repository excludes the source listings, synthetic row-level data, and code that would enable direct reuse of the original collection process.
+The source is an early-2025 snapshot and is now outdated. The custom generator was designed to retain broad distributions and correlations; it was not evaluated as a formal privacy guarantee. Neither source listings nor synthetic rows are distributed, and the public repository excludes the live collection implementation.
 
-The [technical appendix](/blog/2025/italian-real-estate-deep-dive/) documents the collection, ETL, synthetic-data, and modelling approach. Two related notes explain [why CTGAN was rejected](/blog/2025/synthetic-data-ctgan/) when building the synthetic dataset and [why the storage layer moved from MongoDB to PostgreSQL](/blog/2025/mongodb-postgresql-ml/).
+For the engineering details, read the [pipeline and modelling appendix](/blog/2025/italian-real-estate-deep-dive/). The [CTGAN note](/blog/2025/synthetic-data-ctgan/) explains the failed synthetic-data comparison, while the [database note](/blog/2025/mongodb-postgresql-ml/) explains when the cleaned data outgrew its document store.

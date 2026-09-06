@@ -6,47 +6,25 @@ description: How the storage layer changed as the project moved from messy scrap
 tags: data-engineering databases architecture
 categories: [technical-notes]
 technical_kind: note
-last_updated: 2026-08-31
 featured: false
+last_updated: 2026-09-06
+project_slug: italian-real-estate
+reading_minutes: 2
 ---
 
-One of the more useful design decisions in my [Italian real estate project](/projects/italian-real-estate/) was accepting that the "right" database changed over the life of the project.
+In the [real-estate pipeline](/projects/italian-real-estate/), I kept flattening the same records, rebuilding categorical mappings, and writing awkward aggregation queries. Those repeated tasks were the signal to move the cleaned layer from MongoDB to PostgreSQL.
 
-I resisted that shift longer than I should have, mostly because once a pipeline is working you start wanting the current tool to remain the right one. At the beginning I had messy HTML, half-understood fields, and a schema that changed whenever I found a new edge case. By the end I had an ML pipeline, a translation layer, and a normalized dataset that needed joins, constraints, and analytical queries.
+## Keeping the source flexible
 
-Those are not the same storage problem.
+At the start, I had raw HTML, inconsistent listing structures, and fields that changed as the parser encountered new cases. MongoDB let me store that material while extraction was still evolving.
 
-## MongoDB was right first
+I used two document layers: a data lake for raw HTML and a warehouse-like layer for extracted listing fields. Keeping the HTML meant I could change the parser without collecting everything again. Keeping the extracted fields flexible avoided forcing an unstable source into a fixed schema.
 
-The raw scraping stage was exactly the kind of data I would not want to force into a rigid relational schema too early:
+## Recognizing a stable analytical layer
 
-- raw HTML
-- inconsistent listing structures
-- fields discovered incrementally
-- nested or optional fragments everywhere
+Repeated analysis made a different set of requirements clear: consistent types, joins, dimension tables, and reliable model inputs. By then, much of the cleanup was no longer exploratory. I was repeating known transformations before each analysis.
 
-MongoDB was a good fit because it let me capture the source material quickly and iterate on extraction without paying a migration tax every time I learned something new.
-
-In practice, I ended up with two MongoDB layers:
-
-1. a datalake for raw HTML
-2. a warehouse-like document layer for extracted but still evolving listing data
-
-That bought me speed while the project was still exploratory.
-
-## PostgreSQL became right later
-
-Once the extraction work settled down, the costs of staying in MongoDB became more obvious.
-
-I needed:
-
-- consistent types
-- relational integrity
-- dimension tables
-- easier feature engineering
-- faster analytical queries
-
-That is the point where PostgreSQL stopped being a "nice to have" and became the natural home for the ML-ready layer.
+I moved those stable fields to a normalized PostgreSQL warehouse. MongoDB remained useful for collection and the evolving extracted documents; the relational layer served feature engineering, translation handling, model inputs, and dashboard extracts.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -57,39 +35,8 @@ That is the point where PostgreSQL stopped being a "nice to have" and became the
     The project evolved from raw collection in MongoDB toward an analytics-ready layer in PostgreSQL.
 </div>
 
-The interesting part is not “SQL is better than NoSQL.” It is more specific:
+## Where I would make the same choice
 
-- MongoDB was better while the data model was still unstable
-- PostgreSQL was better once the data model was stable enough to deserve constraints and structure
+I would keep the flexible start and the later relational layer. The transition point was the repeated work required to prepare already-understood data for analysis. A stable schema removed that work from the analytical workflow.
 
-## The transition point
-
-The transition happened when I noticed I was doing the same kinds of cleanup repeatedly:
-
-- flattening nested records for analysis
-- rebuilding categorical mappings
-- writing increasingly awkward aggregation logic
-- needing more reliable joins between entities
-
-Those repeated transformations were the signal that the cleaned layer had become stable analytical data. The flexibility that helped during collection was now creating work before every analysis.
-
-Once I migrated the cleaned layer into PostgreSQL, a lot of later work got easier:
-
-- schema normalization
-- translation handling
-- feature engineering
-- model training inputs
-- dashboard-ready extracts
-
-## What I took from it
-
-I came away from this project less interested in database ideology than before. The more practical lesson was simpler: storage decisions should match the maturity of the data, not your loyalty to one tool.
-
-If I were doing the project again, I would make the same high-level move:
-
-- start flexible while the extraction logic is still moving
-- switch to stricter relational storage once the schema starts to settle
-
-That sequence gave me speed early and reliability later, which is exactly what the project needed.
-
-For the broader project context, see the [project page](/projects/italian-real-estate/). The [technical deep dive](/blog/2025/italian-real-estate-deep-dive/) covers the full ETL and modeling pipeline.
+The [technical appendix](/blog/2025/italian-real-estate-deep-dive/) follows the full collection, extraction, and modelling process. The [synthetic-data note](/blog/2025/synthetic-data-ctgan/) covers the next decision: preserving useful relationships in the study dataset.

@@ -6,6 +6,8 @@ description: "Research taught me to make work defensible; industry taught me to 
 tags: data-science research career
 categories: [thoughts]
 featured: false
+last_updated: 2026-09-06
+reading_minutes: 6
 ---
 
 Academic research taught me how to work on a result until it became difficult to attack. Before I could ask other people to accept a claim, I had to anticipate criticism, investigate edge cases, and make sure that I could defend what each experiment did and did not show.
@@ -15,8 +17,6 @@ That discipline was essential. It also created a strong pull towards completenes
 When I moved to industry, the incentives changed. Good work did not have to be as close to unassailable as I could make it. It had to be reliable enough for its purpose, delivered in time to matter, and capable of creating an impact.
 
 I did not need to lower my standards. I needed to stop treating the maximum possible standard as the correct one for every problem. The amount of investigation that a result deserves depends on how it will be used, what can go wrong, and what those errors would cost. A model that supports a high-stakes decision demands a different level of scrutiny from a tool that helps someone sort or explore information.
-
-The difficult lesson was not that rigor matters less in industry. It was that rigor has to be calibrated.
 
 ## Anticipating criticism still matters
 
@@ -46,7 +46,7 @@ I did not become a biologist, nor did I need to. I studied books, discussed prob
 
 Data science repeatedly puts me in a similar position. I am often working in a domain where somebody else has deeper subject knowledge. My task is not to pretend that I already possess that expertise. It is to identify what I need to understand, learn it, and become sufficiently fluent to connect the domain problem with the analytical or technical work.
 
-This is another form of calibration. I do not need to master an entire discipline before I can contribute, but I do need enough understanding to recognize when my assumptions are weak and when I should rely on a domain expert.
+I need enough understanding to recognize weak assumptions and know when to rely on a domain expert.
 
 ## Deciding when the work is ready
 

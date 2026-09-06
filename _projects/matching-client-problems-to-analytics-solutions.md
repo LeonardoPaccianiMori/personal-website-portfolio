@@ -1,10 +1,11 @@
 ---
 layout: page
 title: Matching client briefs to analytics capabilities
-description: A working prototype chatbot that turns client briefs into explainable analytics recommendations grounded in a capabilities catalogue
+description: A prototype for matching client briefs to an analytics catalogue, paused when maintenance costs and uncertain demand limited its value
 img: assets/img/projects/professional/analytics-solution-matching.png
 importance: 3
 category: professional
+card_role: Supervisor, mentor, and tester
 project_overview:
   status: Working prototype · Paused
   period: started February 2026
@@ -13,9 +14,9 @@ project_overview:
   evidence: Internal prototype; code and catalogue data are private.
 ---
 
-<div class="row">
+<div class="project-lead-image row">
   <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/professional/analytics-solution-matching.png" title="Generic business planning table" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/projects/professional/analytics-solution-matching.png" title="Generic business planning table" alt="" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 <div class="caption">
@@ -26,13 +27,11 @@ project_overview:
 
 This project explored whether a chatbot could connect a client brief to the most relevant capabilities in an internal analytics catalogue. The prototype could ask clarifying questions, search the catalogue, suggest possible matches, and explain its reasoning.
 
-That proved the interaction could work. It did not answer the more important product question: would people use it often enough to justify maintaining the knowledge behind it?
+The interaction worked. The unresolved question was whether people would use it often enough to justify maintaining the catalogue.
 
 ## My role in the project
 
 I supervised and mentored the primary developer. I helped define the intended behaviour, tested recommendations with the primary developer, reviewed successive versions, and occasionally fixed difficult bugs. I was not the main developer.
-
-This made the project as much about product validation and technical supervision as about the prototype itself.
 
 ## The cost behind the interface
 
@@ -42,4 +41,4 @@ Stakeholder feedback raised a second concern. The intended users were already st
 
 With no clear demand strong enough to offset those costs, stakeholders recommended keeping the project on hold rather than investing further in the catalogue. No later follow-up arrived, and the prototype did not reach production adoption or demonstrate business impact.
 
-The pause was a useful product signal. Building more features would not by itself resolve uncertain demand, ongoing catalogue maintenance, or the effort required to change an established workflow. The prototype remains a working exploration rather than an explicitly rejected product.
+The prototype was not explicitly rejected. It remains on hold: further interface work would still leave the demand and catalogue-maintenance questions unresolved.

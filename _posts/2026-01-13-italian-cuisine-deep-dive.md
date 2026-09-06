@@ -6,9 +6,12 @@ description: The technical appendix to my Italian cuisine project, including ext
 tags: data-science graphs GNN NLP
 categories: [technical-notes]
 technical_kind: appendix
-last_updated: 2026-08-31
 chart:
   plotly: true
+last_updated: 2026-09-06
+project_slug: italian-cuisine
+toc:
+  beginning: true
 ---
 
 ## Overview
@@ -19,7 +22,10 @@ The appendix follows that path from extraction to graph modelling. Two focused n
 
 ## Data and public boundary
 
-The historical corpus contains 790 recipes from Pellegrino Artusi's 1891 cookbook. The contemporary corpus contains 2,599 regional recipes covering all 20 Italian regions.
+| Corpus                           | Recipes | Coverage                                   |
+| -------------------------------- | ------: | ------------------------------------------ |
+| Artusi's 1891 cookbook           |     790 | Concentrated in Central and Northern Italy |
+| Contemporary regional collection |   2,599 | All 20 Italian regions                     |
 
 Neither source is a representative sample of what Italians cooked. Artusi concentrates on Central and Northern Italy, while the contemporary corpus is a curated collection. Contemporary source text, recipe-level derivatives, model checkpoints, and data splits are not distributed. Published results are limited to aggregate analysis and separately licensed Artusi material.
 
@@ -66,13 +72,13 @@ Key differences between the corpora:
 - Larger percentages of contemporary recipes contain garlic, onion, and parsley
 - Chili peppers appear only once in the Artusi corpus
 
-Scatter plot comparing ingredient frequency in Artusi vs contemporary recipes.
+The frequency plot puts the two corpus percentages on separate axes, making shared and unevenly represented ingredients easier to compare.
 
 ```plotly
 {% include plotly/italian-cuisine/top-ingredients-scatter.json %}
 ```
 
-This view highlights ingredients found only in one of the two datasets.
+The next view isolates ingredients found only in one dataset. “New” and “disappeared” in the chart labels refer to presence in these collections, not the historical arrival or disappearance of an ingredient in Italy.
 
 ```plotly
 {% include plotly/italian-cuisine/new-vs-disappeared-ingredients.json %}
@@ -116,7 +122,7 @@ The PCA projection is descriptive rather than a separate performance measure. It
 - Southern and Central recipes overlap
 - Ligurian recipes cluster closer to the Central/Southern groups in this projection
 
-PCA projection of recipe embeddings colored by macro-region.
+The PCA projection below reduces the recipe embeddings to a view coloured by macro-region. It is an exploratory view of the learned representation, not an independent test of classification performance.
 
 ```plotly
 {% include plotly/italian-cuisine/pca-regional-clustering.json %}
@@ -132,11 +138,7 @@ PCA projection of recipe embeddings colored by macro-region.
 
 The public source contains code and aggregate analytical outputs. The retained Artusi material follows its source terms. These boundaries allow inspection of the method and reported results but prevent complete independent reproduction of the recipe-level experiment from the public artifacts alone.
 
-## Takeaways
-
-- Graph structure earned its keep because it kept relationships and sequence visible instead of turning recipes into ingredient bags.
-- On this fixed split, the macro-region classifier performed better than the individual-region models, while the fine-grained labels showed lower separability.
-- The model result aligned with broad patterns visible in the exploratory analysis, but that agreement remains descriptive rather than independent validation.
+<!-- prettier-ignore-start -->
 
 <details markdown="1">
 <summary><strong>Complete extraction prompts</strong></summary>
@@ -271,6 +273,8 @@ Return ONLY the JSON object, nothing else.
 </details>
 
 </details>
+
+<!-- prettier-ignore-end -->
 
 ---
 

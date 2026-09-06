@@ -1,10 +1,11 @@
 ---
 layout: page
 title: Accelerating qualitative interview analysis
-description: An internal AI agent that turns extensive Italian interview materials into thematic syntheses, traceable answers, and translated client deliverables
+description: Turning long interview studies into an inspectable first report, with a user-estimated month-to-week workflow reduction
 img: assets/img/projects/professional/qualitative-interview-analysis.png
 importance: 1
 category: professional
+card_role: Primary developer
 project_overview:
   status: Active · Deployed · User testing
   period: May 2026–present
@@ -13,9 +14,9 @@ project_overview:
   evidence: Internal system; code, project materials, and user examples are private.
 ---
 
-<div class="row">
+<div class="project-lead-image row">
   <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/professional/qualitative-interview-analysis.png" title="Accelerating Qualitative Interview Analysis" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/projects/professional/qualitative-interview-analysis.png" title="Accelerating Qualitative Interview Analysis" alt="" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 <div class="caption">
@@ -28,7 +29,7 @@ The first version of this application was a chatbot for exploring qualitative in
 
 I therefore rebuilt the experience around a first thematic report organized by the interview guide. Question answering, translation, and session recovery still matter, but they now support the document that researchers must ultimately produce.
 
-The application works across Italian transcripts, interview guides, participant worksheets, and project context. It is deployed, and I continue to refine it with Consumer Insight colleagues during user testing.
+The application is deployed and works across Italian transcripts, interview guides, participant worksheets, and project context. I continue to refine it with Consumer Insight colleagues during user testing.
 
 ## Letting researchers inspect the evidence
 
@@ -44,4 +45,4 @@ I designed and built the application end to end. I now maintain and deploy it in
 
 Users estimate that it could reduce the full workflow from about one month to about one week. That is their estimate rather than an independently measured benchmark, and researchers still own the interpretation, revision, and final client deliverable.
 
-The open question is no longer whether the system can produce a report. It is what structure and level of quality will make that first draft genuinely useful. That is the question guiding the current round of user testing.
+Current testing focuses on the report itself: which structure helps researchers work, where the draft needs revision, and what quality they need before using it for a client deliverable.

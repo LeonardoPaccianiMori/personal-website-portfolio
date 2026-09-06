@@ -6,22 +6,15 @@ description: "A practical synthetic-data decision from an Italian real-estate pr
 tags: machine-learning synthetic-data algorithms
 categories: [technical-notes]
 technical_kind: note
-last_updated: 2026-08-31
 featured: true
+last_updated: 2026-09-06
+project_slug: italian-real-estate
+reading_minutes: 4
 ---
 
-For the [Italian real estate project](/projects/italian-real-estate/), I needed a public-facing dashboard that preserved useful aggregate structures and correlations without displaying source listings.
+The CTGAN output looked plausible: prices and surface areas stayed within sensible ranges, and categories appeared in roughly the expected proportions. But location-dependent prices were badly distorted. For the [real-estate dashboard](/projects/italian-real-estate/), that relationship mattered more than the appearance of individual columns.
 
-This constraint was central to the project because I wanted the dashboard to reflect patterns from the study without displaying or distributing the collected records.
-
-The obvious choice was [CTGAN](https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/ctgansynthesizer). On paper it looked well suited to the problem:
-
-- purpose-built for tabular data
-- widely used
-- relatively easy to train
-- good at reproducing distributions
-
-The output initially looked plausible. Prices and surface areas stayed within sensible ranges, and categories appeared in roughly the expected proportions. But plausible individual columns were not enough for this project.
+I had chosen [CTGAN](https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/ctgansynthesizer) because it was designed for tabular data and was straightforward to try. The question was whether its output preserved the relationships the later model and dashboard would use.
 
 ## The problem was not distribution shape
 
@@ -38,19 +31,7 @@ In my original comparison, CTGAN preserved the surface–price relationship much
 
 I compared three relationships in the real and synthetic data. The reported location–price R² used raw latitude and longitude as a project-specific diagnostic. It compressed a complex spatial relationship into one number, so it was useful for comparing these outputs but not a complete measure of geographic fidelity. I also reported the relationship between surface and price and the price premium associated with Milan.
 
-The first comparison isolated what CTGAN had and had not preserved:
-
-| Reported metric     | Real data | CTGAN |
-| ------------------- | --------: | ----: |
-| Location → price R² |      0.62 |  0.03 |
-| Surface → price R²  |      0.71 |  0.69 |
-| Milan price premium |      +45% |   +2% |
-
-<br>
-
-These results describe the CTGAN configuration I tested on this dataset. They show that it did not preserve the location-dependent structure I needed; they do not establish a general limitation of CTGAN or a definitive cause for the failure.
-
-I therefore built a custom K-nearest-neighbors generator and repeated the comparison:
+The location comparison was enough to reject the tested CTGAN output for this study. I then built a custom K-nearest-neighbors generator and repeated the diagnostics:
 
 | Reported metric     | Real data | CTGAN | Custom KNN |
 | ------------------- | --------: | ----: | ---------: |
@@ -60,9 +41,11 @@ I therefore built a custom K-nearest-neighbors generator and repeated the compar
 
 <br>
 
+These results describe the CTGAN configuration I tested, not a general limitation of CTGAN or a definitive explanation of its failure.
+
 These figures were recorded during the original study. The public repository does not retain the evaluation script, generated datasets, or a versioned result artifact that reproduces the exact values. I therefore treat them as historical project results rather than reproducible benchmarks.
 
-## The simpler alternative was better
+## Building local structure into the generator
 
 The alternative used local interpolation rather than training another generative model. For each synthetic record, the original implementation:
 
@@ -75,10 +58,10 @@ This made preservation of local price and geographic structure part of the const
 
 There is an important boundary around that choice. Because price participated in neighbour selection and the method was built from local neighbourhoods in the source data, the generator was not independent evidence that the later rent model generalized to unseen source listings. It was also never subjected to a formal privacy audit. I treat its output as an analytical transformation, not as certified anonymization. The row-level synthetic dataset is not distributed; only aggregate study results remain public.
 
-## The validation question mattered more than the model
+## What this comparison supports
 
-The useful lesson was not that custom algorithms are inherently better than established libraries. CTGAN was a reasonable first choice, and a different configuration or dataset might have produced a different result. The mistake would have been allowing plausible marginal distributions to define success when the downstream application depended on specific relationships between features.
+For this project, local interpolation better retained the measured relationships. That was sufficient to choose a study dataset, but it did not validate the later rent model on unseen source listings.
 
-Once I tested the structure that mattered, the decision became straightforward: for this project, the simpler local method better preserved the relationships I needed. Choosing the validation question well mattered more than choosing the more sophisticated model.
+The procedure above describes the original experiment. The later public release does not reproduce its original neighbour selection, and the historical comparison cannot be rerun from the published artifacts alone. The useful result is the diagnostic that changed the decision: matching individual columns was insufficient when the application depended on their relationships.
 
 For the project context, start with the [real estate project page](/projects/italian-real-estate/). The [technical deep dive](/blog/2025/italian-real-estate-deep-dive/) has the full pipeline and modeling details.

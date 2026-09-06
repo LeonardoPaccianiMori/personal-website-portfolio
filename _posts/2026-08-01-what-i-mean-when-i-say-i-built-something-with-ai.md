@@ -6,6 +6,8 @@ description: "Building with AI is not the same as writing every line: it means s
 tags: ai coding software-development
 categories: [thoughts]
 featured: false
+last_updated: 2026-09-06
+reading_minutes: 6
 ---
 
 When I describe [Wanderer]({% link _projects/wanderer.md %}) as something I built, I need to add an important qualification: Codex generated much of its JavaScript and Three.js implementation.
@@ -32,7 +34,7 @@ I have to run it, inspect what it does, notice where the result differs from wha
 
 This is why I find Sean Goedecke's argument in [“You can't design software you don't work on”](https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/) useful. Design is constrained by the actual system, including details that an abstract plan cannot reveal. AI does not remove that constraint. If anything, generated code makes active inspection more important because the implementation can move faster than my understanding of it.
 
-Wanderer did not emerge from one prompt. Its present form came from repeated observation and revision. That iterative work is where much of my contribution sits, even though the agent performed much of the implementation.
+Wanderer took repeated observation and revision. Much of my contribution sits in that iterative work.
 
 ## Understanding has to be sufficient, not complete
 
@@ -51,8 +53,6 @@ AI lets me build more and move faster. It also means that I do not acquire the s
 I accept that tradeoff, but I do not want to disguise it. It matters more when the purpose is to learn an implementation technique in depth. In other cases, the priority may be to test an idea, produce a useful artifact, or explore a system that would otherwise remain outside my current reach.
 
 The professional skills involved also shift. Programming knowledge remains the foundation for inspecting and correcting generated work. Alongside it, more weight falls on specifying a problem, maintaining a system-level model, recognizing incomplete results, selecting among possible implementations, and deciding what evidence is sufficient to trust the outcome.
-
-Those skills do not erase the agent's contribution. They describe the human contribution that remains.
 
 ## How I disclose AI-assisted work
 

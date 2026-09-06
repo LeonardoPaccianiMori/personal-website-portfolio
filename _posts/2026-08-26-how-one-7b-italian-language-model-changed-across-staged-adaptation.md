@@ -6,28 +6,18 @@ description: A descriptive study of weight, loss, embedding, and representation 
 tags: language-models transformers interpretability model-adaptation evaluation
 categories: [technical-notes]
 technical_kind: note
-last_updated: 2026-08-31
 chart:
   plotly: true
+last_updated: 2026-09-06
+project_slug: transformer-poetry
+toc:
+  beginning: true
+reading_minutes: 10
 ---
 
-When a language model produces different text after fine-tuning, it is tempting to evaluate only the outputs. That is ultimately where usefulness or failure becomes visible. But output comparison alone leaves a second question unanswered: how did the model itself change on the way there?
+The [transformer-poetry project](/projects/transformer-poetry/) retained model states throughout three stages of adaptation. That made it possible to ask where the model changed, rather than comparing only its first and last outputs.
 
-This project gave me an unusually concrete opportunity to study that question. I retained the parent, midpoint, and validation-selected model states from a three-stage, full-weight adaptation of an existing Italian 7B model. I could therefore compare losses, parameters, selected token vectors, hidden representations, and output distributions along a sequence rather than looking only at the parent and final checkpoint.
-
-The main pattern was consistent across those measurements. Most observed movement occurred during the broad first adaptation to historical and literary Italian. The poetry stage moved less, and the final sonnet stage less again. That is compatible with a curriculum that performs its largest domain shift early and then makes increasingly narrow refinements.
-
-It is important to keep the claim descriptive. Parameter drift does not tell us which changed weights caused a behavior. Representation similarity does not prove that a capability was preserved. A small late-stage delta does not imply that the stage was behaviorally irrelevant. The retained states let me locate and compare change; they do not turn an observational study into a causal one.
-
-The measurements answer different parts of that descriptive question:
-
-- validation loss tracks predictive fit on a declared text domain;
-- relative parameter distance measures how much the weights moved;
-- token-neighbour overlap checks whether selected embedding neighbourhoods were reordered;
-- centred kernel alignment (CKA) compares broad hidden-representation geometry;
-- next-token overlap asks how much the model's most likely continuations changed.
-
-No single measure is a complete account of the model. Their value comes from reading them together.
+Most measured movement happened during the first, broad adaptation to historical and literary Italian. Later poetry and sonnet stages moved less. This note compares that pattern through losses, weights, selected token vectors, and hidden representations. It describes one training sequence; it does not identify which changes caused a particular behaviour.
 
 ## Parent, stages, and retained boundaries
 
@@ -43,9 +33,12 @@ Each stage mixed in deterministic modern-preservation replay from PAISÀ. It sup
 
 The study retained a midpoint and selected endpoint for every stage. Analysis used 48 fixed probes spanning historical general text, historical poetry, sonnets, and modern instruction text, along with a frozen registry of selected token rows. These are deliberately bounded samples. They make repeated comparison possible, but they are not a complete map of what a seven-billion-parameter model represents.
 
-## Training dynamics and compute categories
+## Following the selected checkpoints
 
 All three stages passed their declared adaptation and preservation gates. The historical/general stage selected update 2,065 and ran for a measured 15,495 seconds. The non-sonnet-poetry stage selected update 760 and ran for 7,547 seconds. The sonnet stage selected update 120 of 135 and ran for 3,115 seconds.
+
+<details markdown="1">
+<summary>Exact checkpoint comparison</summary>
 
 | Stage              | Selected update | Measured runtime | Selected target loss |
 | ------------------ | --------------: | ---------------: | -------------------: |
@@ -53,19 +46,31 @@ All three stages passed their declared adaptation and preservation gates. The hi
 | Non-sonnet poetry  |             760 |          7,547 s |               2.8475 |
 | Sonnets            |      120 of 135 |          3,115 s |               3.1103 |
 
+</details>
+
 Update 120 was retained in the final stage because update 135 was effectively tied on sonnet loss but worse on instruction loss. This is a small example of why a curriculum needs preservation measures: the lowest or latest target checkpoint is not automatically the best overall state.
 
+<details markdown="1">
+<summary>Runtime and estimated cost</summary>
+
 The three-stage figure of about $10.65 belongs in a different evidence category. It is a projection from a qualification-based cost rate, not the measured final bill. The runtimes are observations from completed runs; the cost is a modeled translation of qualified throughput and pricing assumptions. Reporting both is useful only if that distinction remains visible.
+
+</details>
 
 ## Target-loss reductions narrowed by stage
 
 The domain losses show the curriculum becoming progressively more specific. Stage 1 reduced loss on all three historical targets between its first validation and selected endpoint: 0.0762 on historical/general material, 0.1702 on historical poetry, and 0.2385 on sonnets. Stage 2 reduced poetry loss by another 0.0780 and sonnet loss by 0.0908. Stage 3 reduced sonnet loss by 0.0179 while its preservation-domain changes remained small.
+
+<details markdown="1">
+<summary>Exact checkpoint comparison</summary>
 
 | Domain             | Stage 1 reduction | Stage 2 reduction | Stage 3 reduction |
 | ------------------ | ----------------: | ----------------: | ----------------: |
 | Historical/general |            0.0762 |                 — |                 — |
 | Historical poetry  |            0.1702 |            0.0780 |                 — |
 | Sonnets            |            0.2385 |            0.0908 |            0.0179 |
+
+</details>
 
 ```plotly
 {% include plotly/transformer-poetry/stagewise-target-loss-reduction.json %}
@@ -75,13 +80,16 @@ The domain losses show the curriculum becoming progressively more specific. Stag
     Loss reduction within each stage, measured from that stage's first validation to its selected endpoint; larger positive values mean a greater reduction. Blank cells are domains for which that later stage did not define the displayed target comparison. These are stage-local changes, not additive causal effects, and no sampling interval is shown.
 </div>
 
-The broad first stage improving sonnet loss more than the explicit sonnet stage is not paradoxical. The parent first had to move toward the historical-literary domain at large. Once it had done so, the final stage operated on a model that was already much closer to its target and had less room—and less permission under the preservation gates—to move.
+One possible explanation is that broad historical adaptation brought the model closer to the sonnet domain before explicit sonnet training began. This sequence cannot establish that explanation: stages differed in data, duration, and starting state, and there was no intervention isolating their effects.
 
 Loss is still only one view. It measures next-token prediction on frozen validation material, not literary success. The later sealed evaluation showed that a lower sonnet-domain loss did not produce reliably coherent, well-formed sonnets.
 
 ## Relative parameter movement
 
-The global relative displacement from the untouched parent to the selected Stage-3 model was 0.03302. Sequential deltas reveal where that total accumulated.
+Relative L2 distance measures the size of a weight change against the reference weights. The global relative displacement from the untouched parent to the selected Stage-3 model was 0.03302. Sequential deltas reveal where that total accumulated.
+
+<details markdown="1">
+<summary>Exact checkpoint comparison</summary>
 
 | Sequential comparison               | Global relative L2 delta |
 | ----------------------------------- | -----------------------: |
@@ -91,6 +99,8 @@ The global relative displacement from the untouched parent to the selected Stage
 | Stage-2 midpoint → selected         |                  0.00191 |
 | Stage-2 selected → Stage-3 midpoint |                 0.000533 |
 | Stage-3 midpoint → selected         |                0.0000971 |
+
+</details>
 
 ```plotly
 {% include plotly/transformer-poetry/relative-parameter-movement.json %}
@@ -108,7 +118,7 @@ Global norms also compress location. They tell us how much the complete paramete
 
 ## Embeddings and the language-model head
 
-The selected embedding rows moved measurably between the parent and final model. Their mean relative L2 change was 0.05624, while mean top-20-neighbor Jaccard remained 0.9755. The language-model head moved less: relative L2 was 0.01140 and neighbor Jaccard was 0.9876.
+Embedding rows are the vectors associated with selected tokens. I compared their movement and the overlap between their twenty nearest neighbours; Jaccard overlap is the fraction of shared members in the combined sets. The selected rows moved measurably between the parent and final model. Their mean relative L2 change was 0.05624, while mean top-20-neighbor Jaccard remained 0.9755. The language-model head moved less: relative L2 was 0.01140 and neighbor Jaccard was 0.9876.
 
 During the late half of Stage 3, those changes were much smaller. The corresponding embedding and LM-head relative movements were 0.0000883 and 0.0000203, and the inspected neighbor sets had Jaccard 1.0.
 
@@ -118,14 +128,19 @@ The registry contains selected token rows rather than the whole vocabulary. Top-
 
 ## Hidden representations and output geometry
 
-The fixed probes provide another scale of comparison. From parent to final, mean hidden-state drift was 0.2394. Standard-sonnet probes drifted most, at 0.3177, while modern-instruction probes drifted least, at 0.1599. Minimum linear CKA remained 0.9219, mean top-20 next-token overlap fell to 0.4994, and mean logit entropy decreased by 0.2102.
+The 48 fixed text probes provide another scale of comparison. Centred kernel alignment (CKA) compares broad hidden-representation geometry; top-20 next-token overlap compares the tokens ranked most likely at the output. They measure different kinds of similarity. From parent to final, mean hidden-state drift was 0.2394. Standard-sonnet probes drifted most, at 0.3177, while modern-instruction probes drifted least, at 0.1599. Minimum linear CKA remained 0.9219, mean top-20 next-token overlap fell to 0.4994, and mean logit entropy decreased by 0.2102.
 
 For the late half of Stage 3, mean drift was only 0.00371, minimum CKA was 0.999997, and top-20 next-token overlap was 0.9668.
+
+<details markdown="1">
+<summary>Exact checkpoint comparison</summary>
 
 | Comparison     | Mean hidden drift | Minimum linear CKA | Top-20 next-token overlap |
 | -------------- | ----------------: | -----------------: | ------------------------: |
 | Parent → final |            0.2394 |             0.9219 |                    0.4994 |
 | Late Stage 3   |           0.00371 |           0.999997 |                    0.9668 |
+
+</details>
 
 ```plotly
 {% include plotly/transformer-poetry/representation-change-comparison.json %}
@@ -135,21 +150,15 @@ For the late half of Stage 3, mean drift was only 0.00371, minimum CKA was 0.999
     Frozen-probe comparisons for parent-to-final change and the late half of Stage 3. Higher drift means more change; higher CKA and top-20 overlap mean greater similarity. Each metric has its own native-scale panel. The 48 probes are bounded, the values have no inferential interval, and the comparison is descriptive rather than causal.
 </div>
 
-These measurements say that the parent-to-final model changed meaningfully without destroying its broad representational geometry. CKA stayed high while the top of the next-token distribution changed much more. That can happen because CKA summarizes shared structure across many dimensions, whereas top-token overlap is sensitive to smaller shifts near the output ranking boundary.
+On these probes, the parent-to-final model changed while retaining high broad representation similarity. That does not establish preserved capability. CKA stayed high while the top of the next-token distribution changed much more. That can happen because CKA summarizes shared structure across many dimensions, whereas top-token overlap is sensitive to smaller shifts near the output ranking boundary.
 
 The late-stage values are close to identity. They indicate little change under these measurements, while still allowing for an affected context outside the probes or a localized behaviour hidden by the average.
 
-## What the evidence supports
+## What keeping the checkpoints added
 
-Taken together, the loss, parameter, embedding, and representation measurements support a coherent descriptive account:
+The saved states show the large early movement and the smaller later changes. Predictive loss, weight distance, and representation similarity each expose a different part of that sequence. None replaces evaluation of the generated text: the final poetry review remained poor despite improved target losses.
 
-- broad historical adaptation produced most measured model change;
-- poetry adaptation continued improving the relevant domains with smaller movement;
-- sonnet specialization was a narrow late adjustment selected under preservation constraints;
-- inspected embedding neighborhoods and broad representational geometry remained substantially intact;
-- output rankings could change more than global structural similarity suggested.
-
-The study also supports a practical point about experiment design. Retaining only the final checkpoint would have hidden the scale separation between stages. Retaining only training loss would have hidden the difference between predictive fit and output quality. Retaining only generations would have made it harder to tell whether late specialization was a broad rewrite or a small adjustment.
+Keeping only the last checkpoint would have hidden the differences between stages. Keeping only training loss would have hidden the gap between prediction and literary quality.
 
 ## What drift, CKA, and neighbor overlap cannot establish
 

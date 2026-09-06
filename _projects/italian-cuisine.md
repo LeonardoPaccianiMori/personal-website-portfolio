@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A look into Italian cuisine
-description: Comparing historical and contemporary recipe corpora across Italy
+description: Comparing recipe structure and regional patterns; a graph model recognized broad areas more readily than individual regions
 img: assets/img/projects/italian-cuisine/italian-cuisine.jpg
 importance: 2
 category: portfolio
@@ -9,6 +9,7 @@ github: https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine
 chart:
   plotly: true
 vis_network: true
+card_role: Independent implementation
 project_overview:
   status: Completed
   period: October–November 2025
@@ -26,9 +27,9 @@ project_actions:
     external: false
 ---
 
-<div class="row">
+<div class="project-lead-image row">
   <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/italian-cuisine/italian-cuisine.jpg" title="Italian regional cuisine" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/projects/italian-cuisine/italian-cuisine.jpg" title="Italian regional cuisine" alt="" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 <div class="caption">
@@ -37,7 +38,7 @@ project_actions:
 
 ## A recipe is a process
 
-A flat ingredient list tells us what goes into a dish, but not how the dish comes together. For this project, I represented each recipe as a graph so that ingredients, tools, steps, intermediate products, and their order could remain connected.
+What can a recipe tell us about the place it comes from? I explored that question by keeping more than an ingredient list. Each recipe became a graph connecting ingredients, tools, steps, intermediate products, and their order.
 
 The same representation then supported three different questions: how two recipe corpora differed, how ingredients varied across regions, and whether a graph model could recognize geographic patterns.
 
@@ -96,11 +97,9 @@ Within the contemporary corpus, olive oil appears more often in recipes from Cen
 
 The model found broad geographic structure much more easily than individual regional identities:
 
-- the macro-region model reached 59.49% accuracy and 52.98% macro-F1;
-- the region model reached 20.26% accuracy and 18.50% macro-F1, with heavy overfitting;
-- the hierarchical model reached 22.31% accuracy and 17.82% macro-F1.
+The macro-region model reached 59.49% test accuracy, compared with 20.26% for individual regions and 22.31% for a hierarchical model. Region-level training showed heavy overfitting; the appendix retains the complete accuracy and macro-F1 comparison.
 
-This gap was the principal modelling result. The graphs contained useful broad geographic signals, but individual regions overlapped too much for reliable classification.
+The gap was the principal modelling result. Broad geography was partly recoverable, while the model did not reliably distinguish individual regions. I did not run a flat-feature baseline, so this result does not establish that graphs were better than ingredient lists.
 
 ## What the project cannot establish
 
@@ -110,4 +109,4 @@ This gap was the principal modelling result. The graphs contained useful broad g
 - Region-level training had limited data, culinary overlap, and substantial overfitting.
 - Contemporary recipe text, derived recipe-level data, model checkpoints, and splits are excluded from the public repositories.
 
-The public source contains code and aggregate analytical outputs. The retained Artusi material follows its source terms. The [technical appendix](/blog/2026/italian-cuisine-deep-dive/) provides the extraction, analysis, and model details.
+The public source contains code and aggregate outputs; retained Artusi material follows its source terms. Read [why I used recipe graphs](/blog/2025/why-graphs-for-recipes/) for the representation decision, [the visualization note](/blog/2025/visualizing-italian-cuisine/) for the geographic views, or the [technical appendix](/blog/2026/italian-cuisine-deep-dive/) for extraction and evaluation details.

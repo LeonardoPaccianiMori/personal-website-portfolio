@@ -6,12 +6,15 @@ description: Technical appendix to my Italian real-estate project, covering coll
 tags: data-engineering scraping machine-learning
 categories: [technical-notes]
 technical_kind: appendix
-last_updated: 2026-08-31
+last_updated: 2026-09-06
+project_slug: italian-real-estate
+toc:
+  beginning: true
 ---
 
 ## Overview
 
-This is the technical appendix to my [Italian real-estate project](/projects/italian-real-estate/). Its central lesson is simple: a model-driven product is only as credible as the data pipeline and publication boundary behind it.
+This appendix follows the [real-estate project](/projects/italian-real-estate/) from recoverable collection tasks to a dashboard of estimated rental returns. It documents the pipeline and the limits of the historical synthetic study.
 
 The project collected roughly one million listings across rent, sale, and auction markets. The source listings, raw HTML, row-level source data, row-level synthetic data, credentials, and live collector are not public. The published metrics describe a study of synthetic data generated from the collected data, and are not validated production estimates for unseen source listings.
 
@@ -43,19 +46,17 @@ BeautifulSoup extracted pricing, property characteristics, building and energy i
 
 Repeated analysis and feature transformations later made a relational model more useful. I moved the stable structured fields to a normalized PostgreSQL warehouse and left listing descriptions behind. A local LibreTranslate service, an SQLite translation cache, and a custom real-estate dictionary converted recurring Italian categorical values to English without translating the same value again.
 
-The important decision was not that one database was universally better. MongoDB absorbed source variation during collection; PostgreSQL became useful when the transformations and analytical relationships were stable. The focused note on [moving from MongoDB to PostgreSQL](/blog/2025/mongodb-postgresql-ml/) explains that transition in more detail.
+MongoDB absorbed source variation during collection. PostgreSQL became useful once repeated transformations justified a stable analytical schema.
 
 ## Synthetic data
 
-In order not to work directly with, and publish results on, the original data, I decided to create a synthetic dataset starting from the collected listings. I first tested CTGAN for this synthetic data generation, but it did not preserve several project-critical aggregate relationships. I therefore built a custom K-nearest-neighbour-based synthetic data generator for the study. The focused [synthetic-data note](/blog/2025/synthetic-data-ctgan/) covers that comparison and its diagnostics.
+I generated a synthetic dataset from the collected listings for the study. CTGAN did not preserve several aggregate relationships needed by the downstream analysis, so I used a custom K-nearest-neighbour method. It was designed to retain broad distributions and correlations; it was not evaluated as a formal privacy guarantee.
 
 ## Rental-income model
 
 I then moved on to train a Random Forest regressor on the synthetic _rent_ listings to predict monthly rent from a listing's properties (e.g., surface, number of rooms, position, heating type, balcony, etc.), and applied it to synthetic _sale_ and _auction_ listings. The target was predicting how much money a property on sale (either regularly or through auction) would yield as a rental.
 
-The model reported R²=0.75 on held-out on `log1p(rent)` for the synthetic split.
-
-These results validate the historical synthetic study pipeline only. They do not establish performance on unseen source listings, and they are not investment advice.
+The reported held-out R² was approximately 0.75 on `log1p(rent)` in the synthetic split. This is a historical result: the public repository does not retain a versioned artifact reproducing that exact value. It does not establish performance on unseen source listings.
 
 ## Dashboard as decision support
 
@@ -68,18 +69,10 @@ Users can compare sale and auction markets, filter by location and property char
 
 Maps, scatter plots, grouped summaries, and headline statistics connect the estimated rental income to the purchase and financing assumptions. This turns a model output into an exploratory decision-support tool while keeping the uncertainty and synthetic-data boundary visible.
 
-## What held up
-
-The strongest parts of the project were not tied to one model. They were the decisions that kept the full system coherent:
-
-- independent collection tasks made partial failure recoverable;
-- raw storage allowed extraction logic to evolve;
-- the warehouse changed when repeated transformations justified a stable schema;
-- the synthetic-data boundary shaped both publication and interpretation;
-- the dashboard was designed as part of the analysis.
-
 ## Code and publication boundary
 
 The reusable public code is available on [GitHub](https://github.com/LeonardoPaccianiMori/portfolio-italian-real-estate). The [public Tableau dashboard](https://public.tableau.com/views/Italianrealestate/Dashboard_1?:showVizHome=no) contains aggregate exploratory outputs.
 
-Source and synthetic row-level data, credentials, and the live collection implementation remain excluded. The public material does not reproduce the historical metrics independently, authorize collection from the source, or provide investment advice.
+Source and synthetic row-level data, credentials, and the live collection implementation remain excluded. The public material does not independently reproduce the historical metrics, authorize collection from the source, or provide investment advice.
+
+For the decisions behind two stages, read [why CTGAN was rejected](/blog/2025/synthetic-data-ctgan/) and [when the cleaned data moved to PostgreSQL](/blog/2025/mongodb-postgresql-ml/).
