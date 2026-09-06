@@ -2,28 +2,28 @@
   <title id="cvae5-title">CVAE-5 architecture</title>
   <desc id="cvae5-desc">The baseline convolutional path with four hidden connected layers in the encoder and four mirrored hidden connected layers in the decoder.</desc>
   <defs>
-    <marker id="cvae5-arrow" markerWidth="11" markerHeight="11" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#2698ba"/></marker>
-    <style>.h{fill:#f8f9fa;font:700 36px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.s{fill:#a8aaad;font:400 18px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.r{fill:#2698ba;font:700 15px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:1.8px}.k{fill:#2698ba;font:700 14px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:1.2px}.n{fill:#f8f9fa;font:700 21px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.d{fill:#a8aaad;font:400 16px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.c{fill:#212529;stroke:#3a3f44;stroke-width:2}.z{fill:#222d31;stroke:#2698ba;stroke-width:2}.a{fill:none;stroke:#2698ba;stroke-width:4;marker-end:url(#cvae5-arrow)}</style>
+    <marker id="cvae5-arrow" markerWidth="16" markerHeight="12" refX="2" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 14 6 0 12Z" fill="#2698ba" stroke="none" /></marker>
+    <style>.h{fill:#f8f9fa;font:700 36px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.s{fill:#a8aaad;font:400 18px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.r{fill:#2698ba;font:700 15px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:1.8px}.k{fill:#2698ba;font:700 14px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:1.2px}.n{fill:#f8f9fa;font:700 21px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.d{fill:#a8aaad;font:400 16px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.c{fill:#212529;stroke:#3a3f44;stroke-width:2}.z{fill:#222d31;stroke:#2698ba;stroke-width:2}.a{fill:none;stroke:#2698ba;stroke-width:4;stroke-linecap: butt; marker-end:url(#cvae5-arrow)}</style>
   </defs>
   <rect width="1200" height="1080" rx="28" fill="#1c1c1d"/>
   <text x="60" y="62" class="h">CVAE-5 · four-layer connected path</text>
   <text x="60" y="94" class="s">Four hidden connected layers in the encoder and a mirrored four-layer decoder path</text>
   <text x="60" y="140" class="r">ENCODER</text>
   <g transform="translate(40 165)"><rect width="245" height="190" rx="18" class="c"/><text x="22" y="38" class="k">INPUT</text><text x="22" y="80" class="n">MNIST image</text><text x="22" y="114" class="d">28 × 28 × 1</text></g>
-  <path d="M285 260h55" class="a"/>
+  <path d="M285 260h35" class="a"/>
   <g transform="translate(340 165)"><rect width="245" height="190" rx="18" class="c"/><text x="22" y="38" class="k">CONVOLUTION STACK</text><text x="22" y="80" class="n">32 → 64 → 32</text><text x="22" y="114" class="d">3 × 3 · ReLU</text><text x="22" y="144" class="d">Same padding</text></g>
-  <path d="M585 260h55" class="a"/>
+  <path d="M585 260h35" class="a"/>
   <g transform="translate(640 165)"><rect width="245" height="190" rx="18" class="c"/><text x="22" y="38" class="k">CONNECTED STACK</text><text x="22" y="80" class="n">4 hidden layers</text><text x="22" y="114" class="d">Encoder path</text></g>
-  <path d="M885 260h55" class="a"/>
+  <path d="M885 260h35" class="a"/>
   <g transform="translate(940 165)"><rect width="220" height="190" rx="18" class="z"/><text x="22" y="38" class="k">LATENT SPACE</text><text x="22" y="80" class="n">μ and σ → z</text><text x="22" y="114" class="d">Dimension 2</text></g>
-  <path d="M1050 355v185" class="a"/>
+  <path d="M1050 355v165" class="a"/>
   <text x="60" y="510" class="r">DECODER</text>
   <g transform="translate(940 540)"><rect width="220" height="190" rx="18" class="z"/><text x="22" y="38" class="k">LATENT INPUT</text><text x="22" y="80" class="n">z₁, z₂</text><text x="22" y="114" class="d">Shape 2</text></g>
-  <path d="M940 635h-55" class="a"/>
+  <path d="M940 635h-35" class="a"/>
   <g transform="translate(640 540)"><rect width="245" height="190" rx="18" class="c"/><text x="22" y="38" class="k">CONNECTED STACK</text><text x="22" y="80" class="n">4 hidden layers</text><text x="22" y="114" class="d">Mirrored decoder path</text></g>
-  <path d="M640 635h-55" class="a"/>
+  <path d="M640 635h-35" class="a"/>
   <g transform="translate(340 540)"><rect width="245" height="190" rx="18" class="c"/><text x="22" y="38" class="k">TRANSPOSE-CONV STACK</text><text x="22" y="80" class="n">32 → 64 → 32 → 1</text><text x="22" y="114" class="d">ReLU · sigmoid output</text></g>
-  <path d="M340 635h-55" class="a"/>
+  <path d="M340 635h-35" class="a"/>
   <g transform="translate(40 540)"><rect width="245" height="190" rx="18" class="c"/><text x="22" y="38" class="k">OUTPUT</text><text x="22" y="80" class="n">Reconstructed digit</text><text x="22" y="114" class="d">28 × 28 × 1</text></g>
   <g transform="translate(40 815)"><rect width="1120" height="170" rx="18" class="c"/><text x="24" y="40" class="k">CHANGE FROM CVAE-4</text><text x="24" y="84" class="n">Three hidden layers per path → four hidden layers per path</text><text x="24" y="120" class="d">The convolutional path and the two-dimensional latent space remain aligned with the baseline.</text></g>
 </svg>

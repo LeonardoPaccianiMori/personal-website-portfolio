@@ -23,7 +23,7 @@ I used Apache Airflow to separate those tasks so that one failed request group d
 
 <div class="row">
   <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-extraction-DAG.svg" title="Airflow collection workflow" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-extraction-DAG.svg" title="Airflow collection workflow" alt="Sale, rent, and auction collection each run as 107 independent province tasks, followed by data-lake statistics" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 
@@ -37,7 +37,7 @@ BeautifulSoup extracted pricing, property characteristics, building and energy i
 
 <div class="row">
   <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-ETL-DAG.svg" title="Airflow extraction and transformation workflow" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/projects/italian-real-estate/italian-real-estate-ETL-DAG.svg" title="Airflow extraction and transformation workflow" alt="Parallel ETL tasks for sale, rent, and auction listings feed data-warehouse statistics" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
 

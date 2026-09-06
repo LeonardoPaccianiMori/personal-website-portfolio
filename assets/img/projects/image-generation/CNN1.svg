@@ -2,18 +2,18 @@
   <title id="cnn1-title">CNN-1 architecture</title>
   <desc id="cnn1-desc">MNIST input passes through three convolutional layers, flattening, and a ten-class softmax layer.</desc>
   <defs>
-    <marker id="cnn1-arrow" markerWidth="11" markerHeight="11" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#2698ba"/></marker>
-    <style>.h{fill:#f8f9fa;font:700 36px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.s{fill:#a8aaad;font:400 18px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.k{fill:#2698ba;font:700 14px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:1.5px}.n{fill:#f8f9fa;font:700 23px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.d{fill:#a8aaad;font:400 17px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.c{fill:#212529;stroke:#3a3f44;stroke-width:2}.a{fill:none;stroke:#2698ba;stroke-width:4;marker-end:url(#cnn1-arrow)}</style>
+    <marker id="cnn1-arrow" markerWidth="16" markerHeight="12" refX="2" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 14 6 0 12Z" fill="#2698ba" stroke="none" /></marker>
+    <style>.h{fill:#f8f9fa;font:700 36px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.s{fill:#a8aaad;font:400 18px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.k{fill:#2698ba;font:700 14px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:1.5px}.n{fill:#f8f9fa;font:700 23px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.d{fill:#a8aaad;font:400 17px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.c{fill:#212529;stroke:#3a3f44;stroke-width:2}.a{fill:none;stroke:#2698ba;stroke-width:4;stroke-linecap: butt; marker-end:url(#cnn1-arrow)}</style>
   </defs>
   <rect width="1200" height="780" rx="28" fill="#1c1c1d"/>
   <text x="60" y="62" class="h">CNN-1 · baseline classifier</text><text x="60" y="94" class="s">Three convolutional layers and one fully connected output layer</text>
-  <g transform="translate(60 150)"><rect width="300" height="210" rx="18" class="c"/><text x="25" y="37" class="k">INPUT</text><text x="25" y="78" class="n">MNIST image</text><text x="25" y="110" class="d">28 × 28 × 1</text></g><path d="M360 255h50" class="a"/>
-  <g transform="translate(410 150)"><rect width="300" height="210" rx="18" class="c"/><text x="25" y="37" class="k">CONVOLUTION 1</text><text x="25" y="78" class="n">5 filters · 3 × 3</text><text x="25" y="112" class="d">Stride 1 · ReLU</text><text x="25" y="140" class="d">No padding</text><text x="25" y="181" class="n">26 × 26 × 5</text></g><path d="M710 255h50" class="a"/>
+  <g transform="translate(60 150)"><rect width="300" height="210" rx="18" class="c"/><text x="25" y="37" class="k">INPUT</text><text x="25" y="78" class="n">MNIST image</text><text x="25" y="110" class="d">28 × 28 × 1</text></g><path d="M360 255h30" class="a"/>
+  <g transform="translate(410 150)"><rect width="300" height="210" rx="18" class="c"/><text x="25" y="37" class="k">CONVOLUTION 1</text><text x="25" y="78" class="n">5 filters · 3 × 3</text><text x="25" y="112" class="d">Stride 1 · ReLU</text><text x="25" y="140" class="d">No padding</text><text x="25" y="181" class="n">26 × 26 × 5</text></g><path d="M710 255h30" class="a"/>
   <g transform="translate(760 150)"><rect width="300" height="210" rx="18" class="c"/><text x="25" y="37" class="k">CONVOLUTION 2</text><text x="25" y="78" class="n">10 filters · 3 × 3</text><text x="25" y="112" class="d">Stride 1 · ReLU</text><text x="25" y="140" class="d">No padding</text><text x="25" y="181" class="n">24 × 24 × 10</text></g>
-  <path d="M1060 255h100v305h-100" class="a"/>
+  <path d="M1060 255h100v305h-80" class="a"/>
   <g transform="translate(60 455)"><rect width="300" height="210" rx="18" class="c"/><text x="25" y="37" class="k">CLASSIFIER</text><text x="25" y="78" class="n">Dense · 10</text><text x="25" y="112" class="d">Softmax activation</text><text x="25" y="140" class="d">Classes 0–9</text></g>
   <g transform="translate(410 455)"><rect width="300" height="210" rx="18" class="c"/><text x="25" y="37" class="k">FLATTEN</text><text x="25" y="78" class="n">2,420 features</text><text x="25" y="112" class="d">22 × 22 × 5 → vector</text></g>
   <g transform="translate(760 455)"><rect width="300" height="210" rx="18" class="c"/><text x="25" y="37" class="k">CONVOLUTION 3</text><text x="25" y="78" class="n">5 filters · 3 × 3</text><text x="25" y="112" class="d">Stride 1 · ReLU</text><text x="25" y="140" class="d">No padding</text><text x="25" y="181" class="n">22 × 22 × 5</text></g>
-  <path d="M760 560h-50" class="a"/><path d="M410 560h-50" class="a"/>
+  <path d="M760 560h-30" class="a"/><path d="M410 560h-30" class="a"/>
   <text x="60" y="730" class="s">All convolutional layers use learned filters; the final distribution assigns one of ten digit classes.</text>
 </svg>
