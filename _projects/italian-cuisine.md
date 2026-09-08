@@ -65,7 +65,7 @@ I built a historical corpus of 790 recipes from Pellegrino Artusi's 1891 cookboo
 
 I used LLM-assisted extraction and normalization to turn unstructured recipe text into graphs. Neo4j made those structures inspectable, while Python and PyTorch supported the analysis and modelling.
 
-The interactive example shows more detail than the model eventually used. The stored graph includes tools and intermediate products, while the Graph Attention Network learned from recipe, ingredient, and step nodes.
+The interactive example shows more detail than the model eventually used. The stored graph includes tools and intermediate products, while the heterogeneous Graph Attention Network learned from recipe, ingredient, and step nodes.
 
 ## Comparing two different corpora
 
@@ -99,12 +99,12 @@ The model found broad geographic structure much more easily than individual regi
 
 The macro-region model reached 59.49% test accuracy, compared with 20.26% for individual regions and 22.31% for a hierarchical model. Region-level training showed heavy overfitting; the appendix retains the complete accuracy and macro-F1 comparison.
 
-The gap was the principal modelling result. Broad geography was partly recoverable, while the model did not reliably distinguish individual regions. I did not run a flat-feature baseline, so this result does not establish that graphs were better than ingredient lists.
+The gap was the principal modelling result: broad geography was partly recoverable, while the model did not reliably distinguish individual regions.
 
-## From extraction to evaluation
+## Limits and public data
 
 I implemented the project from source extraction through the graphs, analysis, model training, and visualizations. The graph made the extracted steps available for inspection, the charts compared the collections, and the held-out recipes tested how well the classifier could distinguish the geographic labels.
 
-The results depend on curated sources and an extraction process that can introduce errors. The classification comparison used one fixed split; it does not establish stability across other splits or seeds. Contemporary recipe text, derived recipe-level data, model checkpoints, and splits are excluded from the public repositories.
+The results depend on curated sources and an extraction process that can introduce errors. The classification comparison used one fixed split, and I did not run a flat-feature baseline, so the results do not establish stability across other splits or seeds, or that graphs were a better input than ingredient lists. Contemporary recipe text, derived recipe-level data, model checkpoints, and splits are excluded from the public repositories.
 
 The public source contains code and aggregate outputs; retained Artusi material follows its source terms. Read [why I used recipe graphs](/blog/2025/why-graphs-for-recipes/) for the representation decision, [the visualization note](/blog/2025/visualizing-italian-cuisine/) for the geographic views, or the [technical appendix](/blog/2026/italian-cuisine-deep-dive/) for extraction and evaluation details.

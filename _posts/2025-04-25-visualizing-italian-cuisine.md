@@ -78,4 +78,4 @@ The reordered view made the broad geographic groups easier to inspect. That patt
 
 Each design exchanges one reading task for another. The oil-and-butter map makes a comparison direct; the starch map puts three proportions in one place but requires more explanation; the reordered heatmap brings similar regions together. Labels and hover values keep the underlying quantities available when the visual pattern is not enough.
 
-For the broader context, start with the [project page](/projects/italian-cuisine/). The [technical deep dive](/blog/2026/italian-cuisine-deep-dive/) has the rest of the analysis and the supporting outputs.
+For the broader context, start with the [project page](/projects/italian-cuisine/). The [technical appendix](/blog/2026/italian-cuisine-deep-dive/) has the rest of the analysis and the supporting outputs.

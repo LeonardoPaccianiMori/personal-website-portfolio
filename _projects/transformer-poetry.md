@@ -47,7 +47,7 @@ project_actions:
 
 I directed this project to explore language-model training and adaptation through classical Italian poetry. It followed two paths: building a compact transformer from scratch, and adapting an existing Italian model through historical prose, poetry, and sonnets.
 
-The final test exposed a gap between the numbers and the poems. An additional training step improved an automatic check for visible defects, but neither final system produced a poem that passed the strict quality criterion in a separate AI-based blind review. That result shaped what the project could claim.
+The final test exposed a gap between the numbers and the poems: an additional training step improved an automatic check for visible defects, while poem quality did not improve with it. That gap shaped what the project could claim.
 
 ## My role and the AI contribution
 
@@ -83,7 +83,7 @@ The saved model states showed that most measured parameter and representation ch
 
 ## What the experiment can support
 
-Validation selected the candidate before a one-time sealed comparison used 1,244 held-back openings, two seeds, and both systems. Fourteen lines were enforced by the decoder; punctuation was only a proxy for completion. The separate AI blind review covered 100 outputs per system and was not an independent human literary panel.
+Validation selected the candidate before a one-time sealed comparison used 1,244 held-back openings, two seeds, and both systems. The separate AI blind review covered 100 outputs per system and was not an independent human literary panel.
 
 The result is useful as an evaluation study: a repeatable gain on an automatic check can coexist with failure on the quality criterion that motivated the work. The small-model comparison used one seed, model-state analysis was descriptive, and surface memorization checks cannot detect all recall or unknown overlap in a pretrained corpus.
 

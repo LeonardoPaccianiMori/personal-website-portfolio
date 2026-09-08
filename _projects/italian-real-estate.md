@@ -76,4 +76,4 @@ These findings depend on the synthetic data and the assumptions in the dashboard
 
 The source is an early-2025 snapshot and is now outdated. The custom generator was designed to retain broad distributions and correlations; it was not evaluated as a formal privacy guarantee. Neither source listings nor synthetic rows are distributed, and the public repository excludes the live collection implementation.
 
-For the engineering details, read the [pipeline and modelling appendix](/blog/2025/italian-real-estate-deep-dive/). The [CTGAN note](/blog/2025/synthetic-data-ctgan/) explains the failed synthetic-data comparison, while the [database note](/blog/2025/mongodb-postgresql-ml/) explains when the cleaned data outgrew its document store.
+For the engineering details, read the [technical appendix](/blog/2025/italian-real-estate-deep-dive/). The [CTGAN note](/blog/2025/synthetic-data-ctgan/) explains the failed synthetic-data comparison, while the [database note](/blog/2025/mongodb-postgresql-ml/) explains when the cleaned data outgrew its document store.

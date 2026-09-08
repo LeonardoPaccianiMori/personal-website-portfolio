@@ -85,9 +85,9 @@ The model runs entirely in the browser. DCGAN-5 was not trained to accept a digi
 
 The audited classifier run used separate training, validation, and untouched test splits. CNN-2 achieved the strongest result, with 98.66% test accuracy. The smaller CNN-1 reached 98.05% while taking roughly half as much CPU training time.
 
-Additional depth did not always help. Among the fully convolutional models, FCNN-3 reached 94.60%, while the deeper FCNN-4 fell to 78.90%. That is an observed failure in one seeded run, not a general verdict on deeper models.
+Additional depth did not always help. Among the fully convolutional models, FCNN-3 reached 94.60%, while the deeper FCNN-4 fell to 78.90%, a drop of more than 15 points.
 
-For generation, I compared conditional variational autoencoders with deep convolutional GANs. Training behaviour differed as activation, scaling, and architecture changed; this sequence did not isolate their individual effects. DCGAN-5 produced the best result under the feature-distance measure defined for this project.
+For generation, I compared conditional variational autoencoders with deep convolutional generative adversarial networks (DCGANs). Training behaviour differed as activation, scaling, and architecture changed. DCGAN-5 produced the best result under the feature-distance measure defined for this project.
 
 ## Comparing generated digits
 
@@ -99,7 +99,7 @@ For generation, I compared conditional variational autoencoders with deep convol
   Fréchet distance between 10,000 generated images and the official MNIST test split in CNN-3's 20-dimensional feature space. Lower is better within this project; this is not canonical FID.
 </div>
 
-DCGAN-5 reached a project-specific feature distance of 2.29, ahead of DCGAN-4 at 3.23. This measure supports comparison inside the experiment, but it is not canonical Fréchet inception distance.
+DCGAN-5 reached a project-specific feature distance of 2.29, about 30% lower than DCGAN-4 at 3.23.
 
 ## Reading the comparison
 

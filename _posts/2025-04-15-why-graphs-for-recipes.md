@@ -54,4 +54,4 @@ For inspection, the graph gave me access to relationships that an ingredient lis
 
 The results also remain bounded by the data. Both corpora are curated sources, and LLM-assisted extraction can introduce errors into ingredients, steps, and relationships. The graph preserves the extracted structure; it does not guarantee that every extracted structure is correct.
 
-For the full project context, start with the [project page](/projects/italian-cuisine/). For the implementation details, prompts, and analysis outputs, see the [technical deep dive](/blog/2026/italian-cuisine-deep-dive/).
+For the full project context, start with the [project page](/projects/italian-cuisine/). For the implementation details, prompts, and analysis outputs, see the [technical appendix](/blog/2026/italian-cuisine-deep-dive/).

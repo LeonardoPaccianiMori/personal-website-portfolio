@@ -57,4 +57,4 @@ The comparison changed which data I used for the study. Local interpolation bett
 
 The procedure above describes the original experiment. The later public release does not reproduce its original neighbour selection, so this historical comparison cannot be rerun from the published artifacts alone.
 
-For the project context, start with the [real estate project page](/projects/italian-real-estate/). The [technical deep dive](/blog/2025/italian-real-estate-deep-dive/) has the full pipeline and modeling details.
+For the project context, start with the [real estate project page](/projects/italian-real-estate/). The [technical appendix](/blog/2025/italian-real-estate-deep-dive/) has the full pipeline and modeling details.

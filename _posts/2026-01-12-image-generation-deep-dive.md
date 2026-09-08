@@ -16,7 +16,7 @@ toc:
 
 ## Overview
 
-This is the technical appendix to my [image generation project](/projects/image-generation/). The project compared seven classifiers, five convolutional variational autoencoders (CVAEs), and five deep convolutional GANs (DCGANs) on MNIST.
+This is the technical appendix to my [image generation project](/projects/image-generation/). The project compared seven classifiers, five convolutional variational autoencoders (CVAEs), and five deep convolutional generative adversarial networks (DCGANs) on MNIST.
 
 The original project ran in November–December 2024 on a laptop GPU. A later Codex-assisted audit retrained the classifiers on CPU and corrected the generator comparison. The classifier scores and CPU times here come from that audited run.
 

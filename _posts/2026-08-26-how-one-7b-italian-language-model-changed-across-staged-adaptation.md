@@ -127,7 +127,7 @@ A single distance also hides where change occurred. Comparing individual layers 
 
 ## Did neighbouring tokens remain neighbours?
 
-An embedding represents a token, a piece of text processed by the model, as a vector of numbers. I compared selected vectors' movement and the overlap between their twenty nearest neighbours. Jaccard overlap is the fraction of shared members in the combined sets. The selected rows moved measurably between the parent and final model. Their mean relative L2 change was 0.05624, while mean top-20-neighbor Jaccard remained 0.9755. The language-model head, the output layer that scores possible next tokens, moved less: relative L2 was 0.01140 and neighbor Jaccard was 0.9876.
+An embedding represents a token, a piece of text processed by the model, as a vector of numbers. I compared selected vectors' movement and the overlap between their twenty nearest neighbours. Jaccard overlap is the fraction of shared members in the combined sets. The selected rows moved measurably between the parent and final model. Their mean relative L2 change was 0.05624, a movement of about 5.6%, while mean top-20-neighbor Jaccard remained 0.9755, so the inspected tokens kept about 97.5% of their neighbours. The language-model head, the output layer that scores possible next tokens, moved less: relative L2 was 0.01140, about 1.1%, and neighbor Jaccard was 0.9876.
 
 During the late half of Stage 3, those changes were much smaller. The corresponding embedding and LM-head relative movements were 0.0000883 and 0.0000203, and the inspected neighbor sets had Jaccard 1.0.
 
@@ -139,7 +139,7 @@ The registry contains selected token rows rather than the whole vocabulary. Top-
 
 The 48 fixed text probes allowed comparison of internal representations as well as outputs. Centred kernel alignment (CKA) measures similarity between patterns in the internal representations; top-20 next-token overlap compares the tokens ranked most likely at the output. These measures answer different questions. From parent to final, mean hidden-state drift was 0.2394. Standard-sonnet probes drifted most, at 0.3177, while modern-instruction probes drifted least, at 0.1599. Minimum linear CKA remained 0.9219, mean top-20 next-token overlap fell to 0.4994, and mean logit entropy decreased by 0.2102.
 
-For the late half of Stage 3, mean drift was only 0.00371, minimum CKA was 0.999997, and top-20 next-token overlap was 0.9668.
+For the late half of Stage 3, mean drift was only 0.00371, about 1.5% of the parent-to-final drift. Minimum CKA was 0.999997, meaning internal similarity was almost unchanged, and top-20 next-token overlap was 0.9668.
 
 <details markdown="1">
 <summary>Exact checkpoint comparison</summary>

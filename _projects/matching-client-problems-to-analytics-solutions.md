@@ -29,7 +29,7 @@ Merkle's analytics teams field client briefs across a wide internal capability c
 
 I supervised and mentored the primary developer. We worked together on the intended behaviour and tested its recommendations. I reviewed versions and occasionally fixed difficult bugs; I was not the main developer.
 
-## The work behind a useful recommendation
+## Why the catalogue limited the tool
 
 The interaction worked, but its usefulness depended on a catalogue that was incomplete. Capabilities, owners, contacts, and descriptions would all need to stay current. Maintaining that information was a substantial part of the proposed application.
 
