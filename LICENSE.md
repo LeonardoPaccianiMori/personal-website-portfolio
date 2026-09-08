@@ -9,13 +9,13 @@ Code retained or adapted from the upstream
 [al-folio](https://github.com/alshedivat/al-folio) theme remains under the MIT
 License. See [LICENSES/al-folio-MIT.txt](LICENSES/al-folio-MIT.txt).
 
-## Leonardo Pacciani-Mori's website material
+## Pinco Pallino's website material
 
 Unless a more specific rule below applies, the prose, personal photographs,
 original graphics, and site-specific code or design created for this portfolio
 are:
 
-Copyright © Leonardo Pacciani-Mori. All rights reserved.
+Copyright © Pinco Pallino. All rights reserved.
 
 Public availability of the repository does not grant permission to reproduce,
 modify, or redistribute those materials.
@@ -42,7 +42,7 @@ modify, or redistribute those materials.
   `assets/data/italian-cuisine/analysis/` and
   `_includes/plotly/italian-cuisine/` are licensed under
   [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), with attribution
-  to Leonardo Pacciani-Mori. Map geometry in the cuisine shapefiles and
+  to Pinco Pallino. Map geometry in the cuisine shapefiles and
   generated choropleths is adapted from Istat's 2025 administrative
   boundaries, also under CC BY 4.0; attribution is required to both relevant
   contributors. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

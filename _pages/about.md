@@ -10,7 +10,7 @@ description: Senior Data Scientist building AI applications, with experience in 
     <p class="career-eyebrow">Senior Data Scientist</p>
     <h1 id="career-hero-title">I build AI applications.</h1>
     <p class="career-hero__lead">
-      I’m <strong>Leonardo Pacciani-Mori</strong>, a Senior Data Scientist at
+      I’m <strong>Pinco Pallino</strong>, a Senior Data Scientist at
       <a href="https://www.merkle.com/en/locations/europe/italy.html">Merkle Italy</a>.
       I start from a problem someone needs to solve, then design, build, deploy,
       and maintain the application myself, and keep working with its users to
@@ -35,7 +35,7 @@ description: Senior Data Scientist building AI applications, with experience in 
   <figure class="career-portrait">
     <img
       src="{{ '/assets/img/profile.png' | relative_url }}"
-      alt="Portrait of Leonardo Pacciani-Mori"
+      alt="Portrait of Pinco Pallino"
       width="640"
       height="640"
       fetchpriority="high"

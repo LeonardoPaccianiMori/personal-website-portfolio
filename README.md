@@ -1,4 +1,4 @@
-# Leonardo Pacciani-Mori — portfolio website
+# Pinco Pallino — portfolio website
 
 Source for my personal career and project portfolio. The site is built with
 [al-folio](https://github.com/alshedivat/al-folio) and Jekyll, then extended

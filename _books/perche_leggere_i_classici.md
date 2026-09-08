@@ -7,7 +7,7 @@ cover: assets/img/book_covers/perche_leggere_i_classici.jpg
 categories: literary-nonfiction
 tags: [essay-collection, literary-criticism, classics, reading]
 status: Reading
-started: 2026-08-29
+started: 2026-09-05
 finished:
 stars:
 first_published: 1995
