@@ -10,11 +10,15 @@ description: Senior Data Scientist building AI applications, with experience in 
     <p class="career-eyebrow">Senior Data Scientist</p>
     <h1 id="career-hero-title">I build AI applications.</h1>
     <p class="career-hero__lead">
-      I’m <strong>Pinco Pallino</strong>, a Senior Data Scientist at
+      I’m <strong>Leonardo Pacciani-Mori</strong>, a Senior Data Scientist at
       <a href="https://www.merkle.com/en/locations/europe/italy.html">Merkle Italy</a>.
-      When I build an application, I start with a problem someone needs to solve.
-      I design, develop, and maintain the application, and work with its users
-      to understand what needs to change.
+      I start from a problem someone needs to solve, then design, build, deploy,
+      and maintain the application myself, and keep working with its users to
+      understand what needs to change.
+    </p>
+    <p class="career-hero__capabilities">
+      LLM and agentic applications · predictive modelling · geospatial
+      analysis — built and run on GCP
     </p>
     <div class="career-actions" aria-label="Primary links">
       <a class="career-button career-button--primary" href="#selected-work">
@@ -31,7 +35,7 @@ description: Senior Data Scientist building AI applications, with experience in 
   <figure class="career-portrait">
     <img
       src="{{ '/assets/img/profile.png' | relative_url }}"
-      alt="Portrait of Pinco Pallino"
+      alt="Portrait of Leonardo Pacciani-Mori"
       width="640"
       height="640"
       fetchpriority="high"
@@ -86,7 +90,7 @@ description: Senior Data Scientist building AI applications, with experience in 
 
 <section class="career-section career-background" aria-labelledby="background-title">
   <div class="career-background__story">
-    <h2 id="background-title">How I work</h2>
+    <h2 id="background-title">From research to industry</h2>
     <p>
       Before moving into industry, I completed a PhD in physics at the University
       of Padua and spent four years doing experimental biophysics research at
@@ -119,7 +123,7 @@ description: Senior Data Scientist building AI applications, with experience in 
 
 <section class="career-section career-approach" aria-labelledby="approach-title">
   <div class="career-section__heading">
-    <h2 id="approach-title">Other questions I work on</h2>
+    <h2 id="approach-title">Beyond AI applications</h2>
     <p>
       AI applications are my main focus. I also work with predictive models and
       geographic data. My personal projects give me room to follow questions of
@@ -141,8 +145,8 @@ description: Senior Data Scientist building AI applications, with experience in 
     <h2 id="closing-title">Get in touch</h2>
   </div>
   <p>
-    If you would like to discuss a future role or project, email me.
-    I’m interested in AI application development and data science.
+    If you would like to discuss a future role or a project for your team,
+    email me. I’m interested in AI application development and data science.
   </p>
   <a class="career-button career-button--secondary" href="mailto:leonardopaccianimori@gmail.com">Email me</a>
 </section>

@@ -25,7 +25,7 @@ project_overview:
 
 ## Matching a brief to a catalogue
 
-This prototype explored whether a chatbot could help colleagues find relevant capabilities in an internal analytics catalogue. It could ask clarifying questions about a client brief, search the catalogue, suggest matches, and explain them.
+Merkle's analytics teams field client briefs across a wide internal capability catalogue, and finding the right capability often depended on who you knew. This prototype explored whether a chatbot could help colleagues find relevant capabilities in that catalogue. It could ask clarifying questions about a client brief, search the catalogue, suggest matches, and explain them.
 
 I supervised and mentored the primary developer. We worked together on the intended behaviour and tested its recommendations. I reviewed versions and occasionally fixed difficult bugs; I was not the main developer.
 

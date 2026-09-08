@@ -25,7 +25,7 @@ project_overview:
 
 ## Deciding which answers belong together
 
-A brand-awareness survey can contain misspellings, abbreviations, partial names, and several versions of the same brand. Analysts need consistent labels before they can calculate results, but an incorrect match can change the analysis.
+Brand-awareness surveys are recurring Consumer Insight work at Merkle, and each wave needs the same cleaning before analysis can start. The responses can contain misspellings, abbreviations, partial names, and several versions of the same brand. Analysts need consistent labels before they can calculate results, but an incorrect match can change the analysis.
 
 I defined the workflow and supervised development of an application to do this cleaning. A colleague was the primary developer. I reviewed successive versions and helped troubleshoot difficult issues.
 

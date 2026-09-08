@@ -25,11 +25,11 @@ project_overview:
 
 ## The report was the real product
 
-The first version of this application was a chatbot for exploring qualitative interview material. It worked, but conversations with researchers exposed a more important need: their work ends in a long, structured report, not a chat session.
+I built this application at Merkle for Consumer Insight researchers, whose interview studies end in long client reports. The first version was a chatbot for exploring qualitative interview material. It worked, but conversations with researchers exposed a more important need: their work ends in a long, structured report, not a chat session.
 
 I therefore rebuilt the experience around a first thematic report organized by the interview guide. Question answering, translation, and session recovery still matter, but they now support the document that researchers must ultimately produce.
 
-I designed and built the application end to end. It is deployed and works across Italian transcripts, interview guides, participant worksheets, and project context. I now maintain and deploy it independently within shared infrastructure that another engineer originally established.
+I designed and built the application end to end. It is deployed and works across Italian transcripts, interview guides, participant worksheets, and project context. I now maintain and deploy it independently within shared infrastructure that another engineer originally established. Users estimate that it could reduce the complete workflow from about one month to about one week.
 
 ## Letting researchers inspect the evidence
 
@@ -41,6 +41,6 @@ Answers link back to supporting passages. Researchers can inspect the cited para
 
 ## What users are testing now
 
-I continue to refine the application with Consumer Insight colleagues. Users estimate that it could reduce the full workflow from about one month to about one week. That is their estimate rather than an independently measured benchmark, and researchers still own the interpretation, revision, and final client deliverable.
+I continue to refine the application with Consumer Insight colleagues. The month-to-week estimate is theirs rather than an independently measured benchmark, and researchers still own the interpretation, revision, and final client deliverable.
 
 Current testing focuses on the report itself: which structure helps researchers work, where the draft needs revision, and what quality they need before using it for a client deliverable.

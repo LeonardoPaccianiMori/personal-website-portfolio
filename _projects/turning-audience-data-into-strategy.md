@@ -25,7 +25,7 @@ project_overview:
 
 ## From a large table to an application people could use
 
-Consumer-segment profiles contain many variables and comparison points. Working through a large export made it slow to find useful patterns and follow up on them. I developed an internal application that lets users explore those profiles through summaries, charts, and questions about the data.
+I built this application at Merkle for Consumer Insight consultants, and about a dozen colleagues now use it in their segment work. Consumer-segment profiles contain many variables and comparison points. Working through a large export made it slow to find useful patterns and follow up on them. I developed an internal application that lets users explore those profiles through summaries, charts, and questions about the data.
 
 I am the primary developer and technical owner. I designed the workflow, developed the application, and continue to maintain the deployed product. Measured operating evidence showed the exploration workflow moving from days to minutes.
 
