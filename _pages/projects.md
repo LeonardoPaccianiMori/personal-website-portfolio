@@ -9,6 +9,7 @@ nav: true
 nav_order: 2
 display_categories: [professional, portfolio, experimental, games]
 horizontal: false
+project_carousel: true
 ---
 
 <nav class="project-category-nav" aria-label="Project categories">
@@ -79,11 +80,46 @@ horizontal: false
                 Playable experiments, with AI contributions stated.
             {% endcase %}
           </p>
+          <div class="site-project-group__controls" data-project-controls hidden>
+            <button
+              type="button"
+              class="site-project-control"
+              data-project-prev
+              aria-controls="{{ category }}-grid"
+              aria-label="Show previous projects"
+            >
+              <svg class="site-project-control__icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <path d="M19 12H5"></path>
+                <path d="m11 18-6-6 6-6"></path>
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="site-project-control"
+              data-project-next
+              aria-controls="{{ category }}-grid"
+              aria-label="Show next projects"
+            >
+              <svg class="site-project-control__icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </button>
+          </div>
         </header>
-        <div class="site-project-grid">
-          {% for project in sorted_projects %}
-            {% include projects.liquid %}
-          {% endfor %}
+        <div
+          class="site-project-scroller"
+          id="{{ category }}-grid"
+          role="region"
+          tabindex="0"
+          aria-labelledby="{{ category }}-title"
+          data-project-scroller
+        >
+          <div class="site-project-grid">
+            {% for project in sorted_projects %}
+              {% include projects.liquid %}
+            {% endfor %}
+          </div>
         </div>
       </section>
     {% endfor %}
