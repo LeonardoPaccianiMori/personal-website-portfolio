@@ -101,21 +101,23 @@ description: Senior Data Scientist building AI applications, with experience in 
     <p>
       Before moving into industry, I completed a PhD in physics at the University
       of Padua and spent four years doing experimental biophysics research at
-      UC San Diego. Experiments taught me to question how data was collected and
-      how much a result could actually tell me.
+      UC San Diego.
     </p>
     <p>
-      Those questions still matter when I build an application. In one project,
-      a model kept producing unsupported answers. Changing the prompts was not
-      enough: I had to preserve the structure of the data it received. In another,
-      working with researchers showed that the report they needed mattered more
-      than adding features to the chat interface.
+      Experiments taught me to question how data was collected and how much a
+      result could actually tell me. I still look for weak assumptions and ask
+      what another week of investigation would change. Sometimes another test
+      matters; sometimes the useful next step is to put the application in front
+      of people and learn from how they use it.
     </p>
     <p>
-      Industry also changed how I decide when the work is ready. I still look for
-      weak assumptions, but I ask what another week of investigation would change.
-      Sometimes another test matters. Sometimes the useful next step is to put
-      the application in front of people and learn from how they use it.
+      My personal projects also cover predictive modelling and geographic data.
+      In
+      <a href="{{ '/projects/italian-cuisine/' | relative_url }}">my Italian cuisine project</a>,
+      I represented recipes as networks of ingredients and preparation steps,
+      then tested whether a model could recognize their regional origins. It
+      recovered broad geographic patterns more readily than individual regions,
+      and the limits of that result became part of the study.
     </p>
   </div>
   <aside class="career-background__aside" aria-label="Writing about my work">
@@ -126,25 +128,6 @@ description: Senior Data Scientist building AI applications, with experience in 
       <li><a href="{% post_url 2026-08-01-what-i-mean-when-i-say-i-built-something-with-ai %}">What I mean when I say I built something with AI</a></li>
     </ul>
   </aside>
-</section>
-
-<section class="career-section career-approach" aria-labelledby="approach-title">
-  <div class="career-section__heading">
-    <h2 id="approach-title">Predictive modelling and geospatial analysis</h2>
-    <p>
-      AI applications are my main focus. I also work with predictive models and
-      geographic data. My personal projects give me room to follow questions of
-      my own: how rental estimates change a property-return calculation, or how
-      much a recipe can tell us about where it comes from.
-    </p>
-    <p>
-      In <a href="{{ '/projects/italian-cuisine/' | relative_url }}">my Italian cuisine project</a>,
-      I represented recipes as networks of ingredients and preparation steps,
-      then tested whether a model could recognize their regional origins.
-      It found broad geographic patterns more readily than individual regions.
-      The limits of that result became part of the project too.
-    </p>
-  </div>
 </section>
 
 <section class="career-closing" aria-labelledby="closing-title">
