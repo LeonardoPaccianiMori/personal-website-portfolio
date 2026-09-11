@@ -214,4 +214,4 @@ The public checks run on a CPU and verify software behaviour and the recorded ag
 
 I conceived and directed the project, defined its goals, made executive decisions, approved the research plan, reviewed outputs, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol helped design the plan and substantially assisted implementation, tests, execution, and analysis. The work is therefore not independently designed or independently implemented by me.
 
-The complete dual-arc project is summarized in [Teaching Transformers to Write Classical Italian Sonnets]({% link _projects/transformer-poetry.md %}); the companion note examines [how the retained 7B model states changed across the three adaptation stages]({% post_url 2026-08-26-how-one-7b-italian-language-model-changed-across-staged-adaptation %}).
+The complete dual-arc project is summarized in [Teaching transformers to write classical Italian sonnets]({% link _projects/transformer-poetry.md %}); the companion note examines [how the retained 7B model states changed across the three adaptation stages]({% post_url 2026-08-26-how-one-7b-italian-language-model-changed-across-staged-adaptation %}).

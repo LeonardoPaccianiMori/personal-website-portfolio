@@ -25,11 +25,11 @@ project_overview:
 
 ## The report was the real product
 
-I built this application at Merkle for Consumer Insight researchers, whose interview studies end in long client reports. The first version was a chatbot for exploring qualitative interview material. It worked, but conversations with researchers exposed a more important need: their work ends in a long, structured report, not a chat session.
+I built this application at Merkle for Consumer Insight researchers, whose interview studies end in long client reports. A representative study produced roughly 500–600 pages of transcripts across about ten interviewees. The first version was a chatbot for exploring qualitative interview material. It worked, but conversations with researchers exposed a more important need: their work ends in a long, structured report, not a chat session.
 
 I therefore rebuilt the experience around a first thematic report organized by the interview guide. Question answering, translation, and session recovery still matter, but they now support the document that researchers must ultimately produce.
 
-I designed and built the application end to end. It is deployed and works across Italian transcripts, interview guides, participant worksheets, and project context. I now maintain and deploy it independently within shared infrastructure that another engineer originally established. Users estimate that it could reduce the complete workflow from about one month to about one week.
+I designed and built the application end to end. It is deployed and works across Italian transcripts, interview guides, participant worksheets, and project context. I now maintain and deploy it independently within shared infrastructure that another engineer originally established.
 
 ## Letting researchers inspect the evidence
 

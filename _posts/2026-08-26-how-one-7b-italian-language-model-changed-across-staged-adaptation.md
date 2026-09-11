@@ -185,4 +185,4 @@ The checkpoint and data boundary is intentional. The selected full BF16 stage we
 
 I conceived and directed the project, chose its learning and research goals, made executive decisions, approved the plan, reviewed outputs, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol helped design the research plan and substantially assisted implementation, tests, execution, and analysis. I do not describe the study as independently designed or independently implemented by me.
 
-The broader project and its final failure boundary are summarized in [Teaching Transformers to Write Classical Italian Sonnets]({% link _projects/transformer-poetry.md %}).
+The broader project and its final failure boundary are summarized in [Teaching transformers to write classical Italian sonnets]({% link _projects/transformer-poetry.md %}).

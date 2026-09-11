@@ -37,4 +37,4 @@ That choice is part of the workflow. The application can speed up routine correc
 
 ## Recurring use
 
-The deployed application is now used for recurring Consumer Insight work. After using it on real survey waves, users reported that preparation which had taken several days could be completed in minutes. That saving is user-reported rather than independently measured; analysts still resolve uncertain cases.
+The deployed application is now used for recurring Consumer Insight work. That multi-day-to-minutes saving is user-reported rather than independently measured; analysts still resolve uncertain cases.

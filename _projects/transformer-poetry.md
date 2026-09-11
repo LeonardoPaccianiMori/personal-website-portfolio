@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Teaching Transformers to Write Classical Italian Sonnets
+title: Teaching transformers to write classical Italian sonnets
 description: Building and adapting language models for Italian sonnets, then testing whether better model scores meant better poetry
 img: assets/img/projects/transformer-poetry/transformer-poetry-thumbnail.webp
 importance: 0
