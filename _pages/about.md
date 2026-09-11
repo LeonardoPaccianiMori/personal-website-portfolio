@@ -8,7 +8,7 @@ description: Senior Data Scientist building AI applications, with experience in 
 <section class="career-hero" aria-labelledby="career-hero-title">
   <div class="career-hero__copy">
     <p class="career-eyebrow">Senior Data Scientist</p>
-    <h1 id="career-hero-title">I build AI applications.</h1>
+    <h1 id="career-hero-title">I design, build, and run AI applications.</h1>
     <p class="career-hero__lead">
       I’m <strong>Pinco Pallino</strong>, a Senior Data Scientist at
       <a href="https://www.merkle.com/en/locations/europe/italy.html">Merkle Italy</a>.
@@ -33,13 +33,20 @@ description: Senior Data Scientist building AI applications, with experience in 
     </div>
   </div>
   <figure class="career-portrait">
-    <img
-      src="{{ '/assets/img/profile.png' | relative_url }}"
-      alt="Portrait of Pinco Pallino"
-      width="640"
-      height="640"
-      fetchpriority="high"
-    >
+    <picture>
+      <source
+        srcset="{{ '/assets/img/profile-480.webp' | relative_url }} 480w, {{ '/assets/img/profile-800.webp' | relative_url }} 800w, {{ '/assets/img/profile-1400.webp' | relative_url }} 1400w"
+        sizes="(max-width: 767px) 360px, 420px"
+        type="image/webp"
+      >
+      <img
+        src="{{ '/assets/img/profile.png' | relative_url }}"
+        alt="Portrait of Pinco Pallino"
+        width="640"
+        height="640"
+        fetchpriority="high"
+      >
+    </picture>
     <figcaption>Based in Italy, working remotely.</figcaption>
   </figure>
 </section>
@@ -123,7 +130,7 @@ description: Senior Data Scientist building AI applications, with experience in 
 
 <section class="career-section career-approach" aria-labelledby="approach-title">
   <div class="career-section__heading">
-    <h2 id="approach-title">Beyond AI applications</h2>
+    <h2 id="approach-title">Predictive modelling and geospatial analysis</h2>
     <p>
       AI applications are my main focus. I also work with predictive models and
       geographic data. My personal projects give me room to follow questions of

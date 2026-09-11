@@ -9,7 +9,6 @@ tags: [novel, postmodern, metafiction, experimental]
 status: Queued
 started:
 finished:
-stars: 5
 first_published: 1979
 edition_publisher: Mondadori
 edition_series: Oscar Moderni

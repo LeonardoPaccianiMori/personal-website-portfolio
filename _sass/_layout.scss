@@ -303,6 +303,8 @@ html[data-theme="dark"] .career-home {
 }
 
 .career-work-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--global-divider-color);
   border-radius: var(--career-small-radius);
@@ -337,10 +339,12 @@ html[data-theme="dark"] .career-home {
 }
 
 .career-work-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: 1.4rem;
 
   h3 {
-    min-height: 2.7em;
     margin-bottom: 0.7rem;
     font-size: 1.48rem;
     font-weight: 500;
@@ -357,11 +361,14 @@ html[data-theme="dark"] .career-home {
   }
 
   > p:not(.career-work-card__type) {
-    min-height: 5.2em;
     margin-bottom: 1.2rem;
     color: var(--career-muted);
     font-size: 0.91rem;
     line-height: 1.55;
+  }
+
+  .career-text-link {
+    margin-top: auto;
   }
 }
 
@@ -461,7 +468,7 @@ html[data-theme="dark"] .career-home {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .career-work-card:last-child {
+  .career-work-card:last-child:has(.career-work-card__image) {
     display: grid;
     grid-column: 1 / -1;
     grid-template-columns: 1fr 1fr;
@@ -518,19 +525,12 @@ html[data-theme="dark"] .career-home {
     }
   }
 
-  .career-work-card:last-child {
+  .career-work-card:last-child:has(.career-work-card__image) {
     display: block;
     grid-column: auto;
 
     .career-work-card__image {
       aspect-ratio: 16 / 10;
-    }
-  }
-
-  .career-work-card__body {
-    h3,
-    > p:not(.career-work-card__type) {
-      min-height: 0;
     }
   }
 

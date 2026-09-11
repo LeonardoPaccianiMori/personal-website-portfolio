@@ -9,7 +9,6 @@ tags: [essay-collection, literary-criticism, reading, writing]
 status: Queued
 started:
 finished:
-stars: 4
 first_published: 2002
 edition_publisher: Mondadori
 edition_series: Oscar Moderni
