@@ -1,8 +1,9 @@
 # Pinco Pallino — portfolio website
 
 Source for my personal career and project portfolio. The site is built with
-[al-folio](https://github.com/alshedivat/al-folio) and Jekyll, then extended
-with project-specific pages, interactive visualisations, and browser demos.
+[Jekyll](https://jekyllrb.com/) on a heavily modified
+[al-folio](https://github.com/alshedivat/al-folio) foundation, with a custom
+light editorial design, project case studies, and interactive browser demos.
 
 The repository is public so the implementation and project evidence can be
 inspected. It is still under active preparation: the placeholder identity and
@@ -10,12 +11,12 @@ inspected. It is still under active preparation: the placeholder identity and
 
 ## Main sections
 
-- Professional projects
-- Personal projects
-- Experimental projects
-- Games
-- Focused technical notes and project appendices
-- Bookshelf and playground
+- Home: identity, selected work, and background
+- About: role, background, and focus areas
+- Projects: professional, personal, experimental, and games
+- Writing: focused technical notes, project appendices, and thoughts
+- Bookshelf
+- Playground
 
 ## Local development
 
@@ -23,11 +24,18 @@ The supported development path uses the repository's Ruby dependencies:
 
 ```bash
 bundle install
-bundle exec jekyll serve
+bundle exec jekyll build   # noninteractive build into _site/
+bundle exec jekyll serve   # optional local preview at http://localhost:4000
 ```
 
-Then open <http://localhost:4000>. See [INSTALL.md](INSTALL.md) and the al-folio
-documentation for platform-specific setup.
+Fonts and the few CDN libraries used by individual pages load from the
+network.
+
+## Working on this repository
+
+- [AGENTS.md](AGENTS.md) defines the change-control, privacy, and validation
+  rules.
+- [STYLE_GUIDE.md](STYLE_GUIDE.md) is the current presentation baseline.
 
 ## Project repositories
 
