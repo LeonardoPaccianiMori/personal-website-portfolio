@@ -162,7 +162,12 @@ let setPlotlyTheme = (theme) => {
   document.querySelectorAll(".js-plotly-plot").forEach((elem) => {
     // Get the code block content from previous element, since it is the plotly code itself as defined in Markdown, but it is hidden
     // Skip plots that don't have the expected structure (e.g., custom plots created via Plotly.newPlot)
-    if (!elem.previousSibling || !elem.previousSibling.childNodes || !elem.previousSibling.childNodes[0] || !elem.previousSibling.childNodes[0].innerHTML) {
+    if (
+      !elem.previousSibling ||
+      !elem.previousSibling.childNodes ||
+      !elem.previousSibling.childNodes[0] ||
+      !elem.previousSibling.childNodes[0].innerHTML
+    ) {
       return;
     }
     let jsonData;
@@ -240,14 +245,14 @@ let transTheme = () => {
   }, 500);
 };
 
-// Determine the expected state of the theme setting. Always dark for this site.
+// Determine the expected state of the theme setting. Light for this site.
 let determineThemeSetting = () => {
-  return "dark";
+  return "light";
 };
 
-// Determine the computed theme. Always dark for this site.
+// Determine the computed theme. Light for this site.
 let determineComputedTheme = () => {
-  return "dark";
+  return "light";
 };
 
 let initTheme = () => {

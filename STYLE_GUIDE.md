@@ -81,16 +81,20 @@ judgment. Prefer reflection over plot summary.
 
 ## Visual system
 
-- The site renders in the dark theme. `assets/js/theme.js` forces it; there is
-  no visitor toggle.
+- The site renders in one light theme. `enable_darkmode` is `false`; there is
+  no visitor toggle, no dark palette, and no system-preference switching.
 - Use the theme variables. Colours live in `_sass/_variables.scss` and are
   exposed as CSS custom properties in `_sass/_themes.scss`. Never hard-code a
   colour in content or in a one-off rule.
-- The theme accent is cyan `#2698ba` (`--global-theme-color`). Keep it
+- The theme accent is forest green `#2f5d3a` (`--global-theme-color`). Keep it
   restrained.
-- Surfaces: background `#1c1c1d`, cards `#212529`.
-- Type: "Crimson Pro" for display and headings, "Inter" for body and
-  interface. Do not add fonts.
+- Surfaces: paper `#f5f2ea`, ink `#1b1f1a`, muted `#5f6a5c`, panels `#fffdf8`,
+  dividers `#dbd6c8`. The site is flat: no rounded corners, no shadows, no
+  gradients. Two deliberate exceptions keep their shape: the pill
+  `career-button` and the circular back-to-top control.
+- Type: "Fraunces" for display and headings with the optical-size pin kept
+  (`font-optical-sizing: none; font-variation-settings: "opsz" 14;`), and
+  "Inter" for body and interface. Do not add fonts.
 - Layout: generous whitespace, horizontal rules, compact labels, and numbered
   elements carry the hierarchy.
 - Components: reuse the existing classes and includes, for example
@@ -108,6 +112,7 @@ judgment. Prefer reflection over plot summary.
 - Keep the five overview fields stable. Add a field only through an approved
   plan.
 - Add no dependency, framework, or build step for a presentation change.
+- Do not enable a dark theme or add a second palette without an approved plan.
 - Treat provisional identity details and intentionally hidden pages as
   deliberate. Do not finalize, reveal, or delete them without an approved plan.
 - Report only the checks that were actually run.
