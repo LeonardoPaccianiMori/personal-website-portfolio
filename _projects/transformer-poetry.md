@@ -10,11 +10,11 @@ chart:
   plotly: true
 card_role: Research direction; substantial AI assistance
 project_overview:
-  status: Completed, with a September 2026 follow-up
+  status: Completed
   period: May–September 2026
   role: I conceived and directed the project; AI assistants assisted design, implementation, and execution under my direction
-  outcome: The August 2026 system produced 0 of 4,976 form-valid sonnets. The September 2026 plan-then-poem pipeline reaches 0.6250–0.6917 composed scheme validity without repair, with about 7.3 of 14 lines accepted as hendecasyllables. Coherence remains the documented limit at roughly 2.7–2.9 of 5 under calibrated AI judges.
-  evidence: Public GitHub source, reports, and verification; the Hugging Face release with nine artifacts; the prosody checker and rhyme lexicon; and this page's pre-generated poem explorer
+  outcome: The plan-then-poem pipeline reaches 0.6250–0.6917 composed scheme validity without repair, against 0 of 4,976 for the earlier system. Coherence remains the documented limit at roughly 2.7–2.9 of 5 under calibrated AI judges.
+  evidence: Public GitHub source, reports, and verification; the Hugging Face release with nine artifacts; the prosody checker and poem explorer
 project_actions:
   - label: View source
     url: https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry
@@ -24,11 +24,11 @@ project_actions:
     url: https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets
     style: secondary
     external: true
-  - label: "Two skills, not one: how decomposition fixed the sonnet form"
+  - label: Read the decomposition note
     url: /writing/2026/two-skills-not-one-how-decomposition-fixed-the-sonnet-form/
     style: secondary
     external: false
-  - label: Distilling a stronger poet into a 7B model
+  - label: Read the distillation note
     url: /writing/2026/distilling-a-stronger-poet-into-a-7b-model/
     style: secondary
     external: false
