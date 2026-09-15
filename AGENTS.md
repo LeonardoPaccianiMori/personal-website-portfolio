@@ -5,6 +5,13 @@ canonical career record. Treat existing public content and repository evidence
 as supporting sources, not authority for new personal facts. Never publish
 private material merely because it is available in another workspace.
 
+## Content and style
+
+Read `STYLE_GUIDE.md` before any content, style, or visual change. It is the
+presentation baseline for this site. It does not replace the private canonical
+source for facts, and an approved piece-specific voice or wording choice wins
+over the guide.
+
 ## Change control
 
 Before tracked changes, inspect the current branch, remote state, applicable
