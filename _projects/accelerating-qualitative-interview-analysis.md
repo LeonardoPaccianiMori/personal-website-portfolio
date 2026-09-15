@@ -12,6 +12,7 @@ project_overview:
   role: Primary developer; maintains and deploys the application
   outcome: Users estimate that it could reduce the complete workflow from about one month to about one week.
   evidence: Internal system; code, project materials, and user examples are private.
+  demonstrates: "Applied LLM system delivery: a document-search agent that cites its sources, deployed and tested with research users."
 ---
 
 <div class="project-lead-image row">

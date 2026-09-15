@@ -13,6 +13,7 @@ project_overview:
   role: Independent end-to-end implementation
   outcome: Collected roughly one million listings and turned synthetic study data into rental-income estimates and a Tableau dashboard.
   evidence: Public dashboard, code, and technical appendix; no source or synthetic row-level data are distributed.
+  demonstrates: "End-to-end data engineering and modelling: Airflow orchestration, synthetic study data, rental-income estimation, and a Tableau dashboard."
 project_actions:
   - label: Open dashboard
     url: https://public.tableau.com/views/Italianrealestate/Dashboard_1?:showVizHome=no

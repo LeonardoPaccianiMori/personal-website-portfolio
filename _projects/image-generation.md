@@ -15,6 +15,7 @@ project_overview:
   role: Original project implementation followed by a Codex-assisted evidence audit
   outcome: CNN-2 reached 98.66% test accuracy; DCGAN-5 had the best result under the project-specific generator feature-distance comparison.
   evidence: Browser demo, code, and technical appendix; the generator metric is not canonical FID.
+  demonstrates: "Generative modelling: implementing and comparing CNN, CVAE, and DCGAN variants, auditing the results, and shipping an interactive demo."
 project_actions:
   - label: Try the generator
     url: "#dcgan-5"

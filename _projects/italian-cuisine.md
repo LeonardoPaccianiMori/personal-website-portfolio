@@ -16,6 +16,7 @@ project_overview:
   role: Independent end-to-end implementation
   outcome: Used graph representations for historical, geographic, and GAT analysis; macro-regions were substantially easier to classify than individual regions.
   evidence: Interactive graph, aggregate results, code, and technical appendix; restricted recipe-level data are excluded.
+  demonstrates: "Graph machine learning: building a heterogeneous recipe graph and evaluating a GAT on regional-origin classification."
 project_actions:
   - label: View code
     url: https://github.com/LeonardoPaccianiMori/portfolio-italian-cuisine

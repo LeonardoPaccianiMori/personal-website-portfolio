@@ -12,6 +12,7 @@ project_overview:
   role: Primary developer and technical owner
   outcome: Turns a multi-day segment-exploration process into a minutes-scale interactive workflow.
   evidence: Internal system; code and data are proprietary.
+  demonstrates: "Deployed product ownership: designing, building, and maintaining an interactive analytics application used in recurring work."
 ---
 
 <div class="project-lead-image row">

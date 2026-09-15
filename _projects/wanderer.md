@@ -14,6 +14,7 @@ project_overview:
   role: Defined the behaviour, tested the result, and directed revisions; Codex generated much of the implementation
   outcome: Produced a browser gravity sandbox and dependency-free tests for core physics behaviour.
   evidence: Playable demo, source code, tests, and MIT licence.
+  demonstrates: "Directing AI-assisted development in an unfamiliar stack: specifying behaviour, reviewing the implementation, and testing the result."
 project_actions:
   - label: Play Wanderer
     url: /wanderer/

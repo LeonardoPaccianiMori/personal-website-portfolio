@@ -12,6 +12,7 @@ project_overview:
   role: Workflow supervisor; a colleague was the primary developer
   outcome: Users report that it reduced a multi-day cleaning process to minutes.
   evidence: Internal system; code and survey data are private.
+  demonstrates: "Technical supervision and workflow design: defining the process, reviewing the implementation, and keeping analyst judgment in the loop."
 ---
 
 <div class="project-lead-image row">

@@ -12,6 +12,7 @@ project_overview:
   role: Supervisor, mentor, tester, and occasional bug fixer
   outcome: Paused because adoption risk and catalogue-maintenance cost were not justified by clear demand.
   evidence: Internal prototype; code and catalogue data are private.
+  demonstrates: "Product evaluation: prototyping a chatbot for internal capability discovery and stopping it when adoption risk outweighed the value."
 ---
 
 <div class="project-lead-image row">

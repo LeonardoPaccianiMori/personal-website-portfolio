@@ -34,5 +34,11 @@
       <dt>Evidence</dt>
       <dd>{{ page.project_overview.evidence }}</dd>
     </div>
+    {% if page.project_overview.demonstrates %}
+      <div class="project-overview__wide">
+        <dt>Demonstrates</dt>
+        <dd>{{ page.project_overview.demonstrates }}</dd>
+      </div>
+    {% endif %}
   </dl>
 </section>

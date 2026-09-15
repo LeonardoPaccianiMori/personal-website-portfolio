@@ -12,6 +12,7 @@ project_overview:
   role: Sole designer and implementer
   outcome: Demonstrated an end-to-end cited research-report loop; adoption and business impact were not validated.
   evidence: Internal prototype; code and supplied creative material are private.
+  demonstrates: "Applied multi-agent design: dividing research across sources and moving evidence into a single cited report."
 ---
 
 <div class="project-lead-image row">
