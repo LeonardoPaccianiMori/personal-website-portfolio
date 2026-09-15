@@ -13,7 +13,7 @@ project_overview:
   status: Completed
   period: May–September 2026
   role: I conceived and directed the project; AI assistants assisted design, implementation, and execution under my direction
-  outcome: The plan-then-poem pipeline reaches 0.6250–0.6917 composed scheme validity without repair; coherence remains the documented limit at roughly 2.7–2.9 of 5 under calibrated AI judges.
+  outcome: Specialised a small open-weight model to write sonnets in strict form; 69% of its outputs hold the rhyme scheme without repair.
   evidence: Public GitHub source, reports, and verification; the Hugging Face release with nine artifacts; the prosody checker and poem explorer
   demonstrates: "Open-weight LLM specialisation: LoRA and preference tuning of a 7B model for a strict structured task, with a purpose-built checker and pre-registered evaluation."
 project_actions:

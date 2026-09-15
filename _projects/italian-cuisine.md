@@ -14,7 +14,7 @@ project_overview:
   status: Completed
   period: October–November 2025
   role: Independent end-to-end implementation
-  outcome: Used graph representations for historical, geographic, and GAT analysis; macro-regions were substantially easier to classify than individual regions.
+  outcome: "Modelled recipes as graphs of ingredients and preparation steps, then tested whether a model could recognise where each recipe comes from: broad geographic areas were much easier to learn than individual regions."
   evidence: Interactive graph, aggregate results, code, and technical appendix; restricted recipe-level data are excluded.
   demonstrates: "Graph machine learning: building a heterogeneous recipe graph and evaluating a GAT on regional-origin classification."
 project_actions:
@@ -66,7 +66,7 @@ I built a historical corpus of 790 recipes from Pellegrino Artusi's 1891 cookboo
 
 I used LLM-assisted extraction and normalization to turn unstructured recipe text into graphs. Neo4j made those structures inspectable, while Python and PyTorch supported the analysis and modelling.
 
-The interactive example shows more detail than the model eventually used. The stored graph includes tools and intermediate products, while the heterogeneous Graph Attention Network learned from recipe, ingredient, and step nodes.
+The interactive example shows more detail than the model eventually used. The stored graph includes tools and intermediate products, while the heterogeneous Graph Attention Network (GAT) learned from recipe, ingredient, and step nodes.
 
 ## Comparing two different corpora
 
