@@ -2,11 +2,8 @@
   "schema_version": "sonnet_widget_pool_v1",
   "generated": "2026-09-15",
   "pipeline_source": "artifacts/local/grammar_ft/validation/stage2",
-  "published_source": "artifacts/local/minerva_7b_v7_dpo/final_test/generation",
   "pipeline_count": 664,
-  "published_count": 300,
   "sha256": {
-    "sonnet-pool-pipeline.json": "0829aba502f96721abaa3f02ec2d1707a3e323e7f89dda9c2c6472c55c684f7a",
-    "sonnet-pool-published.json": "074071ea6cba337695f1945ce88ae7cac364af6372757d2bbe2afcd562b005df"
+    "sonnet-pool-pipeline.json": "888833c68ca6c6a75cf79a263cc3ad9b1c5e530c0e143e053049b51f883c8a37"
   }
 }

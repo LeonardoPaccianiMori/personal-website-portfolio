@@ -187,6 +187,6 @@ I conceived and directed the project, set its learning and research goals and ga
 
 The broader project and its final failure boundary are summarized in [Teaching transformers to write classical Italian sonnets]({% link _projects/transformer-poetry.md %}).
 
-## What came after (September 2026)
+## Where the work stands
 
-The follow-up kept the lesson and changed the approach. A purpose-built prosody checker, a plan-then-poem decomposition, and LoRA adaptation took repair-free scheme validity from 0 of 4,976 outputs to about two in three, and a distillation experiment with a licence-cleared teacher raised it further to 0.6917 composed validity while leaving coherence unsolved. See [Two skills, not one: how decomposition fixed the sonnet form](/writing/2026/two-skills-not-one-how-decomposition-fixed-the-sonnet-form/) and [Distilling a stronger poet into a 7B model](/writing/2026/distilling-a-stronger-poet-into-a-7b-model/).
+A purpose-built prosody checker, a plan-then-poem decomposition, and LoRA adaptation brought the pipeline to repair-free scheme validity of about two in three outputs, and a licence-cleared distillation experiment raised that result to 0.6917 composed validity while coherence remained unsolved. See [Two skills, not one: how decomposition fixed the sonnet form](/writing/2026/two-skills-not-one-how-decomposition-fixed-the-sonnet-form/) and [Distilling a stronger poet into a 7B model](/writing/2026/distilling-a-stronger-poet-into-a-7b-model/).

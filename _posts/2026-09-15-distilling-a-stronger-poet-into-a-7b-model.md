@@ -13,7 +13,7 @@ toc:
 reading_minutes: 12
 ---
 
-The [previous note](/writing/2026/two-skills-not-one-how-decomposition-fixed-the-sonnet-form/) ends with a clean statement of the problem. The plan-then-poem pipeline writes a well-formed sonnet about two times in three, but the poems are not good: calibrated AI judges score them about 2.8 out of 5, citing grammar and syntax errors in an otherwise convincing archaic register.
+The [transformer-poetry project](/projects/transformer-poetry/) solved the sonnet form but not its coherence: the plan-then-poem pipeline writes a well-formed sonnet about two times in three, and calibrated AI judges score the poems about 2.8 out of 5, citing grammar and syntax errors in an otherwise convincing archaic register.
 
 Large models do not have that problem. A modern hosted model writes grammatical, coherent classical-style Italian — but it does not reliably hold the strict sonnet form, and it is far too large to be a satisfying answer to _can a 7B model be taught this task_. So I tried distillation: let a strong model write the poems, keep only the ones that pass the form checker, and fine-tune the 7B writer on them.
 
@@ -29,15 +29,15 @@ The DeepSeek Open Platform qualifies, in writing. Its Terms of Service (release 
 
 and section 4.2(2) assigns rights in the Outputs to the user. The repository records the provider, the exact model (`deepseek-chat`), the date, the generated volume, the filtering criteria, and the caveats: the terms are governed by PRC law, they forbid implying DeepSeek endorsement or partnership, they require disclosing AI-generated content to end users, and export-control rules apply. No synthetic text is redistributed; only the adapter and aggregate documentation are published.
 
-Three kinds of data came out of it, all filtered by the project's checker before use:
+About 4,300 sonnets were generated in total, and the project checker filtered every one before use. Three kinds of data came out of it:
 
-| Data                                                    | Generated |  Kept | Role                      |
-| ------------------------------------------------------- | --------: | ----: | ------------------------- |
-| Planned-mode sonnets (a lexicon plan was supplied)      |     2,674 | 1,756 | form-following examples   |
-| Free-mode sonnets (no plan)                             |     1,578 |   507 | autonomous-rhyme examples |
-| Grammar repairs of my own valid-but-ungrammatical poems |       592 |   396 | targeted grammar examples |
+| Data                                                    |  Kept | Role                      |
+| ------------------------------------------------------- | ----: | ------------------------- |
+| Planned-mode sonnets (a lexicon plan was supplied)      | 1,756 | form-following examples   |
+| Free-mode sonnets (no plan)                             |   507 | autonomous-rhyme examples |
+| Grammar repairs of my own valid-but-ungrammatical poems |   396 | targeted grammar examples |
 
-The grammar-repair data deserves a note. Instead of asking the teacher for new poems, I handed it my own scheme-valid poems with their rhyme words and asked it to fix the grammar while keeping every line-ending word. 92% of repairs stayed scheme-valid and 91% preserved the endings, so the pairs isolate grammar rather than form.
+The grammar-repair data deserves a note. Instead of asking the teacher for new poems, I handed it my own scheme-valid poems with their rhyme words and asked it to fix the grammar while keeping every line-ending word, so the pairs isolate grammar rather than form.
 
 ## Two fine-tunes, one clear pattern
 
@@ -48,12 +48,11 @@ The grammar-repair data deserves a note. Instead of asking the teacher for new p
 | Metric                              | Before distillation | Run 1 (teacher mix) | Run 2 (grammar focus) |
 | ----------------------------------- | ------------------: | ------------------: | --------------------: |
 | Composed scheme validity, no repair |              0.6250 |              0.6792 |            **0.6917** |
-| Poem validity given a valid plan    |              0.6734 |              0.7318 |                0.7374 |
-| Accepted lines (of 14)              |                7.33 |                7.32 |                  7.33 |
-| Failed lines                        |                1.15 |                0.93 |                  0.93 |
+| Accepted lines (of 14)              |                7.33 |                7.32 |                  7.29 |
+| Failed lines                        |                1.15 |                0.93 |                  0.95 |
 | Judge mean (two judges)             |                2.81 |                2.95 |                  2.82 |
 
-Form improved twice, and the distilled writer is now the best form in the project. Coherence moved once, by +0.15, and then fell back to +0.01.
+Form improved twice, and the distilled writer is now the best form result in the project. Coherence moved once, by +0.145, and then fell back to +0.01.
 
 ## The null result, stated plainly
 
@@ -71,7 +70,7 @@ I stopped the line there rather than keep tuning. The agreed rule was two to thr
 
 The honest options, each a separate decision with its own budget:
 
-- **A larger base.** A 14B model fits one 80 GB GPU with LoRA, and the capacity hypothesis is directly testable.
+- **A larger base.** The capacity hypothesis is directly testable with a larger open model and the same evaluation.
 - **Reinforcement learning with the checker as reward.** Form is a checkable objective; a policy gradient could optimise rhyme and metre jointly instead of imitating examples.
 - **A human literary review.** The judge panels are machines; a small human-rated sample would tell us whether the coherence problem is as severe as the judges say.
 - **Larger-scale, licence-cleared distillation** with a bigger and better-filtered teacher corpus.

@@ -1,8 +1,8 @@
 {
  "schema_version": "sonnet_widget_pool_v1",
  "mode": "pipeline",
- "label": "Plan-then-poem pipeline (2026-09)",
- "note": "Sonnets written by the released plan-then-poem pipeline: a rhyme plan is chosen first and then the poem is written to it, with no repair. Only sonnets whose rhyme scheme and fourteen-line structure pass the project checker are shown.",
+ "label": "Plan-then-poem pipeline, distilled writer (2026-09)",
+ "note": "Sonnets written by the project's final writer, which holds the strongest form result in the project: a rhyme plan is chosen first and then the poem is written to it, with no repair. Only sonnets whose rhyme scheme and fourteen-line structure pass the checker are shown.",
  "count": 664,
  "poems": [
   {

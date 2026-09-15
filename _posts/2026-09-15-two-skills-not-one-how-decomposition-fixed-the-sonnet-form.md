@@ -2,7 +2,7 @@
 layout: post
 title: "Two skills, not one: how decomposition fixed the sonnet form"
 date: 2026-09-15 09:00:00 +0200
-description: A small open model could not hold a rhyme scheme; splitting the task into rhyme planning and poem writing took repair-free scheme validity from 0 of 4,976 to about two in three.
+description: A small open model could not hold a rhyme scheme; splitting the task into rhyme planning and poem writing took repair-free scheme validity to about two in three outputs.
 tags: language-models LoRA planning evaluation open-weights
 categories: [technical-notes]
 technical_kind: note
@@ -13,13 +13,13 @@ toc:
 reading_minutes: 11
 ---
 
-The [transformer-poetry project](/projects/transformer-poetry/) began with an uncomfortable measurement. Across 4,976 sealed outputs from the August 2026 system, **zero** held a valid rhyme scheme, metre, and fourteen-line structure at once. The poems looked like verse. The rhymes did not connect.
+The [transformer-poetry project](/projects/transformer-poetry/) set out to teach a compact open-weight model a strict literary form. The first measurement was uncomfortable: across 4,976 sealed outputs, **zero** held a valid rhyme scheme, metre, and fourteen-line structure at once. The poems looked like verse. The rhymes did not connect.
 
-This note is about the follow-up: what failed, what the failure implied, and how a plan-then-poem decomposition raised repair-free scheme validity to roughly two in three outputs on a frozen evaluation grid.
+This note describes the method that followed: what failed, what the failures implied, and how a plan-then-poem decomposition took repair-free scheme validity to roughly two in three outputs on a frozen evaluation grid.
 
 ## The instrument came first
 
-Changing a model without a measuring device is guesswork, so the follow-up started with the checker: deterministic functions for syllable count and stress (metre), rhyme keys, scheme extraction, and stanza structure. It was validated against public-domain sonnets and reviewed by hand. On definite ground-truth lines the metre accuracy is 100% with 87% coverage, and all ambiguous flags are conservative. A rhyme lexicon of 1,220 keys was built from 228,164 line endings of the training corpus so that rhyme could be planned and verified rather than assumed.
+Changing a model without a measuring device is guesswork, so the work started with the checker: deterministic functions for syllable count and stress (metre), rhyme keys, scheme extraction, and stanza structure. It was validated against public-domain sonnets and reviewed by hand. On definite ground-truth lines the metre accuracy is 100% with 87% coverage, and all ambiguous flags are conservative. A rhyme lexicon of 1,220 keys was built from 228,164 line endings of the training corpus so that rhyme could be planned and verified rather than assumed.
 
 Every experiment below has a pre-registered gate, and every claim is either a checker measurement or a calibrated judge measurement. The checker says nothing about whether a poem is good; it says whether the form holds.
 
@@ -29,7 +29,7 @@ Every experiment below has a pre-registered gate, and every claim is either a ch
 
 **Preference training gave a partial signal.** Verifier-labelled DPO raised accepted lines by 0.767 (95% CI 0.458 to 1.075), but failed lines rose by 1.904. The adapter sharpened outcomes rather than reducing errors, and no output was fully valid. The [DPO note](/writing/2026/a-narrow-win-that-did-not-make-a-good-poet/) covers that experiment.
 
-**Prompting the model to commit to rhymes failed.** Given a list of ending words, adherence was 3.4% key match against 1.4% for a control, and the list itself degraded metre by about 1.2 accepted lines.
+**Prompting the model to commit to rhymes failed.** Given a list of ending words, adherence was 3.4% key match against 1.4% for a control, and the list itself degraded metre by about 1.15 accepted lines.
 
 **Training plan following produced a copier.** On 15,476 plan-plus-sonnet examples the model reached 0.858 key match against a format control, 0.734 against a _mismatched_ plan, and 0.711 against the intended plan. It was copying whichever list was in context. Line 1 adherence was 0.017, because the opening prefill fixes that line before the model writes anything.
 
@@ -60,11 +60,11 @@ The plan generator was trained on 22,522 cards: 11,264 traces derived from real 
 | Plan generator                       | 221 / 240 (0.921) |
 | Plan generator, frozen 960-plan grid | 891 / 960 (0.928) |
 
-**Step two: write to the plan.** A poem writer receives the plan and the opening line and writes the fourteen lines, with no repair. Fine-tuning it on the project's _own_ valid plan-plus-poem outputs was important: it learns the distribution of model-written plans, not only corpus plans. Poem validity given a valid plan rose from 0.518 to 0.793, and the composed rate on the 960-plan grid — plan valid **and** poem scheme-valid without repair — rose from 0.365 to 0.625.
+**Step two: write to the plan.** A poem writer receives the plan and the opening line and writes the fourteen lines, with no repair. Fine-tuning it on the project's _own_ valid plan-plus-poem outputs was important: it learns the distribution of model-written plans, not only corpus plans. Poem validity given a valid plan rose from 0.518 to 0.793, and composed validity on the frozen plan grid reached 0.6250.
 
 ## The temperature surprise
 
-The most practical finding of the whole line was sampling temperature. At 0.85 the plan model was extremely seed-sensitive: on the same 120 openings, one seed produced plans that were valid 35% of the time and another only 26%, while other seeds sat above 90%. At temperature 0.4 the two unlucky seeds recovered to 92.1%, and good seeds reached 92.9%. Plan generation is a short, structured output; sampling noise buys nothing and costs a lot. The frozen plan recipe now uses 0.4.
+The most practical finding of the work was sampling temperature. At 0.85 the plan model was extremely seed-sensitive: on the same 120 openings, one seed produced plans that were valid 35% of the time and another only 26%, while other seeds sat above 90%. At temperature 0.4 the two unlucky seeds recovered to 92.1%, and good seeds reached 92.9%. Plan generation is a short, structured output; sampling noise buys nothing and costs a lot. The frozen plan recipe uses 0.4.
 
 ## Can one model do both?
 
@@ -79,17 +79,16 @@ The single model works and is published as a compact alternative, but the two-mo
 
 | System                               | Composed scheme validity, no repair | Accepted lines | Failed lines |
 | ------------------------------------ | ----------------------------------: | -------------: | -----------: |
-| August 2026 published model          |                           0 / 4,976 |              — |            — |
-| Plan generator + first writer        |                              0.5583 |           7.48 |         1.19 |
+| Initial staged-adaptation system     |                           0 / 4,976 |              — |            — |
 | Plan generator + tuned writer        |                              0.6250 |           7.33 |         1.15 |
-| Plan generator + distilled writer    |                          **0.6917** |           7.33 |         0.93 |
+| Plan generator + distilled writer    |                          **0.6917** |           7.29 |         0.95 |
 | Single model, plan and poem together |                              0.5719 |           7.70 |         1.48 |
 
-Two checks keep the numbers honest. The memorization screen compares every output against the 16,298 training sonnets at the line and five-word-shingle level: **zero copied lines** and a mean five-gram overlap below 0.007 in all conditions. And the checker never gets to grade itself: the same outputs are scored by calibrated AI judges, which is how the coherence limit in the companion note becomes visible.
+Two checks keep the numbers honest. The memorization screens run on the pipeline outputs compare each poem against the 16,298 training sonnets at the line and five-word-shingle level: **zero copied lines** and a mean five-gram overlap below 0.007. And the checker never gets to grade itself: the same outputs are scored by calibrated AI judges.
 
 ## What is still missing
 
-Form is measured and now largely solved: about two in three sonnets hold their scheme with no repair, and the remaining failures are mostly metre or rhyme uncertainty rather than broken structure. Coherence is not solved. The judges put the output at roughly 2.7–2.9 of 5 — readable archaic pastiche with recurring grammar errors — and the next note describes an attempt to fix that with a stronger teacher model, which improved form further but not coherence. That limit, and the decision to stop rather than keep tuning, is the honest end of this line for a 7B model.
+Form is measured and now largely solved: about two in three sonnets hold their scheme with no repair, and the remaining failures are mostly metre or rhyme uncertainty rather than broken structure. Coherence is not solved. The judges put the output at roughly 2.7–2.9 of 5 — readable archaic pastiche with recurring grammar errors — and a separate note in this project describes the distillation attempt that improved form further without fixing coherence. That limit, and the decision to stop rather than keep tuning, is the honest end of the work at 7B.
 
 The checker, lexicon, plans, trainers, and reports are in the [source repository](https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry), and the adapters are in the [Hugging Face release](https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets).
 
