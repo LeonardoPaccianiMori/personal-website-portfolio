@@ -24,12 +24,12 @@ project_actions:
     url: https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets
     style: secondary
     external: true
-  - label: "From 0% to 69%: how decomposition fixed the form"
-    url: /blog/2026/from-zero-to-sixty-nine-percent-decomposition-fixed-the-form/
+  - label: "Two skills, not one: how decomposition fixed the sonnet form"
+    url: /writing/2026/two-skills-not-one-how-decomposition-fixed-the-sonnet-form/
     style: secondary
     external: false
   - label: Distilling a stronger poet into a 7B model
-    url: /blog/2026/distilling-a-stronger-poet-into-a-7b-model/
+    url: /writing/2026/distilling-a-stronger-poet-into-a-7b-model/
     style: secondary
     external: false
 ---
@@ -81,7 +81,7 @@ The two pools below are pre-generated, not live: the widget simply samples from 
 Several approaches failed, and they are part of the result:
 
 - **More full-weight training on the corpus** did not move form.
-- **AI-judged preference training** (DPO) produced a small, real gain on an automatic surface screen, but no fully valid sonnet and no reliable literary gain. The blind review scored 0/100 strict-good outputs for both systems. The [DPO note](/blog/2026/a-narrow-win-that-did-not-make-a-good-poet/) tells that story.
+- **AI-judged preference training** (DPO) produced a small, real gain on an automatic surface screen, but no fully valid sonnet and no reliable literary gain. The blind review scored 0/100 strict-good outputs for both systems. The [DPO note](/writing/2026/a-narrow-win-that-did-not-make-a-good-poet/) tells that story.
 - **Asking the model to commit to rhymes in the prompt** failed: adherence was 3.4% with a plan list, and the list degraded metre.
 - **Training the model to follow a plan** made it copy whichever list was in context — including a mismatched one — rather than choose rhymes.
 - **Letting the model imitate its own valid poems** taught it stanza structure but not rhyme: 57% of its quatrains had eight different ending sounds.
@@ -104,7 +104,7 @@ The task only looks like one skill. It is two: _choosing_ a rhyme plan, and _wri
 
 Along the way, one non-obvious finding mattered: sampling temperature. At 0.85 the plan model was wildly seed-sensitive — two seeds produced plans valid only 26% and 35% of the time. At 0.4, those same seeds recovered to 92%.
 
-The full technique, including the failures that pointed to it, is in [From 0% to 69%: how decomposition fixed the form](/blog/2026/from-zero-to-sixty-nine-percent-decomposition-fixed-the-form/).
+The full technique, including the failures that pointed to it, is in [Two skills, not one: how decomposition fixed the sonnet form](/writing/2026/two-skills-not-one-how-decomposition-fixed-the-sonnet-form/).
 
 ## Pushing form further with distillation
 
@@ -112,7 +112,7 @@ To test whether a stronger poet could be transferred into the small model, I gen
 
 The result was the best form in the project: **0.6917** composed validity, 7.3 of 14 lines accepted, 0.93 failing, and zero copied lines in the memorization screen against the 16,298 training sonnets.
 
-Coherence did not follow. The judges moved from 2.875/2.750 to 3.075/2.825 and then back to 2.917/2.725 — a gain of +0.15 at best against a pre-registered +0.3 gate — while the teacher sonnets themselves score 4.12 and 4.47. Form transfers; coherence does not. That null result is written up in [Distilling a stronger poet into a 7B model](/blog/2026/distilling-a-stronger-poet-into-a-7b-model/), together with the decision to stop the coherence line rather than keep tuning.
+Coherence did not follow. The judges moved from 2.875/2.750 to 3.075/2.825 and then back to 2.917/2.725 — a gain of +0.15 at best against a pre-registered +0.3 gate — while the teacher sonnets themselves score 4.12 and 4.47. Form transfers; coherence does not. That null result is written up in [Distilling a stronger poet into a 7B model](/writing/2026/distilling-a-stronger-poet-into-a-7b-model/), together with the decision to stop the coherence line rather than keep tuning.
 
 ## What this project demonstrates
 
@@ -133,6 +133,6 @@ The models are research artifacts. The checker says nothing about grammar, meani
 
 The [source repository](https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry) contains the checker, lexicon, trainers, plans, reports, and verification instructions. The [Hugging Face release](https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets) contains nine artifacts: the three staged full models and the DPO adapter from the first generation, plus the plan-following adapter, the plan generator, the tuned poem writer, the distilled poem writer (with its licence disclosure), and the single model that writes plan and poem in one pass.
 
-The earlier studies remain part of the record: the [DPO evaluation note](/blog/2026/a-narrow-win-that-did-not-make-a-good-poet/) and the [model-change study](/blog/2026/how-one-7b-italian-language-model-changed-across-staged-adaptation/).
+The earlier studies remain part of the record: the [DPO evaluation note](/writing/2026/a-narrow-win-that-did-not-make-a-good-poet/) and the [model-change study](/writing/2026/how-one-7b-italian-language-model-changed-across-staged-adaptation/).
 
 I conceived and directed the project, set the goals and gates, reviewed the outputs, and made every publication decision. AI assistants (Codex 5.5/5.6 Sol during the first generation, and a Codex harness with DeepSeek and other models during the follow-up) assisted design, implementation, execution, and analysis under my direction.

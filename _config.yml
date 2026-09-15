@@ -81,7 +81,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-permalink: /blog/:year/:title/
+permalink: /writing/:year/:title/
 lsi: false # produce an index for related posts
 
 # Pagination
@@ -134,7 +134,7 @@ kramdown:
       start_line: 1
 
 # Includes & excludes
-include: ["_pages", "_scripts"]
+include: ["_pages", "_scripts", "_redirects"]
 exclude:
   - bin/
   - CONTRIBUTING.md
@@ -212,9 +212,9 @@ jekyll-archives:
   posts:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
     permalinks:
-      year: "/blog/:year/"
-      tags: "/blog/:type/:name/"
-      categories: "/blog/:type/:name/"
+      year: "/writing/:year/"
+      tags: "/writing/:type/:name/"
+      categories: "/writing/:type/:name/"
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 

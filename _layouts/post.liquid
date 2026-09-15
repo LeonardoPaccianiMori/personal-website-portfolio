@@ -60,7 +60,7 @@ layout: default
     {% if tags != '' %}
       <div class="site-tag-list" aria-label="Article tags">
         {% for tag in page.tags %}
-          <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
+          <a href="{{ tag | slugify | prepend: '/writing/tag/' | relative_url }}">{{ tag }}</a>
         {% endfor %}
       </div>
     {% endif %}

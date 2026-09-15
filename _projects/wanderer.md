@@ -46,7 +46,7 @@ I developed Wanderer over a few afternoons as an experiment in directing and rev
 
 The process required more than describing the desired visual result. Interaction details, physical assumptions, and failure cases all needed explicit review. The project includes dependency-free tests for force symmetry, centre of mass, collision conservation, and numerical integration, so its core behaviour can be checked outside the visual simulation.
 
-I discuss that division of work in [What I mean when I say I built something with AI](/blog/2026/what-i-mean-when-i-say-i-built-something-with-ai/).
+I discuss that division of work in [What I mean when I say I built something with AI](/writing/2026/what-i-mean-when-i-say-i-built-something-with-ai/).
 
 ## Physics that can be played with
 

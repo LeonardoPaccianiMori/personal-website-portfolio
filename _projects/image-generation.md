@@ -25,7 +25,7 @@ project_actions:
     style: secondary
     external: true
   - label: Read technical appendix
-    url: /blog/2025/image-generation-deep-dive/
+    url: /writing/2025/image-generation-deep-dive/
     style: secondary
     external: false
 ---
@@ -107,4 +107,4 @@ The smaller CNN offered a useful tradeoff: slightly lower accuracy for roughly h
 
 The classifier comparison used one deterministic split and seed. Generator variants changed several choices together, so the comparison does not isolate their effects. Original generator timings came from a GeForce RTX 3060 laptop GPU; classifier timings came from the later CPU audit. Neither the timings nor the architecture ranking should be treated as a benchmark for other hardware or image domains.
 
-The [technical appendix](/blog/2025/image-generation-deep-dive/) retains all 17 architecture diagrams, result tables, and training records. The [public repository](https://github.com/LeonardoPaccianiMori/portfolio-image-generation) contains code and evidence from the later audit.
+The [technical appendix](/writing/2025/image-generation-deep-dive/) retains all 17 architecture diagrams, result tables, and training records. The [public repository](https://github.com/LeonardoPaccianiMori/portfolio-image-generation) contains code and evidence from the later audit.

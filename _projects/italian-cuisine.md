@@ -22,7 +22,7 @@ project_actions:
     style: primary
     external: true
   - label: Read technical appendix
-    url: /blog/2026/italian-cuisine-deep-dive/
+    url: /writing/2026/italian-cuisine-deep-dive/
     style: secondary
     external: false
 ---
@@ -107,4 +107,4 @@ I implemented the project from source extraction through the graphs, analysis, m
 
 The results depend on curated sources and an extraction process that can introduce errors. The classification comparison used one fixed split, and I did not run a flat-feature baseline, so the results do not establish stability across other splits or seeds, or that graphs were a better input than ingredient lists. Contemporary recipe text, derived recipe-level data, model checkpoints, and splits are excluded from the public repositories.
 
-The public source contains code and aggregate outputs; retained Artusi material follows its source terms. Read [why I used recipe graphs](/blog/2025/why-graphs-for-recipes/) for the representation decision, [the visualization note](/blog/2025/visualizing-italian-cuisine/) for the geographic views, or the [technical appendix](/blog/2026/italian-cuisine-deep-dive/) for extraction and evaluation details.
+The public source contains code and aggregate outputs; retained Artusi material follows its source terms. Read [why I used recipe graphs](/writing/2025/why-graphs-for-recipes/) for the representation decision, [the visualization note](/writing/2025/visualizing-italian-cuisine/) for the geographic views, or the [technical appendix](/writing/2026/italian-cuisine-deep-dive/) for extraction and evaluation details.

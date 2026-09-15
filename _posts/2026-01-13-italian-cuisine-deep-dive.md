@@ -18,7 +18,7 @@ toc:
 
 This is the technical appendix to my [Italian cuisine project](/projects/italian-cuisine/). The project treated recipes as both source texts and structured processes. That required three connected decisions: how to extract a consistent schema from prose, how to represent relationships and sequence, and how to evaluate geographic patterns without treating a curated corpus as a measurement of Italian cooking itself.
 
-The appendix follows that path from extraction to graph modelling. Two focused notes separately explain [why I represented recipes as graphs](/blog/2025/why-graphs-for-recipes/) and [how I designed the principal geographic visualizations](/blog/2025/visualizing-italian-cuisine/).
+The appendix follows that path from extraction to graph modelling. Two focused notes separately explain [why I represented recipes as graphs](/writing/2025/why-graphs-for-recipes/) and [how I designed the principal geographic visualizations](/writing/2025/visualizing-italian-cuisine/).
 
 ## Data and public boundary
 
@@ -41,7 +41,7 @@ I therefore treat the aggregate findings as directional evidence and look for pa
 
 Neo4j stored the richer recipe graph, including ingredients, tools, steps, intermediate products, and sequence. That structure supported inspection and querying during development.
 
-The heterogeneous Graph Attention Network used a narrower model graph containing recipe, ingredient, and step nodes. This distinction matters: the public interactive graph shows more structure than the classifier consumed. The focused [graph-representation note](/blog/2025/why-graphs-for-recipes/) explains why I chose this approach and why the project does not establish that graphs outperform a flat baseline.
+The heterogeneous Graph Attention Network used a narrower model graph containing recipe, ingredient, and step nodes. This distinction matters: the public interactive graph shows more structure than the classifier consumed. The focused [graph-representation note](/writing/2025/why-graphs-for-recipes/) explains why I chose this approach and why the project does not establish that graphs outperform a flat baseline.
 
 ## Historical and contemporary comparison
 
@@ -86,7 +86,7 @@ The next view isolates ingredients found only in one dataset. “New” and “d
 
 ## Selected regional patterns
 
-I then focused on the contemporary corpus. The complete visualization discussion lives in [the focused visualization note](/blog/2025/visualizing-italian-cuisine/); this appendix retains the views most relevant to the later modelling result.
+I then focused on the contemporary corpus. The complete visualization discussion lives in [the focused visualization note](/writing/2025/visualizing-italian-cuisine/); this appendix retains the views most relevant to the later modelling result.
 
 ### The olive-oil and butter comparison
 
@@ -99,7 +99,7 @@ Olive oil appears more frequently in Central and Southern recipes in the corpus,
 {% include plotly/italian-cuisine/olive-oil-butter-divide.json %}
 ```
 
-Other retained analyses examined regional similarity, corpus-distinctive ingredients, tomato, cheese, seafood, and the pasta–rice–polenta balance. Their charts remain in the repository, while the focused [visualization note](/blog/2025/visualizing-italian-cuisine/) explains the main design decisions without repeating the full gallery here.
+Other retained analyses examined regional similarity, corpus-distinctive ingredients, tomato, cheese, seafood, and the pasta–rice–polenta balance. Their charts remain in the repository, while the focused [visualization note](/writing/2025/visualizing-italian-cuisine/) explains the main design decisions without repeating the full gallery here.
 
 ## Graph classification
 

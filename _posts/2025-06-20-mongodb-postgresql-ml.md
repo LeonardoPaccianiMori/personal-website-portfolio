@@ -39,4 +39,4 @@ I moved those stable fields to a normalized PostgreSQL warehouse. MongoDB remain
 
 I would keep the flexible start and the later relational layer. The useful signal was the repeated work: the source fields were already understood, yet I kept preparing them again for analysis. A stable schema gave those transformations a lasting home and made the same prepared fields available to the model and dashboard.
 
-The [technical appendix](/blog/2025/italian-real-estate-deep-dive/) follows the full collection, extraction, and modelling process. The [synthetic-data note](/blog/2025/synthetic-data-ctgan/) covers the next decision: preserving useful relationships in the study dataset.
+The [technical appendix](/writing/2025/italian-real-estate-deep-dive/) follows the full collection, extraction, and modelling process. The [synthetic-data note](/writing/2025/synthetic-data-ctgan/) covers the next decision: preserving useful relationships in the study dataset.

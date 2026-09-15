@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "From 0% to 69%: how decomposition fixed the form"
+title: "Two skills, not one: how decomposition fixed the sonnet form"
 date: 2026-09-15 09:00:00 +0200
 description: A small open model could not hold a rhyme scheme; splitting the task into rhyme planning and poem writing took repair-free scheme validity from 0 of 4,976 to about two in three.
 tags: language-models LoRA planning evaluation open-weights
@@ -27,7 +27,7 @@ Every experiment below has a pre-registered gate, and every claim is either a ch
 
 **More full-weight training did not move form.** The corrected V8 corpus retrain passed its retention gate and changed nothing measurable: accepted hendecasyllables differed by −0.225 (95% CI −0.578 to +0.128).
 
-**Preference training gave a partial signal.** Verifier-labelled DPO raised accepted lines by 0.767 (95% CI 0.458 to 1.075), but failed lines rose by 1.904. The adapter sharpened outcomes rather than reducing errors, and no output was fully valid. The [DPO note](/blog/2026/a-narrow-win-that-did-not-make-a-good-poet/) covers that experiment.
+**Preference training gave a partial signal.** Verifier-labelled DPO raised accepted lines by 0.767 (95% CI 0.458 to 1.075), but failed lines rose by 1.904. The adapter sharpened outcomes rather than reducing errors, and no output was fully valid. The [DPO note](/writing/2026/a-narrow-win-that-did-not-make-a-good-poet/) covers that experiment.
 
 **Prompting the model to commit to rhymes failed.** Given a list of ending words, adherence was 3.4% key match against 1.4% for a control, and the list itself degraded metre by about 1.2 accepted lines.
 

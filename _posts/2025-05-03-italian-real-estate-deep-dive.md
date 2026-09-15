@@ -46,7 +46,7 @@ BeautifulSoup extracted pricing, property characteristics, building and energy i
 
 Repeated analysis and feature transformations later made a relational model more useful. I moved the stable structured fields to a normalized PostgreSQL warehouse and left listing descriptions behind. A local LibreTranslate service, an SQLite translation cache, and a custom real-estate dictionary converted recurring Italian categorical values to English without translating the same value again.
 
-The [database note](/blog/2025/mongodb-postgresql-ml/) explains the repeated preparation work that prompted this change.
+The [database note](/writing/2025/mongodb-postgresql-ml/) explains the repeated preparation work that prompted this change.
 
 ## Synthetic data
 
@@ -75,4 +75,4 @@ The reusable public code is available on [GitHub](https://github.com/LeonardoPac
 
 Source and synthetic row-level data, credentials, and the live collection implementation remain excluded. The public material does not independently reproduce the historical metrics, authorize collection from the source, or provide investment advice.
 
-For the decisions behind two stages, read [why CTGAN was rejected](/blog/2025/synthetic-data-ctgan/) and [when the cleaned data moved to PostgreSQL](/blog/2025/mongodb-postgresql-ml/).
+For the decisions behind two stages, read [why CTGAN was rejected](/writing/2025/synthetic-data-ctgan/) and [when the cleaned data moved to PostgreSQL](/writing/2025/mongodb-postgresql-ml/).

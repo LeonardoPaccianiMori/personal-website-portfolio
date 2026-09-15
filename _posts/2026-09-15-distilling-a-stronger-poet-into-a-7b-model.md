@@ -13,7 +13,7 @@ toc:
 reading_minutes: 12
 ---
 
-The [previous note](/blog/2026/from-zero-to-sixty-nine-percent-decomposition-fixed-the-form/) ends with a clean statement of the problem. The plan-then-poem pipeline writes a well-formed sonnet about two times in three, but the poems are not good: calibrated AI judges score them about 2.8 out of 5, citing grammar and syntax errors in an otherwise convincing archaic register.
+The [previous note](/writing/2026/two-skills-not-one-how-decomposition-fixed-the-sonnet-form/) ends with a clean statement of the problem. The plan-then-poem pipeline writes a well-formed sonnet about two times in three, but the poems are not good: calibrated AI judges score them about 2.8 out of 5, citing grammar and syntax errors in an otherwise convincing archaic register.
 
 Large models do not have that problem. A modern hosted model writes grammatical, coherent classical-style Italian — but it does not reliably hold the strict sonnet form, and it is far too large to be a satisfying answer to _can a 7B model be taught this task_. So I tried distillation: let a strong model write the poems, keep only the ones that pass the form checker, and fine-tune the 7B writer on them.
 

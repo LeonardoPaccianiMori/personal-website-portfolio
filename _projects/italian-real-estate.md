@@ -23,7 +23,7 @@ project_actions:
     style: secondary
     external: true
   - label: Read technical appendix
-    url: /blog/2025/italian-real-estate-deep-dive/
+    url: /writing/2025/italian-real-estate-deep-dive/
     style: secondary
     external: false
 ---
@@ -62,7 +62,7 @@ The dashboard works best on a desktop or tablet. You can compare sale and auctio
 
 I used Airflow to divide collection by province and listing type, so a failed task could be retried without restarting the complete collection. MongoDB held the source documents while extraction was still changing. Once I was repeatedly preparing the same fields for analysis, I moved the cleaned data into PostgreSQL.
 
-Generating the study data required another choice. In the original study, the tested CTGAN output distorted geographic price relationships, so I developed a generator based on nearby records. The [synthetic-data note](/blog/2025/synthetic-data-ctgan/) documents that historical comparison and its reproducibility limits. A Random Forest then estimated rental income from property features, and the dashboard connected those estimates to purchase and financing assumptions.
+Generating the study data required another choice. In the original study, the tested CTGAN output distorted geographic price relationships, so I developed a generator based on nearby records. The [synthetic-data note](/writing/2025/synthetic-data-ctgan/) documents that historical comparison and its reproducibility limits. A Random Forest then estimated rental income from property features, and the dashboard connected those estimates to purchase and financing assumptions.
 
 These decisions linked the stages of the project: the data had to retain the relationships the model would use, and the dashboard had to expose the assumptions that changed the estimated returns.
 
@@ -76,4 +76,4 @@ These findings depend on the synthetic data and the assumptions in the dashboard
 
 The source is an early-2025 snapshot and is now outdated. The custom generator was designed to retain broad distributions and correlations; it was not evaluated as a formal privacy guarantee. Neither source listings nor synthetic rows are distributed, and the public repository excludes the live collection implementation.
 
-For the engineering details, read the [technical appendix](/blog/2025/italian-real-estate-deep-dive/). The [CTGAN note](/blog/2025/synthetic-data-ctgan/) explains the failed synthetic-data comparison, while the [database note](/blog/2025/mongodb-postgresql-ml/) explains when the cleaned data outgrew its document store.
+For the engineering details, read the [technical appendix](/writing/2025/italian-real-estate-deep-dive/). The [CTGAN note](/writing/2025/synthetic-data-ctgan/) explains the failed synthetic-data comparison, while the [database note](/writing/2025/mongodb-postgresql-ml/) explains when the cleaned data outgrew its document store.
