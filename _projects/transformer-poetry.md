@@ -135,4 +135,4 @@ The [source repository](https://github.com/LeonardoPaccianiMori/portfolio-transf
 
 The earlier studies remain part of the record: the [DPO evaluation note](/writing/2026/a-narrow-win-that-did-not-make-a-good-poet/) and the [model-change study](/writing/2026/how-one-7b-italian-language-model-changed-across-staged-adaptation/).
 
-I conceived and directed the project, set the goals and gates, reviewed the outputs, and made every publication decision. AI assistants (Codex 5.5/5.6 Sol during the first generation, and a Codex harness with DeepSeek and other models during the follow-up) assisted design, implementation, execution, and analysis under my direction.
+I conceived and directed the project, set the goals and gates, reviewed the outputs, and made every publication decision. AI assistants (Codex 5.5/5.6 Sol and opencode with DeepSeek and other models) assisted design, implementation, execution, and analysis under my direction.

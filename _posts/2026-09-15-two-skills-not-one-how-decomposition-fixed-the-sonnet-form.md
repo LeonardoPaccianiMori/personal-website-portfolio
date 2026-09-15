@@ -96,7 +96,7 @@ The checker, lexicon, plans, trainers, and reports are in the [source repository
 ---
 
 _AI contribution and provenance: I conceived and directed the project, set its goals and
-gates, reviewed the outputs, and made every publication decision. Codex 5.5/5.6 Sol and a
-Codex harness using DeepSeek and other models assisted design, implementation, execution,
+gates, reviewed the outputs, and made every publication decision. Codex 5.5/5.6 Sol and
+opencode with DeepSeek and other models assisted design, implementation, execution,
 and analysis under my direction. The detailed task-level record is in `AI_CONTRIBUTIONS.md`
 in the project repository._
