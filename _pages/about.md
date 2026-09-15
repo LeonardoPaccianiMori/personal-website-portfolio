@@ -2,7 +2,7 @@
 layout: about
 title: home
 permalink: /
-description: Senior Data Scientist building AI applications, with experience in predictive modelling, data analysis, and experimental research.
+description: Senior Data Scientist building AI applications, with experience in data analysis and experimental research.
 ---
 
 <section class="career-hero" aria-labelledby="career-hero-title">
@@ -17,8 +17,7 @@ description: Senior Data Scientist building AI applications, with experience in 
       understand what needs to change.
     </p>
     <p class="career-hero__capabilities">
-      LLM and agentic applications · predictive modelling · geospatial
-      analysis — built and run on GCP
+      LLM and agentic applications · geospatial analysis — built and run on GCP
     </p>
     <div class="career-actions" aria-label="Primary links">
       <a class="career-button career-button--primary" href="#selected-work">
@@ -100,8 +99,9 @@ description: Senior Data Scientist building AI applications, with experience in 
     <h2 id="background-title">From research to industry</h2>
     <p>
       Before moving into industry, I completed a PhD in physics at the University
-      of Padua and spent four years doing experimental biophysics research at
-      UC San Diego.
+      of Padua, with a visiting fellowship at Harvard’s Physics Department, and
+      spent four years doing experimental biophysics research at UC San Diego,
+      where I won a competitive three-year fellowship from the Simons Foundation.
     </p>
     <p>
       Experiments taught me to question how data was collected and how much a
