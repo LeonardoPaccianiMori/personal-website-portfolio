@@ -83,3 +83,11 @@ None of these is a small change, and none is obviously going to fix coherence. T
 Two things transfer beyond this project. First, the licence discipline: the difference between "a model wrote this" and "a model's terms allow me to train on this" is the difference between a demo and a publishable result, and it is checkable in an afternoon. Second, the shape of the result: distillation reliably improved the _measurable_ objective (form, +0.067 composed validity) and failed on the objective that motivated it (coherence, +0.01). A project that reports both numbers is more useful than one that reports the first.
 
 The teacher corpus stays private, the adapters and aggregate documentation are in the [Hugging Face release](https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets) (the distilled adapter carries the licence disclosure), and the checker, plans, trainers, and reports are in the [source repository](https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry).
+
+---
+
+_AI contribution and provenance: I conceived and directed the project, set its goals and
+gates, reviewed the outputs, and made every publication decision. Codex 5.5/5.6 Sol and a
+Codex harness using DeepSeek and other models assisted design, implementation, execution,
+and analysis under my direction. The detailed task-level record is in `AI_CONTRIBUTIONS.md`
+in the project repository._

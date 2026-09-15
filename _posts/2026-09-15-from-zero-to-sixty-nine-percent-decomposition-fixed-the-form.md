@@ -92,3 +92,11 @@ Two checks keep the numbers honest. The memorization screen compares every outpu
 Form is measured and now largely solved: about two in three sonnets hold their scheme with no repair, and the remaining failures are mostly metre or rhyme uncertainty rather than broken structure. Coherence is not solved. The judges put the output at roughly 2.7–2.9 of 5 — readable archaic pastiche with recurring grammar errors — and the next note describes an attempt to fix that with a stronger teacher model, which improved form further but not coherence. That limit, and the decision to stop rather than keep tuning, is the honest end of this line for a 7B model.
 
 The checker, lexicon, plans, trainers, and reports are in the [source repository](https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry), and the adapters are in the [Hugging Face release](https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets).
+
+---
+
+_AI contribution and provenance: I conceived and directed the project, set its goals and
+gates, reviewed the outputs, and made every publication decision. Codex 5.5/5.6 Sol and a
+Codex harness using DeepSeek and other models assisted design, implementation, execution,
+and analysis under my direction. The detailed task-level record is in `AI_CONTRIBUTIONS.md`
+in the project repository._

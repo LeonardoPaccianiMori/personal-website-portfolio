@@ -19,7 +19,7 @@ The [transformer-poetry project](/projects/transformer-poetry/) reached a point 
 
 It used Direct Preference Optimization (DPO), which trains a model to favour one response over another. AI judges supplied the preferences. On the final held-back test, the pass rate for an automatic check rose from 15.07% to 17.60%. Yet neither system produced a poem that passed the strict quality criterion in a separate AI-based blind review.
 
-I directed the project and reviewed its outputs; Codex substantially assisted the design, implementation, and analysis. This note follows the choices that made the gap between the automatic score and the poetry visible.
+I directed the project and reviewed its outputs; Codex assisted the design, implementation, and analysis under my direction. This note follows the choices that made the gap between the automatic score and the poetry visible.
 
 ## The starting model and training target
 
@@ -212,7 +212,7 @@ At publication, the public source includes the DPO implementation, frozen config
 
 The public checks run on a CPU and verify software behaviour and the recorded aggregate evidence. They do not repeat the historical H100 run or automatically download and run the separately hosted weights.
 
-I conceived and directed the project, defined its goals, made executive decisions, approved the research plan, reviewed outputs, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol helped design the plan and substantially assisted implementation, tests, execution, and analysis. The work is therefore not independently designed or independently implemented by me.
+I conceived and directed the project, set its goals and gates, approved the plan, reviewed the outputs, and made every publication decision. Codex 5.5 and later Codex 5.6 Sol helped design the plan and assisted implementation, tests, execution, and analysis under my direction.
 
 The complete dual-arc project is summarized in [Teaching transformers to write classical Italian sonnets]({% link _projects/transformer-poetry.md %}); the companion note examines [how the retained 7B model states changed across the three adaptation stages]({% post_url 2026-08-26-how-one-7b-italian-language-model-changed-across-staged-adaptation %}).
 

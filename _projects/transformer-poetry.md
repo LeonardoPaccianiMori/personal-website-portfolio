@@ -12,7 +12,7 @@ card_role: Research direction; substantial AI assistance
 project_overview:
   status: Completed, with a September 2026 follow-up
   period: May–September 2026
-  role: I conceived and directed the project; AI assistants substantially assisted design, implementation, and execution under my review
+  role: I conceived and directed the project; AI assistants assisted design, implementation, and execution under my direction
   outcome: The August 2026 system produced 0 of 4,976 form-valid sonnets. The September 2026 plan-then-poem pipeline reaches 0.6250–0.6917 composed scheme validity without repair, with about 7.3 of 14 lines accepted as hendecasyllables. Coherence remains the documented limit at roughly 2.7–2.9 of 5 under calibrated AI judges.
   evidence: Public GitHub source, reports, and verification; the Hugging Face release with nine artifacts; the prosody checker and rhyme lexicon; and this page's pre-generated poem explorer
 project_actions:
@@ -135,4 +135,4 @@ The [source repository](https://github.com/LeonardoPaccianiMori/portfolio-transf
 
 The earlier studies remain part of the record: the [DPO evaluation note](/blog/2026/a-narrow-win-that-did-not-make-a-good-poet/) and the [model-change study](/blog/2026/how-one-7b-italian-language-model-changed-across-staged-adaptation/).
 
-I conceived and directed the project, set the goals and gates, reviewed the outputs, and made every decision about what to publish. AI assistants (Codex 5.5/5.6 Sol during the first generation, and a Codex harness with DeepSeek and other models during the follow-up) substantially assisted design, implementation, execution, and analysis. The work is not independently designed or independently implemented by me.
+I conceived and directed the project, set the goals and gates, reviewed the outputs, and made every publication decision. AI assistants (Codex 5.5/5.6 Sol during the first generation, and a Codex harness with DeepSeek and other models during the follow-up) assisted design, implementation, execution, and analysis under my direction.

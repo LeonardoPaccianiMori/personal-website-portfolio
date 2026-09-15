@@ -19,7 +19,7 @@ The [transformer-poetry project](/projects/transformer-poetry/) retained model s
 
 Most measured movement happened during the first, broad adaptation to historical and literary Italian. Later poetry and sonnet stages moved less. To examine that pattern, the study compared prediction errors, model weights, and internal representations of text.
 
-I directed the project and reviewed the evidence; Codex substantially assisted the research design, implementation, and analysis. The study describes one training sequence and a limited set of text probes. It does not identify which changes caused a particular behaviour.
+I directed the project and reviewed the evidence; Codex assisted the research design, implementation, and analysis under my direction. The study describes one training sequence and a limited set of text probes. It does not identify which changes caused a particular behaviour.
 
 ## What was saved during training
 
@@ -183,7 +183,7 @@ At publication, the public source repository includes the pinned state registry,
 
 The checkpoint and data boundary is intentional. The selected full BF16 stage weights are available through that model release, but intermediate states, raw probe tensors, raw generations, poems and openings used in evaluation, private mappings, and annotations are not embedded in this note or its charts and remain unpublished.
 
-I conceived and directed the project, chose its learning and research goals, made executive decisions, approved the plan, reviewed outputs, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol helped design the research plan and substantially assisted implementation, tests, execution, and analysis. I do not describe the study as independently designed or independently implemented by me.
+I conceived and directed the project, set its learning and research goals and gates, approved the plan, reviewed the outputs, and made every publication decision. Codex 5.5 and later Codex 5.6 Sol helped design the research plan and assisted implementation, tests, execution, and analysis under my direction.
 
 The broader project and its final failure boundary are summarized in [Teaching transformers to write classical Italian sonnets]({% link _projects/transformer-poetry.md %}).
 
