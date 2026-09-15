@@ -1,20 +1,20 @@
 ---
 layout: page
 title: Teaching transformers to write classical Italian sonnets
-description: Building and adapting language models for Italian sonnets, then testing whether better model scores meant better poetry
+description: From 0 of 4,976 form-valid sonnets to a plan-then-poem pipeline that holds the rhyme scheme without repair, and an honest account of the coherence that still does not transfer
 img: assets/img/projects/transformer-poetry/transformer-poetry-thumbnail.webp
 importance: 0
 category: experimental
 github: https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry
 chart:
   plotly: true
-card_role: Research direction; substantial Codex assistance
+card_role: Research direction; substantial AI assistance
 project_overview:
-  status: Completed
-  period: May–August 2026
-  role: I conceived and directed the project; Codex substantially assisted design and implementation
-  outcome: Adapted and evaluated an Italian language model; an automatic check improved, but both final systems scored 0/100 on the strict poetry-quality criterion in an AI-based blind review.
-  evidence: GitHub v1.0.0, the Hugging Face model release, and two technical notes; raw data and outputs remain excluded.
+  status: Completed, with a September 2026 follow-up
+  period: May–September 2026
+  role: I conceived and directed the project; AI assistants substantially assisted design, implementation, and execution under my review
+  outcome: The August 2026 system produced 0 of 4,976 form-valid sonnets. The September 2026 plan-then-poem pipeline reaches 0.6250–0.6917 composed scheme validity without repair, with about 7.3 of 14 lines accepted as hendecasyllables. Coherence remains the documented limit at roughly 2.7–2.9 of 5 under calibrated AI judges.
+  evidence: Public GitHub source, reports, and verification; the Hugging Face release with nine artifacts; the prosody checker and rhyme lexicon; and this page's pre-generated poem explorer
 project_actions:
   - label: View source
     url: https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry
@@ -24,12 +24,12 @@ project_actions:
     url: https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets
     style: secondary
     external: true
-  - label: Read the DPO evaluation
-    url: /blog/2026/a-narrow-win-that-did-not-make-a-good-poet/
+  - label: "From 0% to 69%: how decomposition fixed the form"
+    url: /blog/2026/from-zero-to-sixty-nine-percent-decomposition-fixed-the-form/
     style: secondary
     external: false
-  - label: Read the model-change study
-    url: /blog/2026/how-one-7b-italian-language-model-changed-across-staged-adaptation/
+  - label: Distilling a stronger poet into a 7B model
+    url: /blog/2026/distilling-a-stronger-poet-into-a-7b-model/
     style: secondary
     external: false
 ---
@@ -43,52 +43,96 @@ project_actions:
   Manuscript photograph from <a href="https://pxhere.com/en/photo/795701">PxHere</a>, where it is marked CC0. Cropped and converted to WebP for this page; used as a thematic image, not as a claim about the project's textual sources.
 </div>
 
-## Can a language model learn to write a sonnet?
+## The wall
 
-I directed this project to explore language-model training and adaptation through classical Italian poetry. It followed two paths: building a compact transformer from scratch, and adapting an existing Italian model through historical prose, poetry, and sonnets.
+A sonnet has rules: fourteen lines, a fixed rhyme scheme, and — in Italian — hendecasyllable metre. I wanted to know whether a small open-weight language model could be adapted to write them.
 
-The final test exposed a gap between the numbers and the poems: an additional training step improved an automatic check for visible defects, while poem quality did not improve with it. That gap shaped what the project could claim.
+The published August 2026 system could not. When 4,976 sealed outputs were scored with a purpose-built prosody checker, **not one** held a valid rhyme scheme, metre, and fourteen-line structure at the same time. The model wrote plausible-looking Italian verse whose rhymes did not connect.
 
-## My role and the AI contribution
+That number, not a feeling, is where this project starts. It is also the kind of number most generative-AI demos avoid.
 
-I conceived and directed the project, set its goals, approved the research plan, reviewed outputs, made decisions, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol substantially assisted research design, implementation, tests, execution, and analysis.
+## Measure first
 
-My contribution was research direction and review; this was not independently designed or implemented by me.
+Before changing the model, I built the instrument: a deterministic checker for metre, rhyme, rhyme scheme, and stanza structure, validated against public-domain sonnets (100% metre accuracy on definite ground-truth lines, 87% coverage) with the conservative flags reviewed by hand. Alongside it sits a rhyme lexicon of 1,220 keys extracted from 228,164 line endings of the training corpus.
 
-## Two branches, different questions
+Where form alone cannot judge, a calibrated AI judge panel scores grammar, continuity, and imagery. The panel is validated by separating clean sonnets from corrupted ones; on the corpus calibration its separation is about 1.2–1.9 points on a 1–5 scale. It is evidence, not literary truth, and the checker never claims to measure quality.
 
-The compact model had roughly 70 million parameters and was trained from scratch. It made tokenization, attention, training, checkpointing, and decoding available for inspection. A parameter-matched, one-seed comparison favoured SwiGLU over ReLU on validation loss and repetition, but its generated samples remained weak. The full comparison is retained in the public project reports.
+## Try the explorer
 
-The other branch started from the existing Minerva 7B model, with seven billion parameters. It was adapted rather than pretrained from scratch. This branch asked whether staged adaptation and a small preference update could improve sonnets. Direct Preference Optimization (DPO) trains a model to favour one response over another. Here, three AI judges supplied those preferences. Their majority agreed with my separate 20-pair review only 12 times, failing the planned calibration gate. I therefore call the method AI-judged DPO, not human-aligned training.
+The two pools below are pre-generated, not live: the widget simply samples from saved outputs, so the page stays static and free to host.
 
-## An improvement with a clear limit
-
-```plotly
-{% include plotly/transformer-poetry/sealed-test-automatic-outcomes.json %}
-```
-
-<div class="caption">
-  Automatic rates across all sealed openings, seeds, and systems. Fourteen-line output was decoder-controlled, and punctuation is not genuine closure.
+<div markdown="0">
+<div id="sonnet-generator" class="my-4 p-3 border rounded">
+  <noscript>Enable JavaScript to try the poem explorer.</noscript>
+</div>
+<script src="{{ '/assets/js/sonnet-explorer.js' | relative_url }}"></script>
+<style>
+  .sonnet-poem { line-height: 1.5; }
+  .sonnet-line { white-space: pre-wrap; }
+</style>
 </div>
 
-The automatic surface screen checked for meta-text and terminal punctuation. DPO raised its pass rate from 15.07% to 17.60%. The gain was 2.53 percentage points, with a paired 95% interval from 0.52 to 4.50. Terminal punctuation also increased, while the interval for avoiding meta-text crossed zero.
+<div class="caption">
+  Poems are generated by the project's own models, saved in advance, and shown at random. Only deterministic checker measurements are displayed for each poem. No text leaves your browser.
+</div>
 
-That was the narrow win. The separate AI-based blind review told a less encouraging story. Only the historical-register interval excluded zero; differences in grammar, poetic quality, sonnet form, volta, and visible completion remained uncertain. Both systems produced 0 out of 100 strict-good outputs.
+## What did not work
 
-The [DPO evaluation note](/blog/2026/a-narrow-win-that-did-not-make-a-good-poet/) explains why a repeatable automatic improvement did not support a good-poet claim.
+Several approaches failed, and they are part of the result:
 
-## Looking inside the adapted model
+- **More full-weight training on the corpus** did not move form.
+- **AI-judged preference training** (DPO) produced a small, real gain on an automatic surface screen, but no fully valid sonnet and no reliable literary gain. The blind review scored 0/100 strict-good outputs for both systems. The [DPO note](/blog/2026/a-narrow-win-that-did-not-make-a-good-poet/) tells that story.
+- **Asking the model to commit to rhymes in the prompt** failed: adherence was 3.4% with a plan list, and the list degraded metre.
+- **Training the model to follow a plan** made it copy whichever list was in context — including a mismatched one — rather than choose rhymes.
+- **Letting the model imitate its own valid poems** taught it stanza structure but not rhyme: 57% of its quatrains had eight different ending sounds.
+- **Giving the model examples in context** changed nothing measurable, so prompt context was closed as a coherence fix.
 
-The saved model states showed that most measured parameter and representation change happened during the first broad adaptation stage. Later poetry and sonnet stages produced smaller movements. Measures of weight drift, representation similarity, and neighbouring tokens can describe where change occurred, but they cannot explain its cause. The [model-change study](/blog/2026/how-one-7b-italian-language-model-changed-across-staged-adaptation/) presents the full analysis.
+## The breakthrough: plan, then write
 
-## What the experiment can support
+The task only looks like one skill. It is two: _choosing_ a rhyme plan, and _writing_ to it. The 7B model could not do both at once — but it could do each separately.
 
-Validation selected the candidate before a one-time sealed comparison used 1,244 held-back openings, two seeds, and both systems. The separate AI blind review covered 100 outputs per system and was not an independent human literary panel.
+1. A **plan generator** writes a rhyme plan: a fourteen-letter scheme plus one ending word for each of lines 2–14. Trained on corpus traces and lexicon-augmented plans, it reaches **0.921** valid plans (221/240), against 0/240 for the unadapted baseline.
+2. A **poem writer** receives that plan and writes the sonnet to it, with no repair step.
 
-The result is useful as an evaluation study: a repeatable gain on an automatic check can coexist with failure on the quality criterion that motivated the work. The small-model comparison used one seed, model-state analysis was descriptive, and surface memorization checks cannot detect all recall or unknown overlap in a pretrained corpus.
+| System                                         | Composed scheme validity, no repair |
+| ---------------------------------------------- | ----------------------------------: |
+| August 2026 published model                    |                           0 / 4,976 |
+| Plan generator + first poem writer             |                              0.5583 |
+| Plan generator + tuned poem writer             |                              0.6250 |
+| Plan generator + distilled poem writer         |                          **0.6917** |
+| Single model writing plan and poem in one pass |                              0.5719 |
+
+Along the way, one non-obvious finding mattered: sampling temperature. At 0.85 the plan model was wildly seed-sensitive — two seeds produced plans valid only 26% and 35% of the time. At 0.4, those same seeds recovered to 92%.
+
+The full technique, including the failures that pointed to it, is in [From 0% to 69%: how decomposition fixed the form](/blog/2026/from-zero-to-sixty-nine-percent-decomposition-fixed-the-form/).
+
+## Pushing form further with distillation
+
+To test whether a stronger poet could be transferred into the small model, I generated about 4,300 sonnets with the third-party **DeepSeek `deepseek-chat`** API, kept only checker-valid ones, and fine-tuned the poem writer on them. The provider's terms explicitly permit using outputs to train other models, including distillation, and the repository records the provider, model, date, volumes, filtering, and the licence clause.
+
+The result was the best form in the project: **0.6917** composed validity, 7.3 of 14 lines accepted, 0.93 failing, and zero copied lines in the memorization screen against the 16,298 training sonnets.
+
+Coherence did not follow. The judges moved from 2.875/2.750 to 3.075/2.825 and then back to 2.917/2.725 — a gain of +0.15 at best against a pre-registered +0.3 gate — while the teacher sonnets themselves score 4.12 and 4.47. Form transfers; coherence does not. That null result is written up in [Distilling a stronger poet into a 7B model](/blog/2026/distilling-a-stronger-poet-into-a-7b-model/), together with the decision to stop the coherence line rather than keep tuning.
+
+## What this project demonstrates
+
+The value here is not the poem. It is the loop around it: build the measurement, find the failure mode, decompose the task, adapt a small open model with LoRA, synthesise data under a verified licence, and report the limit instead of hiding it.
+
+Concretely, the work covers:
+
+- **open-weight LLM specialisation** — PEFT LoRA adaptation of a 7B Italian model for a narrow task, trained and evaluated end to end on rented single GPUs;
+- **evaluation engineering** — a validated prosody checker, a rhyme lexicon, calibrated AI judge panels, memorization screening, and pre-registered gates for every experiment;
+- **data work under licence review** — corpus traces, lexicon-generated plans, self-play data, and licence-cleared synthetic teacher data with recorded provenance;
+- **honest limits** — the difference between form (measured, solved) and coherence (measured, not solved at this scale).
+
+## What it still does not do
+
+The models are research artifacts. The checker says nothing about grammar, meaning, or whether a poem is any good; the AI judges that do comment on those things put the output at roughly 2.7–2.9 of 5, and they are machines too. The plan-then-poem pipeline cannot yet produce a _good_ poem reliably; it can produce a _well-formed_ one about two times in three, without repair, which is the specific gap this project set out to close.
 
 ## Public code, models, and studies
 
-The [source repository](https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry) and [GitHub v1.0.0 release](https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry/releases/tag/v1.0.0) contain the reviewed source, public reports, aggregate evidence, and verification instructions. The [Hugging Face release](https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets) contains the selected Stage-1, Stage-2, and Stage-3 models plus the DPO adapter under its documented layered rights scope.
+The [source repository](https://github.com/LeonardoPaccianiMori/portfolio-transformer-poetry) contains the checker, lexicon, trainers, plans, reports, and verification instructions. The [Hugging Face release](https://huggingface.co/LPM93/teaching-transformers-classical-italian-sonnets) contains nine artifacts: the three staged full models and the DPO adapter from the first generation, plus the plan-following adapter, the plan generator, the tuned poem writer, the distilled poem writer (with its licence disclosure), and the single model that writes plan and poem in one pass.
 
-The public artifacts exclude raw openings, poems, generations, preference pairs, votes, annotations, private mappings, intermediate checkpoints, raw analysis tensors, and training material without redistribution permission.
+The earlier studies remain part of the record: the [DPO evaluation note](/blog/2026/a-narrow-win-that-did-not-make-a-good-poet/) and the [model-change study](/blog/2026/how-one-7b-italian-language-model-changed-across-staged-adaptation/).
+
+I conceived and directed the project, set the goals and gates, reviewed the outputs, and made every decision about what to publish. AI assistants (Codex 5.5/5.6 Sol during the first generation, and a Codex harness with DeepSeek and other models during the follow-up) substantially assisted design, implementation, execution, and analysis. The work is not independently designed or independently implemented by me.

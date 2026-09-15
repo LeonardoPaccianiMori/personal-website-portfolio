@@ -8,7 +8,7 @@ categories: [technical-notes]
 technical_kind: note
 chart:
   plotly: true
-last_updated: 2026-09-07
+last_updated: 2026-09-15
 project_slug: transformer-poetry
 toc:
   beginning: true
@@ -215,3 +215,7 @@ The public checks run on a CPU and verify software behaviour and the recorded ag
 I conceived and directed the project, defined its goals, made executive decisions, approved the research plan, reviewed outputs, and sometimes ran GPU work. Codex 5.5 and later Codex 5.6 Sol helped design the plan and substantially assisted implementation, tests, execution, and analysis. The work is therefore not independently designed or independently implemented by me.
 
 The complete dual-arc project is summarized in [Teaching transformers to write classical Italian sonnets]({% link _projects/transformer-poetry.md %}); the companion note examines [how the retained 7B model states changed across the three adaptation stages]({% post_url 2026-08-26-how-one-7b-italian-language-model-changed-across-staged-adaptation %}).
+
+## What came after (September 2026)
+
+The follow-up kept the lesson and changed the approach. A purpose-built prosody checker, a plan-then-poem decomposition, and LoRA adaptation took repair-free scheme validity from 0 of 4,976 outputs to about two in three, and a distillation experiment with a licence-cleared teacher raised it further to 0.6917 composed validity while leaving coherence unsolved. See [From 0% to 69%: how decomposition fixed the form](/blog/2026/from-zero-to-sixty-nine-percent-decomposition-fixed-the-form/) and [Distilling a stronger poet into a 7B model](/blog/2026/distilling-a-stronger-poet-into-a-7b-model/).
