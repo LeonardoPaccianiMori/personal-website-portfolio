@@ -1,7 +1,4 @@
-let vegaTheme = determineComputedTheme();
-
-/* Create vega lite chart as another node and hide the code block, appending the vega lite node after it
-       this is done to enable retrieving the code again when changing theme between light/dark */
+/* Create vega lite chart as another node and hide the code block, appending the vega lite node after it */
 document.addEventListener("readystatechange", () => {
   if (document.readyState === "complete") {
     document.querySelectorAll("pre>code.language-vega_lite").forEach((elem) => {
@@ -14,11 +11,7 @@ document.addEventListener("readystatechange", () => {
       backup.after(chartElement);
 
       /* Embed the visualization in the container */
-      if (vegaTheme === "dark") {
-        vegaEmbed(chartElement, JSON.parse(jsonData), { theme: "dark" });
-      } else {
-        vegaEmbed(chartElement, JSON.parse(jsonData));
-      }
+      vegaEmbed(chartElement, JSON.parse(jsonData));
     });
   }
 });

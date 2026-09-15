@@ -1,7 +1,4 @@
-let mermaidTheme = determineComputedTheme();
-
-/* Create mermaid diagram as another node and hide the code block, appending the mermaid node after it
-    this is done to enable retrieving the code again when changing theme between light/dark */
+/* Create mermaid diagram as another node and hide the code block, appending the mermaid node after it */
 document.addEventListener("readystatechange", () => {
   if (document.readyState === "complete") {
     document.querySelectorAll("pre>code.language-mermaid").forEach((elem) => {
@@ -16,7 +13,7 @@ document.addEventListener("readystatechange", () => {
       backup.after(mermaid);
     });
 
-    mermaid.initialize({ theme: mermaidTheme });
+    mermaid.initialize({ theme: "default" });
 
     /* Zoomable mermaid diagrams */
     if (typeof d3 !== "undefined") {

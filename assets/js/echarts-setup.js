@@ -1,7 +1,4 @@
-let echartsTheme = determineComputedTheme();
-
-/* Create echarts chart as another node and hide the code block, appending the echarts node after it
-       this is done to enable retrieving the code again when changing theme between light/dark */
+/* Create echarts chart as another node and hide the code block, appending the echarts node after it */
 document.addEventListener("readystatechange", () => {
   if (document.readyState === "complete") {
     document.querySelectorAll("pre>code.language-echarts").forEach((elem) => {
@@ -14,11 +11,7 @@ document.addEventListener("readystatechange", () => {
       backup.after(chartElement);
 
       /* create echarts */
-      if (echartsTheme === "dark") {
-        var chart = echarts.init(chartElement, "dark-fresh-cut");
-      } else {
-        var chart = echarts.init(chartElement);
-      }
+      var chart = echarts.init(chartElement);
 
       chart.setOption(JSON.parse(jsonData));
       window.addEventListener("resize", function () {

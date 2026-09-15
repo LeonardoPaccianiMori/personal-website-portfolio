@@ -1,12 +1,6 @@
 // add bootstrap classes to tables
 $(document).ready(function () {
   $("table").each(function () {
-    if (determineComputedTheme() == "dark") {
-      $(this).addClass("table-dark");
-    } else {
-      $(this).removeClass("table-dark");
-    }
-
     // only select tables that are not inside an element with "news" (about page) or "card" (cv page) class
     if (
       $(this).parents('[class*="news"]').length == 0 &&

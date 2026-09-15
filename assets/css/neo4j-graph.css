@@ -28,10 +28,6 @@
   overflow: hidden;
 }
 
-html[data-theme="dark"] .neo4j-graph__panel {
-  background: rgba(255, 255, 255, 0.04);
-}
-
 .neo4j-graph__panel-title {
   font-weight: 600;
   font-size: 1rem;
@@ -77,13 +73,6 @@ html[data-theme="dark"] .neo4j-graph__panel {
   line-height: 1.4;
   white-space: normal;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
-}
-
-html[data-theme="dark"] .vis-tooltip {
-  border-color: rgba(255, 255, 255, 0.2);
-  background: #0f141a;
-  color: #f8f9fa;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
 }
 
 .vis-tooltip strong {
