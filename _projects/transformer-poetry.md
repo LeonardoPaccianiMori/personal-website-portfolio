@@ -13,7 +13,7 @@ project_overview:
   status: Completed
   period: May–September 2026
   role: I conceived and directed the project; AI assistants assisted design, implementation, and execution under my direction
-  outcome: Specialised a small open-weight model to write sonnets in strict form; 69% of its outputs hold the rhyme scheme without repair.
+  outcome: Specialised a small open-weight model to write sonnets in strict form; its best pipeline holds the rhyme scheme without repair in 69% of a frozen evaluation set.
   evidence: Public GitHub source, reports, and verification; the Hugging Face release with nine artifacts; the prosody checker and poem explorer
   demonstrates: "Open-weight LLM specialisation: LoRA and preference tuning of a 7B model for a strict structured task, with a purpose-built checker and pre-registered evaluation."
 project_actions:
